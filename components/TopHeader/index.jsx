@@ -1,5 +1,4 @@
 import React from "react";
-import { Poppins } from "next/font/google";
 import styles from "./TopHeader.module.scss";
 
 function TopHeader() {

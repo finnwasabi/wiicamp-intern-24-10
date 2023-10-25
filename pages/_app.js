@@ -10,9 +10,14 @@ const poppins = Poppins({
 });
 export default function App({ Component, pageProps }) {
   return (
-    <div>
+    <>
+      <style jsx global>{`
+        html {
+          font-family: ${poppins.style.fontFamily};
+        }
+      `}</style>
       <Component {...pageProps} />
-    </div>
+    </>
   );
 }
 

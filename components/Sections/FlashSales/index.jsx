@@ -9,7 +9,7 @@ function FlashSales() {
           <div className="text-button-2 ml-4">Today's</div>
         </div>
       </div>
-      <div className="container grid grid-cols-4 flex items-center py-0 mt-[24px] mb-10">
+      <div className="container grid grid-cols-4 items-center py-0 mt-[24px] mb-10">
         <div className="col-span-1 text-4xl leading-[48px] font-semibold">
           Flash Sales
         </div>

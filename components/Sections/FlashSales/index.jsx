@@ -1,4 +1,6 @@
 import React from "react";
+import FillLeftRightArrows from "../../Buttons/FillLeftRightArrows";
+import PrimaryButton from "@/components/Buttons/PrimaryButton";
 
 function FlashSales() {
   return (
@@ -9,7 +11,7 @@ function FlashSales() {
           <div className="text-button-2 ml-4">Today's</div>
         </div>
       </div>
-      <div className="container grid grid-cols-4 items-center py-0 mt-[24px] mb-10">
+      <div className="container grid grid-cols-4 items-center py-0 mt-[24px]">
         <div className="col-span-1 text-4xl leading-[48px] font-semibold">
           Flash Sales
         </div>
@@ -45,8 +47,13 @@ function FlashSales() {
             </div>
           </div>
         </div>
-        <div className="col-span-1">Arrow left and right</div>
+        <div className="col-span-1 relative">
+          <div className="flex items-center right-0">
+            <FillLeftRightArrows />
+          </div>
+        </div>
       </div>
+      <PrimaryButton />
     </div>
   );
 }

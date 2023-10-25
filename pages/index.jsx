@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import TopSection from "@/components/Sections/TopSection";
 import FlashSales from "@/components/Sections/FlashSales";
+import Categories from "@/components/Sections/Categories";
+import ThisMonth from "@/components/Sections/ThisMonth";
 
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
@@ -16,6 +18,8 @@ export default function Home() {
       <Header />
       <TopSection />
       <FlashSales />
+      <Categories />
+      <ThisMonth />
       <Footer />
     </main>
   );

@@ -1,0 +1,15 @@
+.CategoryItem:hover {
+  background-color: #db4444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  .svg {
+    svg {
+      line,
+      path {
+        stroke: white;
+      }
+    }
+  }
+}

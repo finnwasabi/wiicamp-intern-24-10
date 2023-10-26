@@ -1,4 +1,6 @@
 import React from "react";
+
+import CategoryButtons from "../../Buttons/CategoryButtons";
 import FillLeftRightArrows from "../../Buttons/FillLeftRightArrows";
 
 function Categories() {
@@ -6,7 +8,7 @@ function Categories() {
     <div className="mt-20">
       <div className="container grid grid-cols-4 py-0">
         <div className="flex items-center font-semibold leading-5 col-span-1">
-          <div className="h-10 w-5 bg-button-2 rounded"></div>
+          <div className="h-10 w-5 bg-button-2 rounded" />
           <div className="text-button-2 ml-4">Categories</div>
         </div>
       </div>
@@ -20,6 +22,7 @@ function Categories() {
           </div>
         </div>
       </div>
+      <CategoryButtons />
     </div>
   );
 }

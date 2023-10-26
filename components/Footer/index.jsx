@@ -4,8 +4,8 @@ import IconSend from "../../asset/icons/sendIco.jsx";
 function Footer() {
   return (
     <div className="bg-black text-white pt-20 pb-6">
-      <div className="container grid gap-[87px] grid-cols-5 grid-rows-1">
-        <ul>
+      <div className="container flex gap-[87px]">
+        <ul className="max-w-[217px]">
           <li className="font-bold text-2xl mb-6">Exclusive</li>
           <li className="text-xl font-medium mb-6">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
@@ -15,7 +15,7 @@ function Footer() {
             placeholder="Enter your email"
           />
         </ul>
-        <ul>
+        <ul className="max-w-[175px]">
           <li className="text-xl mb-6">Support</li>
           <li className="mb-4">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
@@ -23,7 +23,7 @@ function Footer() {
           <li className="mb-4">exclusive@gmail.com</li>
           <li className="mb-4">+88015-88888-9999</li>
         </ul>
-        <ul>
+        <ul className="max-w-[123px]">
           <li className="text-xl mb-6">Account</li>
           <li className="mb-4">My Account</li>
           <li className="mb-4">Login / Register</li>
@@ -31,21 +31,21 @@ function Footer() {
           <li className="mb-4">Wishlist</li>
           <li className="mb-4">Shop</li>
         </ul>
-        <ul>
+        <ul className="max-w-[109px]">
           <li className="text-xl mb-6">Quick Link</li>
           <li className="mb-4">Privacy Policy</li>
           <li className="mb-4">Terms Of Use</li>
           <li className="mb-4">FAQ</li>
           <li className="mb-4">Contact</li>
         </ul>
-        <ul>
+        <ul className="max-w-[198px]">
           <li className="text-xl mb-6">Download App</li>
           <li className="mb-4 text-xs font-medium text-text-1">
             Save $3 with App New User Only
           </li>
         </ul>
       </div>
-      <div className="border-t mt-[60px] border-text-1">
+      <div className="border-t mt-[60px] border-primary-0 border-opacity-5">
         <div className="container text-text-1 flex justify-center pb-0 pt-4">
           <IconSend className="my-auto mx-1" />
           Copyright Rimel 2022. All right reserved

@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Poppins } from "next/font/google";
+import PropTypes from "prop-types";
 
 import "@/styles/globals.css";
 

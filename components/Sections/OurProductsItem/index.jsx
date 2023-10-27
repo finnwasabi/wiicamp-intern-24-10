@@ -5,47 +5,74 @@ import Image from "next/image";
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
-import s from "./ThisMonthItem.module.scss";
+import s from "./OurProductsItem.module.scss";
 
-const ThisMonthItemsList = [
+const OurProductsItemsList = [
   {
     id: 1,
-    image: "/ThisMonthItem/Item1.png",
-    name: "The north coat",
-    price: "$260",
-    sale: "$360",
-    reviews: "65",
-    stars: 5,
+    image: "/OurProductsItem/Item1.png",
+    name: "Breed Dry Dog Food",
+    price: "$100",
+    reviews: "35",
+    stars: 3,
   },
   {
     id: 2,
-    image: "/ThisMonthItem/Item2.png",
-    name: "Gucci duffle bag",
-    price: "$960",
-    sale: "$1160",
-    reviews: "65",
-    stars: 4.5,
+    image: "/OurProductsItem/Item2.png",
+    name: "CANON EOS DSLR Camera",
+    price: "$360",
+    reviews: "95",
+    stars: 4,
   },
   {
     id: 3,
-    image: "/ThisMonthItem/Item3.png",
-    name: "RGB liquid CPU Cooler",
-    price: "$160",
-    sale: "$170",
-    reviews: "65",
-    stars: 4.5,
+    image: "/OurProductsItem/Item3.png",
+    name: "ASUS FHD Gaming Laptop",
+    price: "$700",
+    reviews: "325",
+    stars: 5,
   },
   {
     id: 4,
-    image: "/ThisMonthItem/Item4.png",
-    name: "Small BookSelf",
-    price: "$360",
-    sale: " ",
+    image: "/OurProductsItem/Item4.png",
+    name: "Curology Product Set",
+    price: "$500",
+    reviews: "145",
+    stars: 4,
+  },
+  {
+    id: 5,
+    image: "/OurProductsItem/Item5.png",
+    name: "Kids Electric Car",
+    price: "$960",
     reviews: "65",
     stars: 5,
   },
+  {
+    id: 6,
+    image: "/OurProductsItem/Item6.png",
+    name: "Jr. Zoom Soccer Cleats",
+    price: "$1160",
+    reviews: "35",
+    stars: 5,
+  },
+  {
+    id: 7,
+    image: "/OurProductsItem/Item7.png",
+    name: "GP11 Shooter USB Gamepad",
+    price: "$660",
+    reviews: "55",
+    stars: 4.5,
+  },
+  {
+    id: 8,
+    image: "/OurProductsItem/Item8.png",
+    name: "Quilted Satin Jacket",
+    price: "$660",
+    reviews: "55",
+    stars: 4.5,
+  },
 ];
-
 // Function to generate stars in a row
 const renderStars = (rating) => {
   const starsArray = [];
@@ -85,7 +112,7 @@ const renderStars = (rating) => {
 };
 
 // eslint-disable-next-line react/prop-types
-function ThisMonthItem({ id }) {
+function OurProductsItem({ id }) {
   return (
     <div
       className={clsx(s.SaleItem, "block w-[270px] h-[350px] cursor-pointer")}
@@ -94,7 +121,7 @@ function ThisMonthItem({ id }) {
         <div className={s.AddToCart}>Add To Cart</div>
         <Image
           className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-h-[160px]"
-          src={ThisMonthItemsList[id - 1].image}
+          src={OurProductsItemsList[id - 1].image}
           width={180}
           height={160}
           alt="Picture of item"
@@ -102,23 +129,23 @@ function ThisMonthItem({ id }) {
         <FillHeart />
         <FillEye />
       </div>
-      <div className="mt-4 font-bold">${ThisMonthItemsList[id - 1].name}</div>
+      <div className="mt-4 font-bold">{OurProductsItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">
         <div className="text-secondary-2 mr-3">
-          {ThisMonthItemsList[id - 1].price}
+          {OurProductsItemsList[id - 1].price}
         </div>
         <div className="text-text-1 line-through">
-          {ThisMonthItemsList[id - 1].sale}
+          {OurProductsItemsList[id - 1].sale}
         </div>
       </div>
       <div className="mt-2 flex items-baseline">
-        {renderStars(ThisMonthItemsList[id - 1].stars)}
+        {renderStars(OurProductsItemsList[id - 1].stars)}
         <div className="font-semibold text-sm text-text-1 ml-2">
-          ({ThisMonthItemsList[id - 1].reviews})
+          ({OurProductsItemsList[id - 1].reviews})
         </div>
       </div>
     </div>
   );
 }
 
-export default ThisMonthItem;
+export default OurProductsItem;

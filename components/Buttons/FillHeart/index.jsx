@@ -2,7 +2,7 @@ import React from "react";
 
 function FillHeart() {
   return (
-    <div className="absolute flex top-3 right-3">
+    <div className="absolute flex top-3 right-3 cursor-pointer">
       <div className="rounded-full bg-white w-[34px] h-[34px] relative">
         <svg
           className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
@@ -15,9 +15,9 @@ function FillHeart() {
           <path
             d="M8 5C5.7912 5 4 6.73964 4 8.88594C4 10.6185 4.7 14.7305 11.5904 18.8873C11.7138 18.961 11.8555 19 12 19C12.1445 19 12.2862 18.961 12.4096 18.8873C19.3 14.7305 20 10.6185 20 8.88594C20 6.73964 18.2088 5 16 5C13.7912 5 12 7.35511 12 7.35511C12 7.35511 10.2088 5 8 5Z"
             stroke="black"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>

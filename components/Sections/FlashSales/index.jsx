@@ -56,7 +56,7 @@ function FlashSales() {
           </div>
         </div>
       </div>
-      <div className="overflow-visible">
+      <div className="overflow-hidden">
         <FlashSalesSlider />
       </div>
       <div className="container flex justify-center py-[60px] border-b">

@@ -11,14 +11,13 @@ import "swiper/css";
 
 function FlashSalesItems() {
   return (
-    <div className="container py-0 mt-10 flex">
+    <div className="container py-0 mt-10">
       <Swiper
         slidesPerView={4}
         freeMode
         modules={[FreeMode, Navigation]}
-        loop
         // navigation
-        className="mySwiper"
+        className="mySwiper !overflow-visible"
       >
         <SwiperSlide className="max-w-[270px] mr-[30px]">
           <FlashSalesItem id={1} />

@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
 import DropdownAccount from "../Sections/DropdownAccount";
@@ -8,10 +8,29 @@ import s from "./Header.module.scss";
 
 function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleMouseDown = (event) => {
+      handleClickOutside(event);
+    };
+
+    document.addEventListener("mousedown", handleMouseDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
+  }, []);
   return (
     <div className="pb-4 border-b border-black border-opacity-30">
       <div className="container mt-10 py-0 relative">
@@ -166,7 +185,7 @@ function Header() {
             </div>
           </div>
         </div>
-        {isDropdownOpen && <DropdownAccount />}
+        <div ref={dropdownRef}>{isDropdownOpen && <DropdownAccount />}</div>
       </div>
     </div>
   );

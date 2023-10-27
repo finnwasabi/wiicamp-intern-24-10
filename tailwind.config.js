@@ -47,8 +47,8 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addComponents }) {
-      addComponents({
+    function myFunction({ addComponents }) {
+      const components = {
         ".container": {
           maxWidth: "100%",
           padding: "0.75rem",
@@ -65,7 +65,8 @@ module.exports = {
             maxWidth: "1194px",
           },
         },
-      });
+      };
+      addComponents(components);
     },
   ],
 };

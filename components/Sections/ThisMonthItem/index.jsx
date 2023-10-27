@@ -102,7 +102,7 @@ function ThisMonthItem({ id }) {
         <FillHeart />
         <FillEye />
       </div>
-      <div className="mt-4 font-bold">${ThisMonthItemsList[id - 1].name}</div>
+      <div className="mt-4 font-bold">{ThisMonthItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">
         <div className="text-secondary-2 mr-3">
           {ThisMonthItemsList[id - 1].price}

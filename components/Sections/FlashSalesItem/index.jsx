@@ -111,7 +111,7 @@ function FlashSalesItem({ id }) {
         <FillHeart />
         <FillEye />
       </div>
-      <div className="mt-4 font-bold">${FlashSalesItemsList[id - 1].name}</div>
+      <div className="mt-4 font-bold">{FlashSalesItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">
         <div className="text-secondary-2 mr-3">
           {FlashSalesItemsList[id - 1].price}

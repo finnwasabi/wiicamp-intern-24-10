@@ -107,7 +107,7 @@ function FlashSalesItem({ id }) {
           height={160}
           alt="Picture of item"
         />
-        <DiscountPercent label="FlashSalesItemsList[id - 1].percent" />
+        <DiscountPercent label={FlashSalesItemsList[id - 1].percent} />
         <FillHeart />
         <FillEye />
       </div>

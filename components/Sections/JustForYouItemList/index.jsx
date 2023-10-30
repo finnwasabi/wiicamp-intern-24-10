@@ -4,7 +4,7 @@ import JustForYouItem from "../JustForYouItem";
 
 function JustForYouItemList() {
   return (
-    <div className="flex justify-between mb-20">
+    <div className="flex justify-between">
       <JustForYouItem id={1} />
       <JustForYouItem id={2} />
       <JustForYouItem id={3} />

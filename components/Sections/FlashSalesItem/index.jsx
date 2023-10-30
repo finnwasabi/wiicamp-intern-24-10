@@ -109,7 +109,9 @@ function FlashSalesItem({ id }) {
         />
         <DiscountPercent label={FlashSalesItemsList[id - 1].percent} />
         <FillHeart />
-        <FillEye />
+        <div className="absolute flex top-[54px] right-3 cursor-pointer">
+          <FillEye />
+        </div>
       </div>
       <div className="mt-4 font-bold">{FlashSalesItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">

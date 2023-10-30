@@ -107,7 +107,9 @@ function JustForYouItem({ id }) {
           alt="Picture of item"
         />
         <DiscountPercent label={JustForYouItemsList[id - 1].percent} />
-        <FillEye />
+        <div className="absolute flex top-3 right-3 cursor-pointer">
+          <FillEye />
+        </div>
       </div>
       <div className="mt-4 font-bold">{JustForYouItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">

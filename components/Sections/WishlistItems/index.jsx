@@ -2,8 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import FillEye from "@/components/Buttons/FillEye";
-import FillHeart from "@/components/Buttons/FillHeart";
+import FillTrash from "@/components/Buttons/FillTrash";
 
 import s from "./WishlistItems.module.scss";
 
@@ -52,8 +51,7 @@ function WishlistItems({ id }) {
           height={160}
           alt="Picture of item"
         />
-        <FillHeart />
-        <FillEye />
+        <FillTrash />
       </div>
       <div className="mt-4 font-bold">{WishlistItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">

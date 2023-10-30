@@ -1,3 +1,9 @@
 .OnHover:hover{
     font-weight: 600;
 }
+.ActiveLink{
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(0 0 0 / var(--tw-border-opacity));
+    --tw-border-opacity: 0.3;
+}

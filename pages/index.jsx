@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main>
       <TopHeader />
-      <Header />
+      <Header show3icons />
       <TopSection />
       <FlashSales />
       <Categories />

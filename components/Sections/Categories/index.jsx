@@ -1,7 +1,8 @@
 import React from "react";
 
 import CategoryButtons from "../../Buttons/CategoryButtons";
-import FillLeftRightArrows from "../../Buttons/FillLeftRightArrows";
+import FillLeftArrow from "../../Buttons/FillLeftArrow";
+import FillRightArrow from "../../Buttons/FillRightArrow";
 
 function Categories() {
   return (
@@ -18,7 +19,10 @@ function Categories() {
         </div>
         <div className="col-span-1 relative">
           <div className="flex items-center right-0">
-            <FillLeftRightArrows />
+            <div className="absolute flex right-0">
+              <FillLeftArrow />
+              <FillRightArrow />
+            </div>
           </div>
         </div>
       </div>

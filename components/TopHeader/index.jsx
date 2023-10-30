@@ -10,9 +10,9 @@ function TopHeader() {
               Summer Sale For All Swim Suits And Free Express Delivery - OFF
               50%!
             </span>
-            <a className="underline px-2 font-semibold" href="./">
+            <span className="underline px-2 font-semibold cursor-pointer">
               ShopNow
-            </a>
+            </span>
           </div>
           <div className="flex absolute right-0">
             English

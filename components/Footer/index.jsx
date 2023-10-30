@@ -14,11 +14,23 @@ function Footer() {
           <div className="font-bold text-2xl mb-6">Exclusive</div>
           <li className="text-xl font-medium mb-6">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
-          <input
-            className="py-3 px-4 bg-black rounded border-solid border-2 border-white text-white w-full"
-            type="text"
-            placeholder="Enter your email"
-          />
+          <form className="relative">
+            <input
+              className="py-3 px-4 bg-black rounded border-solid border-2 border-white text-white w-full"
+              type="email"
+              placeholder="Enter your email"
+              required
+              id="email"
+            />
+            <button type="submit" className="absolute top-[14px] right-[15px]">
+              <Image
+                src="/SendIcon.svg"
+                width={24}
+                height={24}
+                alt="Picture of the send btn"
+              />
+            </button>
+          </form>
         </ul>
         <ul className={clsx(s.FooterList, "max-w-[175px]")}>
           <div className="text-xl mb-6">Support</div>

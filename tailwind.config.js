@@ -44,6 +44,10 @@ module.exports = {
           1: "#A0BCE0",
         },
       },
+      content: {
+        googleIcon: 'url("/GoogleIcon.svg")',
+        sendIcon: 'url("/SendIcon.svg")',
+      },
     },
   },
   plugins: [

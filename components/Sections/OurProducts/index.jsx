@@ -1,6 +1,6 @@
 import React from "react";
 
-import FillLeftRightArrows from "@/components/Buttons/FillLeftRightArrows";
+import FillLeftRightArrows from "@/components/Buttons/FillLeftArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import OurProductsList from "@/components/Sections/OurProductsList";
 

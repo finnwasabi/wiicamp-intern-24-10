@@ -2,45 +2,49 @@ import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
+import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
-import FillHeart from "../../Buttons/FillHeart";
 
-import s from "./ThisMonthItem.module.scss";
+import s from "./JustForYou.module.scss";
 
-const ThisMonthItemsList = [
+const JustForYouItemsList = [
   {
     id: 1,
-    image: "/ThisMonthItem/Item1.png",
-    name: "The north coat",
-    price: "$260",
-    sale: "$360",
+    image: "/JustForYou/Item1.png",
+    name: "ASUS FHD Gaming Laptop",
+    percent: "-35%",
+    price: "$960",
+    sale: "$1160",
     reviews: "65",
     stars: 5,
   },
   {
     id: 2,
-    image: "/ThisMonthItem/Item2.png",
-    name: "Gucci duffle bag",
-    price: "$960",
-    sale: "$1160",
+    image: "/JustForYou/Item2.png",
+    name: "IPS LCD Gaming Monitor",
+    percent: "-35%",
+    price: "$1160",
+    sale: "",
     reviews: "65",
-    stars: 4.5,
+    stars: 5,
   },
   {
     id: 3,
-    image: "/ThisMonthItem/Item3.png",
-    name: "RGB liquid CPU Cooler",
-    price: "$160",
-    sale: "$170",
+    image: "/JustForYou/Item3.png",
+    name: "HAVIT HV-G92 Gamepad",
+    percent: "-30%",
+    price: "$560",
+    sale: "",
     reviews: "65",
-    stars: 4.5,
+    stars: 5,
   },
   {
     id: 4,
-    image: "/ThisMonthItem/Item4.png",
-    name: "Small BookSelf",
-    price: "$360",
-    sale: " ",
+    image: "/JustForYou/Item4.png",
+    name: "AK-900 Wired Keyboard",
+    percent: "-25%",
+    price: "$200",
+    sale: "",
     reviews: "65",
     stars: 5,
   },
@@ -85,41 +89,45 @@ const renderStars = (rating) => {
 };
 
 // eslint-disable-next-line react/prop-types
-function ThisMonthItem({ id }) {
+function JustForYouItem({ id }) {
   return (
-    // eslint-disable-next-line react/button-has-type
     <div
-      className={clsx(s.SaleItem, "block w-[270px] h-[350px] cursor-pointer")}
+      className={clsx(
+        s.Item,
+        "overflow-hidden block w-[270px] h-[350px] cursor-pointer",
+      )}
     >
       <div className="w-[270px] h-[250px] rounded bg-secondary-0 flex relative overflow-hidden">
         <div className={s.AddToCart}>Add To Cart</div>
         <Image
           className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-h-[160px]"
-          src={ThisMonthItemsList[id - 1].image}
+          src={JustForYouItemsList[id - 1].image}
           width={180}
           height={160}
           alt="Picture of item"
         />
-        <FillHeart />
+        <DiscountPercent label={JustForYouItemsList[id - 1].percent} />
         <FillEye />
       </div>
-      <div className="mt-4 font-bold">{ThisMonthItemsList[id - 1].name}</div>
+      <div className="mt-4 font-bold">{JustForYouItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">
         <div className="text-secondary-2 mr-3">
-          {ThisMonthItemsList[id - 1].price}
+          {JustForYouItemsList[id - 1].price}
         </div>
         <div className="text-text-1 line-through">
-          {ThisMonthItemsList[id - 1].sale}
+          {JustForYouItemsList[id - 1].sale}
         </div>
       </div>
       <div className="mt-2 flex items-baseline">
-        {renderStars(ThisMonthItemsList[id - 1].stars)}
-        <div className="font-semibold text-sm text-text-1 ml-2">
-          ({ThisMonthItemsList[id - 1].reviews})
+        <div className="mr-2">
+          {renderStars(JustForYouItemsList[id - 1].stars)}
+        </div>
+        <div className="font-semibold text-sm text-text-1">
+          ({JustForYouItemsList[id - 1].reviews})
         </div>
       </div>
     </div>
   );
 }
 
-export default ThisMonthItem;
+export default JustForYouItem;

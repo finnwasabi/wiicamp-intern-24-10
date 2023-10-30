@@ -1,6 +1,7 @@
 import React from "react";
 
-import FillLeftRightArrows from "@/components/Buttons/FillLeftArrow";
+import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
+import FillRightArrow from "@/components/Buttons/FillRightArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import OurProductsList from "@/components/Sections/OurProductsList";
 
@@ -19,7 +20,10 @@ function OurProducts() {
         </div>
         <div className="col-span-1 relative">
           <div className="flex items-center right-0">
-            <FillLeftRightArrows />
+            <div className="absolute flex right-0">
+              <FillLeftArrow />
+              <FillRightArrow />
+            </div>
           </div>
         </div>
       </div>

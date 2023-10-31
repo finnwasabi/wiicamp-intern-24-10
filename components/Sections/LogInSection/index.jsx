@@ -14,6 +14,7 @@ function LogInSection() {
             width={805}
             height={706}
             alt="Picture of the side image"
+            objectFit="content"
           />
         </div>
         <div className="container grid grid-cols-2 absolute top-1/2 -translate-y-1/2 py-0 right-0 left-0">

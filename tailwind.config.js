@@ -47,6 +47,10 @@ module.exports = {
       content: {
         googleIcon: 'url("/GoogleIcon.svg")',
         sendIcon: 'url("/SendIcon.svg")',
+        cancelCircleIcon: 'url("/CancelCircleIcon.svg")',
+      },
+      boxShadow: {
+        custom: "0px 1px 13px 0px rgba(0, 0, 0, 0.05)",
       },
     },
   },

@@ -40,7 +40,7 @@ function CheckOutSection() {
           </div>
         </div>
         <div className="w-[527px] ml-auto">
-          <div className="grid grid-cols-1 gap-y-8 w-[425px]">
+          <div className="grid grid-cols-1 gap-y-8 w-[425px] mt-8">
             <div className="flex items-center">
               <div className="mr-6">
                 <Image

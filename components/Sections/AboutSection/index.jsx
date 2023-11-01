@@ -3,7 +3,6 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-import AboutContacts from "@/components/Sections/AboutContacts";
 import AboutSlider from "@/components/Sections/AboutSlider";
 import CustomerServices from "@/components/Sections/CustomerServices";
 

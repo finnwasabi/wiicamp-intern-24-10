@@ -49,4 +49,3 @@ AboutContacts.propTypes = {
 };
 
 export default AboutContacts;
-  

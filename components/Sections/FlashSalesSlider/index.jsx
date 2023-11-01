@@ -14,36 +14,37 @@ function FlashSalesItems() {
     <div className="container py-0 mt-10">
       <Swiper
         slidesPerView={4}
-        freeMode
+        spaceBetween={30}
+        grabCursor
         modules={[FreeMode, Navigation]}
         // navigation
         className="mySwiper !overflow-visible"
       >
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={1} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={2} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={3} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={4} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={4} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={3} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={2} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={1} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px] mr-[30px]">
+        <SwiperSlide className="max-w-[270px]">
           <FlashSalesItem id={3} />
         </SwiperSlide>
       </Swiper>

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {}
-
+:root {
+    --swiper-pagination-color: url("/pagination.svg");
+    --swiper-pagination-bullet-size: 12px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+}
 body {}
+
+.swiper-pagination-bullet-active {
+    height: 16px !important;
+    width: 16px !important;
+}

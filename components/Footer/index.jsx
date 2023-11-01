@@ -20,7 +20,6 @@ function Footer() {
               type="email"
               placeholder="Enter your email"
               required
-              id="email"
             />
             <button type="submit" className="absolute top-[14px] right-[15px]">
               <Image

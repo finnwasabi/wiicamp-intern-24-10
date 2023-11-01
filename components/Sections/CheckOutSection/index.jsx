@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,16 +28,21 @@ function CheckOutSection() {
       </div>
       <div className="grid grid-cols-2 justify-between">
         <div className="grid grid-cols-1 gap-y-8 mb-6 w-[470px]">
-          <InputField label="First Name" />
-          <InputField label="Company Name" />
-          <InputField label="Street Address" />
-          <InputField label="Apartment, floor, etc. (optional)" />
-          <InputField label="Town/City" />
-          <InputField label="Phone Number" />
-          <InputField label="Email Address" />
+          <InputField label="First Name" classNameLabel="text-text-1 mb-2" />
+          <InputField label="Company Name" classNameLabel="text-text-1 mb-2" />
+          <InputField
+            label="Street Address"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField
+            label="Apartment, floor, etc. (optional)"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField label="Town/City" classNameLabel="text-text-1 mb-2" />
+          <InputField label="Phone Number" classNameLabel="text-text-1 mb-2" />
+          <InputField label="Email Address" classNameLabel="text-text-1 mb-2" />
           <div className="flex items-center">
-            <CheckBox />
-            Save this information for faster check-out next time
+            <CheckBox label="Save this information for faster check-out next time" />
           </div>
         </div>
         <div className="w-[527px] ml-auto">
@@ -80,8 +86,18 @@ function CheckOutSection() {
               </div>
             </div>
             <div className="flex items-center">
-              <input type="radio" className="mr-4 h-6 w-6" />
-              <span>Bank</span>
+              <input
+                type="radio"
+                id="Bank"
+                name="payment"
+                className="mr-4 h-6 w-6 accent-black cursor-pointer"
+              />
+              <label
+                htmlFor="Bank"
+                className="peer-checked:block cursor-pointer"
+              >
+                Bank
+              </label>
               <span className="ml-auto flex gap-x-2">
                 <Image
                   src="/Banks/Bkash.png"
@@ -110,8 +126,18 @@ function CheckOutSection() {
               </span>
             </div>
             <div className="flex">
-              <input type="radio" className="mr-4 h-6 w-6" />
-              <span>Cash on delivery</span>
+              <input
+                type="radio"
+                id="COD"
+                name="payment"
+                className="mr-4 h-6 w-6 accent-black cursor-pointer"
+              />
+              <label
+                htmlFor="COD"
+                className="peer-checked:block cursor-pointer"
+              >
+                Cash on delivery
+              </label>
             </div>
           </div>
           <div className="flex justify-between my-8">

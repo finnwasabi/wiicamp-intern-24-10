@@ -1,9 +1,13 @@
 import React from "react";
+import Link from "next/link";
 
 function DropdownAccount() {
   return (
     <div className="bg-black bg-opacity-10 text-white px-5 py-5 w-fit h-fit rounded z-10 absolute right-0 mr-3 backdrop-blur-3xl">
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[13px]">
+      <Link
+        href="/MyAccount"
+        className="flex items-center cursor-pointer hover:font-semibold mb-[13px]"
+      >
         <span className="mr-4 ml">
           <svg
             className="ml-[-3px] mr-[3px]"
@@ -30,7 +34,7 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">Manage My Account</span>
-      </div>
+      </Link>
       <div className="flex items-center cursor-pointer hover:font-semibold mb-[13px]">
         <span className="mr-4">
           <svg

@@ -9,8 +9,13 @@ import s from "./Footer.module.scss";
 function Footer() {
   return (
     <div className="bg-black text-white pt-20 pb-6">
-      <div className="container flex gap-[5.4375rem]">
-        <ul className={clsx(s.FooterList, "max-w-[13.5625rem]")}>
+      <div className="grid justify-center text-center lg:text-left container lg:flex gap-x-[5.4375rem] gap-y-[3rem]">
+        <ul
+          className={clsx(
+            s.FooterList,
+            "flex flex-col items-center lg:block max-w-[13.5625rem]",
+          )}
+        >
           <div className="font-bold text-2xl mb-6">Exclusive</div>
           <li className="text-xl font-medium mb-6">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
@@ -34,7 +39,12 @@ function Footer() {
             </button>
           </form>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[10.9375rem]")}>
+        <ul
+          className={clsx(
+            s.FooterList,
+            "max-w-[10.9375rem] flex flex-col items-center lg:block ml-auto mr-auto",
+          )}
+        >
           <div className="text-xl mb-6">Support</div>
           <li className="mb-4">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
@@ -42,7 +52,12 @@ function Footer() {
           <li className="mb-4">exclusive@gmail.com</li>
           <li className="mb-4">+88015-88888-9999</li>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[7.6875rem]")}>
+        <ul
+          className={clsx(
+            s.FooterList,
+            "max-w-[7.6875rem] flex flex-col items-center lg:block ml-auto mr-auto",
+          )}
+        >
           <div className="text-xl mb-6">Account</div>
           <li className="mb-4">My Account</li>
           <li className="mb-4">Login / Register</li>
@@ -50,14 +65,19 @@ function Footer() {
           <li className="mb-4">Wishlist</li>
           <li className="mb-4">Shop</li>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[6.8125rem]")}>
+        <ul
+          className={clsx(
+            s.FooterList,
+            "max-w-[6.8125rem] flex flex-col items-center lg:block ml-auto mr-auto",
+          )}
+        >
           <div className="text-xl mb-6">Quick Link</div>
           <li className="mb-4">Privacy Policy</li>
           <li className="mb-4">Terms Of Use</li>
           <li className="mb-4">FAQ</li>
           <li className="mb-4">Contact</li>
         </ul>
-        <ul className="max-w-[12.375rem]">
+        <ul className="max-w-[12.375rem] flex flex-col items-center lg:block ml-auto mr-auto">
           <li className="text-xl mb-6 cols cursor-default">Download App</li>
           <li className="mb-2 text-xs font-medium text-text-1">
             Save $3 with App New User Only
@@ -86,7 +106,7 @@ function Footer() {
               />
             </div>
           </div>
-          <li className={clsx(s.FooterList, "flex justify-between")}>
+          <li className={clsx(s.FooterList, "flex gap-x-6")}>
             <svg
               width="24"
               height="24"

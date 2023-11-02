@@ -12,11 +12,16 @@ function CategoriesSlider() {
   return (
     <div className="container flex pb-[4.375rem] border-b-2 border-black border-opacity-30 mb-[4.375rem]">
       <Swiper
-        slidesPerView={6}
-        spaceBetween={30}
+        slidesPerView={2}
+        spaceBetween={20}
         navigation={{
           prevEl: "#prev1",
           nextEl: "#next1",
+        }}
+        breakpoints={{
+          // 640: {},
+          // 768: {},
+          1024: { slidesPerView: 6, spaceBetween: 30 },
         }}
         modules={[Navigation]}
         className="mySwiper"

@@ -23,7 +23,7 @@ function FillUpArrow() {
     <>
       {isButtonVisible && (
         <button
-          className="fixed bottom-5 right-[5.625rem] z-10"
+          className="fixed bottom-10 lg:bottom-5 right-5 lg:right-[5.625rem] z-10"
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}

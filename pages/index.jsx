@@ -15,7 +15,7 @@ import TopHeader from "@/components/TopHeader";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <TopHeader />
       <Header show3icons />
       <TopSection />

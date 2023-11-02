@@ -44,17 +44,18 @@ function FlashSales() {
   });
   return (
     <div>
-      <div className="container grid grid-cols-4 py-0">
+      <div className="container lg:grid lg:grid-cols-4 py-0 flex items-center justify-between">
         <div className="flex items-center font-semibold leading-5 col-span-1">
           <div className="h-10 w-5 bg-button-2 rounded" />
           <div className="text-button-2 ml-4">Today&apos;s</div>
         </div>
+        <div className="lg:hidden font-semibold text-2xl">Flash Sales</div>
       </div>
-      <div className="container grid grid-cols-4 items-center py-0 mt-[1.5rem]">
-        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
+      <div className="container grid lg:grid-cols-4 items-center py-0 mt-[1.5rem]">
+        <div className="hidden lg:flex col-span-1 text-4xl leading-[3rem] font-semibold">
           Flash Sales
         </div>
-        <div className="col-span-2 flex items-end">
+        <div className="lg:col-span-2 lg:flex items-end flex justify-center lg:justify-start">
           <div>
             <div className="font-medium text-xs">Days</div>
             <div className="font-bold text-3xl tracking-wide">
@@ -94,9 +95,9 @@ function FlashSales() {
             </div>
           </div>
         </div>
-        <div className="col-span-1 relative">
+        <div className="lg:col-span-1 relative">
           <div className="flex items-center right-0">
-            <div className="absolute flex right-0">
+            <div className="absolute hidden lg:flex right-0">
               <FillLeftArrow id="prev" />
               <FillRightArrow id="next" />
             </div>

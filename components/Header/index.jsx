@@ -42,11 +42,11 @@ function Header({ show3icons }) {
   return (
     <div className="pb-4 border-b border-black border-opacity-30">
       <div className="container mt-10 py-0 relative">
-        <div className="flex max-h-[38px] items-center justify-between">
-          <span className="min-w-[118px] mr-[160px] font-bold text-2xl leading-6 cursor-default">
+        <div className="flex max-h-[2.375rem] items-center justify-between">
+          <span className="min-w-[7.375rem] lg:mr-[10rem] font-bold text-2xl leading-6 cursor-default">
             Exclusive
           </span>
-          <div className="mr-[8.125rem] min-w-[367px]">
+          <div className="hidden mr-[8.125rem] min-w-[22.9375rem] md:flex">
             <Link
               href="/"
               className={clsx(
@@ -81,9 +81,9 @@ function Header({ show3icons }) {
             </Link>
           </div>
           <div className="flex">
-            <div className="flex relative">
+            <div className="hidden relative lg:flex">
               <input
-                className="font-normal text-xs py-[1.25rem] px-[14px] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
+                className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
                 type="text"
                 placeholder="What are you looking for?"
               />

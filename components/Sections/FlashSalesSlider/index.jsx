@@ -10,16 +10,21 @@ import "swiper/css";
 
 function FlashSalesItems() {
   return (
-    <div className="container py-0 mt-10">
+    <div className="container py-0 mt-10 ml-[calc(100vw/10)] lg:ml-auto">
       <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
+        slidesPerView={1}
+        spaceBetween={-80}
         navigation={{
           prevEl: "#prev",
           nextEl: "#next",
         }}
+        breakpoints={{
+          // 640: {},
+          // 768: {},
+          1024: { slidesPerView: 4, spaceBetween: 30 },
+        }}
         modules={[Navigation]}
-        className="mySwiper !overflow-visible"
+        className="mySwiper lg:!overflow-visible"
       >
         <SwiperSlide>
           <FlashSalesItem id={1} />

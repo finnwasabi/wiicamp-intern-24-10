@@ -96,7 +96,7 @@ function FlashSalesItem({ id }) {
         "overflow-hidden block w-[16.875rem] h-[21.875rem] cursor-pointer",
       )}
     >
-      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex overflow-hidden">
+      <div className="max-w-[16.875rem] max-h-[15.625rem] rounded bg-secondary-0 flex overflow-hidden">
         <div className="relative">
           <div className={s.AddToCart}>Add To Cart</div>
           <Image
@@ -107,12 +107,12 @@ function FlashSalesItem({ id }) {
             alt="Picture of item"
             objectFit="content"
           />
+          <FillHeart />
+          <div className="absolute flex top-[3.375rem] right-3">
+            <FillEye />
+          </div>
         </div>
         <DiscountPercent label={FlashSalesItemsList[id - 1].percent} />
-        <FillHeart />
-        <div className="absolute flex top-[3.375rem] right-3">
-          <FillEye />
-        </div>
       </div>
       <div className="mt-4 font-bold">{FlashSalesItemsList[id - 1].name}</div>
       <div className="mt-2 font-semibold flex">

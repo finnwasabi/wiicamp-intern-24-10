@@ -13,8 +13,8 @@ function NewArrival() {
           <div className="text-button-2 ml-4">Featured</div>
         </div>
       </div>
-      <div className="container grid grid-cols-2 items-center py-0 mt-[24px] mb-[60px]">
-        <div className="col-span-1 text-4xl leading-[48px] font-semibold">
+      <div className="container grid grid-cols-2 items-center py-0 mt-[1.5rem] mb-[3.75rem]">
+        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
           New Arrival
         </div>
       </div>
@@ -30,7 +30,7 @@ function NewArrival() {
           <div
             className={clsx(
               s.Text,
-              "absolute bottom-8 left-8 text-white w-[242px]",
+              "absolute bottom-8 left-8 text-white w-[15.125rem]",
             )}
           >
             <div className="text-2xl leading-6 mb-4 font-semibold">
@@ -54,7 +54,7 @@ function NewArrival() {
             <div
               className={clsx(
                 s.Text,
-                "absolute top-[119px] left-6 text-white w-[242px]",
+                "absolute top-[7.4375rem] left-6 text-white w-[15.125rem]",
               )}
             >
               <div className="text-2xl leading-6 mb-4 font-semibold">
@@ -78,7 +78,7 @@ function NewArrival() {
               <div
                 className={clsx(
                   s.Text,
-                  "absolute bottom-6 left-6 text-white w-[242px]",
+                  "absolute bottom-6 left-6 text-white w-[15.125rem]",
                 )}
               >
                 <div className="text-2xl leading-6 mb-2 font-semibold">
@@ -99,7 +99,7 @@ function NewArrival() {
               <div
                 className={clsx(
                   s.Text,
-                  "absolute bottom-6 left-6 text-white w-[242px]",
+                  "absolute bottom-6 left-6 text-white w-[15.125rem]",
                 )}
               >
                 <div className="text-2xl leading-6 mb-2 font-semibold">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
 import FillRightArrow from "@/components/Buttons/FillRightArrow";
@@ -6,6 +6,42 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import FlashSalesSlider from "@/components/Sections/FlashSalesSlider";
 
 function FlashSales() {
+  const calculateTimeLeft = () => {
+    const difference = +new Date(`2023-11-05T07:00:00`) - +new Date();
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(
+          2,
+          "0",
+        ),
+        hours: String(
+          Math.floor((difference / (1000 * 60 * 60)) % 24),
+        ).padStart(2, "0"),
+        minutes: String(Math.floor((difference / 1000 / 60) % 60)).padStart(
+          2,
+          "0",
+        ),
+        seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
+      };
+    }
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
   return (
     <div>
       <div className="container grid grid-cols-4 py-0">
@@ -14,47 +50,55 @@ function FlashSales() {
           <div className="text-button-2 ml-4">Today&apos;s</div>
         </div>
       </div>
-      <div className="container grid grid-cols-4 items-center py-0 mt-[24px]">
-        <div className="col-span-1 text-4xl leading-[48px] font-semibold">
+      <div className="container grid grid-cols-4 items-center py-0 mt-[1.5rem]">
+        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
           Flash Sales
         </div>
         <div className="col-span-2 flex items-end">
           <div>
             <div className="font-medium text-xs">Days</div>
-            <div className="font-bold text-3xl tracking-wide">03</div>
+            <div className="font-bold text-3xl tracking-wide">
+              {timeLeft.days}
+            </div>
           </div>
-          <div className="mx-[17px] h-full">
+          <div className="mx-[1.0625rem] h-full">
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
           </div>
           <div>
             <div className="font-medium text-xs">Hours</div>
-            <div className="font-bold text-3xl tracking-wide">23</div>
+            <div className="font-bold text-3xl tracking-wide">
+              {timeLeft.hours}
+            </div>
           </div>
-          <div className="mx-[17px] h-full">
+          <div className="mx-[1.0625rem] h-full">
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
           </div>
           <div>
             <div className="font-medium text-xs">Minutes</div>
-            <div className="font-bold text-3xl tracking-wide">19</div>
+            <div className="font-bold text-3xl tracking-wide">
+              {timeLeft.minutes}
+            </div>
           </div>
-          <div className="mx-[17px] h-full">
+          <div className="mx-[1.0625rem] h-full">
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
             <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
           </div>
           <div>
             <div>
               <div className="font-medium text-xs">Seconds</div>
-              <div className="font-bold text-3xl tracking-wide">56</div>
+              <div className="font-bold text-3xl tracking-wide">
+                {timeLeft.seconds}
+              </div>
             </div>
           </div>
         </div>
         <div className="col-span-1 relative">
           <div className="flex items-center right-0">
             <div className="absolute flex right-0">
-              <FillLeftArrow />
-              <FillRightArrow />
+              <FillLeftArrow id="prev" />
+              <FillRightArrow id="next" />
             </div>
           </div>
         </div>
@@ -62,7 +106,7 @@ function FlashSales() {
       <div className="overflow-hidden">
         <FlashSalesSlider />
       </div>
-      <div className="container flex justify-center py-[60px] border-b">
+      <div className="container flex justify-center py-[3.75rem] border-b">
         <PrimaryButton label="View All Products" />
       </div>
     </div>

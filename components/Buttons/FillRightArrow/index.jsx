@@ -1,8 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function FillRightArrow() {
+function FillRightArrow({ id }) {
   return (
-    <div className="rounded-full bg-secondary-0 w-[46px] h-[46px] relative cursor-pointer">
+    <div
+      id={id}
+      className="rounded-full bg-secondary-0 w-[46px] h-[46px] relative cursor-pointer"
+    >
       <svg
         className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
         width="24"
@@ -23,4 +27,7 @@ function FillRightArrow() {
   );
 }
 
+FillRightArrow.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 export default FillRightArrow;

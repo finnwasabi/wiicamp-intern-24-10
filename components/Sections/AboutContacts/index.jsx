@@ -19,16 +19,37 @@ const ContactsList = [
     name: "Will Smith",
     position: "Product Designer",
   },
+  {
+    img: "/AboutContacts/Contact4.png",
+    name: "Thai VG",
+    position: "CEO",
+  },
+  {
+    img: "/AboutContacts/Contact5.png",
+    name: "Bo Left Hand",
+    position: "CTO",
+  },
+  {
+    img: "/AboutContacts/Contact6.png",
+    name: "HIEUTHUBAR",
+    position: "Eating&Drinking",
+  },
+  {
+    img: "/AboutContacts/Contact7.png",
+    name: "YUHAH202",
+    position: "Staff",
+  },
 ];
 function AboutContacts({ id }) {
   return (
-    <div>
-      <div className="mb-8">
+    <div className="cursor-pointer">
+      <div className="mb-8 max-h-[26.875rem]">
         <Image
           src={ContactsList[id - 1].img}
           alt="contacts"
           width={370}
           height={430}
+          objectFit="content"
         />
       </div>
       <div className="text-[2rem] font-semibold mb-2">

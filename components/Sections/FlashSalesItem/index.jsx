@@ -93,21 +93,24 @@ function FlashSalesItem({ id }) {
     <div
       className={clsx(
         s.SaleItem,
-        "overflow-hidden block w-[270px] h-[350px] cursor-pointer",
+        "overflow-hidden block w-[16.875rem] h-[21.875rem] cursor-pointer",
       )}
     >
-      <div className="w-[270px] h-[250px] rounded bg-secondary-0 flex relative overflow-hidden">
-        <div className={s.AddToCart}>Add To Cart</div>
-        <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-h-[160px]"
-          src={FlashSalesItemsList[id - 1].image}
-          width={180}
-          height={160}
-          alt="Picture of item"
-        />
+      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex overflow-hidden">
+        <div className="relative">
+          <div className={s.AddToCart}>Add To Cart</div>
+          <Image
+            className=""
+            src={FlashSalesItemsList[id - 1].image}
+            width={270}
+            height={250}
+            alt="Picture of item"
+            objectFit="content"
+          />
+        </div>
         <DiscountPercent label={FlashSalesItemsList[id - 1].percent} />
         <FillHeart />
-        <div className="absolute flex top-[54px] right-3 cursor-pointer">
+        <div className="absolute flex top-[3.375rem] right-3">
           <FillEye />
         </div>
       </div>

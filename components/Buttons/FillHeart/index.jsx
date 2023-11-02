@@ -2,7 +2,7 @@ import React from "react";
 
 function FillHeart() {
   return (
-    <div className="absolute flex top-3 right-3 cursor-pointer">
+    <div className="absolute flex top-3 right-3">
       <div className="rounded-full bg-white w-[34px] h-[34px] relative">
         <svg
           className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"

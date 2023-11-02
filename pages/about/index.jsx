@@ -9,7 +9,7 @@ function about() {
   return (
     <main>
       <TopHeader />
-      <Header />
+      <Header show3icons />
       <AboutSection />
       <Footer />
     </main>

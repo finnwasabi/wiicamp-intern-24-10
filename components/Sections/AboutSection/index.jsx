@@ -21,7 +21,7 @@ function AboutSection() {
         </div>
         <div className="py-0 flex items-center h-[calc(609/1440*100vw)]">
           <div className="absolute w-[32.8125rem]">
-            <div className="mb-10 font-semibold text-[54px]">Our Story</div>
+            <div className="mb-10 font-semibold text-[3.375rem]">Our Story</div>
             <div className="flex flex-col gap-y-6">
               <div>
                 Launced in 2015, Exclusive is South Asia&apos;s premier online
@@ -55,7 +55,7 @@ function AboutSection() {
             type="button"
             className={clsx(
               s.AboutButton,
-              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[1px] border-black border-opacity-30",
+              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[0.0625rem] border-black border-opacity-30",
             )}
           >
             <div className="mb-6 flex justify-center">
@@ -85,7 +85,7 @@ function AboutSection() {
             type="button"
             className={clsx(
               s.AboutButton,
-              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[1px] border-black border-opacity-30",
+              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[0.0625rem] border-black border-opacity-30",
             )}
           >
             <div className="mb-6 flex justify-center">
@@ -115,7 +115,7 @@ function AboutSection() {
             type="button"
             className={clsx(
               s.AboutButton,
-              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[1px] border-black border-opacity-30",
+              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[0.0625rem] border-black border-opacity-30",
             )}
           >
             <div className="mb-6 flex justify-center">
@@ -145,7 +145,7 @@ function AboutSection() {
             type="button"
             className={clsx(
               s.AboutButton,
-              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[1px] border-black border-opacity-30",
+              "group max-h-[14.375rem] h-full py-[1.875rem] rounded border-[0.0625rem] border-black border-opacity-30",
             )}
           >
             <div className="mb-6 flex justify-center">

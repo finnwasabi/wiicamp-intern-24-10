@@ -8,7 +8,7 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 function SignUpSection() {
   return (
     <div className="relative">
-      <div className="mt-[60px] mb-[140px]">
+      <div className="mt-[3.75rem] mb-[8.75rem]">
         <div className="w-[calc(805/1440*100vw)]">
           <Image
             className="left-0 w-full h-full"
@@ -20,8 +20,8 @@ function SignUpSection() {
         </div>
         <div className="container grid grid-cols-2 absolute top-1/2 -translate-y-1/2 py-0 right-0 left-0">
           <div className="col-span-1 col-start-2 flex flex-row-reverse">
-            <div className="max-w-[370px]">
-              <div className="text-4xl font-medium leading-[30px] mb-6">
+            <div className="max-w-[23.125rem]">
+              <div className="text-4xl font-medium leading-[1.875rem] mb-6">
                 Create an account
               </div>
               <div className="mb-12">Enter your details below</div>

@@ -9,7 +9,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 
 function CheckOutSection() {
   return (
-    <div className="container mb-[140px]">
+    <div className="container mb-[8.75rem]">
       <div className="flex gap-3 my-20">
         <div className="text-text-1">Account</div>
         <div className="text-text-1">/</div>
@@ -23,11 +23,11 @@ function CheckOutSection() {
         <div className="text-text-1">/</div>
         <div>CheckOut</div>
       </div>
-      <div className="pb-20 text-4xl leading-[30px] font-semibold">
+      <div className="pb-20 text-4xl leading-[1.875rem] font-semibold">
         Billing Details
       </div>
       <div className="grid grid-cols-2 justify-between">
-        <div className="grid grid-cols-1 gap-y-8 mb-6 w-[470px]">
+        <div className="grid grid-cols-1 gap-y-8 mb-6 w-[29.375rem]">
           <InputField label="First Name" classNameLabel="text-text-1 mb-2" />
           <InputField label="Company Name" classNameLabel="text-text-1 mb-2" />
           <InputField
@@ -45,8 +45,8 @@ function CheckOutSection() {
             <CheckBox label="Save this information for faster check-out next time" />
           </div>
         </div>
-        <div className="w-[527px] ml-auto">
-          <div className="grid grid-cols-1 gap-y-8 w-[425px] mt-8">
+        <div className="w-[32.9375rem] ml-auto">
+          <div className="grid grid-cols-1 gap-y-8 w-[26.5625rem] mt-8">
             <div className="flex items-center">
               <div className="mr-6">
                 <Image
@@ -72,11 +72,11 @@ function CheckOutSection() {
               <div className="ml-auto">$1100</div>
             </div>
             <div className="w-full">
-              <div className="flex justify-between mb-4 pb-4 border-b-[1px] border-black border-opacity-50">
+              <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
                 <div>Subtotal:</div>
                 <div>$1750</div>
               </div>
-              <div className="flex justify-between mb-4 pb-4 border-b-[1px] border-black border-opacity-50">
+              <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
                 <div>Shipping:</div>
                 <div>Free</div>
               </div>
@@ -144,7 +144,7 @@ function CheckOutSection() {
             <input
               type="text"
               placeholder="Coupon Code"
-              className="py-4 px-6 flex-grow mr-4 rounded border-[1px] border-black border-opacity-50"
+              className="py-4 px-6 flex-grow mr-4 rounded border-[0.0625rem] border-black border-opacity-50"
             />
             <PrimaryButton label="Apply Coupon" />
           </div>

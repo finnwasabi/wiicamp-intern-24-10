@@ -1,8 +1,8 @@
 import React from "react";
 
-import CategoryButtons from "../../Buttons/CategoryButtons";
 import FillLeftArrow from "../../Buttons/FillLeftArrow";
 import FillRightArrow from "../../Buttons/FillRightArrow";
+import CategoriesSlider from "../CategoriesSlider";
 
 function Categories() {
   return (
@@ -13,20 +13,20 @@ function Categories() {
           <div className="text-button-2 ml-4">Categories</div>
         </div>
       </div>
-      <div className="container grid grid-cols-2 items-center py-0 mt-[24px] mb-[60px]">
-        <div className="col-span-1 text-4xl leading-[48px] font-semibold">
+      <div className="container grid grid-cols-2 items-center py-0 mt-6 mb-[3.75rem]">
+        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
           Browse By Category
         </div>
         <div className="col-span-1 relative">
           <div className="flex items-center right-0">
             <div className="absolute flex right-0">
-              <FillLeftArrow />
-              <FillRightArrow />
+              <FillLeftArrow id="prev1" />
+              <FillRightArrow id="next1" />
             </div>
           </div>
         </div>
       </div>
-      <CategoryButtons />
+      <CategoriesSlider />
     </div>
   );
 }

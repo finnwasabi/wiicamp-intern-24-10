@@ -1,4 +1,7 @@
-.swiper-pagination-bullet{
-    width: 20px;
-    height: 20px;
+.hello{
+    :global {
+        .swiper-pagination-bullet{
+            background-color: white !important;
+        }
+    }            
 }

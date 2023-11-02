@@ -115,19 +115,22 @@ const renderStars = (rating) => {
 function OurProductsItem({ id }) {
   return (
     <div
-      className={clsx(s.SaleItem, "block w-[270px] h-[350px] cursor-pointer")}
+      className={clsx(
+        s.SaleItem,
+        "block w-[16.875rem] h-[21.875rem] cursor-pointer",
+      )}
     >
-      <div className="w-[270px] h-[250px] rounded bg-secondary-0 flex relative overflow-hidden">
+      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
         <div className={s.AddToCart}>Add To Cart</div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-h-[160px]"
+          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
           src={OurProductsItemsList[id - 1].image}
-          width={180}
-          height={160}
+          width={270}
+          height={250}
           alt="Picture of item"
         />
         <FillHeart />
-        <div className="absolute flex top-[54px] right-3 cursor-pointer">
+        <div className="absolute flex top-[3.375rem] right-3 cursor-pointer">
           <FillEye />
         </div>
       </div>

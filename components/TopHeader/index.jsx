@@ -14,7 +14,7 @@ function TopHeader() {
               ShopNow
             </span>
           </div>
-          <div className="flex absolute right-0">
+          <div className="flex absolute right-0 mr-3">
             English
             <svg
               className="cursor-pointer"

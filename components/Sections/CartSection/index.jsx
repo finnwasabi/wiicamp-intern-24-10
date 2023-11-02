@@ -27,7 +27,7 @@ function CartSection() {
     setQuantity(Number(quantity) - 1);
   };
   return (
-    <div className="container mb-[140px]">
+    <div className="container mb-[8.75rem]">
       <div className="flex gap-3 my-20">
         <div className="text-text-1">Home</div>
         <div className="text-text-1">/</div>
@@ -46,7 +46,7 @@ function CartSection() {
               <div className={clsx(s.HoverCancel, "mr-5 relative")}>
                 <button
                   type="button"
-                  className={clsx(s.CancelButton, "absolute left-[-6px]")}
+                  className={clsx(s.CancelButton, "absolute left-[-0.375rem]")}
                 >
                   <Image
                     src="/CancelCircle.svg"
@@ -70,17 +70,17 @@ function CartSection() {
                 type="number"
                 className={clsx(
                   s.RemoveArrow,
-                  "py-[6px] px-3 max-w-[72px] min-h-[44px] border-[1px] rounded border-black border-opacity-40",
+                  "py-[0.375rem] px-3 max-w-[4.5rem] min-h-[2.75rem] border-[0.0625rem] rounded border-black border-opacity-40",
                 )}
                 value={quantity1}
                 onChange={(e) => setQuantity1(e.target.value)}
               />
-              <div className="absolute top-[16px] -translate-y-1/2 right-3">
+              <div className="absolute top-[1rem] -translate-y-1/2 right-3">
                 <button type="button" onClick={handleIncrease1}>
                   <ChevronUp size={16} />
                 </button>
               </div>
-              <div className="absolute bottom-[-13px] -translate-y-1/2 right-3">
+              <div className="absolute bottom-[-0.8125rem] -translate-y-1/2 right-3">
                 <button type="button" onClick={handleDecrease1}>
                   <ChevronDown size={16} />
                 </button>
@@ -95,7 +95,7 @@ function CartSection() {
               <div className={clsx(s.HoverCancel, "mr-5 relative")}>
                 <button
                   type="button"
-                  className={clsx(s.CancelButton, "absolute left-[-6px]")}
+                  className={clsx(s.CancelButton, "absolute left-[-0.375rem]")}
                 >
                   <Image
                     src="/CancelCircle.svg"
@@ -119,17 +119,17 @@ function CartSection() {
                 type="number"
                 className={clsx(
                   s.RemoveArrow,
-                  "py-[6px] px-3 max-w-[72px] min-h-[44px] border-[1px] rounded border-black border-opacity-40",
+                  "py-[0.375rem] px-3 max-w-[4.5rem] min-h-[2.75rem] border-[0.0625rem] rounded border-black border-opacity-40",
                 )}
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
               />
-              <div className="absolute top-[16px] -translate-y-1/2 right-3">
+              <div className="absolute top-[1rem] -translate-y-1/2 right-3">
                 <button type="button" onClick={handleIncrease}>
                   <ChevronUp size={16} />
                 </button>
               </div>
-              <div className="absolute bottom-[-13px] -translate-y-1/2 right-3">
+              <div className="absolute bottom-[-0.8125rem] -translate-y-1/2 right-3">
                 <button type="button" onClick={handleDecrease}>
                   <ChevronDown size={16} />
                 </button>
@@ -145,24 +145,24 @@ function CartSection() {
           <SecondaryButton label="Update Cart" />
         </div>
       </div>
-      <div className="flex min-h-[324px]">
-        <div className="flex max-h-[56px]">
+      <div className="flex min-h-[20.25rem]">
+        <div className="flex max-h-[3.5rem]">
           <input
             type="text"
             placeholder="Coupon Code"
-            className="rounded max-w-[300px] py-4 pl-6 pr-[70px] mr-4 border-2 border-black border-opacity-50"
+            className="rounded max-w-[18.75rem] py-4 pl-6 pr-[4.375rem] mr-4 border-2 border-black border-opacity-50"
           />
-          <div className="mr-[173px] min-w-[211px]">
+          <div className="mr-[10.8125rem] min-w-[13.1875rem]">
             <PrimaryButton label="Apply Coupon" />
           </div>
         </div>
-        <div className="min-w-[470px] py-8 px-6 border-2 rounded border-black border-opacity-70">
+        <div className="min-w-[29.375rem] py-8 px-6 border-2 rounded border-black border-opacity-70">
           <div className="font-semibold text-xl mb-6">Cart Total</div>
-          <div className="flex justify-between mb-4 pb-4 border-b-[1px] border-black border-opacity-50">
+          <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
             <div>Subtotal:</div>
             <div> ${550 * quantity + 650 * quantity1}</div>
           </div>
-          <div className="flex justify-between mb-4 pb-4 border-b-[1px] border-black border-opacity-50">
+          <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
             <div>Shipping:</div>
             <div>Free</div>
           </div>

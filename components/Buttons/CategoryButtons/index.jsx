@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+import { Mouse, PaintBucket, Wrench } from "lucide-react";
+import PropTypes from "prop-types";
 
 import s from "./CategoryButtons.module.scss";
 
@@ -298,90 +300,39 @@ const CategoryButtonsList = [
     ),
     name: "Gaming",
   },
+  {
+    illu: <PaintBucket size={48} absoluteStrokeWidth />,
+    name: "Paint",
+  },
+  {
+    illu: <Wrench size={56} absoluteStrokeWidth />,
+    name: "Tools",
+  },
+  {
+    illu: <Mouse size={56} absoluteStrokeWidth />,
+    name: "Mouses",
+  },
 ];
-function CategoryButtons() {
+function CategoryButtons({ id }) {
   return (
-    <div className="container flex pb-[70px] border-b-2 border-black border-opacity-30 mb-[70px]">
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center mr-[30px]",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[0].illu}
-          </div>
-          {CategoryButtonsList[0].name}
+    <div
+      className={clsx(
+        s.CategoryItem,
+        "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center",
+      )}
+    >
+      <div className="block py-6">
+        <div className={clsx(s.svg, "flex justify-center")}>
+          {CategoryButtonsList[id - 1].illu}
         </div>
-      </div>
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center mr-[30px]",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[1].illu}
-          </div>
-          <div>{CategoryButtonsList[1].name}</div>
-        </div>
-      </div>
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center mr-[30px]",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[2].illu}
-          </div>
-          {CategoryButtonsList[2].name}
-        </div>
-      </div>
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center mr-[30px]",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[3].illu}
-          </div>
-          {CategoryButtonsList[3].name}
-        </div>
-      </div>
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center mr-[30px]",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[4].illu}
-          </div>
-          {CategoryButtonsList[4].name}
-        </div>
-      </div>
-      <div
-        className={clsx(
-          s.CategoryItem,
-          "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center",
-        )}
-      >
-        <div className="block py-6">
-          <div className={clsx(s.svg, "flex justify-center")}>
-            {CategoryButtonsList[5].illu}
-          </div>
-          {CategoryButtonsList[5].name}
-        </div>
+        {CategoryButtonsList[id - 1].name}
       </div>
     </div>
   );
 }
+
+CategoryButtons.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default CategoryButtons;

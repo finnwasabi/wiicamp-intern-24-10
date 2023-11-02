@@ -6,11 +6,11 @@ function DropdownAccount() {
     <div className="bg-black bg-opacity-10 text-white px-5 py-5 w-fit h-fit rounded z-10 absolute right-0 mr-3 backdrop-blur-3xl">
       <Link
         href="/MyAccount"
-        className="flex items-center cursor-pointer hover:font-semibold mb-[13px]"
+        className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]"
       >
         <span className="mr-4 ml">
           <svg
-            className="ml-[-3px] mr-[3px]"
+            className="ml-[-0.1875rem] mr-[0.1875rem]"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ function DropdownAccount() {
         </span>
         <span className="text-sm">Manage My Account</span>
       </Link>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[13px]">
+      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
         <span className="mr-4">
           <svg
             width="24"
@@ -61,7 +61,7 @@ function DropdownAccount() {
         </span>
         <span className="text-sm">My Order</span>
       </div>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[13px]">
+      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
         <span className="mr-4">
           <svg
             width="24"
@@ -95,7 +95,7 @@ function DropdownAccount() {
         </span>
         <span className="text-sm">My Cancellations</span>
       </div>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[13px]">
+      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
         <span className="mr-4">
           <svg
             width="24"

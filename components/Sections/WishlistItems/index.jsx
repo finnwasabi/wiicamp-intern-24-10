@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 
 import FillTrash from "@/components/Buttons/FillTrash";
@@ -41,14 +42,23 @@ const WishlistItemsList = [
 function WishlistItems({ id }) {
   return (
     // eslint-disable-next-line react/button-has-type
-    <div className={clsx(s.Item, "block w-[270px] h-[350px] cursor-pointer")}>
-      <div className="w-[270px] h-[250px] rounded bg-secondary-0 flex relative overflow-hidden">
-        <div className={s.AddToCart}>Add To Cart</div>
+    <div
+      className={clsx(
+        s.Item,
+        "block w-[16.875rem] h-[21.875rem] cursor-pointer",
+      )}
+    >
+      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
+        <div className={s.AddToCart}>
+          <div className="flex justify-center items-center gap-x-2">
+            <ShoppingCart /> Add To Cart
+          </div>
+        </div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-h-[160px]"
+          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
           src={WishlistItemsList[id - 1].image}
-          width={180}
-          height={160}
+          width={270}
+          height={250}
           alt="Picture of item"
         />
         <FillTrash />

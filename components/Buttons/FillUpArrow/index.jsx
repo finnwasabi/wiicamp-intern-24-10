@@ -23,12 +23,12 @@ function FillUpArrow() {
     <>
       {isButtonVisible && (
         <button
-          className="fixed bottom-5 right-[90px] z-10"
+          className="fixed bottom-5 right-[5.625rem] z-10"
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <div className="rounded-full bg-secondary-0 mr-2 w-[46px] h-[46px] relative cursor-pointer shadow-xl">
+          <div className="rounded-full bg-secondary-0 mr-2 w-[2.875rem] h-[2.875rem] relative cursor-pointer shadow-xl">
             <svg
               className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
               width="24"
@@ -51,33 +51,5 @@ function FillUpArrow() {
     </>
   );
 }
-
-// return (
-//   <button
-//     className="fixed bottom-5 right-[90px] z-10"
-//     onClick={() => {
-//       window.scrollTo({ top: 0, behavior: "smooth" });
-//     }}
-//   >
-//     <div className="rounded-full bg-secondary-0 mr-2 w-[46px] h-[46px] relative cursor-pointer shadow-xl">
-//       <svg
-//         className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-//         width="24"
-//         height="24"
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           d="M12 20V4M5 11L12 4L19 11"
-//           stroke="black"
-//           strokeWidth="2"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//         />
-//       </svg>
-//     </div>
-//   </button>
-// );
 
 export default FillUpArrow;

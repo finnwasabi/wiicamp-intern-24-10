@@ -9,8 +9,8 @@ import s from "./Footer.module.scss";
 function Footer() {
   return (
     <div className="bg-black text-white pt-20 pb-6">
-      <div className="container flex gap-[87px]">
-        <ul className={clsx(s.FooterList, "max-w-[217px]")}>
+      <div className="container flex gap-[5.4375rem]">
+        <ul className={clsx(s.FooterList, "max-w-[13.5625rem]")}>
           <div className="font-bold text-2xl mb-6">Exclusive</div>
           <li className="text-xl font-medium mb-6">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
@@ -21,7 +21,10 @@ function Footer() {
               placeholder="Enter your email"
               required
             />
-            <button type="submit" className="absolute top-[14px] right-[15px]">
+            <button
+              type="submit"
+              className="absolute top-[0.875rem] right-[0.9375rem]"
+            >
               <Image
                 src="/SendIcon.svg"
                 width={24}
@@ -31,7 +34,7 @@ function Footer() {
             </button>
           </form>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[175px]")}>
+        <ul className={clsx(s.FooterList, "max-w-[10.9375rem]")}>
           <div className="text-xl mb-6">Support</div>
           <li className="mb-4">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
@@ -39,7 +42,7 @@ function Footer() {
           <li className="mb-4">exclusive@gmail.com</li>
           <li className="mb-4">+88015-88888-9999</li>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[123px]")}>
+        <ul className={clsx(s.FooterList, "max-w-[7.6875rem]")}>
           <div className="text-xl mb-6">Account</div>
           <li className="mb-4">My Account</li>
           <li className="mb-4">Login / Register</li>
@@ -47,14 +50,14 @@ function Footer() {
           <li className="mb-4">Wishlist</li>
           <li className="mb-4">Shop</li>
         </ul>
-        <ul className={clsx(s.FooterList, "max-w-[109px]")}>
+        <ul className={clsx(s.FooterList, "max-w-[6.8125rem]")}>
           <div className="text-xl mb-6">Quick Link</div>
           <li className="mb-4">Privacy Policy</li>
           <li className="mb-4">Terms Of Use</li>
           <li className="mb-4">FAQ</li>
           <li className="mb-4">Contact</li>
         </ul>
-        <ul className="max-w-[198px]">
+        <ul className="max-w-[12.375rem]">
           <li className="text-xl mb-6 cols cursor-default">Download App</li>
           <li className="mb-2 text-xs font-medium text-text-1">
             Save $3 with App New User Only
@@ -68,14 +71,14 @@ function Footer() {
             />
             <div>
               <Image
-                className="py-[3px] px-[3px] cursor-pointer"
+                className="py-[0.1875rem] px-[0.1875rem] cursor-pointer"
                 src="/Footer/GooglePlay.png"
                 width={104}
                 height={34}
                 alt="Picture of the downloads"
               />
               <Image
-                className="py-[3px] px-[3px] cursor-pointer"
+                className="py-[0.1875rem] px-[0.1875rem] cursor-pointer"
                 src="/Footer/AppStore.png"
                 width={104}
                 height={34}
@@ -149,7 +152,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="border-t mt-[60px] border-primary-0 border-opacity-5">
+      <div className="border-t mt-[3.75rem] border-primary-0 border-opacity-5">
         <div className="container text-text-1 flex justify-center pb-0 pt-4">
           <IconSend className="my-auto mx-1" />
           Copyright Rimel 2022. All right reserved

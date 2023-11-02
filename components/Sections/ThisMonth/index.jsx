@@ -12,8 +12,8 @@ function ThisMonth() {
           <div className="text-button-2 ml-4">This Month</div>
         </div>
       </div>
-      <div className="container grid grid-cols-2 items-center py-0 mt-[24px] mb-[60px]">
-        <div className="col-span-1 text-4xl leading-[48px] font-semibold">
+      <div className="container grid grid-cols-2 items-center py-0 mt-6 mb-[3.75rem]">
+        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
           Best Selling Products
         </div>
         <div className="col-span-1 relative">

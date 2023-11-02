@@ -4,7 +4,7 @@ function Svcs() {
   return (
     <div className="flex justify-evenly">
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[11px] border-primary-2">
+        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
           <svg
             width="41"
             height="40"
@@ -85,7 +85,7 @@ function Svcs() {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[11px] border-primary-2">
+        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
           <svg
             width="40"
             height="40"
@@ -112,7 +112,7 @@ function Svcs() {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[11px] border-primary-2">
+        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
           <svg
             width="40"
             height="40"

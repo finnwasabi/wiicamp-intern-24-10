@@ -14,9 +14,8 @@ function AboutSlider() {
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
-        grabCursor
         autoplay={{
-          delay: 1500,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -36,22 +35,16 @@ function AboutSlider() {
           <AboutContacts id={3} />
         </SwiperSlide>
         <SwiperSlide>
-          <AboutContacts id={3} />
+          <AboutContacts id={4} />
         </SwiperSlide>
         <SwiperSlide>
-          <AboutContacts id={3} />
+          <AboutContacts id={5} />
         </SwiperSlide>
         <SwiperSlide>
-          <AboutContacts id={3} />
+          <AboutContacts id={6} />
         </SwiperSlide>
         <SwiperSlide>
-          <AboutContacts id={2} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <AboutContacts id={1} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <AboutContacts id={3} />
+          <AboutContacts id={7} />
         </SwiperSlide>
       </Swiper>
 

@@ -14,8 +14,8 @@ function OurProducts() {
           <div className="text-button-2 ml-4">Our Products</div>
         </div>
       </div>
-      <div className="container grid grid-cols-2 items-center py-0 mt-[24px] mb-[60px]">
-        <div className="col-span-1 text-4xl leading-[48px] font-semibold">
+      <div className="container grid grid-cols-2 items-center py-0 mt-[1.5rem] mb-[3.75rem]">
+        <div className="col-span-1 text-4xl leading-[3rem] font-semibold">
           Explore Our Products
         </div>
         <div className="col-span-1 relative">
@@ -30,7 +30,7 @@ function OurProducts() {
       <div>
         <OurProductsList />
       </div>
-      <div className="container flex justify-center pt-0 pb-[140px]">
+      <div className="container flex justify-center pt-0 pb-[8.75rem]">
         <PrimaryButton label="View All Products" />
       </div>
     </div>

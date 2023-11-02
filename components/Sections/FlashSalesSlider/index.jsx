@@ -1,9 +1,8 @@
 import React from "react";
-import { FreeMode, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
-import "swiper/css/free-mode";
 
 import FlashSalesItem from "../FlashSalesItem";
 
@@ -15,36 +14,38 @@ function FlashSalesItems() {
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
-        grabCursor
-        modules={[FreeMode, Navigation]}
-        // navigation
+        navigation={{
+          prevEl: "#prev",
+          nextEl: "#next",
+        }}
+        modules={[Navigation]}
         className="mySwiper !overflow-visible"
       >
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={1} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={2} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={3} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={4} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={4} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={3} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={2} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={1} />
         </SwiperSlide>
-        <SwiperSlide className="max-w-[270px]">
+        <SwiperSlide>
           <FlashSalesItem id={3} />
         </SwiperSlide>
       </Swiper>

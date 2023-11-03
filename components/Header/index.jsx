@@ -1,17 +1,26 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import { Heart, Search, ShoppingCart, User, UserCircle } from "lucide-react";
+import {
+  Heart,
+  Menu,
+  Search,
+  ShoppingCart,
+  User,
+  UserCircle,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
 import DropdownAccount from "../Sections/DropdownAccount";
+import SideMenu from "../Sections/SideMenu";
 
 import s from "./Header.module.scss";
 
 function Header({ show3icons }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
 
@@ -23,6 +32,14 @@ function Header({ show3icons }) {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownOpen(false);
     }
+  };
+
+  const handleMenuClick = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
   };
 
   useEffect(() => {
@@ -40,13 +57,20 @@ function Header({ show3icons }) {
   const isLinkActive = (href) => router.pathname === href;
 
   return (
-    <div className="pb-4 border-b border-black border-opacity-30">
+    <div className="fixed bg-white z-50 w-full pb-4 border-b border-black border-opacity-30">
       <div className="container mt-10 py-0 relative">
         <div className="flex max-h-[2.375rem] items-center justify-between">
-          <span className="min-w-[7.375rem] lg:mr-[10rem] font-bold text-2xl leading-6 cursor-default">
+          <span className="flex items-center gap-x-2 min-w-[7.375rem] xl:mr-[10rem] font-bold text-2xl leading-6 cursor-default">
+            <button
+              type="button"
+              className="xl:hidden"
+              onClick={handleMenuClick}
+            >
+              <Menu />
+            </button>
             Exclusive
           </span>
-          <div className="hidden mr-[8.125rem] min-w-[22.9375rem] md:flex">
+          <div className="hidden mr-[8.125rem] min-w-[22.9375rem] xl:flex">
             <Link
               href="/"
               className={clsx(
@@ -80,17 +104,17 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
+          <div className="hidden relative xl:flex md:flex">
+            <input
+              className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
+              type="text"
+              placeholder="What are you looking for?"
+            />
+            <Search className="absolute right-3 top-2 cursor-pointer" />
+          </div>
           <div className="flex">
-            <div className="hidden relative lg:flex">
-              <input
-                className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
-                type="text"
-                placeholder="What are you looking for?"
-              />
-              <Search className="absolute right-3 top-2 cursor-pointer" />
-            </div>
             {show3icons && (
-              <div className="flex gap-4 ml-6 items-center">
+              <div className="flex gap-4 xl:ml-6 items-center">
                 <Link href="/wishlist">
                   <Heart size={32} absoluteStrokeWidth />
                 </Link>
@@ -110,6 +134,12 @@ function Header({ show3icons }) {
         </div>
         <div ref={dropdownRef}>{isDropdownOpen && <DropdownAccount />}</div>
       </div>
+      {isSideMenuOpen && (
+        <SideMenu
+          isSideMenuOpen={isSideMenuOpen}
+          closeSideMenu={closeSideMenu}
+        />
+      )}{" "}
     </div>
   );
 }

@@ -75,11 +75,11 @@ function Svcs() {
             </defs>
           </svg>
         </div>
-        <div>
-          <div className="text-sm lg:text-xl font-semibold text-center mb-2">
+        <div className="sm:max-w-[11rem] md:max-w-fit">
+          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
             FREE AND FAST DELIVERY
           </div>
-          <div className="text-xs lg:text-sm text-center">
+          <div className="text-xs lg:text-sm xl:text-sm text-center">
             Free delivery for all orders over $140
           </div>
         </div>
@@ -102,11 +102,11 @@ function Svcs() {
             />
           </svg>
         </div>
-        <div>
-          <div className="text-sm lg:text-xl font-semibold text-center mb-2">
+        <div className="sm:max-w-[11rem] md:max-w-fit">
+          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
             24/7 CUSTOMER SERVICE
           </div>
-          <div className="text-xs lg:text-sm text-center">
+          <div className="text-xs lg:text-sm xl:text-sm text-center">
             Friendly 24/7 customer support
           </div>
         </div>
@@ -132,11 +132,11 @@ function Svcs() {
             />
           </svg>
         </div>
-        <div>
-          <div className="text-sm lg:text-xl font-semibold text-center mb-2">
+        <div className="sm:max-w-[11rem] md:max-w-fit">
+          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
             MONEY BACK GUARANTEE
           </div>
-          <div className="text-xs lg:text-sm text-center">
+          <div className="text-xs lg:text-sm xl:text-sm text-center">
             We return money within 30 days
           </div>
         </div>

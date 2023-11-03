@@ -10,7 +10,7 @@ import "swiper/css";
 
 function CategoriesSlider() {
   return (
-    <div className="container flex pb-[4.375rem] border-b-2 border-black border-opacity-30 mb-[4.375rem]">
+    <div className="container flex pb-[4.375rem] border-b mb-[4.375rem]">
       <Swiper
         slidesPerView={2}
         spaceBetween={20}
@@ -19,9 +19,10 @@ function CategoriesSlider() {
           nextEl: "#next1",
         }}
         breakpoints={{
-          // 640: {},
-          // 768: {},
-          1024: { slidesPerView: 6, spaceBetween: 30 },
+          640: { slidesPerView: 3, spaceBetween: 50 },
+          768: { slidesPerView: 3.75, spaceBetween: 30 },
+          1024: { slidesPerView: 5, spaceBetween: 30 },
+          1170: { slidesPerView: 6, spaceBetween: 30 },
         }}
         modules={[Navigation]}
         className="mySwiper"

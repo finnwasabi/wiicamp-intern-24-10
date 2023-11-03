@@ -8,9 +8,9 @@ import s from "./TopSection.module.scss";
 
 function TopSection() {
   return (
-    <div className="container py-0 lg:mb-[8.75rem] mb-[4rem]">
-      <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-1">
-        <ul className="hidden lg:flex flex-col gap-y-4 pt-10 pr-4 w-[14.625rem] border-r-[0.0313rem] border-black border-opacity-30">
+    <div className="container py-0 xl:mb-[8.75rem] mb-[4rem]">
+      <div className="grid grid-cols-1 xl:grid-cols-4 xl:grid-rows-1">
+        <ul className="hidden xl:flex flex-col gap-y-4 pt-10 pr-4 w-[14.625rem] border-r-[0.0313rem] border-black border-opacity-30">
           <li
             className={clsx(
               s.TScategory,
@@ -86,7 +86,7 @@ function TopSection() {
             Health & Beauty
           </li>
         </ul>
-        <div className="flex flex-1 col-span-3 mt-10 relative lg:ml-[-0.875rem]">
+        <div className="flex flex-1 col-span-3 mt-10 relative xl:ml-[-0.875rem]">
           <TopSectionSlider />
         </div>
       </div>

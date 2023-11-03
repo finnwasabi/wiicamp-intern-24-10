@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function FlashSaleTimer() {
+function FlashSaleTimerBlack() {
   const calculateTimeLeft = () => {
     const difference = +new Date(`2023-12-24T07:00:00`) - +new Date();
     let timeLeft = {};
@@ -38,43 +38,43 @@ function FlashSaleTimer() {
     return () => clearTimeout(timer);
   });
   return (
-    <div className="flex sm:gap-x-3 md:gap-x-3 xl:gap-x-6">
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+    <div className="flex mb-3 justify-center md:mt-10 sm:mt-10 sm:mb-3 gap-x-6">
+      <div className="flex rounded-full bg-black w-[3.875rem] max-h-[3.875rem] justify-center">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="text-white flex font-semibold leading-[1.25rem] justify-center">
             {timeLeft.hours}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="text-white flex text-xs leading-[1.125rem] justify-center">
             Hours
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex rounded-full bg-black w-[3.875rem] max-h-[3.875rem] justify-center">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="text-white flex font-semibold leading-[1.25rem] justify-center">
             {timeLeft.days}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="text-white flex text-xs leading-[1.125rem] justify-center">
             Days
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex rounded-full bg-black w-[3.875rem] max-h-[3.875rem] justify-center">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="text-white flex font-semibold leading-[1.25rem] justify-center">
             {timeLeft.minutes}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="text-white flex text-xs leading-[1.125rem] justify-center">
             Minutes
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex rounded-full bg-black w-[3.875rem] max-h-[3.875rem] justify-center">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="text-white flex font-semibold leading-[1.25rem] justify-center">
             {timeLeft.seconds}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="text-white flex text-xs leading-[1.125rem] justify-center">
             Seconds
           </div>
         </div>
@@ -83,4 +83,4 @@ function FlashSaleTimer() {
   );
 }
 
-export default FlashSaleTimer;
+export default FlashSaleTimerBlack;

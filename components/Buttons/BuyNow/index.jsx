@@ -10,7 +10,7 @@ function BuyNow() {
       <button
         className={clsx(
           s.buy,
-          "py-4 px-12 text-white font-medium bg-button-1 rounded",
+          "sm:py-4 sm:px-12 lg:py-4 lg:px-12 py-2 px-6 text-white font-medium bg-button-1 rounded",
         )}
       >
         Buy Now!

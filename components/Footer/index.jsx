@@ -9,11 +9,11 @@ import s from "./Footer.module.scss";
 function Footer() {
   return (
     <div className="bg-black text-white pt-20 pb-6">
-      <div className="grid justify-center text-center lg:text-left container lg:flex gap-x-[5.4375rem] gap-y-[3rem]">
+      <div className="grid justify-center sm:grid-cols-2 md:grid-cols-2 text-center xl:text-left container xl:flex gap-x-[5.4375rem] gap-y-[3rem]">
         <ul
           className={clsx(
             s.FooterList,
-            "flex flex-col items-center lg:block max-w-[13.5625rem]",
+            "flex flex-col items-center xl:block max-w-[13.5625rem] mr-auto ml-auto",
           )}
         >
           <div className="font-bold text-2xl mb-6">Exclusive</div>
@@ -42,7 +42,7 @@ function Footer() {
         <ul
           className={clsx(
             s.FooterList,
-            "max-w-[10.9375rem] flex flex-col items-center lg:block ml-auto mr-auto",
+            "max-w-[10.9375rem] flex flex-col items-center xl:block ml-auto mr-auto",
           )}
         >
           <div className="text-xl mb-6">Support</div>
@@ -55,7 +55,7 @@ function Footer() {
         <ul
           className={clsx(
             s.FooterList,
-            "max-w-[7.6875rem] flex flex-col items-center lg:block ml-auto mr-auto",
+            "min-w-[7.6875rem] flex flex-col items-center xl:block ml-auto mr-auto",
           )}
         >
           <div className="text-xl mb-6">Account</div>
@@ -68,7 +68,7 @@ function Footer() {
         <ul
           className={clsx(
             s.FooterList,
-            "max-w-[6.8125rem] flex flex-col items-center lg:block ml-auto mr-auto",
+            "min-w-[6.8125rem] flex flex-col items-center xl:block ml-auto mr-auto",
           )}
         >
           <div className="text-xl mb-6">Quick Link</div>
@@ -77,7 +77,7 @@ function Footer() {
           <li className="mb-4">FAQ</li>
           <li className="mb-4">Contact</li>
         </ul>
-        <ul className="max-w-[12.375rem] flex flex-col items-center lg:block ml-auto mr-auto">
+        <ul className="md:col-span-2 sm:col-span-2 max-w-[12.375rem] flex flex-col items-center xl:block ml-auto mr-auto">
           <li className="text-xl mb-6 cols cursor-default">Download App</li>
           <li className="mb-2 text-xs font-medium text-text-1">
             Save $3 with App New User Only

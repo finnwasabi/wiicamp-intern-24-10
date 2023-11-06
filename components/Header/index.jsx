@@ -79,7 +79,7 @@ function Header({ show3icons }) {
               Contact
             </span>
             <Link
-              href="/about"
+              href="/About"
               className={clsx(
                 !isLinkActive("/about") && s.OnHover,
                 isLinkActive("/about") && s.ActiveLink,

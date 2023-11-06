@@ -26,7 +26,7 @@ function CheckOutSection() {
       <div className="pb-20 text-4xl leading-[1.875rem] font-semibold">
         Billing Details
       </div>
-      <div className="grid grid-cols-2 justify-between">
+      <form className="grid grid-cols-2 justify-between">
         <div className="grid grid-cols-1 gap-y-8 mb-6 w-[29.375rem]">
           <InputField label="First Name" classNameLabel="text-text-1 mb-2" />
           <InputField label="Company Name" classNameLabel="text-text-1 mb-2" />
@@ -40,7 +40,11 @@ function CheckOutSection() {
           />
           <InputField label="Town/City" classNameLabel="text-text-1 mb-2" />
           <InputField label="Phone Number" classNameLabel="text-text-1 mb-2" />
-          <InputField label="Email Address" classNameLabel="text-text-1 mb-2" />
+          <InputField
+            type="email"
+            label="Email Address"
+            classNameLabel="text-text-1 mb-2"
+          />
           <div className="flex items-center">
             <CheckBox label="Save this information for faster check-out next time" />
           </div>
@@ -140,19 +144,20 @@ function CheckOutSection() {
               </label>
             </div>
           </div>
-          <div className="flex justify-between my-8">
+          <form className="flex justify-between my-8">
             <input
+              required
               type="text"
               placeholder="Coupon Code"
               className="py-4 px-6 flex-grow mr-4 rounded border-[0.0625rem] border-black border-opacity-50"
             />
-            <PrimaryButton label="Apply Coupon" />
-          </div>
+            <PrimaryButton type="submit" label="Apply Coupon" />
+          </form>
           <div className="w-fit">
-            <PrimaryButton label="Place Order" />
+            <PrimaryButton type="submit" label="Place Order" />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

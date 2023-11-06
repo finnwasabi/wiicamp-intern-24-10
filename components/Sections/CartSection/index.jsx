@@ -141,21 +141,24 @@ function CartSection() {
           </div>
         </div>
         <div className="flex justify-between">
-          <SecondaryButton label="Return To Shop" />
+          <Link href="/">
+            <SecondaryButton label="Return To Shop" />
+          </Link>
           <SecondaryButton label="Update Cart" />
         </div>
       </div>
       <div className="flex min-h-[20.25rem]">
-        <div className="flex max-h-[3.5rem]">
+        <form className="flex max-h-[3.5rem]">
           <input
+            required
             type="text"
             placeholder="Coupon Code"
             className="rounded max-w-[18.75rem] py-4 pl-6 pr-[4.375rem] mr-4 border-2 border-black border-opacity-50"
           />
           <div className="mr-[10.8125rem] min-w-[13.1875rem]">
-            <PrimaryButton label="Apply Coupon" />
+            <PrimaryButton type="submit" label="Apply Coupon" />
           </div>
-        </div>
+        </form>
         <div className="min-w-[29.375rem] py-8 px-6 border-2 rounded border-black border-opacity-70">
           <div className="font-semibold text-xl mb-6">Cart Total</div>
           <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">

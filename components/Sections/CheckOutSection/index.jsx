@@ -10,7 +10,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 function CheckOutSection() {
   return (
     <div className="container mb-[8.75rem]">
-      <div className="flex gap-3 my-20">
+      <div className="flex gap-3 py-20">
         <div className="text-text-1">Account</div>
         <div className="text-text-1">/</div>
         <div className="text-text-1">My Account</div>

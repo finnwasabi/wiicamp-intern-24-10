@@ -1,18 +1,22 @@
 import React from "react";
+import Link from "next/link";
 
 function TopHeader() {
   return (
     <div className="bg-black text-white">
-      <div className="container relative">
+      <div className="container py-3 relative">
         <div className="flex justify-center">
           <div className="flex flex-col text-center justify-center xl:block">
             <span className="text-sm xl:text-base">
               Summer Sale For All Swim Suits And Free Express Delivery - OFF
               50%!
             </span>
-            <span className="underline px-2 xl:font-semibold cursor-pointer">
+            <Link
+              href="/shopnow"
+              className="underline px-2 xl:font-semibold cursor-pointer"
+            >
               ShopNow
-            </span>
+            </Link>
           </div>
           <div className="flex absolute right-0 mr-3 bottom-0 xl:top1/2 -translate-y-1/2 ">
             <span className="hidden xl:block">English</span>

@@ -59,7 +59,7 @@ module.exports = {
       const components = {
         ".container": {
           maxWidth: "100%",
-          padding: "0.75rem",
+          padding: "0 0.75rem 0",
           "@screen sm": {
             maxWidth: "640px",
           },

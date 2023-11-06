@@ -10,8 +10,8 @@ import s from "./ContactSection.module.scss";
 
 function ContactSection() {
   return (
-    <div className="container my-0">
-      <div className="flex gap-3 my-20 py-0">
+    <div className="container">
+      <div className="flex gap-3 py-20">
         <Link href="/" className="text-text-1">
           Home
         </Link>

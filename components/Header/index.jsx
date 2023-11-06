@@ -105,15 +105,18 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
-          <div className="flex">
-            <div className="hidden relative xl:flex md:flex">
+          <f className="flex">
+            <form className="hidden relative xl:flex md:flex">
               <input
                 className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
                 type="text"
                 placeholder="What are you looking for?"
+                required
               />
-              <Search className="absolute right-3 top-2 cursor-pointer" />
-            </div>
+              <button type="submit">
+                <Search className="absolute right-3 top-2" />
+              </button>
+            </form>
             {show3icons && (
               <div className="flex gap-4 xl:ml-6 items-center">
                 <Link href="/Wishlist">
@@ -136,7 +139,7 @@ function Header({ show3icons }) {
                 </button>
               </div>
             )}
-          </div>
+          </f>
         </div>
         <div ref={dropdownRef}>{isDropdownOpen && <DropdownAccount />}</div>
       </div>

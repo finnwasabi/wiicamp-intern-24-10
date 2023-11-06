@@ -10,7 +10,7 @@ import s from "./MyAccountSection.module.scss";
 function MyAccountSection() {
   return (
     <div className="container mb-[8.75rem]">
-      <div className="flex gap-3 my-20">
+      <div className="flex gap-3 py-20">
         <Link href="/" className="text-text-1">
           Home
         </Link>

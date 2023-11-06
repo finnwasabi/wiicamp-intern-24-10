@@ -16,11 +16,12 @@ function SignUpSection() {
             width={805}
             height={706}
             alt="Picture of the side image"
+            priority
           />
         </div>
         <div className="container grid grid-cols-2 absolute top-1/2 -translate-y-1/2 py-0 right-0 left-0">
           <div className="col-span-1 col-start-2 flex flex-row-reverse">
-            <div className="max-w-[23.125rem]">
+            <form className="max-w-[23.125rem]">
               <div className="text-4xl font-medium leading-[1.875rem] mb-6">
                 Create an account
               </div>
@@ -30,16 +31,19 @@ function SignUpSection() {
                   type="text"
                   placeholder="Name"
                   className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  required
                 />
                 <input
                   type="text"
                   placeholder="Email or Phone Number"
                   className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  required
                 />
                 <input
                   type="password"
                   placeholder="Password"
                   className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  autoComplete="password"
                 />
               </div>
               <div className="w-full mb-8">
@@ -59,7 +63,7 @@ function SignUpSection() {
                   Log in
                 </Link>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

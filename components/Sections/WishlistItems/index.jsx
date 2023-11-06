@@ -60,6 +60,7 @@ function WishlistItems({ id }) {
           width={270}
           height={250}
           alt="Picture of item"
+          priority
         />
         <FillTrash />
       </div>

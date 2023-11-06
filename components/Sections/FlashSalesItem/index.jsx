@@ -105,7 +105,6 @@ function FlashSalesItem({ id }) {
             width={270}
             height={250}
             alt="Picture of item"
-            objectFit="content"
           />
           <FillHeart />
           <div className="absolute flex top-[3.375rem] right-3">

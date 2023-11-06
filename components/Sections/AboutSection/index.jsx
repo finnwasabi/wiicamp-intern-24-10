@@ -11,7 +11,7 @@ import s from "./AboutSection.module.scss";
 function AboutSection() {
   return (
     <div className="container py-0">
-      <div>
+      <div className="mt-20 flex flex-col">
         <div className="flex gap-3 mt-20 mb-[2.625rem] py-0">
           <Link href="/" className="text-text-1">
             Home
@@ -44,7 +44,7 @@ function AboutSection() {
               width={705}
               height={609}
               alt="Picture of the side image"
-              objectFit="content"
+              priority
             />
           </div>
         </div>
@@ -65,6 +65,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
               <div className="hidden group-hover:flex">
@@ -73,6 +74,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
             </div>
@@ -95,6 +97,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
               <div className="hidden group-hover:flex">
@@ -103,6 +106,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
             </div>
@@ -125,6 +129,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
               <div className="hidden group-hover:flex">
@@ -133,6 +138,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
             </div>
@@ -155,6 +161,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
               <div className="hidden group-hover:flex">
@@ -163,6 +170,7 @@ function AboutSection() {
                   alt="Picture of the svg icon"
                   width={80}
                   height={80}
+                  style={{ width: 80, height: 80 }}
                 />
               </div>
             </div>

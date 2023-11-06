@@ -27,7 +27,7 @@ function CartSection() {
     setQuantity(Number(quantity) - 1);
   };
   return (
-    <div className="container mb-[8.75rem]">
+    <div className="container py-0 mb-[8.75rem]">
       <div className="flex gap-3 my-20">
         <div className="text-text-1">Home</div>
         <div className="text-text-1">/</div>

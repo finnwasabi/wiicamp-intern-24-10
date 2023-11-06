@@ -50,6 +50,7 @@ function MyAccountSection() {
                     placeholder="Thai"
                     label="First Name"
                     type="text"
+                    autocomplete=""
                   />
                 </div>
                 <div className="w-[20.625rem]">
@@ -58,6 +59,7 @@ function MyAccountSection() {
                     placeholder="VG"
                     label="Last Name"
                     type="text"
+                    autocomplete=""
                   />
                 </div>
               </div>
@@ -68,6 +70,7 @@ function MyAccountSection() {
                     placeholder="rimel1111@gmail.com"
                     label="Email"
                     type="email"
+                    autocomplete=""
                   />
                 </div>
                 <div className="w-[20.625rem]">
@@ -76,6 +79,7 @@ function MyAccountSection() {
                     placeholder="Kingston, 5236, United State"
                     label="Address"
                     type="text"
+                    autocomplete=""
                   />
                 </div>
               </div>
@@ -85,16 +89,21 @@ function MyAccountSection() {
                   placeholder="Current Passwod"
                   label="Password Changes"
                   type="password"
+                  autocomplete="current-password"
                 />
                 <InputField
                   classNameLabel="mb-2"
                   placeholder="New Password"
+                  label=""
                   type="password"
+                  autocomplete="new-password"
                 />
                 <InputField
                   classNameLabel="mb-2"
                   placeholder="Confirm New Passwod"
+                  label=""
                   type="password"
+                  autocomplete="new-password"
                 />
               </div>
             </div>

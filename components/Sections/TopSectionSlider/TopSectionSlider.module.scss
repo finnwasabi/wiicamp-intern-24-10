@@ -3,5 +3,8 @@
         .swiper-pagination-bullet{
             background-color: white !important;
         }
+        .swiper-pagination-bullet-active{
+            background-image: url('/Pagination.svg') !important;
+        }
     }            
 }

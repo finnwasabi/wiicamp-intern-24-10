@@ -33,6 +33,7 @@ function TopSectionImg({ id }) {
         width={892}
         height={344}
         alt="Picture of the author"
+        priority
       />
     </div>
   );

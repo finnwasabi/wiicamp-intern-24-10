@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import LogInSection from "@/components/Sections/LogInSection";
+import ContactSection from "@/components/Sections/ContactSection";
 import TopHeader from "@/components/TopHeader";
 
-function SignUp() {
+function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -25,14 +25,14 @@ function SignUp() {
     <main>
       <TopHeader />
       <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        <Header show3icons={false} />
+        <Header show3icons />
       </div>
       <div className="mt-[5.9375rem]">
-        <LogInSection />
+        <ContactSection />
         <Footer />
       </div>
     </main>
   );
 }
 
-export default SignUp;
+export default Contact;

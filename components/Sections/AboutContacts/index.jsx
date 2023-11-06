@@ -49,7 +49,8 @@ function AboutContacts({ id }) {
           alt="contacts"
           width={370}
           height={430}
-          objectFit="content"
+          style={{ width: 370, height: 430 }}
+          priority
         />
       </div>
       <div className="text-[2rem] font-semibold mb-2">

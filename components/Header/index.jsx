@@ -75,14 +75,21 @@ function Header({ show3icons }) {
             >
               Home
             </Link>
-            <span className={clsx(s.OnHover, "mr-12 cursor-pointer")}>
+            <Link
+              href="/Contact"
+              className={clsx(
+                !isLinkActive("/Contact") && s.OnHover,
+                isLinkActive("/Contact") && s.ActiveLink,
+                "mr-12",
+              )}
+            >
               Contact
-            </span>
+            </Link>
             <Link
               href="/About"
               className={clsx(
-                !isLinkActive("/about") && s.OnHover,
-                isLinkActive("/about") && s.ActiveLink,
+                !isLinkActive("/About") && s.OnHover,
+                isLinkActive("/About") && s.ActiveLink,
                 "mr-12",
               )}
             >
@@ -98,15 +105,15 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
-          <div className="hidden relative xl:flex md:flex">
-            <input
-              className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
-              type="text"
-              placeholder="What are you looking for?"
-            />
-            <Search className="absolute right-3 top-2 cursor-pointer" />
-          </div>
           <div className="flex">
+            <div className="hidden relative xl:flex md:flex">
+              <input
+                className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
+                type="text"
+                placeholder="What are you looking for?"
+              />
+              <Search className="absolute right-3 top-2 cursor-pointer" />
+            </div>
             {show3icons && (
               <div className="flex gap-4 xl:ml-6 items-center">
                 <Link href="/Wishlist">

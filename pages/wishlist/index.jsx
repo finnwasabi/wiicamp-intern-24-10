@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WishlistSection from "@/components/Sections/WishlistSection";
@@ -29,6 +30,7 @@ function Wishlist() {
       </div>
       <div className="mt-[5.9375rem]">
         <WishlistSection />
+        <FillUpArrow />
         <Footer />
       </div>
     </main>

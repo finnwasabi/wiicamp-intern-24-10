@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import AboutSection from "@/components/Sections/AboutSection";
@@ -29,6 +30,7 @@ function About() {
       </div>
       <div className="mt-[5.9375rem]">
         <AboutSection />
+        <FillUpArrow />
         <Footer />
       </div>
     </main>

@@ -24,8 +24,8 @@ function OurProducts() {
         <div className="col-span-1 relative">
           <div className="flex items-center right-0">
             <div className="absolute hidden md:flex xl:flex right-0">
-              <FillLeftArrow />
-              <FillRightArrow />
+              <FillLeftArrow id="prev" />
+              <FillRightArrow id="next" />
             </div>
           </div>
         </div>

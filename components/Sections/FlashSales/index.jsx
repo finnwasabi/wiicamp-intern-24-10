@@ -7,7 +7,7 @@ import FlashSalesSlider from "@/components/Sections/FlashSalesSlider";
 
 function FlashSales() {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2023-11-05T07:00:00`) - +new Date();
+    const difference = +new Date(`2023-11-12T07:00:00`) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {

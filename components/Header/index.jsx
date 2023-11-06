@@ -1,14 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import {
-  Heart,
-  Menu,
-  Search,
-  ShoppingCart,
-  User,
-  UserCircle,
-} from "lucide-react";
+import { Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
@@ -115,15 +109,20 @@ function Header({ show3icons }) {
           <div className="flex">
             {show3icons && (
               <div className="flex gap-4 xl:ml-6 items-center">
-                <Link href="/wishlist">
+                <Link href="/Wishlist">
                   <Heart size={32} absoluteStrokeWidth />
                 </Link>
-                <Link href="/cart">
+                <Link href="/Cart">
                   <ShoppingCart size={32} absoluteStrokeWidth />
                 </Link>
                 <button onClick={handleUserClick}>
                   {isDropdownOpen ? (
-                    <UserCircle size={32} absoluteStrokeWidth />
+                    <Image
+                      src="/UserCircle.svg"
+                      width={32}
+                      height={32}
+                      alt="user activated"
+                    />
                   ) : (
                     <User size={32} absoluteStrokeWidth />
                   )}
@@ -146,4 +145,5 @@ function Header({ show3icons }) {
 Header.propTypes = {
   show3icons: PropTypes.bool.isRequired,
 };
+
 export default Header;

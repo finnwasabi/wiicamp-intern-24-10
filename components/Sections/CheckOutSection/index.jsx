@@ -11,44 +11,78 @@ function CheckOutSection() {
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
-        <div className="text-text-1">Account</div>
-        <div className="text-text-1">/</div>
-        <div className="text-text-1">My Account</div>
-        <div className="text-text-1">/</div>
-        <div className="text-text-1">Product</div>
-        <div className="text-text-1">/</div>
-        <Link href="/cart" className="text-text-1">
+        <span className="text-text-1 cursor-default">Account</span>
+        <span className="text-text-1 cursor-default">/</span>
+        <Link href="/MyAccount" className="text-text-1">
+          My Account
+        </Link>
+        <span className="text-text-1 cursor-default">/</span>
+        <span className="text-text-1 cursor-default">Product</span>
+        <span className="text-text-1 cursor-default">/</span>
+        <Link href="/Cart" className="text-text-1">
           View Cart
         </Link>
-        <div className="text-text-1">/</div>
-        <div>CheckOut</div>
+        <span className="text-text-1 cursor-default">/</span>
+        <span className="cursor-default">CheckOut</span>
       </div>
       <div className="pb-20 text-4xl leading-[1.875rem] font-semibold">
         Billing Details
       </div>
-      <form className="grid grid-cols-2 justify-between">
-        <div className="grid grid-cols-1 gap-y-8 mb-6 w-[29.375rem]">
-          <InputField label="First Name" classNameLabel="text-text-1 mb-2" />
-          <InputField label="Company Name" classNameLabel="text-text-1 mb-2" />
+      <div className="grid grid-cols-2 justify-between">
+        <form id="info" className="grid grid-cols-1 gap-y-8 mb-6 w-[29.375rem]">
           <InputField
+            placeholder=""
+            type=""
+            autocomplete=""
+            label="First Name"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField
+            placeholder=""
+            type=""
+            autocomplete=""
+            label="Company Name"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField
+            placeholder=""
+            type=""
+            autocomplete=""
             label="Street Address"
             classNameLabel="text-text-1 mb-2"
           />
           <InputField
+            placeholder=""
+            type=""
+            autocomplete=""
             label="Apartment, floor, etc. (optional)"
             classNameLabel="text-text-1 mb-2"
           />
-          <InputField label="Town/City" classNameLabel="text-text-1 mb-2" />
-          <InputField label="Phone Number" classNameLabel="text-text-1 mb-2" />
           <InputField
+            placeholder=""
+            type=""
+            autocomplete=""
+            label="Town/City"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField
+            placeholder=""
+            type="tel"
+            autocomplete=""
+            label="Phone Number"
+            classNameLabel="text-text-1 mb-2"
+          />
+          <InputField
+            placeholder=""
             type="email"
+            autocomplete=""
             label="Email Address"
             classNameLabel="text-text-1 mb-2"
           />
           <div className="flex items-center">
             <CheckBox label="Save this information for faster check-out next time" />
           </div>
-        </div>
+        </form>
         <div className="w-[32.9375rem] ml-auto">
           <div className="grid grid-cols-1 gap-y-8 w-[26.5625rem] mt-8">
             <div className="flex items-center">
@@ -154,10 +188,10 @@ function CheckOutSection() {
             <PrimaryButton type="submit" label="Apply Coupon" />
           </form>
           <div className="w-fit">
-            <PrimaryButton type="submit" label="Place Order" />
+            <PrimaryButton form="info" type="submit" label="Place Order" />
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

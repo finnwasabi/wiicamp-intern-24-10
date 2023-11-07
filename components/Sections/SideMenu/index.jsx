@@ -100,10 +100,10 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             )}
           </div>
           <Link
-            href="/contact"
+            href="/Contact"
             className={clsx(
-              !isLinkActive("/contact") && s.OnHover,
-              isLinkActive("/contact") && s.ActiveLink,
+              !isLinkActive("/Contact") && s.OnHover,
+              isLinkActive("/Contact") && s.ActiveLink,
               "flex items-center",
             )}
           >
@@ -113,10 +113,10 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             Contact
           </Link>
           <Link
-            href="/about"
+            href="/About"
             className={clsx(
-              !isLinkActive("/about") && s.OnHover,
-              isLinkActive("/about") && s.ActiveLink,
+              !isLinkActive("/About") && s.OnHover,
+              isLinkActive("/About") && s.ActiveLink,
               "flex items-center",
             )}
           >

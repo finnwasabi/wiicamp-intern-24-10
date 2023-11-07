@@ -14,11 +14,11 @@ function MyAccountSection() {
         <Link href="/" className="text-text-1">
           Home
         </Link>
-        <div className="text-text-1">/</div>
-        <div className="text-black cursor-default">My Account</div>
-        <div className="ml-auto cursor-default">
+        <span className="text-text-1">/</span>
+        <span className="text-black cursor-default">My Account</span>
+        <span className="ml-auto cursor-default">
           Welcome! <span className="text-secondary-2">ThaiVG</span>
-        </div>
+        </span>
       </div>
       <div className="flex gap-x-[6.25rem]">
         <div className="w-fit">

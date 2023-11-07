@@ -15,10 +15,8 @@ function ContactSection() {
         <Link href="/" className="text-text-1">
           Home
         </Link>
-        <div className="text-text-1">/</div>
-        <Link href="/Contact" className="cursor-default">
-          Contact
-        </Link>
+        <span className="text-text-1">/</span>
+        <span className="cursor-default">Contact</span>
       </div>
       <div className="flex gap-x-[1.875rem] mb-[8.75rem]">
         <div
@@ -64,9 +62,27 @@ function ContactSection() {
         <div className={clsx(s.ShadowBox, "px-10 py-8 w-[50rem]")}>
           <form className="flex flex-col gap-y-8">
             <span className="flex gap-x-4">
-              <InputField label="" placeholder="Your Name" type="text" />
-              <InputField label="" placeholder="Your Email" type="email" />
-              <InputField label="" placeholder="Your Phone" type="tel" />
+              <InputField
+                classNameLabel=""
+                autocomplete=""
+                label=""
+                placeholder="Your Name"
+                type="text"
+              />
+              <InputField
+                classNameLabel=""
+                autocomplete=""
+                label=""
+                placeholder="Your Email"
+                type="email"
+              />
+              <InputField
+                classNameLabel=""
+                autocomplete=""
+                label=""
+                placeholder="Your Phone"
+                type="tel"
+              />
             </span>
             <textarea
               placeholder="Subject"

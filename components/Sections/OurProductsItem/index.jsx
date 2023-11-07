@@ -1,78 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
 import s from "./OurProductsItem.module.scss";
 
-const OurProductsItemsList = [
-  {
-    id: 1,
-    image: "/OurProductsItem/Item1.png",
-    name: "Breed Dry Dog Food",
-    price: "$100",
-    reviews: "35",
-    stars: 3,
-  },
-  {
-    id: 2,
-    image: "/OurProductsItem/Item2.png",
-    name: "CANON EOS DSLR Camera",
-    price: "$360",
-    reviews: "95",
-    stars: 4,
-  },
-  {
-    id: 3,
-    image: "/OurProductsItem/Item3.png",
-    name: "ASUS FHD Gaming Laptop",
-    price: "$700",
-    reviews: "325",
-    stars: 5,
-  },
-  {
-    id: 4,
-    image: "/OurProductsItem/Item4.png",
-    name: "Curology Product Set",
-    price: "$500",
-    reviews: "145",
-    stars: 4,
-  },
-  {
-    id: 5,
-    image: "/OurProductsItem/Item5.png",
-    name: "Kids Electric Car",
-    price: "$960",
-    reviews: "65",
-    stars: 5,
-  },
-  {
-    id: 6,
-    image: "/OurProductsItem/Item6.png",
-    name: "Jr. Zoom Soccer Cleats",
-    price: "$1160",
-    reviews: "35",
-    stars: 5,
-  },
-  {
-    id: 7,
-    image: "/OurProductsItem/Item7.png",
-    name: "GP11 Shooter USB Gamepad",
-    price: "$660",
-    reviews: "55",
-    stars: 4.5,
-  },
-  {
-    id: 8,
-    image: "/OurProductsItem/Item8.png",
-    name: "Quilted Satin Jacket",
-    price: "$660",
-    reviews: "55",
-    stars: 4.5,
-  },
-];
 // Function to generate stars in a row
 const renderStars = (rating) => {
   const starsArray = [];
@@ -111,8 +46,9 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
-// eslint-disable-next-line react/prop-types
-function OurProductsItem({ id }) {
+function OurProductsItem({ product }) {
+  const { image, title, price, rating } = product;
+
   return (
     <div
       className={clsx(
@@ -120,37 +56,43 @@ function OurProductsItem({ id }) {
         "block w-[16.875rem] h-[21.875rem] cursor-pointer",
       )}
     >
-      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
+      <div className="w-[16.875rem] h-[15.625rem] rounded bg-white flex relative overflow-hidden">
         <div className={s.AddToCart}>Add To Cart</div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-          src={OurProductsItemsList[id - 1].image}
+          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[270px] max-h-[250px]"
+          src={image}
           width={270}
           height={250}
           alt="Picture of item"
+          style={{ objectFit: "contain" }}
         />
         <FillHeart />
         <div className="absolute flex top-[3.375rem] right-3 cursor-pointer">
           <FillEye />
         </div>
       </div>
-      <div className="mt-4 font-bold">{OurProductsItemsList[id - 1].name}</div>
-      <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">
-          {OurProductsItemsList[id - 1].price}
-        </div>
-        <div className="text-text-1 line-through">
-          {OurProductsItemsList[id - 1].sale}
-        </div>
-      </div>
-      <div className="mt-2 flex items-baseline">
-        {renderStars(OurProductsItemsList[id - 1].stars)}
-        <div className="font-semibold text-sm text-text-1 ml-2">
-          ({OurProductsItemsList[id - 1].reviews})
-        </div>
+      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
+      <div className="mt-2 font-semibold flex items-center">
+        <span className="text-secondary-2 mr-3">${price}</span>
+        <span className="pb-1">{renderStars(rating.rate)}</span>
+        <span className="font-semibold text-sm text-text-1 ml-2">
+          ({rating.count})
+        </span>
       </div>
     </div>
   );
 }
+
+OurProductsItem.propTypes = {
+  product: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default OurProductsItem;

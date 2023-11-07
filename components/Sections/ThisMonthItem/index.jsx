@@ -1,50 +1,12 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
 import s from "./ThisMonthItem.module.scss";
-
-const ThisMonthItemsList = [
-  {
-    id: 1,
-    image: "/ThisMonthItem/Item1.png",
-    name: "The north coat",
-    price: "$260",
-    sale: "$360",
-    reviews: "65",
-    stars: 5,
-  },
-  {
-    id: 2,
-    image: "/ThisMonthItem/Item2.png",
-    name: "Gucci duffle bag",
-    price: "$960",
-    sale: "$1160",
-    reviews: "65",
-    stars: 4.5,
-  },
-  {
-    id: 3,
-    image: "/ThisMonthItem/Item3.png",
-    name: "RGB liquid CPU Cooler",
-    price: "$160",
-    sale: "$170",
-    reviews: "65",
-    stars: 4.5,
-  },
-  {
-    id: 4,
-    image: "/ThisMonthItem/Item4.png",
-    name: "Small BookSelf",
-    price: "$360",
-    sale: " ",
-    reviews: "65",
-    stars: 5,
-  },
-];
 
 // Function to generate stars in a row
 const renderStars = (rating) => {
@@ -84,47 +46,61 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
-// eslint-disable-next-line react/prop-types
-function ThisMonthItem({ id }) {
+const discountPercentage = Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+
+function ThisMonthItem({ product }) {
+  const { image, title, price, rating } = product;
+  const salePrice = price - (price * discountPercentage) / 100;
+
   return (
-    // eslint-disable-next-line react/button-has-type
     <div
       className={clsx(
         s.SaleItem,
         "block w-[16.875rem] h-[21.875rem] cursor-pointer",
       )}
     >
-      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
+      <div className="w-[16.875rem] h-[15.625rem] rounded bg-white flex relative overflow-hidden">
         <div className={s.AddToCart}>Add To Cart</div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-          src={ThisMonthItemsList[id - 1].image}
+          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[270px] max-h-[250px]"
+          src={image}
           width={270}
           height={250}
           alt="Picture of item"
+          style={{ objectFit: "contain" }}
         />
         <FillHeart />
         <div className="absolute flex top-[3.375rem] right-3 cursor-pointer">
           <FillEye />
         </div>
       </div>
-      <div className="mt-4 font-bold">{ThisMonthItemsList[id - 1].name}</div>
+      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
       <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">
-          {ThisMonthItemsList[id - 1].price}
-        </div>
+        <div className="text-secondary-2 mr-3">${price}</div>
         <div className="text-text-1 line-through">
-          {ThisMonthItemsList[id - 1].sale}
+          {`$${salePrice.toFixed(2)}`}
         </div>
       </div>
       <div className="mt-2 flex items-baseline">
-        {renderStars(ThisMonthItemsList[id - 1].stars)}
+        {renderStars(rating.rate)}
         <div className="font-semibold text-sm text-text-1 ml-2">
-          ({ThisMonthItemsList[id - 1].reviews})
+          ({rating.count})
         </div>
       </div>
     </div>
   );
 }
+
+ThisMonthItem.propTypes = {
+  product: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default ThisMonthItem;

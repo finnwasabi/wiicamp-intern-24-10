@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,6 +10,20 @@ import FlashSalesItem from "../FlashSalesItem";
 import "swiper/css";
 
 function FlashSalesItems() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        setProducts(response.data);
+      } catch (error) {
+        console.log(("Error fetching data from API", error));
+      }
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <div className="container py-0 mt-10 ml-[calc(100vw/8)] xl:ml-auto md:ml-auto sm:ml-auto">
       <Swiper
@@ -27,33 +42,11 @@ function FlashSalesItems() {
         modules={[Navigation]}
         className="mySwiper xl:!overflow-visible"
       >
-        <SwiperSlide>
-          <FlashSalesItem id={1} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={2} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={3} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={4} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={4} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={3} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={2} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={1} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FlashSalesItem id={3} />
-        </SwiperSlide>
+        {products.map((product) => (
+          <SwiperSlide key={product.id}>
+            <FlashSalesItem product={product} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

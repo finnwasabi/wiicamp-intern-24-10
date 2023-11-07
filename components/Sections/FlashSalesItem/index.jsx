@@ -1,55 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
 import s from "./FlashSalesItem.module.scss";
-
-const FlashSalesItemsList = [
-  {
-    id: 1,
-    image: "/FlashSalesItem/Item1.png",
-    name: "HAVIT HV-G92 Gamepad",
-    percent: "-40%",
-    price: "$160",
-    sale: "$120",
-    reviews: "88",
-    stars: 5,
-  },
-  {
-    id: 2,
-    image: "/FlashSalesItem/Item2.png",
-    name: "AK-900 Wired Keyboard",
-    percent: "-35%",
-    price: "$1160",
-    sale: "$960",
-    reviews: "75",
-    stars: 4,
-  },
-  {
-    id: 3,
-    image: "/FlashSalesItem/Item3.png",
-    name: "IPS LCD Gaming Monitor",
-    percent: "-30%",
-    price: "$400",
-    sale: "$370",
-    reviews: "99",
-    stars: 5,
-  },
-  {
-    id: 4,
-    image: "/FlashSalesItem/Item4.png",
-    name: "S-Series Comfort Chair",
-    percent: "-25%",
-    price: "$400",
-    sale: "$375",
-    reviews: "99",
-    stars: 4.5,
-  },
-];
 
 // Function to generate stars in a row
 const renderStars = (rating) => {
@@ -87,8 +45,13 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
+const discountPercentage = Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+
 // eslint-disable-next-line react/prop-types
-function FlashSalesItem({ id }) {
+function FlashSalesItem({ product }) {
+  const { image, title, price, rating } = product;
+  const salePrice = price - (price * discountPercentage) / 100;
+
   return (
     <div
       className={clsx(
@@ -96,42 +59,47 @@ function FlashSalesItem({ id }) {
         "overflow-hidden block w-[16.875rem] h-[21.875rem] cursor-pointer",
       )}
     >
-      <div className="max-w-[16.875rem] max-h-[15.625rem] rounded bg-secondary-0 flex overflow-hidden">
-        <div className="relative">
-          <div className={s.AddToCart}>Add To Cart</div>
+      <div className="relative max-w-[16.875rem] rounded bg-secondary-0 flex overflow-hidden">
+        <div className={s.AddToCart}>Add To Cart</div>
+        <div className="flex justify-center items-center w-[16.875rem] h-[15.625rem] bg-white">
           <Image
-            className=""
-            src={FlashSalesItemsList[id - 1].image}
+            className="max-w-[270px] max-h-[250px]"
+            src={image}
             width={270}
             height={250}
             alt="Picture of item"
+            style={{ objectFit: "contain", width: "100%", height: "100%" }}
           />
           <FillHeart />
           <div className="absolute flex top-[3.375rem] right-3">
             <FillEye />
           </div>
         </div>
-        <DiscountPercent label={FlashSalesItemsList[id - 1].percent} />
+        <DiscountPercent label={`${discountPercentage}%`} />
       </div>
-      <div className="mt-4 font-bold">{FlashSalesItemsList[id - 1].name}</div>
+      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
       <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">
-          {FlashSalesItemsList[id - 1].price}
-        </div>
+        <div className="text-secondary-2 mr-3">${price}</div>
         <div className="text-text-1 line-through">
-          {FlashSalesItemsList[id - 1].sale}
+          {`$${salePrice.toFixed(2)}`}
         </div>
       </div>
       <div className="mt-2 flex items-baseline">
-        <div className="mr-2">
-          {renderStars(FlashSalesItemsList[id - 1].stars)}
-        </div>
-        <div className="font-semibold text-sm text-text-1">
-          ({FlashSalesItemsList[id - 1].reviews})
-        </div>
+        <div className="mr-2">{renderStars(rating.rate)}</div>
+        <div className="font-semibold text-sm text-text-1">{`(${rating.count})`}</div>
       </div>
     </div>
   );
 }
-
+FlashSalesItem.propTypes = {
+  product: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
 export default FlashSalesItem;

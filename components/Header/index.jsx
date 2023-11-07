@@ -119,22 +119,47 @@ function Header({ show3icons }) {
             </form>
             {show3icons && (
               <div className="flex gap-4 xl:ml-6 items-center">
-                <Link href="/Wishlist">
-                  <Heart size={32} absoluteStrokeWidth />
+                <Link
+                  href="/Wishlist"
+                  className={clsx(
+                    s.ThreeBoxes,
+                    isLinkActive("/Wishlist") && s.ThreeBoxesFocus,
+                  )}
+                >
+                  <Heart
+                    size={32}
+                    absoluteStrokeWidth
+                    className={s.ThreeIcons}
+                  />
                 </Link>
-                <Link href="/Cart">
-                  <ShoppingCart size={32} absoluteStrokeWidth />
+                <Link
+                  href="/Cart"
+                  className={clsx(
+                    s.ThreeBoxes,
+                    isLinkActive("/Cart") && s.ThreeBoxesFocus,
+                  )}
+                >
+                  <ShoppingCart
+                    size={32}
+                    absoluteStrokeWidth
+                    className={s.ThreeIcons}
+                  />
                 </Link>
-                <button onClick={handleUserClick}>
+                <button onClick={handleUserClick} className={s.ThreeBoxes}>
                   {isDropdownOpen ? (
                     <Image
                       src="/UserCircle.svg"
                       width={32}
                       height={32}
                       alt="user activated"
+                      className="shadow-lg rounded-full"
                     />
                   ) : (
-                    <User size={32} absoluteStrokeWidth />
+                    <User
+                      size={32}
+                      absoluteStrokeWidth
+                      className={s.ThreeIcons}
+                    />
                   )}
                 </button>
               </div>

@@ -29,9 +29,11 @@ function CartSection() {
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
-        <div className="text-text-1">Home</div>
-        <div className="text-text-1">/</div>
-        <div>Cart</div>
+        <Link href="/" className="text-text-1">
+          Home
+        </Link>
+        <span className="text-text-1">/</span>
+        <span className="cursor-default">Cart</span>
       </div>
       <div className="mb-20">
         <div className="grid gap-y-10 mb-6">

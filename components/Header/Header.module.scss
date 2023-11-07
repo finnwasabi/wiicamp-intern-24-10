@@ -7,3 +7,27 @@
     border-color: rgb(0 0 0 / var(--tw-border-opacity));
     --tw-border-opacity: 0.3;
 }
+
+.ThreeIcons{
+    padding: 4px;
+}
+
+.ThreeBoxes:hover{
+    border-radius: 100px;
+    box-shadow: 0px 2px 10px 2px #00000033;
+    transition: all 0.2s ease-in-out;
+}
+
+.ThreeBoxes:active{
+    border-radius: 100px;
+    background-color: #f8f8f8;
+    box-shadow: 0px 4px 12px 4px #00000033;
+    transition: all 0.2s ease-in-out;
+}
+
+.ThreeBoxesFocus{
+    border-radius: 100px;
+    background-color: #DB4444;
+    box-shadow: 0px 4px 12px 4px #00000033;
+    color: white;
+}

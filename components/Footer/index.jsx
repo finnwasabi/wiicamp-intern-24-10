@@ -51,8 +51,12 @@ function Footer() {
           <li className="mb-4">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
           </li>
-          <li className="mb-4">exclusive@gmail.com</li>
-          <li className="mb-4">+88015-88888-9999</li>
+          <li className="mb-4">
+            <a href="mailto:exclusive@gmail.com">exclusive@gmail.com</a>
+          </li>
+          <li className="mb-4">
+            <a href="tel:+88015-88888-9999">+88015-88888-9999</a>
+          </li>
         </ul>
         <ul
           className={clsx(

@@ -31,3 +31,9 @@
         transform: translateY(0);
     }
 }
+.Title{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

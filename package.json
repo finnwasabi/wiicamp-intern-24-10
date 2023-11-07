@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.6.0",
     "clsx": "^2.0.0",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.291.0",
     "next": "13.5.6",
     "react": "^18",

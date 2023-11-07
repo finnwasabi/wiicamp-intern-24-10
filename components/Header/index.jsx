@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import clsx from "clsx";
 import { Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
 import Image from "next/image";
@@ -49,6 +50,69 @@ function Header({ show3icons }) {
   }, []);
 
   const isLinkActive = (href) => router.pathname === href;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  // const debouncedSearch = useRef(
+  //   debounce(async (term) => {
+  //     if (term) {
+  //       try {
+  //         const response = await axios.get(
+  //           `https://fakestoreapi.com/products?title=${term}`,
+  //         );
+  //         setSearchResults(response.data);
+  //       } catch (error) {
+  //         console.error("Error fetching search results: ", error);
+  //       }
+  //     } else {
+  //       setSearchResults([]);
+  //     }
+  //   }, 1000),
+  // ).current;
+
+  const handleChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+    // debouncedSearch(term);
+  };
+
+  useEffect(() => {
+    const getSearchResults = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        if (searchTerm) {
+          const filteredResults = response.data.filter((product) =>
+            product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+          );
+          setSearchResults(filteredResults);
+        } else {
+          setSearchResults([]);
+        }
+      } catch (error) {
+        // console.error("Error fetching search results: ", error);
+      }
+    };
+
+    const timeoutId = setTimeout(() => {
+      if (searchTerm) {
+        getSearchResults();
+      } else {
+        setSearchResults([]);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm]);
+
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const handleSearchBarFocus = () => {
+    setIsSearchBarFocused(true);
+  };
+
+  const handleSearchBarBlur = () => {
+    setIsSearchBarFocused(false);
+  };
 
   return (
     <div className="fixed bg-white z-50 w-full pb-4 border-b border-black border-opacity-30">
@@ -105,18 +169,42 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
-          <f className="flex">
-            <form className="hidden relative xl:flex md:flex">
-              <input
-                className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
-                type="text"
-                placeholder="What are you looking for?"
-                required
-              />
-              <button type="submit">
-                <Search className="absolute right-3 top-2" />
-              </button>
-            </form>
+          <form className="hidden relative xl:flex md:flex">
+            <input
+              className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
+              type="text"
+              placeholder="What are you looking for?"
+              value={searchTerm}
+              onChange={handleChange}
+              onFocus={handleSearchBarFocus}
+              onBlur={handleSearchBarBlur}
+              required
+            />
+            <button type="submit">
+              <Search className="absolute right-3 top-2" />
+            </button>
+            {isSearchBarFocused && searchResults.length > 0 && (
+              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border">
+                {searchResults.map((product) => (
+                  <span
+                    className="px-4 py-2 cursor-pointer border-b hover:font-semibold hover:italic"
+                    key={product.id}
+                  >
+                    {product.title}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {isSearchBarFocused && searchResults.length === 0 && (
+              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border w-full">
+                <span className="px-4 py-2 cursor-default opacity-30 text-center">
+                  No results
+                </span>
+              </div>
+            )}
+          </form>
+          <div className="flex">
             {show3icons && (
               <div className="flex gap-4 xl:ml-6 items-center">
                 <Link
@@ -164,7 +252,7 @@ function Header({ show3icons }) {
                 </button>
               </div>
             )}
-          </f>
+          </div>
         </div>
         <div ref={dropdownRef}>{isDropdownOpen && <DropdownAccount />}</div>
       </div>
@@ -173,7 +261,7 @@ function Header({ show3icons }) {
           isSideMenuOpen={isSideMenuOpen}
           closeSideMenu={closeSideMenu}
         />
-      )}{" "}
+      )}
     </div>
   );
 }

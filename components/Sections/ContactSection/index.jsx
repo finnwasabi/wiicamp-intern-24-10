@@ -18,11 +18,11 @@ function ContactSection() {
         <span className="text-text-1">/</span>
         <span className="cursor-default">Contact</span>
       </div>
-      <div className="flex gap-x-[1.875rem] mb-[8.75rem]">
+      <div className="flex flex-col lg:flex-row gap-y-[1.875rem] lg:gap-x-[1.875rem] mb-[8.75rem]">
         <div
           className={clsx(
             s.ShadowBox,
-            "px-[2.1875rem] py-10 w-[21.25rem] round",
+            "px-[2.1875rem] py-10 w-full lg:w-[21.25rem] round",
           )}
         >
           <div className="flex flex-col pb-8 border-b">
@@ -59,9 +59,9 @@ function ContactSection() {
             <span className="text-sm">Emails: customer@exclusive.com</span>
           </div>
         </div>
-        <div className={clsx(s.ShadowBox, "px-10 py-8 w-[50rem]")}>
+        <div className={clsx(s.ShadowBox, "px-10 py-8 w-full lg:w-[50rem]")}>
           <form className="flex flex-col gap-y-8">
-            <span className="flex gap-x-4">
+            <span className="flex lg:flex-row flex-col lg:gap-x-4 gap-y-4">
               <InputField
                 classNameLabel=""
                 autocomplete=""

@@ -20,8 +20,8 @@ function MyAccountSection() {
           Welcome! <span className="text-secondary-2">ThaiVG</span>
         </span>
       </div>
-      <div className="flex gap-x-[6.25rem]">
-        <div className="w-fit">
+      <div className="flex gap-x-[6.25rem] justify-center">
+        <div className="hidden lg:block w-fit">
           <div className="py-4 font-semibold">Manage My Account</div>
           <div className="flex flex-col gap-y-2 ml-[2.1875rem] text-text-1">
             <span className={clsx(s.Active, "cursor-pointer")}>My Profile</span>
@@ -37,14 +37,14 @@ function MyAccountSection() {
             <Link href="/wishlist">My WishList</Link>
           </div>
         </div>
-        <div className={clsx(s.Shadow, "rounded")}>
-          <form className="py-10 px-20">
+        <div className={clsx(s.Shadow, "rounded w-full")}>
+          <form className="py-5 lg:py-10 px-5 lg:px-20">
             <div className="text-secondary-2 font-semibold text-xl pb-4">
               Edit Your Profile
             </div>
             <div className="flex flex-col gap-y-6 mb-6">
-              <div className="flex gap-x-[3.125rem]">
-                <div className="w-[20.625rem]">
+              <div className="flex lg:gap-x-[3.125rem] flex-col lg:flex-row gap-y-2 lg:gap-y-0">
+                <div className="lg:w-[20.625rem]">
                   <InputField
                     classNameLabel="mb-2"
                     placeholder="Thai"
@@ -53,7 +53,7 @@ function MyAccountSection() {
                     autocomplete=""
                   />
                 </div>
-                <div className="w-[20.625rem]">
+                <div className="lg:w-[20.625rem]">
                   <InputField
                     classNameLabel="mb-2"
                     placeholder="VG"
@@ -63,8 +63,8 @@ function MyAccountSection() {
                   />
                 </div>
               </div>
-              <div className="flex gap-x-[3.125rem]">
-                <div className="w-[20.625rem]">
+              <div className="flex lg:gap-x-[3.125rem] flex-col lg:flex-row gap-y-2 lg:gap-y-0">
+                <div className="lg:w-[20.625rem]">
                   <InputField
                     classNameLabel="mb-2"
                     placeholder="rimel1111@gmail.com"
@@ -73,7 +73,7 @@ function MyAccountSection() {
                     autocomplete=""
                   />
                 </div>
-                <div className="w-[20.625rem]">
+                <div className="lg:w-[20.625rem]">
                   <InputField
                     classNameLabel="mb-2"
                     placeholder="Kingston, 5236, United State"
@@ -111,7 +111,12 @@ function MyAccountSection() {
               <Link href="/" type="button">
                 Cancel
               </Link>
-              <PrimaryButton type="submit" label="Save Changes" />
+              <span className="hidden md:block">
+                <PrimaryButton type="submit" label="Save Changes" />
+              </span>
+              <span className="md:hidden">
+                <PrimaryButton type="submit" label="Save" />
+              </span>
             </div>
           </form>
         </div>

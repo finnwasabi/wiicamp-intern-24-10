@@ -6,8 +6,8 @@ import PrimaryButton from "../../Buttons/PrimaryButton";
 function LogInSection() {
   return (
     <div className="relative">
-      <div className="mt-[3.75rem] mb-[8.75rem]">
-        <div className="w-[calc(805/1440*100vw)]">
+      <div className="pt-[3.75rem] lg:pt-0 lg:mt-[3.75rem] mb-[8.75rem]">
+        <div className="hidden lg:block w-[calc(805/1440*100vw)]">
           <Image
             className="left-0 w-full h-full"
             src="/SideImage/SideImage.png"
@@ -17,8 +17,8 @@ function LogInSection() {
             priority
           />
         </div>
-        <div className="container grid grid-cols-2 absolute top-1/2 -translate-y-1/2 py-0 right-0 left-0">
-          <div className="col-span-1 col-start-2 flex flex-row-reverse">
+        <div className="container justify-center grid lg:grid-cols-2 lg:absolute lg:top-1/2 lg:-translate-y-1/2 py-0 lg:right-0 lg:left-0">
+          <div className="lg:col-span-1 lg:col-start-2 flex lg:flex-row-reverse">
             <form className="max-w-[23.125rem]">
               <div className="text-4xl font-medium leading-[1.875rem] mb-6">
                 Log in to Exclusive

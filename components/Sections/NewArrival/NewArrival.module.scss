@@ -4,7 +4,9 @@
         transition: all 0.2s ease-in-out;
     }
     .Text{
-        transform: translate(2%, -20%),;       
-        transition: all 0.2s ease-in-out;
+        @media (min-width: 1024px) {
+            transform: translate(2%, -20%),;       
+            transition: all 0.2s ease-in-out;
+        }
     }
 }

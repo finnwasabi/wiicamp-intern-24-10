@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import clsx from "clsx";
 import {
   ChevronDown,
@@ -40,6 +41,51 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+  };
+
+  useEffect(() => {
+    const getSearchResults = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        if (searchTerm) {
+          const filteredResults = response.data.filter((product) =>
+            product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+          );
+          setSearchResults(filteredResults);
+        } else {
+          setSearchResults([]);
+        }
+      } catch (error) {
+        // console.error("Error fetching search results: ", error);
+      }
+    };
+
+    const timeoutId = setTimeout(() => {
+      if (searchTerm) {
+        getSearchResults();
+      } else {
+        setSearchResults([]);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm]);
+
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const handleSearchBarFocus = () => {
+    setIsSearchBarFocused(true);
+  };
+
+  const handleSearchBarBlur = () => {
+    setIsSearchBarFocused(false);
+  };
+
   return (
     <div className={s.sideMenuContainer}>
       <div
@@ -57,8 +103,32 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 w-full bg-secondary-0 rounded"
               type="text"
               placeholder="What are you looking for?"
+              value={searchTerm}
+              onChange={handleChange}
+              onFocus={handleSearchBarFocus}
+              onBlur={handleSearchBarBlur}
             />
             <Search className="absolute right-3 top-2 cursor-pointer" />
+            {isSearchBarFocused && searchResults.length > 0 && (
+              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border">
+                {searchResults.map((product) => (
+                  <span
+                    className="px-4 py-2 cursor-pointer border-b hover:font-semibold hover:italic"
+                    key={product.id}
+                  >
+                    {product.title}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {isSearchBarFocused && searchResults.length === 0 && (
+              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border w-full">
+                <span className="px-4 py-2 cursor-default opacity-30 text-center">
+                  No results
+                </span>
+              </div>
+            )}
           </div>
           <Link
             href="/"

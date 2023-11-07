@@ -12,7 +12,7 @@ function AboutSlider() {
   return (
     <div className="py-0 mt-10">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={30}
         autoplay={{
           delay: 2500,
@@ -22,8 +22,14 @@ function AboutSlider() {
           clickable: true,
           el: "#hello",
         }}
+        breakpoints={{
+          640: { slidesPerView: 1, spaceBetween: 30 },
+          768: { slidesPerView: 2, spaceBetween: 30 },
+          1024: { slidesPerView: 2, spaceBetween: 30 },
+          1170: { slidesPerView: 3, spaceBetween: 30 },
+        }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper"
+        className="mySwiper max-w-[370px] md:max-w-[770px] xl:max-w-full"
       >
         <SwiperSlide>
           <AboutContacts id={1} />

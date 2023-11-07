@@ -21,16 +21,19 @@ function NewArrival() {
           New Arrival
         </div>
       </div>
-      <div className="justify-between container grid grid-cols-1 lg:grid-cols-2 lg:gap-5 xl:grid-cols-2 xl:gap-5 gap-2 py-0 relative">
-        <div className="md:flex md:justify-center">
+      <div className="container justify-between grid grid-cols-1 lg:grid-cols-2 lg:gap-5 xl:grid-cols-2 xl:gap-5 gap-2 py-0 relative">
+        <div className="md:flex md:justify-center xl:mr-auto">
           <div
             className={clsx(
               s.Item,
-              "col-span-1 relative cursor-pointer md:flex w-full",
+              "col-span-1 relative cursor-pointer md:flex w-full xl:max-h-[37.5rem] xl:max-w-[35.625rem]",
             )}
           >
             <Image
-              className={clsx(s.Image, "rounded sm:w-full")}
+              className={clsx(
+                s.Image,
+                "rounded w-full xl:max-w-[35.625rem] xl:max-h-[37.5rem]",
+              )}
               src="/NewArrival/NewArrival1.png"
               width={570}
               height={600}
@@ -52,17 +55,20 @@ function NewArrival() {
             </div>
           </div>
         </div>
-        <div className="md:flex md:justify-center">
+        <div className="md:flex md:justify-center xl:max-w-[35.625rem] xl:ml-auto">
           <div className="col-span-2 xl:col-span-1 relative w-full">
-            <div className="xl:grid xl:grid-cols-1 xl:grid-rows-2 xl:gap-y-[1.875rem]">
+            <div className="xl:grid xl:grid-cols-1 xl:grid-rows-2 xl:h-[37.5rem]">
               <div
                 className={clsx(
                   s.Item,
-                  "cursor-pointer xl:row-span-1 rounded mb-2 xl:mb-0",
+                  "cursor-pointer xl:row-span-1 rounded mb-2 lg:mb-5 xl:mb-0 xl:max-h-[17.75rem] xl:max-w-[35.625rem] xl:ml-auto",
                 )}
               >
                 <Image
-                  className={(clsx(s.Image), " w-full")}
+                  className={clsx(
+                    s.Image,
+                    "w-full xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
+                  )}
                   src="/NewArrival/NewArrival2.png"
                   width={600}
                   height={284}
@@ -71,7 +77,7 @@ function NewArrival() {
                 <div
                   className={clsx(
                     s.Text,
-                    "absolute top-5 lg:top-[7.4375rem] xl:top-[7.4375rem] left-4 xl:left-6 text-white w-[15.125rem]",
+                    "absolute top-6 sm:top-[8.75rem] md:top-[13.125rem] lg:top-[5rem] xl:top-[7.4375rem] left-4 xl:left-6 text-white w-[15.125rem]",
                   )}
                 >
                   <div className="text-2xl leading-6 mb-4 font-semibold">
@@ -83,13 +89,19 @@ function NewArrival() {
                   <div className="font-medium underline">Shop Now</div>
                 </div>
               </div>
-              <div className="xl:row-span-1">
-                <div className="flex justify-between xl:grid-col-2 cursor-pointer">
+              <div className="xl:row-span-1 xl:w-[35.625rem] xl:ml-auto xl:h-[17.75rem] xl:mt-auto">
+                <div className="flex xl:justify-between gap-x-2 xl:gap-x-0 xl:grid-col-2 cursor-pointer]">
                   <div
-                    className={clsx(s.Item, "relative cursor-pointer rounded")}
+                    className={clsx(
+                      s.Item,
+                      "relative cursor-pointer rounded w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                    )}
                   >
                     <Image
-                      className={clsx(s.Image)}
+                      className={clsx(
+                        s.Image,
+                        "w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                      )}
                       src="/NewArrival/NewArrival3.png"
                       width={270}
                       height={284}
@@ -98,7 +110,7 @@ function NewArrival() {
                     <div
                       className={clsx(
                         s.Text,
-                        "absolute bottom-4 xl:bottom-6 left-4 xl:left-6 text-white w-[15.125rem]",
+                        "absolute bottom-4 xl:bottom-6 left-4 xl:left-6 text-white w-full text-ellipsis overflow-hidden",
                       )}
                     >
                       <div className="text-2xl leading-6 mb-2 font-semibold">
@@ -111,10 +123,16 @@ function NewArrival() {
                     </div>
                   </div>
                   <div
-                    className={clsx(s.Item, "relative cursor-pointer rounded")}
+                    className={clsx(
+                      s.Item,
+                      "relative cursor-pointer rounded w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                    )}
                   >
                     <Image
-                      className={clsx(s.Image)}
+                      className={clsx(
+                        s.Image,
+                        "w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                      )}
                       src="/NewArrival/NewArrival4.png"
                       width={270}
                       height={284}

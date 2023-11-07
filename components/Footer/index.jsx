@@ -93,32 +93,31 @@ function Footer() {
         </ul>
         <ul className="md:col-span-2 sm:col-span-2 max-w-[12.375rem] flex flex-col items-center xl:block ml-auto mr-auto">
           <li className="text-xl mb-6 cols cursor-default">Download App</li>
-          <li className="mb-2 text-xs font-medium text-text-1">
+          <li className="mb-[0.625rem] text-xs font-medium text-text-1">
             Save $3 with App New User Only
           </li>
-          <div className="grid grid-cols-2 mb-6">
+          <div className="flex items-center gap-x-2 mb-6">
             <Image
+              className="max-h-[5rem]"
               src="/Footer/QRcode.png"
               width={80}
               height={80}
               alt="Picture of the downloads"
             />
-            <div>
+            <div className="flex flex-col gap-y-1">
               <Image
-                className="py-[0.1875rem] px-[0.1875rem] cursor-pointer"
+                className="cursor-pointer min-w-[110px]"
                 src="/Footer/GooglePlay.png"
-                width={104}
-                height={34}
+                width={110}
+                height={40}
                 alt="Picture of the downloads"
-                style={{ width: 104, height: 34 }}
               />
               <Image
-                className="py-[0.1875rem] px-[0.1875rem] cursor-pointer"
+                className="cursor-pointer min-w-[110px]"
                 src="/Footer/AppStore.png"
-                width={104}
-                height={34}
+                width={110}
+                height={40}
                 alt="Picture of the downloads"
-                style={{ width: 104, height: 34 }}
               />
             </div>
           </div>

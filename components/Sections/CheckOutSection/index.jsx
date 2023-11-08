@@ -22,7 +22,7 @@ function CheckOutSection() {
         <span className="hidden cursor-default text-text-1 lg:flex ">
           Product
         </span>
-        <span className="cursor-default text-text-1">...</span>
+        <span className="cursor-default text-text-1 lg:hidden">...</span>
         <span className="cursor-default text-text-1">/</span>
         <Link href="/Cart" className="text-text-1">
           View Cart

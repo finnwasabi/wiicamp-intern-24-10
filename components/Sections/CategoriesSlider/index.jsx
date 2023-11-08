@@ -20,9 +20,9 @@ function CategoriesSlider() {
         }}
         breakpoints={{
           640: { slidesPerView: 3, spaceBetween: 50 },
-          768: { slidesPerView: 3.75, spaceBetween: 30 },
+          768: { slidesPerView: 4, spaceBetween: 20 },
           1024: { slidesPerView: 5, spaceBetween: 30 },
-          1170: { slidesPerView: 6, spaceBetween: 30 },
+          1280: { slidesPerView: 6, spaceBetween: 30 },
         }}
         modules={[Navigation]}
         className="mySwiper"

@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useRef, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import clsx from "clsx";
 import { Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
@@ -53,33 +54,17 @@ function Header({ show3icons }) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  // const debouncedSearch = useRef(
-  //   debounce(async (term) => {
-  //     if (term) {
-  //       try {
-  //         const response = await axios.get(
-  //           `https://fakestoreapi.com/products?title=${term}`,
-  //         );
-  //         setSearchResults(response.data);
-  //       } catch (error) {
-  //         console.error("Error fetching search results: ", error);
-  //       }
-  //     } else {
-  //       setSearchResults([]);
-  //     }
-  //   }, 1000),
-  // ).current;
+  const [isLoading, setIsLoading] = useState(false); // Add a state for loading
 
   const handleChange = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
-    // debouncedSearch(term);
   };
 
   useEffect(() => {
     const getSearchResults = async () => {
       try {
+        setIsLoading(true); // Set loading to true when fetching results
         const response = await axios.get("https://fakestoreapi.com/products");
         if (searchTerm) {
           const filteredResults = response.data.filter((product) =>
@@ -91,6 +76,8 @@ function Header({ show3icons }) {
         }
       } catch (error) {
         // console.error("Error fetching search results: ", error);
+      } finally {
+        setIsLoading(false); // Set loading to false when search is complete
       }
     };
 
@@ -195,7 +182,12 @@ function Header({ show3icons }) {
                 ))}
               </div>
             )}
-
+            {isLoading && (
+              <div className="absolute right-3 top-2">
+                {/* Show the loading animation */}
+                <CircularProgress size={20} />
+              </div>
+            )}
             {isSearchBarFocused && searchResults.length === 0 && (
               <div className="absolute top-10 mt-2 flex w-full flex-col rounded border bg-white shadow">
                 <span className="cursor-default px-4 py-2 text-center opacity-30">

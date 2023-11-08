@@ -53,7 +53,7 @@ function OurProductsItem({ product }) {
   return (
     <Link
       href="/occho"
-      className={clsx(s.SaleItem, "block h-[21.875rem] w-[16.875rem]")}
+      className={clsx(s.SaleItem, "block h-fit w-[16.875rem]")}
     >
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
         <button type="button" className={s.AddToCart}>

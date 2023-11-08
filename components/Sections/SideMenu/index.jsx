@@ -157,15 +157,15 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             </button>
             {isDropdownOpen && (
               <ul className="ml-6 mt-4 flex flex-col gap-y-4">
-                <li>Woman&apos;s Fashion</li>
-                <li>Men&apos;s Fashion</li>
-                <li>Electronics</li>
-                <li>Home & Lifestyle</li>
-                <li>Medicine</li>
-                <li>Sports & Outdoor</li>
-                <li>Baby&apos;s & Toys</li>
-                <li>Groceries & Pets</li>
-                <li>Health & Beauty</li>
+                <Link href="/occho">Woman&apos;s Fashion</Link>
+                <Link href="/occho">Men&apos;s Fashion</Link>
+                <Link href="/occho">Electronics</Link>
+                <Link href="/occho">Home & Lifestyle</Link>
+                <Link href="/occho">Medicine</Link>
+                <Link href="/occho">Sports & Outdoor</Link>
+                <Link href="/occho">Baby&apos;s & Toys</Link>
+                <Link href="/occho">Groceries & Pets</Link>
+                <Link href="/occho">Health & Beauty</Link>
               </ul>
             )}
           </div>

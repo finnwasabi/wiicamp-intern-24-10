@@ -1,38 +1,51 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+/* eslint-disable react/prop-types */
+import React from "react";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import OurProductsItem from "../OurProductsItem";
 
-function OurProductsList() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://fakestoreapi.com/products?limit=4",
-        );
-        setProducts(response.data);
-      } catch (error) {
-        // console.log("Error fetching products: ", error);
-      }
-    };
-    fetchProducts();
-  }, []);
+function OurProductsList({ products }) {
+  const generateSlides = (items) => {
+    const slides = [];
+    const totalProducts = items.length;
+    let startIndex = 0;
+    while (startIndex < totalProducts) {
+      const endIndex = Math.min(startIndex + 8, totalProducts);
+      const slideProducts = items.slice(startIndex, endIndex);
+      slides.push(
+        <SwiperSlide key={`slide-${startIndex}`}>
+          <div className="container grid w-full grid-cols-1 flex-row place-items-center justify-between gap-x-[1.875rem] gap-y-[3.75rem] pt-0 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {slideProducts.map((product) => (
+              <OurProductsItem key={product.id} product={product} />
+            ))}
+          </div>
+        </SwiperSlide>,
+      );
+      startIndex += 8;
+    }
+    return slides;
+  };
 
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-2 xl:block">
-      <div className="container grid w-fit justify-between gap-y-10 pb-[3.75rem] pt-0 xl:flex xl:w-auto xl:gap-y-0">
-        {products.slice(0, 4).map((product) => (
-          <OurProductsItem key={product.id} product={product} />
-        ))}
-      </div>
-      <div className="container grid w-fit justify-between gap-y-10 pb-[3.75rem] pt-0 xl:flex xl:w-auto xl:gap-y-0">
-        {products.slice(0, 4).map((product) => (
-          <OurProductsItem key={product.id} product={product} />
-        ))}
-      </div>
-    </div>
+    <Swiper
+      slidesPerView={1}
+      spaceBetween={30}
+      navigation={{
+        prevEl: "#prev3",
+        nextEl: "#next3",
+      }}
+      // breakpoints={{
+      //   640: { slidesPerView: 2, spaceBetween: -30 },
+      //   768: { slidesPerView: 2, spaceBetween: -150 },
+      //   1024: { slidesPerView: 3.5, spaceBetween: 0 },
+      //   1170: { slidesPerView: 4, spaceBetween: 30 },
+      // }}
+      modules={[Navigation]}
+      className="mySwiper"
+    >
+      {generateSlides(products)}
+    </Swiper>
   );
 }
 

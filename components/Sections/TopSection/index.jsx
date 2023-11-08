@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 import TopSectionSlider from "../TopSectionSlider";
 
@@ -11,7 +12,8 @@ function TopSection() {
     <div className="container mb-[4rem] py-0 xl:mb-[8.75rem]">
       <div className="grid grid-cols-1 xl:grid-cols-4 xl:grid-rows-1">
         <ul className="hidden w-[14.625rem] flex-col gap-y-4 border-r-[0.0313rem] border-black border-opacity-30 pr-4 pt-10 xl:flex">
-          <li
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -19,8 +21,9 @@ function TopSection() {
           >
             Woman&apos;s Fashion
             <ChevronRight size={18} />
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -28,63 +31,70 @@ function TopSection() {
           >
             Men&apos;s Fashion
             <ChevronRight size={18} />
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Electronics
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Home & Lifestyle
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Medicine
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Sports & Outdoor
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Baby&apos;s & Toys
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Groceries & Pets
-          </li>
-          <li
+          </Link>
+          <Link
+            href="/daubo"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
             Health & Beauty
-          </li>
+          </Link>
         </ul>
         <div className="relative col-span-3 mt-10 flex flex-1 xl:ml-[-0.875rem]">
           <TopSectionSlider />

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
@@ -5,7 +6,7 @@ import FillRightArrow from "@/components/Buttons/FillRightArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import OurProductsList from "@/components/Sections/OurProductsList";
 
-function OurProducts() {
+function OurProducts({ products }) {
   return (
     <div>
       <div className="container flex items-center justify-between py-0 md:grid md:grid-cols-2 xl:grid xl:grid-cols-4">
@@ -24,16 +25,16 @@ function OurProducts() {
         <div className="relative col-span-1">
           <div className="right-0 flex items-center">
             <div className="absolute right-0 hidden md:flex xl:flex">
-              <FillLeftArrow id="prev" />
-              <FillRightArrow id="next" />
+              <FillLeftArrow id="prev3" />
+              <FillRightArrow id="next3" />
             </div>
           </div>
         </div>
       </div>
       <div>
-        <OurProductsList />
+        <OurProductsList products={products} />
       </div>
-      <div className="container flex justify-center pb-[8.75rem] pt-0">
+      <div className="container mt-[60px] flex justify-center pb-[8.75rem] pt-0">
         <PrimaryButton label="View All Products" />
       </div>
     </div>

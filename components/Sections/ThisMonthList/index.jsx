@@ -1,43 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+/* eslint-disable react/prop-types */
+import React from "react";
 
 import ThisMonthItem from "../ThisMonthItem";
 
-function ThisMonthList() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "https://fakestoreapi.com/products?limit=4",
-        );
-        setProducts(response.data);
-      } catch (error) {
-        // console.log("Error fetching products: ", error);
-      }
-    };
-    fetchProducts();
-  }, []);
-
+function ThisMonthList({ products }) {
   return (
     <div>
-      <div className="container mb-[4rem] grid w-fit justify-between gap-y-10 sm:mb-[8.75rem] sm:hidden md:hidden xl:flex xl:w-auto xl:gap-x-0 xl:gap-y-0">
-        {products.slice(0, 4).map((product) => (
+      <div className="container mb-[4rem] grid w-full grid-cols-1 flex-row place-items-center justify-between gap-x-[1.875rem] gap-y-[3.75rem] sm:mb-[8.75rem] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {products.slice(8, 12).map((product) => (
           <ThisMonthItem key={product.id} product={product} />
         ))}
-      </div>
-      <div className="mb-[4rem] hidden sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 xl:hidden">
-        <div className="flex flex-col items-center gap-y-10">
-          {products.slice(0, 2).map((product) => (
-            <ThisMonthItem key={product.id} product={product} />
-          ))}
-        </div>
-        <div className="flex flex-col items-center gap-y-10">
-          {products.slice(2, 4).map((product) => (
-            <ThisMonthItem key={product.id} product={product} />
-          ))}
-        </div>
       </div>
     </div>
   );

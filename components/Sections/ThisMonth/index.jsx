@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import ThisMonthList from "@/components/Sections/ThisMonthList";
 
-function ThisMonth() {
+function ThisMonth({ products }) {
   return (
     <div>
       <div className="container flex items-center justify-between py-0 md:grid md:grid-cols-2 xl:grid xl:grid-cols-4">
@@ -28,7 +29,7 @@ function ThisMonth() {
         </div>
       </div>
       <div>
-        <ThisMonthList />
+        <ThisMonthList products={products} />
       </div>
     </div>
   );

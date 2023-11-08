@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
 import FillRightArrow from "@/components/Buttons/FillRightArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import FlashSalesSlider from "@/components/Sections/FlashSalesSlider";
 
-function FlashSales() {
+function FlashSales({ products }) {
   const calculateTimeLeft = () => {
     const difference = +new Date(`2023-11-12T07:00:00`) - +new Date();
     let timeLeft = {};
@@ -107,7 +108,7 @@ function FlashSales() {
         </div>
       </div>
       <div className="overflow-hidden">
-        <FlashSalesSlider />
+        <FlashSalesSlider products={products} />
       </div>
       <div className="container flex justify-center border-b py-[3.75rem]">
         <PrimaryButton label="View All Products" />
@@ -115,5 +116,14 @@ function FlashSales() {
     </div>
   );
 }
+
+FlashSales.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      // add other required properties here
+    }),
+  ).isRequired,
+};
 
 export default FlashSales;

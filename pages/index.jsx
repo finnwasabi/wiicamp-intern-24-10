@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
@@ -13,7 +15,21 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-export default function Home() {
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const products = response.data;
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    return {
+      props: { products: [] },
+    };
+  }
+}
+
+export default function Home({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,11 +54,11 @@ export default function Home() {
       </div>
       <div className="mt-[5.9375rem]">
         <TopSection />
-        <FlashSales />
+        <FlashSales products={products} />
         <Categories />
-        <ThisMonth />
+        <ThisMonth products={products} />
         <JBLFlashSale />
-        <OurProducts />
+        <OurProducts products={products} />
         <NewArrival />
         <CustomerServices />
         <FillUpArrow />
@@ -51,3 +67,11 @@ export default function Home() {
     </main>
   );
 }
+
+Home.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      // Define the shape of the array elements here
+    }),
+  ).isRequired,
+};

@@ -46,12 +46,21 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
-const discountPercentage = Math.floor(Math.random() * (70 - 10 + 1)) + 10;
-
 // eslint-disable-next-line react/prop-types
 function FlashSalesItem({ product }) {
   const { image, title, price, rating } = product;
-  const salePrice = price - (price * discountPercentage) / 100;
+  const [discountPercentage, setDiscountPercentage] = React.useState(0);
+  const [salePrice, setSalePrice] = React.useState(0);
+
+  React.useEffect(() => {
+    const calculatedDiscountPercentage =
+      Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+    setDiscountPercentage(calculatedDiscountPercentage);
+
+    const calculatedSalePrice =
+      price - (price * calculatedDiscountPercentage) / 100;
+    setSalePrice(calculatedSalePrice);
+  }, []);
 
   return (
     <Link

@@ -191,7 +191,7 @@ function CheckOutSection() {
               required
               type="text"
               placeholder="Coupon Code"
-              className="px max-h-[3.5rem] w-full flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:px-6 lg:py-4"
+              className="px max-h-[3.5rem] w-full flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:w-auto lg:px-6 lg:py-4"
             />
             <div className="hidden lg:block">
               <PrimaryButton type="submit" label="Apply Coupon" />

@@ -33,7 +33,9 @@ function MyAccountSection() {
             <Link href="/AddressBook">Address Book</Link>
             <Link href="/PaymentOptions">My Payment Options</Link>
           </div>
-          <div className="py-4 font-semibold">My Orders</div>
+          <Link href="/MyOrders" className="flex py-4 font-semibold">
+            My Orders
+          </Link>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1">
             <Link href="/Returns">My Returns</Link>
             <Link href="/Cancellations">My Cancellations</Link>

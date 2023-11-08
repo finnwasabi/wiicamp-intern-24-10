@@ -131,12 +131,12 @@ function CheckOutSection() {
                 <div>$1750</div>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-x-4">
               <input
                 type="radio"
                 id="Bank"
                 name="payment"
-                className="mr-4 h-6 w-6 cursor-pointer accent-black"
+                className="h-6 w-6 cursor-pointer accent-black"
               />
               <label
                 htmlFor="Bank"
@@ -171,12 +171,12 @@ function CheckOutSection() {
                 />
               </span>
             </div>
-            <div className="flex">
+            <div className="flex gap-x-4">
               <input
                 type="radio"
                 id="COD"
                 name="payment"
-                className="mr-4 h-6 w-6 cursor-pointer accent-black"
+                className="h-6 w-6 cursor-pointer accent-black"
               />
               <label
                 htmlFor="COD"
@@ -191,7 +191,7 @@ function CheckOutSection() {
               required
               type="text"
               placeholder="Coupon Code"
-              className="px max-h-[3.5rem] flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:px-6 lg:py-4"
+              className="px max-h-[3.5rem] w-full flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:px-6 lg:py-4"
             />
             <div className="hidden lg:block">
               <PrimaryButton type="submit" label="Apply Coupon" />

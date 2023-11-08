@@ -64,13 +64,13 @@ function NewArrival() {
                 href="/occbo"
                 className={clsx(
                   s.Item,
-                  "mb-2 rounded lg:mb-5 xl:row-span-1 xl:mb-0 xl:ml-auto xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
+                  "rounded xl:row-span-1 xl:ml-auto xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
                 )}
               >
                 <Image
                   className={clsx(
                     s.Image,
-                    "w-full xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
+                    "mb-2 w-full lg:mb-5 xl:mb-0 xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
                   )}
                   src="/NewArrival/NewArrival2.png"
                   width={600}

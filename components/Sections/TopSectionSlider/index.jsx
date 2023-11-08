@@ -29,7 +29,7 @@ function TopSectionSlider() {
         id="customPagination"
         className={clsx(
           s.pagination,
-          "swiper-pagination flex items-center justify-center mb-1",
+          "swiper-pagination mb-1 flex items-center justify-center",
         )}
       />
       <SwiperSlide>

@@ -8,18 +8,18 @@ function CheckBox({ label }) {
       <input
         type="checkbox"
         id="checkBox"
-        className="relative peer shrink-0 
-        appearance-none h-6 w-6 mr-4 rounded border-[1px] border-black border-opacity-50
-        checked:bg-secondary-2 checked:border-0
-        hover:bg-secondary-0 
-        focus:outline-none focus:ring-offset-0
-        cursor-pointer"
+        className="peer relative mr-4 
+        h-6 w-6 shrink-0 cursor-pointer appearance-none rounded border-[1px] border-black
+        border-opacity-50 checked:border-0
+        checked:bg-secondary-2 
+        hover:bg-secondary-0 focus:outline-none
+        focus:ring-offset-0"
       />
       <label htmlFor="checkBox" className="cursor-pointer">
         {label}
       </label>
       <svg
-        className="absolute w-6 h-6 hidden peer-checked:block pointer-events-none"
+        className="pointer-events-none absolute hidden h-6 w-6 peer-checked:block"
         width="24"
         height="24"
         viewBox="0 0 24 24"

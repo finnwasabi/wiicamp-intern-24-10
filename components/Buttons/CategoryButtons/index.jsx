@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { Mouse, PaintBucket, Wrench } from "lucide-react";
+import Link from "next/link";
 import PropTypes from "prop-types";
 
 import s from "./CategoryButtons.module.scss";
@@ -315,10 +316,11 @@ const CategoryButtonsList = [
 ];
 function CategoryButtons({ id }) {
   return (
-    <div
+    <Link
+      href="/occho"
       className={clsx(
         s.CategoryItem,
-        "w-[170px] h-[145px] border-black border-opacity-30 border-2 rounded flex items-center justify-center",
+        "flex h-[145px] w-[170px] items-center justify-center rounded border-2 border-black border-opacity-30",
       )}
     >
       <div className="block py-6">
@@ -327,7 +329,7 @@ function CategoryButtons({ id }) {
         </div>
         {CategoryButtonsList[id - 1].name}
       </div>
-    </div>
+    </Link>
   );
 }
 

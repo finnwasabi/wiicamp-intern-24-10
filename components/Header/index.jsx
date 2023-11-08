@@ -115,10 +115,10 @@ function Header({ show3icons }) {
   };
 
   return (
-    <div className="fixed bg-white z-50 w-full pb-4 border-b border-black border-opacity-30">
-      <div className="container mt-10 py-0 relative">
+    <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">
+      <div className="container relative mt-10 py-0">
         <div className="flex max-h-[2.375rem] items-center justify-between">
-          <span className="flex items-center gap-x-2 min-w-[7.375rem] xl:mr-[10rem] font-bold text-2xl leading-6 cursor-default">
+          <span className="flex min-w-[7.375rem] cursor-default items-center gap-x-2 text-2xl font-bold leading-6 xl:mr-[10rem]">
             <button
               type="button"
               className="xl:hidden"
@@ -128,7 +128,7 @@ function Header({ show3icons }) {
             </button>
             Exclusive
           </span>
-          <div className="hidden mr-[8.125rem] min-w-[22.9375rem] xl:flex">
+          <div className="mr-[8.125rem] hidden min-w-[22.9375rem] xl:flex">
             <Link
               href="/"
               className={clsx(
@@ -169,9 +169,9 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
-          <form className="hidden relative xl:flex md:flex">
+          <form className="relative hidden md:flex xl:flex">
             <input
-              className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 min-w-[15.1875rem] bg-secondary-0 rounded"
+              className="h-6 min-w-[15.1875rem] rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"
               placeholder="What are you looking for?"
               value={searchTerm}
@@ -184,10 +184,10 @@ function Header({ show3icons }) {
               <Search className="absolute right-3 top-2" />
             </button>
             {isSearchBarFocused && searchResults.length > 0 && (
-              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border">
+              <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
                   <span
-                    className="px-4 py-2 cursor-pointer border-b hover:font-semibold hover:italic"
+                    className="cursor-pointer border-b px-4 py-2 hover:font-semibold hover:italic"
                     key={product.id}
                   >
                     {product.title}
@@ -197,8 +197,8 @@ function Header({ show3icons }) {
             )}
 
             {isSearchBarFocused && searchResults.length === 0 && (
-              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border w-full">
-                <span className="px-4 py-2 cursor-default opacity-30 text-center">
+              <div className="absolute top-10 mt-2 flex w-full flex-col rounded border bg-white shadow">
+                <span className="cursor-default px-4 py-2 text-center opacity-30">
                   No results
                 </span>
               </div>
@@ -206,7 +206,7 @@ function Header({ show3icons }) {
           </form>
           <div className="flex">
             {show3icons && (
-              <div className="flex gap-4 xl:ml-6 items-center">
+              <div className="flex items-center gap-4 xl:ml-6">
                 <Link
                   href="/Wishlist"
                   className={clsx(
@@ -240,7 +240,7 @@ function Header({ show3icons }) {
                       width={32}
                       height={32}
                       alt="user activated"
-                      className="shadow-lg rounded-full"
+                      className="rounded-full shadow-lg"
                     />
                   ) : (
                     <User

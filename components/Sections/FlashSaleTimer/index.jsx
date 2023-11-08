@@ -39,42 +39,42 @@ function FlashSaleTimer() {
   });
   return (
     <div className="flex sm:gap-x-3 md:gap-x-3 xl:gap-x-6">
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex max-h-[3.875rem] w-[3.875rem] justify-center rounded-full bg-white">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="flex justify-center font-semibold leading-[1.25rem]">
             {timeLeft.hours}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="flex justify-center text-xs leading-[1.125rem]">
             Hours
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex max-h-[3.875rem] w-[3.875rem] justify-center rounded-full bg-white">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="flex justify-center font-semibold leading-[1.25rem]">
             {timeLeft.days}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="flex justify-center text-xs leading-[1.125rem]">
             Days
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex max-h-[3.875rem] w-[3.875rem] justify-center rounded-full bg-white">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="flex justify-center font-semibold leading-[1.25rem]">
             {timeLeft.minutes}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="flex justify-center text-xs leading-[1.125rem]">
             Minutes
           </div>
         </div>
       </div>
-      <div className="flex rounded-full bg-white w-[3.875rem] max-h-[3.875rem] justify-center">
+      <div className="flex max-h-[3.875rem] w-[3.875rem] justify-center rounded-full bg-white">
         <div className="py-[0.875rem]">
-          <div className="flex font-semibold leading-[1.25rem] justify-center">
+          <div className="flex justify-center font-semibold leading-[1.25rem]">
             {timeLeft.seconds}
           </div>
-          <div className="flex text-xs leading-[1.125rem] justify-center">
+          <div className="flex justify-center text-xs leading-[1.125rem]">
             Seconds
           </div>
         </div>

@@ -13,7 +13,7 @@ function InputField({
       <div className={classNameLabel}>{label}</div>
       <input
         type={type}
-        className="rounded bg-secondary-0 h-[3.125rem] w-full py-4 px-4"
+        className="h-[3.125rem] w-full rounded bg-secondary-0 px-4 py-4"
         placeholder={placeholder}
         required
         autoComplete={autocomplete}

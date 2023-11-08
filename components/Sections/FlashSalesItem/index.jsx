@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 import PropTypes from "prop-types";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
@@ -53,17 +54,20 @@ function FlashSalesItem({ product }) {
   const salePrice = price - (price * discountPercentage) / 100;
 
   return (
-    <div
+    <Link
+      href="/occho"
       className={clsx(
         s.SaleItem,
-        "overflow-hidden block w-[16.875rem] h-[21.875rem] cursor-pointer",
+        "block h-[21.875rem] w-[16.875rem] overflow-hidden",
       )}
     >
-      <div className="relative max-w-[16.875rem] rounded bg-secondary-0 flex overflow-hidden">
-        <div className={s.AddToCart}>Add To Cart</div>
-        <div className="flex justify-center items-center w-[16.875rem] h-[15.625rem] bg-white">
+      <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
+        <button type="button" className={s.AddToCart}>
+          Add To Cart
+        </button>
+        <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white">
           <Image
-            className="max-w-[270px] max-h-[250px]"
+            className="max-h-[250px] max-w-[270px]"
             src={image}
             width={270}
             height={250}
@@ -71,24 +75,24 @@ function FlashSalesItem({ product }) {
             style={{ objectFit: "contain", width: "100%", height: "100%" }}
           />
           <FillHeart />
-          <div className="absolute flex top-[3.375rem] right-3">
+          <div className="absolute right-3 top-[3.375rem] flex">
             <FillEye />
           </div>
         </div>
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
       <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
-      <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">${price}</div>
+      <div className="mt-2 flex font-semibold">
+        <div className="mr-3 text-secondary-2">${price}</div>
         <div className="text-text-1 line-through">
           {`$${salePrice.toFixed(2)}`}
         </div>
       </div>
       <div className="mt-2 flex items-baseline">
         <div className="mr-2">{renderStars(rating.rate)}</div>
-        <div className="font-semibold text-sm text-text-1">{`(${rating.count})`}</div>
+        <div className="text-sm font-semibold text-text-1">{`(${rating.count})`}</div>
       </div>
-    </div>
+    </Link>
   );
 }
 FlashSalesItem.propTypes = {

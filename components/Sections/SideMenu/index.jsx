@@ -100,7 +100,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
         <div className="flex flex-col gap-y-4">
           <div className="relative md:hidden">
             <input
-              className="font-normal text-xs py-[1.25rem] px-[0.875rem] h-6 w-full bg-secondary-0 rounded"
+              className="h-6 w-full rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"
               placeholder="What are you looking for?"
               value={searchTerm}
@@ -110,10 +110,10 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             />
             <Search className="absolute right-3 top-2 cursor-pointer" />
             {isSearchBarFocused && searchResults.length > 0 && (
-              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border">
+              <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
                   <span
-                    className="px-4 py-2 cursor-pointer border-b hover:font-semibold hover:italic"
+                    className="cursor-pointer border-b px-4 py-2 hover:font-semibold hover:italic"
                     key={product.id}
                   >
                     {product.title}
@@ -123,8 +123,8 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             )}
 
             {isSearchBarFocused && searchResults.length === 0 && (
-              <div className="mt-2 absolute flex flex-col bg-white rounded shadow top-10 border w-full">
-                <span className="px-4 py-2 cursor-default opacity-30 text-center">
+              <div className="absolute top-10 mt-2 flex w-full flex-col rounded border bg-white shadow">
+                <span className="cursor-default px-4 py-2 text-center opacity-30">
                   No results
                 </span>
               </div>
@@ -147,7 +147,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               type="button"
-              className="flex items-center gap-y-4 w-full justify-between"
+              className="flex w-full items-center justify-between gap-y-4"
             >
               <span className="flex items-center">
                 <Layers3 className="mr-3" />
@@ -156,7 +156,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               {!isDropdownOpen ? <ChevronDown /> : <ChevronUp />}
             </button>
             {isDropdownOpen && (
-              <ul className="flex flex-col gap-y-4 mt-4 ml-6">
+              <ul className="ml-6 mt-4 flex flex-col gap-y-4">
                 <li>Woman&apos;s Fashion</li>
                 <li>Men&apos;s Fashion</li>
                 <li>Electronics</li>

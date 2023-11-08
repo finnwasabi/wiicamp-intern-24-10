@@ -14,7 +14,7 @@ function ThisMonthList() {
         );
         setProducts(response.data);
       } catch (error) {
-        console.log("Error fetching products: ", error);
+        // console.log("Error fetching products: ", error);
       }
     };
     fetchProducts();
@@ -22,18 +22,18 @@ function ThisMonthList() {
 
   return (
     <div>
-      <div className="grid sm:hidden md:hidden xl:gap-x-0 w-fit xl:w-auto xl:flex gap-y-10 xl:gap-y-0 container justify-between mb-[4rem] sm:mb-[8.75rem]">
+      <div className="container mb-[4rem] grid w-fit justify-between gap-y-10 sm:mb-[8.75rem] sm:hidden md:hidden xl:flex xl:w-auto xl:gap-x-0 xl:gap-y-0">
         {products.slice(0, 4).map((product) => (
           <ThisMonthItem key={product.id} product={product} />
         ))}
       </div>
-      <div className="hidden xl:hidden sm:grid md:grid sm:grid-cols-2 md:grid-cols-2 mb-[4rem]">
-        <div className="flex flex-col gap-y-10 items-center">
+      <div className="mb-[4rem] hidden sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 xl:hidden">
+        <div className="flex flex-col items-center gap-y-10">
           {products.slice(0, 2).map((product) => (
             <ThisMonthItem key={product.id} product={product} />
           ))}
         </div>
-        <div className="flex flex-col gap-y-10 items-center">
+        <div className="flex flex-col items-center gap-y-10">
           {products.slice(2, 4).map((product) => (
             <ThisMonthItem key={product.id} product={product} />
           ))}

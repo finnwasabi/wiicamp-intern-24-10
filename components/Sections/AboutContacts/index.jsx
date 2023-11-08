@@ -53,7 +53,7 @@ function AboutContacts({ id }) {
           priority
         />
       </div>
-      <div className="text-[2rem] font-semibold mb-2">
+      <div className="mb-2 text-[2rem] font-semibold">
         {ContactsList[id - 1].name}
       </div>
       <div className="mb-4">{ContactsList[id - 1].position}</div>

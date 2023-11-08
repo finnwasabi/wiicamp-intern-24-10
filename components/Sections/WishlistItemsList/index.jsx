@@ -4,7 +4,7 @@ import WishlistItems from "@/components/Sections/WishlistItems";
 
 function WishlistItemsList() {
   return (
-    <div className="flex justify-between mb-20">
+    <div className="mb-20 flex flex-col items-center justify-between sm:grid sm:grid-cols-2 sm:place-items-center lg:grid-cols-3 xl:flex xl:flex-row">
       <WishlistItems id={1} />
       <WishlistItems id={2} />
       <WishlistItems id={3} />

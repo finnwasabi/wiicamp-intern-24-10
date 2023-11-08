@@ -11,25 +11,33 @@ function CheckOutSection() {
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
-        <span className="text-text-1 cursor-default">Account</span>
-        <span className="text-text-1 cursor-default">/</span>
-        <Link href="/MyAccount" className="text-text-1">
+        <span className="hidden cursor-default text-text-1 lg:flex">
+          Account
+        </span>
+        <span className="hidden cursor-default text-text-1 lg:flex">/</span>
+        <Link href="/MyAccount" className="hidden text-text-1 lg:flex">
           My Account
         </Link>
-        <span className="text-text-1 cursor-default">/</span>
-        <span className="text-text-1 cursor-default">Product</span>
-        <span className="text-text-1 cursor-default">/</span>
+        <span className="hidden cursor-default text-text-1 lg:flex ">/</span>
+        <span className="hidden cursor-default text-text-1 lg:flex ">
+          Product
+        </span>
+        <span className="cursor-default text-text-1">...</span>
+        <span className="cursor-default text-text-1">/</span>
         <Link href="/Cart" className="text-text-1">
           View Cart
         </Link>
-        <span className="text-text-1 cursor-default">/</span>
+        <span className="cursor-default text-text-1">/</span>
         <span className="cursor-default">CheckOut</span>
       </div>
-      <div className="pb-20 text-4xl leading-[1.875rem] font-semibold">
+      <div className="pb-20 text-4xl font-semibold leading-[1.875rem]">
         Billing Details
       </div>
-      <div className="grid grid-cols-2 justify-between">
-        <form id="info" className="grid grid-cols-1 gap-y-8 mb-6 w-[29.375rem]">
+      <div className="justify-between lg:grid lg:grid-cols-2">
+        <form
+          id="info"
+          className="mb-6 grid grid-cols-1 gap-y-8 lg:w-[29.375rem]"
+        >
           <InputField
             placeholder=""
             type=""
@@ -83,8 +91,8 @@ function CheckOutSection() {
             <CheckBox label="Save this information for faster check-out next time" />
           </div>
         </form>
-        <div className="w-[32.9375rem] ml-auto">
-          <div className="grid grid-cols-1 gap-y-8 w-[26.5625rem] mt-8">
+        <div className="lg:ml-auto lg:w-[32.9375rem]">
+          <div className="mt-20 grid gap-y-8 lg:mt-8 lg:w-[26.5625rem] lg:grid-cols-1">
             <div className="flex items-center">
               <div className="mr-6">
                 <Image
@@ -110,11 +118,11 @@ function CheckOutSection() {
               <div className="ml-auto">$1100</div>
             </div>
             <div className="w-full">
-              <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
+              <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
                 <div>Subtotal:</div>
                 <div>$1750</div>
               </div>
-              <div className="flex justify-between mb-4 pb-4 border-b-[0.0625rem] border-black border-opacity-50">
+              <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
                 <div>Shipping:</div>
                 <div>Free</div>
               </div>
@@ -128,11 +136,11 @@ function CheckOutSection() {
                 type="radio"
                 id="Bank"
                 name="payment"
-                className="mr-4 h-6 w-6 accent-black cursor-pointer"
+                className="mr-4 h-6 w-6 cursor-pointer accent-black"
               />
               <label
                 htmlFor="Bank"
-                className="peer-checked:block cursor-pointer"
+                className="cursor-pointer peer-checked:block"
               >
                 Bank
               </label>
@@ -168,28 +176,33 @@ function CheckOutSection() {
                 type="radio"
                 id="COD"
                 name="payment"
-                className="mr-4 h-6 w-6 accent-black cursor-pointer"
+                className="mr-4 h-6 w-6 cursor-pointer accent-black"
               />
               <label
                 htmlFor="COD"
-                className="peer-checked:block cursor-pointer"
+                className="cursor-pointer peer-checked:block"
               >
                 Cash on delivery
               </label>
             </div>
           </div>
-          <form className="flex justify-between my-8">
+          <form className="my-8 flex justify-between gap-x-4">
             <input
               required
               type="text"
               placeholder="Coupon Code"
-              className="py-4 px-6 flex-grow mr-4 rounded border-[0.0625rem] border-black border-opacity-50"
+              className="px max-h-[3.5rem] flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:px-6 lg:py-4"
             />
-            <PrimaryButton type="submit" label="Apply Coupon" />
+            <div className="hidden lg:block">
+              <PrimaryButton type="submit" label="Apply Coupon" />
+            </div>
+            <div className="lg:hidden">
+              <PrimaryButton type="submit" label="Apply" />
+            </div>
           </form>
-          <div className="w-fit">
+          <Link href="/success" className="lg:w-fit">
             <PrimaryButton form="info" type="submit" label="Place Order" />
-          </div>
+          </Link>
         </div>
       </div>
     </div>

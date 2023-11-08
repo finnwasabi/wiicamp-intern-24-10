@@ -8,9 +8,9 @@ function SecondaryButton({ label, isShow }) {
     <div>
       <button
         className={clsx(
-          "flex justify-center items-center bg-transparent text-black border-black border-opacity-50 border-2 font-medium px-12 py-4 rounded w-full h-auto hover:opacity-50 transition-all",
+          "flex h-auto w-full items-center justify-center rounded border-2 border-black border-opacity-50 bg-transparent px-12 py-4 font-medium text-black transition-all hover:opacity-50",
           isShow &&
-            "before:content-googleIcon before:mr-4 before:h-6 before:w-6",
+            "before:mr-4 before:h-6 before:w-6 before:content-googleIcon",
         )}
       >
         {label}

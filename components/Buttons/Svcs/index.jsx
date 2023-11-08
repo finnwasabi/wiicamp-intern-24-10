@@ -4,7 +4,7 @@ function Svcs() {
   return (
     <div className="flex justify-evenly">
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
+        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[0.6875rem] border-primary-2 bg-black">
           <svg
             width="41"
             height="40"
@@ -76,16 +76,16 @@ function Svcs() {
           </svg>
         </div>
         <div className="sm:max-w-[11rem] md:max-w-fit">
-          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
+          <div className="mb-2 text-center text-sm font-semibold md:text-lg lg:text-xl xl:text-xl">
             FREE AND FAST DELIVERY
           </div>
-          <div className="text-xs lg:text-sm xl:text-sm text-center">
+          <div className="text-center text-xs lg:text-sm xl:text-sm">
             Free delivery for all orders over $140
           </div>
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
+        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[0.6875rem] border-primary-2 bg-black">
           <svg
             width="40"
             height="40"
@@ -103,16 +103,16 @@ function Svcs() {
           </svg>
         </div>
         <div className="sm:max-w-[11rem] md:max-w-fit">
-          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
+          <div className="mb-2 text-center text-sm font-semibold md:text-lg lg:text-xl xl:text-xl">
             24/7 CUSTOMER SERVICE
           </div>
-          <div className="text-xs lg:text-sm xl:text-sm text-center">
+          <div className="text-center text-xs lg:text-sm xl:text-sm">
             Friendly 24/7 customer support
           </div>
         </div>
       </div>
       <div className="flex flex-col items-center">
-        <div className="flex justify-center items-center h-20 w-20 mb-6 rounded-full bg-black border-[0.6875rem] border-primary-2">
+        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border-[0.6875rem] border-primary-2 bg-black">
           <svg
             width="40"
             height="40"
@@ -133,10 +133,10 @@ function Svcs() {
           </svg>
         </div>
         <div className="sm:max-w-[11rem] md:max-w-fit">
-          <div className="text-sm md:text-lg lg:text-xl xl:text-xl font-semibold text-center mb-2">
+          <div className="mb-2 text-center text-sm font-semibold md:text-lg lg:text-xl xl:text-xl">
             MONEY BACK GUARANTEE
           </div>
-          <div className="text-xs lg:text-sm xl:text-sm text-center">
+          <div className="text-center text-xs lg:text-sm xl:text-sm">
             We return money within 30 days
           </div>
         </div>

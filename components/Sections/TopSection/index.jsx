@@ -8,13 +8,13 @@ import s from "./TopSection.module.scss";
 
 function TopSection() {
   return (
-    <div className="container py-0 xl:mb-[8.75rem] mb-[4rem]">
+    <div className="container mb-[4rem] py-0 xl:mb-[8.75rem]">
       <div className="grid grid-cols-1 xl:grid-cols-4 xl:grid-rows-1">
-        <ul className="hidden xl:flex flex-col gap-y-4 pt-10 pr-4 w-[14.625rem] border-r-[0.0313rem] border-black border-opacity-30">
+        <ul className="hidden w-[14.625rem] flex-col gap-y-4 border-r-[0.0313rem] border-black border-opacity-30 pr-4 pt-10 xl:flex">
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Woman&apos;s Fashion
@@ -23,7 +23,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Men&apos;s Fashion
@@ -32,7 +32,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Electronics
@@ -40,7 +40,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Home & Lifestyle
@@ -48,7 +48,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Medicine
@@ -56,7 +56,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Sports & Outdoor
@@ -64,7 +64,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Baby&apos;s & Toys
@@ -72,7 +72,7 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Groceries & Pets
@@ -80,13 +80,13 @@ function TopSection() {
           <li
             className={clsx(
               s.TScategory,
-              "cursor-pointer flex justify-between items-center",
+              "flex cursor-pointer items-center justify-between",
             )}
           >
             Health & Beauty
           </li>
         </ul>
-        <div className="flex flex-1 col-span-3 mt-10 relative xl:ml-[-0.875rem]">
+        <div className="relative col-span-3 mt-10 flex flex-1 xl:ml-[-0.875rem]">
           <TopSectionSlider />
         </div>
       </div>

@@ -44,62 +44,62 @@ function FlashSales() {
   });
   return (
     <div>
-      <div className="container md:grid md:grid-cols-4 xl:grid xl:grid-cols-4 py-0 flex items-center justify-between">
-        <div className="flex items-center font-semibold leading-5 col-span-1">
-          <div className="h-10 w-5 bg-button-2 rounded" />
-          <div className="text-button-2 ml-4">Today&apos;s</div>
+      <div className="container flex items-center justify-between py-0 md:grid md:grid-cols-4 xl:grid xl:grid-cols-4">
+        <div className="col-span-1 flex items-center font-semibold leading-5">
+          <div className="h-10 w-5 rounded bg-button-2" />
+          <div className="ml-4 text-button-2">Today&apos;s</div>
         </div>
-        <div className="md:hidden xl:hidden font-semibold text-2xl">
+        <div className="text-2xl font-semibold md:hidden xl:hidden">
           Flash Sales
         </div>
       </div>
-      <div className="container grid md:grid-cols-4 xl:grid-cols-4 items-center py-0 mt-[1.5rem]">
-        <div className="hidden md:flex xl:flex col-span-1 md:text-[1.875rem] text-4xl leading-[3rem] font-semibold">
+      <div className="container mt-[1.5rem] grid items-center py-0 md:grid-cols-4 xl:grid-cols-4">
+        <div className="col-span-1 hidden text-4xl font-semibold leading-[3rem] md:flex md:text-[1.875rem] xl:flex">
           Flash Sales
         </div>
-        <div className="md:col-span-2 md:justify-center xl:col-span-2 xl:justify-start items-end flex justify-center">
+        <div className="flex items-end justify-center md:col-span-2 md:justify-center xl:col-span-2 xl:justify-start">
           <div>
-            <div className="font-medium text-xs">Days</div>
-            <div className="font-bold text-3xl tracking-wide">
+            <div className="text-xs font-medium">Days</div>
+            <div className="text-3xl font-bold tracking-wide">
               {timeLeft.days}
             </div>
           </div>
           <div className="mx-[1.0625rem] h-full">
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
           </div>
           <div>
-            <div className="font-medium text-xs">Hours</div>
-            <div className="font-bold text-3xl tracking-wide">
+            <div className="text-xs font-medium">Hours</div>
+            <div className="text-3xl font-bold tracking-wide">
               {timeLeft.hours}
             </div>
           </div>
           <div className="mx-[1.0625rem] h-full">
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
           </div>
           <div>
-            <div className="font-medium text-xs">Minutes</div>
-            <div className="font-bold text-3xl tracking-wide">
+            <div className="text-xs font-medium">Minutes</div>
+            <div className="text-3xl font-bold tracking-wide">
               {timeLeft.minutes}
             </div>
           </div>
           <div className="mx-[1.0625rem] h-full">
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
-            <div className="w-1 h-1 rounded-full bg-button-2 mb-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
+            <div className="mb-2 h-1 w-1 rounded-full bg-button-2" />
           </div>
           <div>
             <div>
-              <div className="font-medium text-xs">Seconds</div>
-              <div className="font-bold text-3xl tracking-wide">
+              <div className="text-xs font-medium">Seconds</div>
+              <div className="text-3xl font-bold tracking-wide">
                 {timeLeft.seconds}
               </div>
             </div>
           </div>
         </div>
-        <div className="md:col-span-1 xl:col-span-1 relative">
-          <div className="flex items-center right-0">
-            <div className="absolute hidden md:flex xl:flex right-0">
+        <div className="relative md:col-span-1 xl:col-span-1">
+          <div className="right-0 flex items-center">
+            <div className="absolute right-0 hidden md:flex xl:flex">
               <FillLeftArrow id="prev" />
               <FillRightArrow id="next" />
             </div>
@@ -109,7 +109,7 @@ function FlashSales() {
       <div className="overflow-hidden">
         <FlashSalesSlider />
       </div>
-      <div className="container flex justify-center py-[3.75rem] border-b">
+      <div className="container flex justify-center border-b py-[3.75rem]">
         <PrimaryButton label="View All Products" />
       </div>
     </div>

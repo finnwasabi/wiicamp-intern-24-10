@@ -6,9 +6,9 @@ function FillLeftArrow({ id }) {
   return (
     <div
       id={id}
-      className="rounded-full bg-secondary-0 mr-2 w-[2.875rem] h-[2.875rem] relative cursor-pointer"
+      className="relative mr-2 h-[2.875rem] w-[2.875rem] cursor-pointer rounded-full bg-secondary-0"
     >
-      <ArrowLeft className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+      <ArrowLeft className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
     </div>
   );
 }

@@ -7,10 +7,10 @@ function JustForYou() {
   return (
     <div>
       <div className="">
-        <div className="flex justify-between items-center mb-[3.75rem]">
-          <div className="flex justify-between items-center">
-            <div className="h-10 w-5 bg-button-2 rounded mr-4" />
-            <div className="text-xl leading-[3rem] font-semibold">
+        <div className="mb-[3.75rem] flex items-center justify-between">
+          <div className="flex items-center justify-between">
+            <div className="mr-4 h-10 w-5 rounded bg-button-2" />
+            <div className="text-xl font-semibold leading-[3rem]">
               Just For You
             </div>
           </div>

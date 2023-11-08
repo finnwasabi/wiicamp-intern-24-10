@@ -2,10 +2,13 @@ import React from "react";
 
 function FillTrash() {
   return (
-    <div className="absolute flex top-3 right-3 cursor-pointer">
-      <div className="rounded-full bg-white w-[34px] h-[34px] relative">
+    <div className="absolute right-3 top-3 flex cursor-pointer">
+      <button
+        type="button"
+        className="relative h-[34px] w-[34px] rounded-full bg-white"
+      >
         <svg
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -20,7 +23,7 @@ function FillTrash() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </button>
     </div>
   );
 }

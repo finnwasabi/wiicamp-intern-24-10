@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
@@ -92,33 +93,34 @@ const renderStars = (rating) => {
 // eslint-disable-next-line react/prop-types
 function JustForYouItem({ id }) {
   return (
-    <div
+    <Link
+      href="/occho"
       className={clsx(
         s.Item,
-        "overflow-hidden block w-[16.875rem] h-[21.875rem] cursor-pointer",
+        "block h-[21.875rem] w-[16.875rem] cursor-pointer overflow-hidden",
       )}
     >
-      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
+      <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-secondary-0">
         <div className={s.AddToCart}>
-          <div className="flex justify-center items-center gap-x-2">
+          <div className="flex items-center justify-center gap-x-2">
             <ShoppingCart /> Add To Cart
           </div>
         </div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           src={JustForYouItemsList[id - 1].image}
           width={270}
           height={250}
           alt="Picture of item"
         />
         <DiscountPercent label={JustForYouItemsList[id - 1].percent} />
-        <div className="absolute flex top-3 right-3 cursor-pointer">
+        <div className="absolute right-3 top-3 flex cursor-pointer">
           <FillEye />
         </div>
       </div>
       <div className="mt-4 font-bold">{JustForYouItemsList[id - 1].name}</div>
-      <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">
+      <div className="mt-2 flex font-semibold">
+        <div className="mr-3 text-secondary-2">
           {JustForYouItemsList[id - 1].price}
         </div>
         <div className="text-text-1 line-through">
@@ -129,11 +131,11 @@ function JustForYouItem({ id }) {
         <div className="mr-2">
           {renderStars(JustForYouItemsList[id - 1].stars)}
         </div>
-        <div className="font-semibold text-sm text-text-1">
+        <div className="text-sm font-semibold text-text-1">
           ({JustForYouItemsList[id - 1].reviews})
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

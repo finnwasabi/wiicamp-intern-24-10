@@ -8,10 +8,10 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 function SignUpSection() {
   return (
     <div className="relative">
-      <div className="pt-[3.75rem] lg:pt-0 lg:mt-[3.75rem] mb-[8.75rem]">
-        <div className="hidden lg:block w-[calc(805/1440*100vw)]">
+      <div className="mb-[8.75rem] pt-[3.75rem] lg:mt-[3.75rem] lg:pt-0">
+        <div className="hidden w-[calc(805/1440*100vw)] lg:block">
           <Image
-            className="left-0 w-full h-full"
+            className="left-0 h-full w-full"
             src="/SideImage/SideImage.png"
             width={805}
             height={706}
@@ -19,10 +19,10 @@ function SignUpSection() {
             priority
           />
         </div>
-        <div className="container justify-center grid lg:grid-cols-2 lg:absolute lg:top-1/2 lg:-translate-y-1/2 py-0 lg:right-0 lg:left-0">
-          <div className="lg:col-span-1 lg:col-start-2 flex lg:flex-row-reverse">
+        <div className="container grid justify-center py-0 lg:absolute lg:left-0 lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:grid-cols-2">
+          <div className="flex lg:col-span-1 lg:col-start-2 lg:flex-row-reverse">
             <form className="max-w-[23.125rem]">
-              <div className="text-4xl font-medium leading-[1.875rem] mb-6">
+              <div className="mb-6 text-4xl font-medium leading-[1.875rem]">
                 Create an account
               </div>
               <div className="mb-12">Enter your details below</div>
@@ -30,23 +30,23 @@ function SignUpSection() {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   required
                 />
                 <input
                   type="text"
                   placeholder="Email or Phone Number"
-                  className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   required
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="pb-2 border-b-2 mb-10 w-full focus:outline-none focus:border-black"
+                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   autoComplete="password"
                 />
               </div>
-              <div className="w-full mb-8">
+              <div className="mb-8 w-full">
                 <div className="mb-4">
                   <PrimaryButton label="Create Account" />
                 </div>
@@ -58,7 +58,7 @@ function SignUpSection() {
                 <div className="mr-4">Already have account?</div>
                 <Link
                   href="/account/log-in"
-                  className="underline font-semibold"
+                  className="font-semibold underline"
                 >
                   Log in
                 </Link>

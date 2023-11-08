@@ -4,21 +4,21 @@ import Link from "next/link";
 function TopHeader() {
   return (
     <div className="bg-black text-white">
-      <div className="container py-3 relative">
+      <div className="container relative py-3">
         <div className="flex justify-center">
-          <div className="flex flex-col text-center justify-center xl:block">
+          <div className="flex flex-col justify-center text-center xl:block">
             <span className="text-sm xl:text-base">
               Summer Sale For All Swim Suits And Free Express Delivery - OFF
               50%!
             </span>
             <Link
               href="/shopnow"
-              className="underline px-2 xl:font-semibold cursor-pointer"
+              className="cursor-pointer px-2 underline xl:font-semibold"
             >
               ShopNow
             </Link>
           </div>
-          <div className="flex absolute right-0 mr-3 bottom-0 xl:top1/2 -translate-y-1/2 ">
+          <div className="xl:top1/2 absolute bottom-0 right-0 mr-3 flex -translate-y-1/2 ">
             <span className="hidden xl:block">English</span>
             <svg
               className="cursor-pointer"

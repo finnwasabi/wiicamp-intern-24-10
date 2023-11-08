@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import FillTrash from "@/components/Buttons/FillTrash";
 
@@ -42,20 +43,21 @@ const WishlistItemsList = [
 function WishlistItems({ id }) {
   return (
     // eslint-disable-next-line react/button-has-type
-    <div
+    <Link
+      href="/occho"
       className={clsx(
         s.Item,
-        "block w-[16.875rem] h-[21.875rem] cursor-pointer",
+        "block h-[21.875rem] w-[16.875rem] cursor-pointer",
       )}
     >
-      <div className="w-[16.875rem] h-[15.625rem] rounded bg-secondary-0 flex relative overflow-hidden">
+      <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-secondary-0">
         <div className={s.AddToCart}>
-          <div className="flex justify-center items-center gap-x-2">
+          <div className="flex items-center justify-center gap-x-2">
             <ShoppingCart /> Add To Cart
           </div>
         </div>
         <Image
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           src={WishlistItemsList[id - 1].image}
           width={270}
           height={250}
@@ -65,15 +67,15 @@ function WishlistItems({ id }) {
         <FillTrash />
       </div>
       <div className="mt-4 font-bold">{WishlistItemsList[id - 1].name}</div>
-      <div className="mt-2 font-semibold flex">
-        <div className="text-secondary-2 mr-3">
+      <div className="mt-2 flex font-semibold">
+        <div className="mr-3 text-secondary-2">
           {WishlistItemsList[id - 1].price}
         </div>
         <div className="text-text-1 line-through">
           {WishlistItemsList[id - 1].sale}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -7,7 +7,7 @@ function PrimaryButton({ label, type }) {
     <div>
       <button
         type={type}
-        className="bg-button-2 text-white font-medium px-12 py-4 rounded w-full h-auto hover:bg-hover-button-0 transition-all"
+        className="h-auto w-full rounded bg-button-2 px-12 py-4 font-medium text-white transition-all hover:bg-hover-button-0"
       >
         {label}
       </button>

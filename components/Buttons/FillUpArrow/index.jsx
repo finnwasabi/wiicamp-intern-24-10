@@ -23,14 +23,14 @@ function FillUpArrow() {
     <>
       {isButtonVisible && (
         <button
-          className="fixed bottom-10 xl:bottom-5 right-5 xl:right-[5.625rem] z-10"
+          className="fixed bottom-10 right-5 z-10 xl:bottom-5 xl:right-[5.625rem]"
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <div className="rounded-full bg-secondary-0 mr-2 w-[2.875rem] h-[2.875rem] relative cursor-pointer shadow-xl">
+          <div className="relative mr-2 h-[2.875rem] w-[2.875rem] cursor-pointer rounded-full bg-secondary-0 shadow-xl">
             <svg
-              className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
               width="24"
               height="24"
               viewBox="0 0 24 24"

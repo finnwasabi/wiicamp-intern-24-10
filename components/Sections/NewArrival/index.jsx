@@ -1,38 +1,40 @@
 import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 import s from "./NewArrival.module.scss";
 
 function NewArrival() {
   return (
     <div>
-      <div className="container md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 py-0 flex items-center justify-between">
-        <div className="flex items-center font-semibold leading-5 col-span-1">
-          <div className="h-10 w-5 bg-button-2 rounded" />
-          <div className="text-button-2 ml-4">Featured</div>
+      <div className="container flex items-center justify-between py-0 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4">
+        <div className="col-span-1 flex items-center font-semibold leading-5">
+          <div className="h-10 w-5 rounded bg-button-2" />
+          <div className="ml-4 text-button-2">Featured</div>
         </div>
-        <div className="md:hidden xl:hidden font-semibold text-2xl">
+        <div className="text-2xl font-semibold md:hidden xl:hidden">
           New Arrival
         </div>
       </div>
-      <div className="container grid grid-cols-2 items-center py-0 mt-[1.5rem] mb-[3.75rem]">
-        <div className="hidden md:flex xl:flex col-span-1 text-4xl leading-[3rem] font-semibold">
+      <div className="container mb-[3.75rem] mt-[1.5rem] grid grid-cols-2 items-center py-0">
+        <div className="col-span-1 hidden text-4xl font-semibold leading-[3rem] md:flex xl:flex">
           New Arrival
         </div>
       </div>
-      <div className="container justify-between grid grid-cols-1 lg:grid-cols-2 lg:gap-5 xl:grid-cols-2 xl:gap-5 gap-2 py-0 relative">
+      <div className="container relative grid grid-cols-1 justify-between gap-2 py-0 lg:grid-cols-2 lg:gap-5 xl:grid-cols-2 xl:gap-5">
         <div className="md:flex md:justify-center xl:mr-auto">
-          <div
+          <Link
+            href="/occbo"
             className={clsx(
               s.Item,
-              "col-span-1 relative cursor-pointer md:flex w-full xl:max-h-[37.5rem] xl:max-w-[35.625rem]",
+              "relative col-span-1 w-full md:flex xl:max-h-[37.5rem] xl:max-w-[35.625rem]",
             )}
           >
             <Image
               className={clsx(
                 s.Image,
-                "rounded w-full xl:max-w-[35.625rem] xl:max-h-[37.5rem]",
+                "w-full rounded xl:max-h-[37.5rem] xl:max-w-[35.625rem]",
               )}
               src="/NewArrival/NewArrival1.png"
               width={570}
@@ -42,26 +44,27 @@ function NewArrival() {
             <div
               className={clsx(
                 s.Text,
-                "absolute bottom-4 xl:bottom-8 left-4 xl:left-8 text-white w-[15.125rem]",
+                "absolute bottom-4 left-4 w-[15.125rem] text-white xl:bottom-8 xl:left-8",
               )}
             >
-              <div className="text-2xl leading-6 mb-4 font-semibold">
+              <div className="mb-4 text-2xl font-semibold leading-6">
                 PlayStation 5
               </div>
-              <div className="text-sm mb-4">
+              <div className="mb-4 text-sm">
                 Black and White version of the PS5 coming out on sale.
               </div>
               <div className="font-medium underline">Shop Now</div>
             </div>
-          </div>
+          </Link>
         </div>
-        <div className="md:flex md:justify-center xl:max-w-[35.625rem] xl:ml-auto">
-          <div className="col-span-2 xl:col-span-1 relative w-full">
-            <div className="xl:grid xl:grid-cols-1 xl:grid-rows-2 xl:h-[37.5rem]">
-              <div
+        <div className="md:flex md:justify-center xl:ml-auto xl:max-w-[35.625rem]">
+          <div className="relative col-span-2 w-full xl:col-span-1">
+            <div className="xl:grid xl:h-[37.5rem] xl:grid-cols-1 xl:grid-rows-2">
+              <Link
+                href="/occbo"
                 className={clsx(
                   s.Item,
-                  "cursor-pointer xl:row-span-1 rounded mb-2 lg:mb-5 xl:mb-0 xl:max-h-[17.75rem] xl:max-w-[35.625rem] xl:ml-auto",
+                  "mb-2 rounded lg:mb-5 xl:row-span-1 xl:mb-0 xl:ml-auto xl:max-h-[17.75rem] xl:max-w-[35.625rem]",
                 )}
               >
                 <Image
@@ -77,24 +80,25 @@ function NewArrival() {
                 <div
                   className={clsx(
                     s.Text,
-                    "absolute top-6 sm:top-[8.75rem] md:top-[13.125rem] lg:top-[5rem] xl:top-[7.4375rem] left-4 xl:left-6 text-white w-[15.125rem]",
+                    "absolute left-4 top-6 w-[15.125rem] text-white sm:top-[8.75rem] md:top-[13.125rem] lg:top-[5rem] xl:left-6 xl:top-[7.4375rem]",
                   )}
                 >
-                  <div className="text-2xl leading-6 mb-4 font-semibold">
+                  <div className="mb-4 text-2xl font-semibold leading-6">
                     Women&apos;s Collections
                   </div>
-                  <div className="text-sm mb-4">
+                  <div className="mb-4 text-sm">
                     Featured woman collections that give you another vibe.
                   </div>
                   <div className="font-medium underline">Shop Now</div>
                 </div>
-              </div>
-              <div className="xl:row-span-1 xl:w-[35.625rem] xl:ml-auto xl:h-[17.75rem] xl:mt-auto">
-                <div className="flex xl:justify-between gap-x-2 xl:gap-x-0 xl:grid-col-2 cursor-pointer]">
-                  <div
+              </Link>
+              <div className="xl:row-span-1 xl:ml-auto xl:mt-auto xl:h-[17.75rem] xl:w-[35.625rem]">
+                <div className="xl:grid-col-2 flex gap-x-2 xl:justify-between xl:gap-x-0">
+                  <Link
+                    href="/occbo"
                     className={clsx(
                       s.Item,
-                      "relative cursor-pointer rounded w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                      "relative w-full rounded xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
                     )}
                   >
                     <Image
@@ -110,22 +114,23 @@ function NewArrival() {
                     <div
                       className={clsx(
                         s.Text,
-                        "absolute bottom-4 xl:bottom-6 left-4 xl:left-6 text-white w-full text-ellipsis overflow-hidden",
+                        "absolute bottom-4 left-4 w-full overflow-hidden text-ellipsis text-white xl:bottom-6 xl:left-6",
                       )}
                     >
-                      <div className="text-2xl leading-6 mb-2 font-semibold">
+                      <div className="mb-2 text-2xl font-semibold leading-6">
                         Speakers
                       </div>
-                      <div className="text-sm mb-2">
+                      <div className="mb-2 text-sm">
                         Amazon wireless speakers
                       </div>
                       <div className="font-medium underline">Shop Now</div>
                     </div>
-                  </div>
-                  <div
+                  </Link>
+                  <Link
+                    href="/occho"
                     className={clsx(
                       s.Item,
-                      "relative cursor-pointer rounded w-full xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
+                      "relative w-full cursor-pointer rounded xl:max-h-[17.75rem] xl:max-w-[16.875rem]",
                     )}
                   >
                     <Image
@@ -141,16 +146,16 @@ function NewArrival() {
                     <div
                       className={clsx(
                         s.Text,
-                        "absolute bottom-4 xl:bottom-6 left-4 xl:left-6 text-white w-[15.125rem]",
+                        "absolute bottom-4 left-4 w-[15.125rem] text-white xl:bottom-6 xl:left-6",
                       )}
                     >
-                      <div className="text-2xl leading-6 mb-2 font-semibold">
+                      <div className="mb-2 text-2xl font-semibold leading-6">
                         Perfume
                       </div>
-                      <div className="text-sm mb-2">GUCCI INTENSE OUD EDP</div>
+                      <div className="mb-2 text-sm">GUCCI INTENSE OUD EDP</div>
                       <div className="font-medium underline">Shop Now</div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -27,13 +27,14 @@ const TopSectionImgList = [
 
 function TopSectionImg({ id }) {
   return (
-    <div className=" bg-black">
+    <div className="bg-black">
       <Image
         src={TopSectionImgList[id - 1].path}
         width={892}
         height={344}
         alt="Picture of the author"
         priority
+        className="h-full w-full"
       />
     </div>
   );

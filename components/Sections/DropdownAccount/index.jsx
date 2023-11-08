@@ -3,12 +3,12 @@ import Link from "next/link";
 
 function DropdownAccount() {
   return (
-    <div className="bg-black bg-opacity-10 text-white px-5 py-5 w-fit h-fit rounded z-10 absolute right-0 mr-3 backdrop-blur-3xl">
+    <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-10 px-5 py-5 text-white backdrop-blur-3xl">
       <Link
         href="/MyAccount"
-        className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]"
+        className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
-        <span className="mr-4 ml">
+        <span className="ml mr-4">
           <svg
             className="ml-[-0.1875rem] mr-[0.1875rem]"
             width="24"
@@ -35,7 +35,10 @@ function DropdownAccount() {
         </span>
         <span className="text-sm">Manage My Account</span>
       </Link>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
+      <Link
+        href="/MyOrder"
+        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+      >
         <span className="mr-4">
           <svg
             width="24"
@@ -60,8 +63,11 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">My Order</span>
-      </div>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
+      </Link>
+      <Link
+        href="/MyCancellations"
+        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+      >
         <span className="mr-4">
           <svg
             width="24"
@@ -94,8 +100,11 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">My Cancellations</span>
-      </div>
-      <div className="flex items-center cursor-pointer hover:font-semibold mb-[0.8125rem]">
+      </Link>
+      <Link
+        href="/MyReviews"
+        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+      >
         <span className="mr-4">
           <svg
             width="24"
@@ -112,8 +121,11 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">My Reviews</span>
-      </div>
-      <div className="flex items-center cursor-pointer hover:font-semibold">
+      </Link>
+      <Link
+        href="/account/log-in"
+        className="flex items-center hover:font-semibold"
+      >
         <span className="mr-4">
           <svg
             width="24"
@@ -132,7 +144,7 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">Logout</span>
-      </div>
+      </Link>
     </div>
   );
 }

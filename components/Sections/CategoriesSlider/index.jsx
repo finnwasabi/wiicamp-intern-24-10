@@ -10,7 +10,7 @@ import "swiper/css";
 
 function CategoriesSlider() {
   return (
-    <div className="container flex pb-[4.375rem] border-b mb-[4.375rem]">
+    <div className="container mb-[4.375rem] flex border-b pb-[4.375rem]">
       <Swiper
         slidesPerView={2}
         spaceBetween={20}

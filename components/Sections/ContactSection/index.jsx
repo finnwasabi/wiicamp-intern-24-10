@@ -18,15 +18,15 @@ function ContactSection() {
         <span className="text-text-1">/</span>
         <span className="cursor-default">Contact</span>
       </div>
-      <div className="flex flex-col lg:flex-row gap-y-[1.875rem] lg:gap-x-[1.875rem] mb-[8.75rem]">
+      <div className="mb-[8.75rem] flex flex-col gap-y-[1.875rem] lg:flex-row lg:gap-x-[1.875rem]">
         <div
           className={clsx(
             s.ShadowBox,
-            "px-[2.1875rem] py-10 w-full lg:w-[21.25rem] round",
+            "round w-full px-[2.1875rem] py-10 lg:w-[21.25rem]",
           )}
         >
-          <div className="flex flex-col pb-8 border-b">
-            <span className="mb-6 flex items-center font-semibold text-lg">
+          <div className="flex flex-col border-b pb-8">
+            <span className="mb-6 flex items-center text-lg font-semibold">
               <Image
                 className="mr-4"
                 src="/PhoneIcon.svg"
@@ -42,7 +42,7 @@ function ContactSection() {
             <span className="text-sm">Phone: +8801611112222</span>
           </div>
           <div className="flex flex-col pt-8">
-            <span className="mb-6 flex items-center font-semibold text-lg">
+            <span className="mb-6 flex items-center text-lg font-semibold">
               <Image
                 className="mr-4"
                 src="/MailIcon.svg"
@@ -59,9 +59,9 @@ function ContactSection() {
             <span className="text-sm">Emails: customer@exclusive.com</span>
           </div>
         </div>
-        <div className={clsx(s.ShadowBox, "px-10 py-8 w-full lg:w-[50rem]")}>
+        <div className={clsx(s.ShadowBox, "w-full px-10 py-8 lg:w-[50rem]")}>
           <form className="flex flex-col gap-y-8">
-            <span className="flex lg:flex-row flex-col lg:gap-x-4 gap-y-4">
+            <span className="flex flex-col gap-y-4 lg:flex-row lg:gap-x-4">
               <InputField
                 classNameLabel=""
                 autocomplete=""
@@ -86,10 +86,10 @@ function ContactSection() {
             </span>
             <textarea
               placeholder="Subject"
-              className="rounded bg-secondary-0 py-4 px-4 min-h-[12.9375rem]"
+              className="min-h-[12.9375rem] rounded bg-secondary-0 px-4 py-4"
               required
             />
-            <div className="w-fit ml-auto">
+            <div className="ml-auto w-fit">
               <PrimaryButton label="Send Message" type="submit" />
             </div>
           </form>

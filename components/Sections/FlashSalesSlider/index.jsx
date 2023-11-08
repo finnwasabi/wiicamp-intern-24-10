@@ -25,7 +25,7 @@ function FlashSalesItems() {
   }, []);
 
   return (
-    <div className="container py-0 mt-10 ml-[calc(100vw/8)] xl:ml-auto md:ml-auto sm:ml-auto">
+    <div className="container ml-[calc(100vw/8)] mt-10 py-0 sm:ml-auto md:ml-auto xl:ml-auto">
       <Swiper
         slidesPerView={1}
         spaceBetween={-80}

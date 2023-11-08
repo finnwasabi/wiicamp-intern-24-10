@@ -37,13 +37,13 @@ function Checkout() {
             <div className="text-text-1">/</div>
             <div className="cursor-default">404 Error</div>
           </div>
-          <div className="text-[6.875rem] font-semibold text-center mt-[8.75rem] mb-10 tracking-wide">
+          <div className="mb-10 mt-[8.75rem] text-center text-[6.875rem] font-semibold tracking-wide">
             404 Not Found
           </div>
-          <div className="text-center mb-20">
+          <div className="mb-20 text-center">
             Your visited page not found. You may go home page.
           </div>
-          <div className="w-fit ml-auto mr-auto mb-[8.75rem]">
+          <div className="mb-[8.75rem] ml-auto mr-auto w-fit">
             <Link href="/">
               <PrimaryButton label="Back to home page" />
             </Link>

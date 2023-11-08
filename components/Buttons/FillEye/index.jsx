@@ -2,9 +2,12 @@ import React from "react";
 
 function FillEye() {
   return (
-    <div className="rounded-full bg-white w-[34px] h-[34px] relative">
+    <button
+      type="button"
+      className="relative h-[34px] w-[34px] rounded-full bg-white"
+    >
       <svg
-        className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -26,7 +29,7 @@ function FillEye() {
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </button>
   );
 }
 

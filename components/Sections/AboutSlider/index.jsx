@@ -10,7 +10,7 @@ import "swiper/css";
 
 function AboutSlider() {
   return (
-    <div className="py-0 mt-10">
+    <div className="mt-10 py-0">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -55,7 +55,7 @@ function AboutSlider() {
       </Swiper>
 
       <div
-        className="mt-10 w-full flex justify-center items-center"
+        className="mt-10 flex w-full items-center justify-center"
         id="hello"
       />
     </div>

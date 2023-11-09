@@ -19,37 +19,25 @@ function Header({ show3icons }) {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
+
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownOpen(false);
     }
   };
+
   const handleMenuClick = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
   };
+
   const closeSideMenu = () => {
     setIsSideMenuOpen(false);
   };
-  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
-  const handleSearchBarFocus = () => {
-    setIsSearchBarFocused(true);
-  };
-  const handleSearchBarBlur = () => {
-    setIsSearchBarFocused(false);
-  };
-  const isLinkActive = (href) => router.pathname === href;
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const term = event.target.value;
-    setSearchTerm(term);
-    setIsLoading(true);
-  };
   useEffect(() => {
     const handleMouseDown = (event) => {
       handleClickOutside(event);
@@ -61,6 +49,19 @@ function Header({ show3icons }) {
       document.removeEventListener("mousedown", handleMouseDown);
     };
   }, []);
+
+  const isLinkActive = (href) => router.pathname === href;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+    setIsLoading(true);
+  };
+
   useEffect(() => {
     const getSearchResults = async () => {
       try {
@@ -79,6 +80,7 @@ function Header({ show3icons }) {
         setIsLoading(false);
       }
     };
+
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
         setIsLoading(true); // Set loading to true when fetching results
@@ -91,6 +93,15 @@ function Header({ show3icons }) {
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm, setIsLoading]);
+
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const handleSearchBarFocus = () => {
+    setIsSearchBarFocused(true);
+  };
+
+  const handleSearchBarBlur = () => {
+    setIsSearchBarFocused(false);
+  };
 
   return (
     <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">

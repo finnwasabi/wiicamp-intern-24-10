@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 // import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 // import FillUpArrow from "@/components/Buttons/FillUpArrow";
@@ -30,7 +31,10 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home() {
+export default function Home(props) {
+  React.useEffect(() => {
+    console.log(props);
+  }, [props]);
   // const [isScrolled, setIsScrolled] = useState(false);
   // useEffect(() => {
   //   const handleScroll = () => {

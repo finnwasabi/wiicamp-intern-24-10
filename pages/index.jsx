@@ -16,20 +16,20 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-export async function getServerSideProps() {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    const products = response.data;
-    return {
-      props: { products },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return {
-      props: { products: [] },
-    };
-  }
-}
+// export async function getServerSideProps() {
+//   try {
+//     const response = await axios.get("https://fakestoreapi.com/products");
+//     const products = response.data;
+//     return {
+//       props: { products },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return {
+//       props: { products: [] },
+//     };
+//   }
+// }
 
 export default function Home({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +47,7 @@ export default function Home({ products }) {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
-  return <main>{JSON.stringify(products)}</main>;
+  return <main>products</main>;
 
   // return (
   //   <main className="overflow-x-hidden">

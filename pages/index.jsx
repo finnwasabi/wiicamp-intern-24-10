@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -31,7 +30,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ products }) {
+export default function Home({}) {
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {

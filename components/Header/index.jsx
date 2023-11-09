@@ -184,7 +184,6 @@ function Header({ show3icons }) {
             )}
             {isLoading && (
               <div className="absolute right-3 top-2">
-                {/* Show the loading animation */}
                 <CircularProgress size={20} />
               </div>
             )}

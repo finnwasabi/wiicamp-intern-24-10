@@ -17,20 +17,20 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-export async function getServerSideProps() {
-  try {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    const products = response.data;
-    return {
-      props: { products },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-    return {
-      props: { products: [] },
-    };
-  }
-}
+// export async function getServerSideProps() {
+//   try {
+//     const response = await axios.get("https://fakestoreapi.com/products");
+//     const products = response.data;
+//     return {
+//       props: { products },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return {
+//       props: { products: [] },
+//     };
+//   }
+// }
 
 export default function Home() {
   // const [isScrolled, setIsScrolled] = useState(false);

@@ -50,10 +50,10 @@ export default function Home({ products }) {
 
   return (
     <main className="overflow-x-hidden">
-      <TopHeader />
-      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        {/* <Header show3icons /> */}
-      </div>
+      {/* <TopHeader /> */} cailoz
+      {/* <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+        <Header show3icons />
+      </div> */}
       {/* <div className="mt-[5.9375rem]">
         <TopSection />
         <FlashSales products={products} />

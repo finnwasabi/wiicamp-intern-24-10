@@ -55,11 +55,11 @@ export default function Home({ products }) {
       </div>
       <div className="mt-[5.9375rem]">
         <TopSection />
-        <FlashSales products={products} />
+        {/* <FlashSales products={products} /> */}
         <Categories />
-        <ThisMonth products={products} />
+        {/* <ThisMonth products={products} /> */}
         <JBLFlashSale />
-        <OurProducts products={products} />
+        {/* <OurProducts products={products} /> */}
         <NewArrival />
         <CustomerServices />
         <FillUpArrow />

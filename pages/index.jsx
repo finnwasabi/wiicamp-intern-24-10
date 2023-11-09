@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable*/
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -33,47 +33,42 @@ export async function getServerSideProps() {
 
 export default function Home({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  console.log(products);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY > 0) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
 
-  useEffect(() => {
-    console.log(products);
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  return <main>{JSON.stringify(products)}</main>;
 
-  if (!products || products?.length === 0) {
-    return null;
-  }
-
-  return (
-    <main className="overflow-x-hidden">
-      <TopHeader />
-      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        <Header show3icons />
-      </div>
-      <div className="mt-[5.9375rem]">
-        <TopSection />
-        <FlashSales products={products} />
-        <Categories />
-        <ThisMonth products={products} />
-        <JBLFlashSale />
-        <OurProducts products={products} />
-        <NewArrival />
-        <CustomerServices />
-        <FillUpArrow />
-        <Footer />
-      </div>
-    </main>
-  );
+  // return (
+  //   <main className="overflow-x-hidden">
+  //     <TopHeader />
+  //     <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+  //       <Header show3icons />
+  //     </div>
+  //     <div className="mt-[5.9375rem]">
+  //       <TopSection />
+  //       <FlashSales products={products} />
+  //       <Categories />
+  //       <ThisMonth products={products} />
+  //       <JBLFlashSale />
+  //       <OurProducts products={products} />
+  //       <NewArrival />
+  //       <CustomerServices />
+  //       <FillUpArrow />
+  //       <Footer />
+  //     </div>
+  //   </main>
+  // );
 }
 
 Home.propTypes = {

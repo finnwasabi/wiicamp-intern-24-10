@@ -14,21 +14,27 @@ function LogInSection() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(false);
 
     try {
       // Simulate authentication check
       if (email === "123@123" && password === "123") {
         // Successful login, redirect to home
         router.push("/");
+        setLoading(true);
       } else {
         // Unsuccessful login, display error
         setError("Invalid email or password. Please try again.");
+        setLoading(false);
       }
     } catch (error) {
       setError("An error occurred. Please try again.");
     } finally {
-      setLoading(true);
+      if (loading) {
+        setLoading(true);
+      }
+      if (error) {
+        setLoading(false);
+      }
     }
   };
 

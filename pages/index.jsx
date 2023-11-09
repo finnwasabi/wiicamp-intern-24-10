@@ -1,5 +1,6 @@
-/* eslint-disable */
+/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
@@ -17,8 +18,8 @@ import TopHeader from "@/components/TopHeader";
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const products = await response.json();
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const products = response.data;
     return {
       props: { products },
     };
@@ -48,21 +49,21 @@ export default function Home({ products }) {
 
   return (
     <main className="overflow-x-hidden">
-      {/* <TopHeader /> */}
+      <TopHeader />
       <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        {/* <Header show3icons /> */}
+        <Header show3icons />
       </div>
       <div className="mt-[5.9375rem]">
-        {/* <TopSection /> */}
+        <TopSection />
         <FlashSales products={products} />
-        {/* <Categories /> */}
-        {/* <ThisMonth products={products} /> */}
-        {/* <JBLFlashSale /> */}
-        {/* <OurProducts products={products} /> */}
-        {/* <NewArrival />
+        <Categories />
+        <ThisMonth products={products} />
+        <JBLFlashSale />
+        <OurProducts products={products} />
+        <NewArrival />
         <CustomerServices />
         <FillUpArrow />
-        <Footer /> */}
+        <Footer />
       </div>
     </main>
   );

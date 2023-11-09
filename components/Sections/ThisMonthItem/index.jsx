@@ -49,7 +49,7 @@ const renderStars = (rating) => {
 
 function ThisMonthItem({ product }) {
   const { image, title, price, rating } = product;
-  const [discountPercentage, setDiscountPercentage] = React.useState(0);
+  const [, setDiscountPercentage] = React.useState(0);
   const [salePrice, setSalePrice] = React.useState(0);
 
   React.useEffect(() => {
@@ -60,7 +60,7 @@ function ThisMonthItem({ product }) {
     const calculatedSalePrice =
       price - (price * calculatedDiscountPercentage) / 100;
     setSalePrice(calculatedSalePrice);
-  }, []);
+  }, [price]);
 
   return (
     <Link

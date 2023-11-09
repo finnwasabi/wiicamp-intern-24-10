@@ -60,7 +60,7 @@ function FlashSalesItem({ product }) {
     const calculatedSalePrice =
       price - (price * calculatedDiscountPercentage) / 100;
     setSalePrice(calculatedSalePrice);
-  }, []);
+  }, [price]);
 
   return (
     <Link

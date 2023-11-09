@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,6 +8,7 @@ import "swiper/css/pagination";
 import AboutContacts from "@/components/Sections/AboutContacts";
 
 import "swiper/css";
+import s from "./AboutSlider.module.scss";
 
 function AboutSlider() {
   return (
@@ -55,7 +57,10 @@ function AboutSlider() {
       </Swiper>
 
       <div
-        className="mt-10 flex w-full items-center justify-center"
+        className={clsx(
+          s.pagination,
+          "mt-10 flex w-full items-center justify-center",
+        )}
         id="hello"
       />
     </div>

@@ -1,10 +1,11 @@
-.hello{
+.pagination{
     :global {
         .swiper-pagination-bullet{
-            background-color: white !important;
+            background-color: grey !important;
         }
         .swiper-pagination-bullet-active{
-            background-image: url('/Pagination.svg');
+            background-image: url('/Pagination.svg') !important;
+            background-color: white !important;
         }
     }            
 }

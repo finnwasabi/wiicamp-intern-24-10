@@ -139,10 +139,10 @@ function Header({ show3icons }) {
               Contact
             </Link>
             <Link
-              href="/About"
+              href="/about"
               className={clsx(
-                !isLinkActive("/About") && s.OnHover,
-                isLinkActive("/About") && s.ActiveLink,
+                !isLinkActive("/about") && s.OnHover,
+                isLinkActive("/about") && s.ActiveLink,
                 "mr-12",
               )}
             >

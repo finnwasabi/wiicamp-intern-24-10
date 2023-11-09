@@ -20,7 +20,8 @@
     "react-dom": "^18",
     "sass": "^1.69.4",
     "sharp": "^0.32.6",
-    "swiper": "^11.0.2"
+    "swiper": "^11.0.2",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^10",

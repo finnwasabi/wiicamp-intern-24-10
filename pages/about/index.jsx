@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
@@ -23,17 +24,22 @@ function About() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <main>
-      <TopHeader />
-      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        <Header show3icons />
-      </div>
-      <div className="mt-[5.9375rem]">
-        <AboutSection />
-        <FillUpArrow />
-        <Footer />
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>About</title>
+      </Head>
+      <main>
+        <TopHeader />
+        <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+          <Header show3icons />
+        </div>
+        <div className="mt-[5.9375rem]">
+          <AboutSection />
+          <FillUpArrow />
+          <Footer />
+        </div>
+      </main>
+    </>
   );
 }
 

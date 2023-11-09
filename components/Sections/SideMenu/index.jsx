@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useRef, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import clsx from "clsx";
 import {
@@ -43,10 +44,12 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
+    setIsLoading(true);
   };
 
   useEffect(() => {
@@ -63,19 +66,23 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
         }
       } catch (error) {
         // console.error("Error fetching search results: ", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
+        setIsLoading(true); // Set loading to true when fetching results
         getSearchResults();
       } else {
         setSearchResults([]);
+        setIsLoading(false);
       }
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm]);
+  }, [searchTerm, setIsLoading]);
 
   const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
   const handleSearchBarFocus = () => {
@@ -109,7 +116,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               onBlur={handleSearchBarBlur}
             />
             <Search className="absolute right-3 top-2 cursor-pointer" />
-            {isSearchBarFocused && searchResults.length > 0 && (
+            {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
                   <span
@@ -121,8 +128,12 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
                 ))}
               </div>
             )}
-
-            {isSearchBarFocused && searchResults.length === 0 && (
+            {isLoading && (
+              <div className="absolute top-10 mt-2 flex h-[42px] w-full flex-col items-center justify-center rounded border bg-white shadow">
+                <CircularProgress color="black" size={20} />
+              </div>
+            )}
+            {isSearchBarFocused && searchResults.length === 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex w-full flex-col rounded border bg-white shadow">
                 <span className="cursor-default px-4 py-2 text-center opacity-30">
                   No results

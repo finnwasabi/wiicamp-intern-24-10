@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Head from "next/head";
 import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
@@ -26,7 +27,7 @@ export async function getServerSideProps() {
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return {
-      props: { products: [] }, // Provide an empty array in case of error
+      props: { products: [] },
     };
   }
 }
@@ -48,31 +49,32 @@ export default function Home({ products }) {
   }, []);
 
   return (
-    <main className="overflow-x-hidden">
-      <TopHeader />
-      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-        <Header show3icons />
-      </div>
-      <div className="mt-[5.9375rem]">
-        <TopSection />
-        <FlashSales products={products} />
-        <Categories />
-        <ThisMonth products={products} />
-        <JBLFlashSale />
-        <OurProducts products={products} />
-        <NewArrival />
-        <CustomerServices />
-        <FillUpArrow />
-        <Footer />
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Home</title>
+      </Head>
+      <main className="overflow-x-hidden">
+        <TopHeader />
+        <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+          <Header show3icons />
+        </div>
+        <div className="mt-[5.9375rem]">
+          <TopSection />
+          <FlashSales products={products} />
+          <Categories />
+          <ThisMonth products={products} />
+          <JBLFlashSale />
+          <OurProducts products={products} />
+          <NewArrival />
+          <CustomerServices />
+          <FillUpArrow />
+          <Footer />
+        </div>
+      </main>
+    </>
   );
 }
 
 Home.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      // Define the shape of the array elements here
-    }),
-  ).isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

@@ -178,7 +178,7 @@ function CartSection() {
             <div>Total:</div>
             <div> ${550 * quantity + 650 * quantity1}</div>
           </div>
-          <Link href="/Checkout">
+          <Link href="/checkout">
             <div className="flex justify-center">
               <PrimaryButton label="Proceed to checkout" />
             </div>

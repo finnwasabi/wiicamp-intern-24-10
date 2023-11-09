@@ -129,10 +129,10 @@ function Header({ show3icons }) {
               Home
             </Link>
             <Link
-              href="/Contact"
+              href="/contact"
               className={clsx(
-                !isLinkActive("/Contact") && s.OnHover,
-                isLinkActive("/Contact") && s.ActiveLink,
+                !isLinkActive("/contact") && s.OnHover,
+                isLinkActive("/contact") && s.ActiveLink,
                 "mr-12",
               )}
             >
@@ -201,10 +201,10 @@ function Header({ show3icons }) {
             {show3icons && (
               <div className="flex items-center gap-4 xl:ml-6">
                 <Link
-                  href="/Wishlist"
+                  href="/wishlist"
                   className={clsx(
                     s.ThreeBoxes,
-                    isLinkActive("/Wishlist") && s.ThreeBoxesFocus,
+                    isLinkActive("/wishlist") && s.ThreeBoxesFocus,
                   )}
                 >
                   <Heart
@@ -214,10 +214,10 @@ function Header({ show3icons }) {
                   />
                 </Link>
                 <Link
-                  href="/Cart"
+                  href="/cart"
                   className={clsx(
                     s.ThreeBoxes,
-                    isLinkActive("/Cart") && s.ThreeBoxesFocus,
+                    isLinkActive("/cart") && s.ThreeBoxesFocus,
                   )}
                 >
                   <ShoppingCart

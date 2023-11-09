@@ -15,7 +15,7 @@ function CheckOutSection() {
           Account
         </span>
         <span className="hidden cursor-default text-text-1 lg:flex">/</span>
-        <Link href="/MyAccount" className="hidden text-text-1 lg:flex">
+        <Link href="/my-account" className="hidden text-text-1 lg:flex">
           My Account
         </Link>
         <span className="hidden cursor-default text-text-1 lg:flex ">/</span>
@@ -24,7 +24,7 @@ function CheckOutSection() {
         </span>
         <span className="cursor-default text-text-1 lg:hidden">...</span>
         <span className="cursor-default text-text-1">/</span>
-        <Link href="/Cart" className="text-text-1">
+        <Link href="/cart" className="text-text-1">
           View Cart
         </Link>
         <span className="cursor-default text-text-1">/</span>

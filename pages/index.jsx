@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
@@ -16,9 +15,11 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
+import request from "./request";
+
 export async function getServerSideProps() {
   try {
-    const response = await axios.get("https://fakestoreapi.com/products");
+    const response = await request.get("products");
     const products = response.data;
     return {
       props: { products },

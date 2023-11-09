@@ -49,13 +49,12 @@ const renderStars = (rating) => {
 
 function ThisMonthItem({ product }) {
   const { image, title, price, rating } = product;
-  const [, setDiscountPercentage] = React.useState(0);
+
   const [salePrice, setSalePrice] = React.useState(0);
 
   React.useEffect(() => {
     const calculatedDiscountPercentage =
       Math.floor(Math.random() * (70 - 10 + 1)) + 10;
-    setDiscountPercentage(calculatedDiscountPercentage);
 
     const calculatedSalePrice =
       price - (price * calculatedDiscountPercentage) / 100;

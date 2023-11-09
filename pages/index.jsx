@@ -32,7 +32,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ products }) {
+export default function Home() {
   // const [isScrolled, setIsScrolled] = useState(false);
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -70,10 +70,10 @@ export default function Home({ products }) {
   );
 }
 
-Home.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      // Define the shape of the array elements here
-    }),
-  ).isRequired,
-};
+// Home.propTypes = {
+//   products: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       // Define the shape of the array elements here
+//     }),
+//   ).isRequired,
+// };

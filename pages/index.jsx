@@ -1,4 +1,4 @@
-/* eslint-disable*/
+/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -16,59 +16,57 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-// export async function getServerSideProps() {
-//   try {
-//     const response = await axios.get("https://fakestoreapi.com/products");
-//     const products = response.data;
-//     return {
-//       props: { products },
-//     };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return {
-//       props: { products: [] },
-//     };
-//   }
-// }
+export async function getServerSideProps() {
+  try {
+    const response = await fetch("https://fakestoreapi.com/products");
+    const products = await response.json();
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return {
+      props: { products: [] },
+    };
+  }
+}
 
 export default function Home({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-  //     if (currentScrollY > 0) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  return <main>products</main>;
-
-  // return (
-  //   <main className="overflow-x-hidden">
-  //     <TopHeader />
-  //     <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-  //       <Header show3icons />
-  //     </div>
-  //     <div className="mt-[5.9375rem]">
-  //       <TopSection />
-  //       <FlashSales products={products} />
-  //       <Categories />
-  //       <ThisMonth products={products} />
-  //       <JBLFlashSale />
-  //       <OurProducts products={products} />
-  //       <NewArrival />
-  //       <CustomerServices />
-  //       <FillUpArrow />
-  //       <Footer />
-  //     </div>
-  //   </main>
-  // );
+  return (
+    <main className="overflow-x-hidden">
+      <TopHeader />
+      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+        <Header show3icons />
+      </div>
+      <div className="mt-[5.9375rem]">
+        <TopSection />
+        <FlashSales products={products} />
+        <Categories />
+        <ThisMonth products={products} />
+        <JBLFlashSale />
+        <OurProducts products={products} />
+        <NewArrival />
+        <CustomerServices />
+        <FillUpArrow />
+        <Footer />
+      </div>
+    </main>
+  );
 }
 
 Home.propTypes = {

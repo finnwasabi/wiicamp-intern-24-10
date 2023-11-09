@@ -77,7 +77,7 @@ function Header({ show3icons }) {
       } catch (error) {
         // console.error("Error fetching search results: ", error);
       } finally {
-        setIsLoading(false); // Set loading to false when search is complete
+        setIsLoading(false);
       }
     };
 
@@ -183,11 +183,11 @@ function Header({ show3icons }) {
               </div>
             )}
             {isLoading && (
-              <div className="absolute right-3 top-2">
+              <div className="absolute top-10 mt-2 flex h-[42px] w-full flex-col items-center justify-center rounded border bg-white shadow">
                 <CircularProgress size={20} />
               </div>
             )}
-            {isSearchBarFocused && searchResults.length === 0 && (
+            {isSearchBarFocused && searchResults.length === 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex w-full flex-col rounded border bg-white shadow">
                 <span className="cursor-default px-4 py-2 text-center opacity-30">
                   No results

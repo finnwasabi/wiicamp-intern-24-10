@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,44 +16,44 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-// export async function getServerSideProps() {
-//   try {
-//     const response = await axios.get("https://fakestoreapi.com/products");
-//     const products = response.data;
-//     return {
-//       props: { products },
-//     };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return {
-//       props: { products: [] },
-//     };
-//   }
-// }
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const products = response.data;
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return {
+      props: { products: [] }, // Provide an empty array in case of error
+    };
+  }
+}
 
-export default function Home() {
-  // const [isScrolled, setIsScrolled] = useState(false);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-  //     if (currentScrollY > 0) {
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
+export default function Home({ products }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <main className="overflow-x-hidden">
-      {/* <TopHeader /> */} cailoz
-      {/* <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+      <TopHeader />
+      <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
         <Header show3icons />
-      </div> */}
-      {/* <div className="mt-[5.9375rem]">
+      </div>
+      <div className="mt-[5.9375rem]">
         <TopSection />
         <FlashSales products={products} />
         <Categories />
@@ -65,15 +64,15 @@ export default function Home() {
         <CustomerServices />
         <FillUpArrow />
         <Footer />
-      </div> */}
+      </div>
     </main>
   );
 }
 
-// Home.propTypes = {
-//   products: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       // Define the shape of the array elements here
-//     }),
-//   ).isRequired,
-// };
+Home.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      // Define the shape of the array elements here
+    }),
+  ).isRequired,
+};

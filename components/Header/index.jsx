@@ -19,25 +19,37 @@ function Header({ show3icons }) {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
-
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownOpen(false);
     }
   };
-
   const handleMenuClick = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
   };
-
   const closeSideMenu = () => {
     setIsSideMenuOpen(false);
   };
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const handleSearchBarFocus = () => {
+    setIsSearchBarFocused(true);
+  };
+  const handleSearchBarBlur = () => {
+    setIsSearchBarFocused(false);
+  };
+  const isLinkActive = (href) => router.pathname === href;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+    setIsLoading(true);
+  };
   useEffect(() => {
     const handleMouseDown = (event) => {
       handleClickOutside(event);
@@ -49,22 +61,9 @@ function Header({ show3icons }) {
       document.removeEventListener("mousedown", handleMouseDown);
     };
   }, []);
-
-  const isLinkActive = (href) => router.pathname === href;
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // Add a state for loading
-
-  const handleChange = (event) => {
-    const term = event.target.value;
-    setSearchTerm(term);
-  };
-
   useEffect(() => {
     const getSearchResults = async () => {
       try {
-        setIsLoading(true); // Set loading to true when fetching results
         const response = await axios.get("https://fakestoreapi.com/products");
         if (searchTerm) {
           const filteredResults = response.data.filter((product) =>
@@ -80,26 +79,18 @@ function Header({ show3icons }) {
         setIsLoading(false);
       }
     };
-
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
+        setIsLoading(true); // Set loading to true when fetching results
         getSearchResults();
       } else {
         setSearchResults([]);
+        setIsLoading(false);
       }
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm]);
-
-  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
-  const handleSearchBarFocus = () => {
-    setIsSearchBarFocused(true);
-  };
-
-  const handleSearchBarBlur = () => {
-    setIsSearchBarFocused(false);
-  };
+  }, [searchTerm, setIsLoading]);
 
   return (
     <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">
@@ -167,10 +158,10 @@ function Header({ show3icons }) {
               onBlur={handleSearchBarBlur}
               required
             />
-            <button type="submit">
+            <Link href="/SearchResults" type="submit">
               <Search className="absolute right-3 top-2" />
-            </button>
-            {isSearchBarFocused && searchResults.length > 0 && (
+            </Link>
+            {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
                   <span

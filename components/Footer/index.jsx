@@ -4,13 +4,14 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image.js";
 import Link from "next/link.js";
 
+import useAuthStore from "@/stores/authStore";
+
 import IconSend from "../../asset/icons/sendIco.jsx";
-import { useAuth } from "../../AuthContext";
 
 import s from "./Footer.module.scss";
 
 function Footer() {
-  const { isLoggedIn } = useAuth();
+  const authStore = useAuthStore();
 
   return (
     <div className="bg-black pb-6 pt-20 text-white">
@@ -69,7 +70,7 @@ function Footer() {
         >
           <div className="mb-6 text-xl">Account</div>
           <li className="mb-4">
-            {!isLoggedIn ? (
+            {!authStore.isAuthenticated ? (
               <Link href="/please">My Account</Link>
             ) : (
               <Link href="/my-account">My Account</Link>
@@ -79,14 +80,14 @@ function Footer() {
             <Link href="/account/sign-up">Login / Register</Link>
           </li>
           <li className="mb-4">
-            {!isLoggedIn ? (
+            {!authStore.isAuthenticated ? (
               <Link href="/please">Checkout</Link>
             ) : (
               <Link href="/checkout">Checkout</Link>
             )}
           </li>
           <li className="mb-4">
-            {!isLoggedIn ? (
+            {!authStore.isAuthenticated ? (
               <Link href="/please">Wishlist</Link>
             ) : (
               <Link href="/wishlist">Wishlist</Link>

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Poppins } from "next/font/google";
 import PropTypes from "prop-types";
 
-import { AuthProvider } from "@/AuthContext";
+import useAuthStore from "@/stores/authStore";
 
 import "@/styles/globals.css";
 
@@ -11,12 +11,14 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    useAuthStore.getState(); // This will initialize the Zustand store on the server side
+  }, []);
+
   return (
-    <AuthProvider>
-      <div className={poppins.className}>
-        <Component {...pageProps} />
-      </div>
-    </AuthProvider>
+    <div className={poppins.className}>
+      <Component {...pageProps} />
+    </div>
   );
 }
 

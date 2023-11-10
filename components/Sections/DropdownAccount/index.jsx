@@ -1,14 +1,18 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { useAuth } from "@/AuthContext";
+import useAuthStore from "@/stores/authStore";
 
 function DropdownAccount() {
-  const { handleLogout } = useAuth(); // Access the handleLogout function from the AuthContext
+  const authStore = useAuthStore(); // Access the handleLogout function from the AuthContext
+  const router = useRouter(); // Next.js router
 
   const handleLogoutClick = () => {
-    handleLogout(); // Call the handleLogout function when the logout button is clicked
+    authStore.logout(); // Call the logout function from Zustand
+    router.push("/account/sign-up"); // Redirect to the signup page
   };
+
   return (
     <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-10 px-5 py-5 text-white backdrop-blur-3xl">
       <Link

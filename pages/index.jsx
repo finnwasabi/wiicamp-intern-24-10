@@ -17,6 +17,8 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
+import { useAuth } from "../AuthContext";
+
 export async function getServerSideProps() {
   try {
     const response = await axios.get("https://fakestoreapi.com/products");
@@ -34,6 +36,8 @@ export async function getServerSideProps() {
 
 export default function Home({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isLoggedIn } = useAuth();
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -56,7 +60,8 @@ export default function Home({ products }) {
       <main className="overflow-x-hidden">
         <TopHeader />
         <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-          <Header show3icons />
+          {isLoggedIn && <Header show3icons />}
+          {!isLoggedIn && <Header show3icons={false} />}
         </div>
         <div className="mt-[5.9375rem]">
           <TopSection />

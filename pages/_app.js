@@ -2,6 +2,8 @@ import React from "react";
 import { Poppins } from "next/font/google";
 import PropTypes from "prop-types";
 
+import { AuthProvider } from "../AuthContext";
+
 import "@/styles/globals.css";
 
 const poppins = Poppins({
@@ -10,9 +12,11 @@ const poppins = Poppins({
 });
 export default function App({ Component, pageProps }) {
   return (
-    <div className={poppins.className}>
-      <Component {...pageProps} />
-    </div>
+    <AuthProvider>
+      <div className={poppins.className}>
+        <Component {...pageProps} />
+      </div>
+    </AuthProvider>
   );
 }
 

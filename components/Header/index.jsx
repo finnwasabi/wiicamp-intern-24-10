@@ -158,7 +158,7 @@ function Header({ show3icons }) {
               Sign up
             </Link>
           </div>
-          <form className="relative hidden md:flex xl:flex">
+          <form className="relative hidden md:ml-auto md:flex xl:flex">
             <input
               className="h-6 min-w-[15.1875rem] rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"

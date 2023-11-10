@@ -5,10 +5,13 @@ import Image from "next/image.js";
 import Link from "next/link.js";
 
 import IconSend from "../../asset/icons/sendIco.jsx";
+import { useAuth } from "../../AuthContext";
 
 import s from "./Footer.module.scss";
 
 function Footer() {
+  const { isLoggedIn } = useAuth();
+
   return (
     <div className="bg-black pb-6 pt-20 text-white">
       <div className="container grid justify-center gap-x-[5.4375rem] gap-y-[3rem] text-center sm:grid-cols-2 md:grid-cols-2 xl:flex xl:text-left">
@@ -66,16 +69,28 @@ function Footer() {
         >
           <div className="mb-6 text-xl">Account</div>
           <li className="mb-4">
-            <Link href="/MyAccount">My Account</Link>
+            {!isLoggedIn ? (
+              <Link href="/please">My Account</Link>
+            ) : (
+              <Link href="/my-account">My Account</Link>
+            )}
           </li>
           <li className="mb-4">
             <Link href="/account/sign-up">Login / Register</Link>
           </li>
           <li className="mb-4">
-            <Link href="/Cart">Cart</Link>
+            {!isLoggedIn ? (
+              <Link href="/please">Checkout</Link>
+            ) : (
+              <Link href="/checkout">Checkout</Link>
+            )}
           </li>
           <li className="mb-4">
-            <Link href="/Wishlist">Wishlist</Link>
+            {!isLoggedIn ? (
+              <Link href="/please">Wishlist</Link>
+            ) : (
+              <Link href="/wishlist">Wishlist</Link>
+            )}
           </li>
           <li className="mb-4">Shop</li>
         </ul>

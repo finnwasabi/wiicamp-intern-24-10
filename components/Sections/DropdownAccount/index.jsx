@@ -1,7 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
+import { useAuth } from "@/AuthContext";
+
 function DropdownAccount() {
+  const { handleLogout } = useAuth(); // Access the handleLogout function from the AuthContext
+
+  const handleLogoutClick = () => {
+    handleLogout(); // Call the handleLogout function when the logout button is clicked
+  };
   return (
     <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-10 px-5 py-5 text-white backdrop-blur-3xl">
       <Link
@@ -122,9 +129,10 @@ function DropdownAccount() {
         </span>
         <span className="text-sm">My Reviews</span>
       </Link>
-      <Link
-        href="/account/log-in"
+      <button
+        type="button"
         className="flex items-center hover:font-semibold"
+        onClick={handleLogoutClick}
       >
         <span className="mr-4">
           <svg
@@ -144,7 +152,7 @@ function DropdownAccount() {
           </svg>
         </span>
         <span className="text-sm">Logout</span>
-      </Link>
+      </button>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 import React, { useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -7,34 +8,37 @@ import PrimaryButton from "../../Buttons/PrimaryButton";
 
 function LogInSection() {
   const router = useRouter();
-  const [email, setEmail] = useState("123@123");
-  const [password, setPassword] = useState("123");
+  const [email, setEmail] = useState("john@gmail.com");
+  const [password, setPassword] = useState("m38rmF$");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [invalidInput, setInvalidInput] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      // Simulate authentication check
-      if (email === "123@123" && password === "123") {
-        // Successful login, redirect to home
+      const response = await axios.get("https://fakestoreapi.com/users");
+      const users = response.data;
+
+      const user = users.find(
+        (user) => user.email === email && user.password === password,
+      );
+
+      if (user) {
         router.push("/");
-        setLoading(true);
+        setLoading(false);
+        setSuccess(true);
       } else {
-        // Unsuccessful login, display error
         setError("Invalid email or password. Please try again.");
         setLoading(false);
+        setInvalidInput(true);
       }
     } catch (error) {
-      setError("An error occurred. Please try again.");
-    } finally {
-      if (loading) {
-        setLoading(true);
-      }
-      if (error) {
-        setLoading(false);
-      }
+      setError("An error occurred. Please try again later.");
+      setLoading(false);
     }
   };
 
@@ -63,24 +67,38 @@ function LogInSection() {
                   type="email"
                   autoComplete="email"
                   placeholder="Email"
-                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
+                  className={`mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none ${
+                    invalidInput ? "border-red-500" : ""
+                  }`}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setError("");
+                    setEmail(e.target.value);
+                    setInvalidInput(false);
+                  }}
                   required
                 />
                 <input
                   type="password"
                   autoComplete="password"
                   placeholder="Password"
-                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
+                  className={`mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none ${
+                    invalidInput ? "border-red-500" : ""
+                  }`}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setError("");
+                    setPassword(e.target.value);
+                    setInvalidInput(false);
+                  }}
                   required
                 />
               </div>
               <div className="flex items-center justify-between">
-                {!loading && <PrimaryButton type="submit" label="Log In" />}
-                {loading && (
+                {!loading && !success && (
+                  <PrimaryButton type="submit" label="Log In" />
+                )}
+                {loading && !success && (
                   <button
                     type="submit"
                     className="flex h-[56px] w-[143px] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
@@ -93,11 +111,28 @@ function LogInSection() {
                     />
                   </button>
                 )}
+                {success && (
+                  <button
+                    type="submit"
+                    className="flex h-[56px] w-[143px] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
+                  >
+                    <Image
+                      src="/Success.gif"
+                      alt="Success"
+                      width={40}
+                      height={40}
+                    />
+                  </button>
+                )}
                 <div className="cursor-pointer text-button-2">
                   Forget Password?
                 </div>
               </div>
-              {error && <div className="mt-4 text-red-500">{error}</div>}
+              {error && (
+                <div className="mt-8 text-lg font-semibold text-red-500">
+                  {error}
+                </div>
+              )}
             </form>
           </div>
         </div>

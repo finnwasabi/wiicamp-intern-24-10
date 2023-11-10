@@ -1,4 +1,7 @@
 /* eslint-disable no-shadow */
+
+"use client";
+
 import React, { useState } from "react";
 import axios from "axios";
 import Image from "next/image";

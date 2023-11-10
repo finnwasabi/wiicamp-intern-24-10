@@ -32,7 +32,7 @@ function LogInSection() {
         setLoading(false);
         setSuccess(true);
       } else {
-        setError("Invalid email or password. Please try again.");
+        setError("Invalid email or password!");
         setLoading(false);
         setInvalidInput(true);
       }

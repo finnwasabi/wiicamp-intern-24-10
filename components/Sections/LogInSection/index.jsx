@@ -4,6 +4,8 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import useAuthStore from "@/stores/authStore";
+
 import PrimaryButton from "../../Buttons/PrimaryButton";
 
 function LogInSection() {
@@ -14,6 +16,7 @@ function LogInSection() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [invalidInput, setInvalidInput] = useState(false);
+  const authStore = useAuthStore();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,6 +31,7 @@ function LogInSection() {
       );
 
       if (user) {
+        authStore.login();
         router.push("/");
         setLoading(false);
         setSuccess(true);

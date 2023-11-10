@@ -31,7 +31,7 @@ function Wishlist() {
       <main>
         <TopHeader />
         <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-          <Header show3icons />
+          <Header />
         </div>
         <div className="mt-[5.9375rem]">
           <WishlistSection />

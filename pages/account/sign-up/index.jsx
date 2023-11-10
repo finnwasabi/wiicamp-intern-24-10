@@ -6,11 +6,8 @@ import Header from "@/components/Header";
 import SignUpSection from "@/components/Sections/SignUpSection";
 import TopHeader from "@/components/TopHeader";
 
-import { useAuth } from "@/AuthContext";
-
 function SignUp() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +30,7 @@ function SignUp() {
       <main>
         <TopHeader />
         <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-          {isLoggedIn && <Header show3icons />}
-          {!isLoggedIn && <Header show3icons={false} />}
+          <Header />
         </div>
         <div className="mt-[5.9375rem]">
           <SignUpSection />

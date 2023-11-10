@@ -7,14 +7,15 @@ import { Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import PropTypes from "prop-types";
+
+import useAuthStore from "@/stores/authStore";
 
 import DropdownAccount from "../Sections/DropdownAccount";
 import SideMenu from "../Sections/SideMenu";
 
 import s from "./Header.module.scss";
 
-function Header({ show3icons }) {
+function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -102,6 +103,8 @@ function Header({ show3icons }) {
   const handleSearchBarBlur = () => {
     setIsSearchBarFocused(false);
   };
+
+  const authStore = useAuthStore();
 
   return (
     <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">
@@ -198,7 +201,7 @@ function Header({ show3icons }) {
             )}
           </form>
           <div className="flex">
-            {show3icons && (
+            {authStore.isAuthenticated && (
               <div className="flex items-center gap-4 xl:ml-6">
                 <Link
                   href="/wishlist"
@@ -258,8 +261,5 @@ function Header({ show3icons }) {
     </div>
   );
 }
-Header.propTypes = {
-  show3icons: PropTypes.bool.isRequired,
-};
 
 export default Header;

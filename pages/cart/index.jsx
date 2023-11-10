@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import CartSection from "@/components/Sections/CartSection";
 import TopHeader from "@/components/TopHeader";
 
-import { useAuth } from "../../AuthContext";
+import { useAuth } from "@/AuthContext";
 
 function Cart() {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import LogInSection from "@/components/Sections/LogInSection";
 import TopHeader from "@/components/TopHeader";
 
-import { useAuth } from "@/AuthContext";
+import { useAuth } from "../../../AuthContext";
 
 function SignUp() {
   const [isScrolled, setIsScrolled] = useState(false);

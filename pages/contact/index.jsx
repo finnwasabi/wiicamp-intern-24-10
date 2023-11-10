@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import ContactSection from "@/components/Sections/ContactSection";
 import TopHeader from "@/components/TopHeader";
 
-import { useAuth } from "../../AuthContext";
+import { useAuth } from "@/AuthContext";
 
 function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);

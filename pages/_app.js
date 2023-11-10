@@ -2,7 +2,7 @@ import React from "react";
 import { Poppins } from "next/font/google";
 import PropTypes from "prop-types";
 
-import { AuthProvider } from "../AuthContext";
+import { AuthProvider } from "@/AuthContext";
 
 import "@/styles/globals.css";
 

@@ -17,7 +17,7 @@ import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
 import TopHeader from "@/components/TopHeader";
 
-import { useAuth } from "../AuthContext";
+import { useAuth } from "@/AuthContext";
 
 export async function getServerSideProps() {
   try {

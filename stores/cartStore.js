@@ -36,7 +36,7 @@ const useCartStore = create(
           ),
         })),
     }),
-    { name: "cart-storage" }, // Use a specific name for the localStorage key
+    { name: "cart-storage" },
   ),
 );
 

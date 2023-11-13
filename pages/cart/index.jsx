@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import CartSection from "@/components/Sections/CartSection";
 import TopHeader from "@/components/TopHeader";
 
+import withAuth from "@/stores/withAuth";
+
 function Cart() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,4 +43,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withAuth(Cart);

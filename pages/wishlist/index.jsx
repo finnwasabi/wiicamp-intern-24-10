@@ -7,8 +7,6 @@ import Header from "@/components/Header";
 import WishlistSection from "@/components/Sections/WishlistSection";
 import TopHeader from "@/components/TopHeader";
 
-import withAuth from "@/stores/withAuth";
-
 function Wishlist() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -45,4 +43,4 @@ function Wishlist() {
   );
 }
 
-export default withAuth(Wishlist);
+export default Wishlist;

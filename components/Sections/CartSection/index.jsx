@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
@@ -7,25 +7,44 @@ import Link from "next/link";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 
+import useCartStore from "@/stores/cartStore";
+
 import s from "./CartSection.module.scss";
 
 function CartSection() {
-  const [quantity1, setQuantity1] = useState(1);
-  const [quantity, setQuantity] = useState(2);
+  const cartStore = useCartStore();
+  const { items } = cartStore;
 
-  const handleIncrease1 = () => {
-    setQuantity1(Number(quantity1) + 1);
-  };
-  const handleDecrease1 = () => {
-    setQuantity1(Number(quantity1) - 1);
+  const handleIncrease = (productId) => {
+    cartStore.increaseQuantity(productId);
   };
 
-  const handleIncrease = () => {
-    setQuantity(Number(quantity) + 1);
+  const handleDecrease = (productId) => {
+    cartStore.decreaseQuantity(productId);
   };
-  const handleDecrease = () => {
-    setQuantity(Number(quantity) - 1);
+
+  const handleRemove = (productId) => {
+    cartStore.removeFromCart(productId);
   };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    cartStore.updateQuantity(productId, newQuantity);
+  };
+
+  const getTotalPrice = () => {
+    const totalAmount = items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    );
+
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    return formatter.format(totalAmount);
+  };
+
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
@@ -43,104 +62,84 @@ function CartSection() {
             <div>Quantity</div>
             <div>Subtotal</div>
           </div>
-          <div className="flex flex-row items-center justify-between p-3 shadow-custom xl:flex-row xl:justify-end xl:px-10 xl:py-6">
-            <div className="flex max-w-[10.625rem] items-center xl:mr-auto xl:max-w-fit">
-              <div className={clsx(s.HoverCancel, "relative mr-5")}>
-                <button
-                  type="button"
-                  className={clsx(s.CancelButton, "absolute left-[-0.375rem]")}
-                >
+          {items.map((item) => (
+            <div
+              key={item.productId}
+              className="flex flex-row items-center justify-between p-3 shadow-custom xl:flex-row xl:justify-end xl:px-10 xl:py-6"
+            >
+              <div className="flex max-w-[10.625rem] items-center xl:mr-auto xl:max-w-fit">
+                <div className={clsx(s.HoverCancel, "relative mr-5")}>
+                  <button
+                    type="button"
+                    className={clsx(
+                      s.CancelButton,
+                      "absolute left-[-0.8rem] top-[-0.8rem]",
+                    )}
+                    onClick={() => handleRemove(item.productId)}
+                  >
+                    <Image
+                      src="/CancelCircle.svg"
+                      width={24}
+                      height={24}
+                      alt="Picture of cancelButton"
+                    />
+                  </button>
                   <Image
-                    src="/CancelCircle.svg"
-                    width={24}
-                    height={24}
-                    alt="Picture of cancelButton"
+                    className="max-h-[65px] min-w-[3.375rem]"
+                    src={item.image}
+                    width={54}
+                    height={54}
+                    alt="Picture of cart item"
+                    style={{ objectFit: "contain" }}
                   />
-                </button>
-                <Image
-                  src="/CartItem/Item1.png"
-                  width={54}
-                  height={54}
-                  alt="Picture of cart item"
+                </div>
+                <div className="line-clamp-2 cursor-pointer lg:mr-10">
+                  {item.title}
+                </div>
+              </div>
+              <div className="hidden xl:flex">
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(item.price)}
+              </div>
+              <div className="relative xl:ml-[17.8125rem]">
+                <input
+                  type="number"
+                  className={clsx(
+                    s.RemoveArrow,
+                    "min-h-[2.75rem] max-w-[4.5rem] rounded border-[0.0625rem] border-black border-opacity-40 px-3 py-[0.375rem]",
+                  )}
+                  value={item.quantity}
+                  onChange={(e) =>
+                    handleUpdateQuantity(item.productId, e.target.value)
+                  }
                 />
+                <div className="absolute right-3 top-[1rem] -translate-y-1/2">
+                  <button
+                    type="button"
+                    onClick={() => handleIncrease(item.productId)}
+                  >
+                    <ChevronUp size={16} />
+                  </button>
+                </div>
+                <div className="absolute bottom-[-0.8125rem] right-3 -translate-y-1/2">
+                  <button
+                    type="button"
+                    onClick={() => handleDecrease(item.productId)}
+                  >
+                    <ChevronDown size={16} />
+                  </button>
+                </div>
               </div>
-              <div className="cursor-pointer">LCD Monitor</div>
-            </div>
-            <div className="hidden xl:flex">$650</div>
-            <div className="relative xl:ml-[17.8125rem]">
-              <input
-                type="number"
-                className={clsx(
-                  s.RemoveArrow,
-                  "min-h-[2.75rem] max-w-[4.5rem] rounded border-[0.0625rem] border-black border-opacity-40 px-3 py-[0.375rem]",
-                )}
-                value={quantity1}
-                onChange={(e) => setQuantity1(e.target.value)}
-              />
-              <div className="absolute right-3 top-[1rem] -translate-y-1/2">
-                <button type="button" onClick={handleIncrease1}>
-                  <ChevronUp size={16} />
-                </button>
-              </div>
-              <div className="absolute bottom-[-0.8125rem] right-3 -translate-y-1/2">
-                <button type="button" onClick={handleDecrease1}>
-                  <ChevronDown size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="flex min-w-[4.1875rem] justify-end xl:ml-[17.8125rem]">
-              ${650 * quantity1}
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between p-3 shadow-custom xl:flex-row xl:justify-end xl:px-10 xl:py-6">
-            <div className="flex max-w-[10.625rem] items-center xl:mr-auto xl:max-w-fit">
-              <div className={clsx(s.HoverCancel, "relative mr-5")}>
-                <button
-                  type="button"
-                  className={clsx(s.CancelButton, "absolute left-[-0.375rem]")}
-                >
-                  <Image
-                    src="/CancelCircle.svg"
-                    width={24}
-                    height={24}
-                    alt="Picture of cancelButton"
-                  />
-                </button>
-                <Image
-                  src="/CartItem/Item2.png"
-                  width={54}
-                  height={54}
-                  alt="Picture of cart item"
-                />
-              </div>
-              <div className="cursor-pointer">H1 Gamepad</div>
-            </div>
-            <div className="hidden xl:flex">$550</div>
-            <div className="relative xl:ml-[17.8125rem]">
-              <input
-                type="number"
-                className={clsx(
-                  s.RemoveArrow,
-                  "min-h-[2.75rem] max-w-[4.5rem] rounded border-[0.0625rem] border-black border-opacity-40 px-3 py-[0.375rem]",
-                )}
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-              <div className="absolute right-3 top-[1rem] -translate-y-1/2">
-                <button type="button" onClick={handleIncrease}>
-                  <ChevronUp size={16} />
-                </button>
-              </div>
-              <div className="absolute bottom-[-0.8125rem] right-3 -translate-y-1/2">
-                <button type="button" onClick={handleDecrease}>
-                  <ChevronDown size={16} />
-                </button>
+              <div className="flex min-w-[4.1875rem] justify-end xl:ml-[17.8125rem]">
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(item.price * item.quantity)}
               </div>
             </div>
-            <div className="flex min-w-[4.1875rem] justify-end xl:ml-[17.8125rem]">
-              ${550 * quantity}
-            </div>
-          </div>
+          ))}
         </div>
         <div className="hidden justify-between xl:flex">
           <Link href="/">
@@ -168,7 +167,7 @@ function CartSection() {
           <div className="mb-6 text-xl font-semibold">Cart Total</div>
           <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
             <div>Subtotal:</div>
-            <div> ${550 * quantity + 650 * quantity1}</div>
+            <div>{getTotalPrice()}</div>
           </div>
           <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
             <div>Shipping:</div>
@@ -176,7 +175,7 @@ function CartSection() {
           </div>
           <div className="mb-4 flex justify-between">
             <div>Total:</div>
-            <div> ${550 * quantity + 650 * quantity1}</div>
+            <div>{getTotalPrice()}</div>
           </div>
           <Link href="/checkout">
             <div className="flex justify-center">

@@ -18,9 +18,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
+import useAuthStore from "@/stores/authStore";
+
 import s from "./SideMenu.module.scss";
 
 function SideMenu({ isSideMenuOpen, closeSideMenu }) {
+  const authStore = useAuthStore();
+
   const sideMenuRef = useRef(null);
   const router = useRouter();
 
@@ -206,19 +210,21 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             </div>
             About
           </Link>
-          <Link
-            href="/account/sign-up"
-            className={clsx(
-              isLinkActive("/account/sign-up") && s.ActiveLink,
-              !isLinkActive("/account/sign-up") && s.OnHover,
-              "flex items-center",
-            )}
-          >
-            <div className="mr-3">
-              <UserPlus />
-            </div>
-            Sign up
-          </Link>
+          {!authStore.isAuthenticated && (
+            <Link
+              href="/account/sign-up"
+              className={clsx(
+                isLinkActive("/account/sign-up") && s.ActiveLink,
+                !isLinkActive("/account/sign-up") && s.OnHover,
+                "flex items-center",
+              )}
+            >
+              <div className="mr-3">
+                <UserPlus />
+              </div>
+              Sign up
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import MyAccountSection from "@/components/Sections/MyAccountSection";
 import TopHeader from "@/components/TopHeader";
 
+import withAuth from "@/stores/withAuth";
+
 function MyAccount() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,4 +43,4 @@ function MyAccount() {
   );
 }
 
-export default MyAccount;
+export default withAuth(MyAccount);

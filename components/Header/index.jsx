@@ -104,7 +104,14 @@ function Header() {
     setIsSearchBarFocused(false);
   };
 
-  const authStore = useAuthStore();
+  const { isAuthenticated, login } = useAuthStore();
+
+  useEffect(() => {
+    const token = localStorage.getItem("localStorage");
+    if (token) {
+      login();
+    }
+  }, [login]);
 
   return (
     <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">
@@ -151,15 +158,17 @@ function Header() {
             >
               About
             </Link>
-            <Link
-              href="/account/sign-up"
-              className={clsx(
-                isLinkActive("/account/sign-up") && s.ActiveLink,
-                !isLinkActive("/account/sign-up") && s.OnHover,
-              )}
-            >
-              Sign up
-            </Link>
+            {!isAuthenticated && (
+              <Link
+                href="/account/sign-up"
+                className={clsx(
+                  isLinkActive("/account/sign-up") && s.ActiveLink,
+                  !isLinkActive("/account/sign-up") && s.OnHover,
+                )}
+              >
+                Sign up
+              </Link>
+            )}
           </div>
           <form className="relative hidden md:ml-auto md:flex xl:flex">
             <input
@@ -201,8 +210,8 @@ function Header() {
             )}
           </form>
           <div className="flex">
-            {authStore.isAuthenticated && (
-              <div className="flex items-center gap-4 xl:ml-6">
+            {isAuthenticated && (
+              <div className={clsx("flex items-center gap-4 xl:ml-6")}>
                 <Link
                   href="/wishlist"
                   className={clsx(
@@ -250,7 +259,9 @@ function Header() {
             )}
           </div>
         </div>
-        <div ref={dropdownRef}>{isDropdownOpen && <DropdownAccount />}</div>
+        <div ref={dropdownRef}>
+          {isDropdownOpen && isAuthenticated && <DropdownAccount />}
+        </div>
       </div>
       {isSideMenuOpen && (
         <SideMenu

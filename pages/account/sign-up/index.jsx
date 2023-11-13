@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import SignUpSection from "@/components/Sections/SignUpSection";
 import TopHeader from "@/components/TopHeader";
 
+import withGuest from "@/stores/withGuest";
+
 function SignUp() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,4 +43,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default withGuest(SignUp);

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
+
+import useCartStore from "@/stores/cartStore";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
@@ -51,8 +53,26 @@ function FlashSalesItem({ product }) {
   const { image, title, price, rating } = product;
   const [discountPercentage, setDiscountPercentage] = React.useState(0);
   const [salePrice, setSalePrice] = React.useState(0);
+  const cartStore = useCartStore();
 
-  React.useEffect(() => {
+  const handleAddToCart = () => {
+    const existingCartItem = cartStore.items.find(
+      (item) => item.productId === product.id,
+    );
+    if (existingCartItem) {
+      cartStore.increaseQuantity(product.id);
+    } else {
+      cartStore.addToCart({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      });
+    }
+  };
+
+  useEffect(() => {
     const calculatedDiscountPercentage =
       Math.floor(Math.random() * (70 - 10 + 1)) + 10;
     setDiscountPercentage(calculatedDiscountPercentage);
@@ -63,15 +83,14 @@ function FlashSalesItem({ product }) {
   }, [price]);
 
   return (
-    <Link
-      href="/occho"
+    <div
       className={clsx(
         s.SaleItem,
         "block h-[21.875rem] w-[16.875rem] overflow-hidden",
       )}
     >
       <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
-        <button type="button" className={s.AddToCart}>
+        <button type="button" className={s.AddToCart} onClick={handleAddToCart}>
           Add To Cart
         </button>
         <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white">
@@ -90,18 +109,22 @@ function FlashSalesItem({ product }) {
         </div>
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
-      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
-      <div className="mt-2 flex font-semibold">
-        <div className="mr-3 text-secondary-2">${price}</div>
-        <div className="text-text-1 line-through">
-          {`$${salePrice.toFixed(2)}`}
+      <div className="mt-4">
+        <Link href="/occho" className={clsx(s.Title, "font-bold")}>
+          {title}
+        </Link>
+        <div className="mt-2 flex font-semibold">
+          <div className="mr-3 text-secondary-2">${price}</div>
+          <div className="text-text-1 line-through">
+            {`$${salePrice.toFixed(2)}`}
+          </div>
+        </div>
+        <div className="mt-2 flex items-baseline">
+          <div className="mr-2">{renderStars(rating.rate)}</div>
+          <div className="text-sm font-semibold text-text-1">{`(${rating.count})`}</div>
         </div>
       </div>
-      <div className="mt-2 flex items-baseline">
-        <div className="mr-2">{renderStars(rating.rate)}</div>
-        <div className="text-sm font-semibold text-text-1">{`(${rating.count})`}</div>
-      </div>
-    </Link>
+    </div>
   );
 }
 FlashSalesItem.propTypes = {
@@ -113,6 +136,8 @@ FlashSalesItem.propTypes = {
       rate: PropTypes.number.isRequired,
       count: PropTypes.number.isRequired,
     }),
+    productId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 export default FlashSalesItem;

@@ -6,7 +6,9 @@ import Header from "@/components/Header";
 import LogInSection from "@/components/Sections/LogInSection";
 import TopHeader from "@/components/TopHeader";
 
-function SignUp() {
+import withGuest from "@/stores/withGuest";
+
+function LogIn() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -41,4 +43,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default withGuest(LogIn);

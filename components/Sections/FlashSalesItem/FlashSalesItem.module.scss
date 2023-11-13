@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+.AddToCart:active{
+    background-color: grey;
+    color: black;
+    font-weight: 800;
+}
+
 @keyframes PullUp {
     0%{
         opacity: 0;

@@ -35,6 +35,7 @@ function LogInSection() {
 
       if (user) {
         authStore.login();
+        localStorage.setItem("localStorage", true);
         router.push("/");
         setLoading(false);
         setSuccess(true);

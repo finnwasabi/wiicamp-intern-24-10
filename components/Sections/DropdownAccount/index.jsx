@@ -1,16 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import useAuthStore from "@/stores/authStore";
 
 function DropdownAccount() {
   const authStore = useAuthStore(); // Access the handleLogout function from the AuthContext
-  const router = useRouter(); // Next.js router
 
   const handleLogoutClick = () => {
     authStore.logout(); // Call the logout function from Zustand
-    router.push("/account/sign-up"); // Redirect to the signup page
+    localStorage.removeItem("localStorage");
   };
 
   return (

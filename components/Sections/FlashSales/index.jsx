@@ -8,7 +8,7 @@ import FlashSalesSlider from "@/components/Sections/FlashSalesSlider";
 
 function FlashSales({ products }) {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2023-11-12T07:00:00`) - +new Date();
+    const difference = +new Date(`2023-11-19T07:00:00`) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -43,6 +43,7 @@ function FlashSales({ products }) {
     }, 1000);
     return () => clearTimeout(timer);
   });
+
   return (
     <div>
       <div className="container flex items-center justify-between py-0 md:grid md:grid-cols-4 xl:grid xl:grid-cols-4">

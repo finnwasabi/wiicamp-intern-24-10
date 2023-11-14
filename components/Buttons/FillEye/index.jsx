@@ -5,7 +5,7 @@ function FillEye() {
   return (
     <button
       type="button"
-      className="hover:shadow-big relative h-[34px] w-[34px] rounded-full bg-white transition-all"
+      className="relative h-[34px] w-[34px] rounded-full bg-white transition-all hover:shadow-big"
     >
       <Eye
         color="#000000"

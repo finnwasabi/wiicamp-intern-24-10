@@ -121,19 +121,23 @@ function FlashSalesItem({ product }) {
             height={250}
             alt="Picture of item"
           />
-          <button type="button" onClick={handleAddToWish}>
-            {isAuthenticated ? (
-              <div>
-                {existingWishItem ? (
+          {isAuthenticated ? (
+            <div>
+              {existingWishItem ? (
+                <button type="button" onClick={handleAddToWish}>
                   <FillHeart color="white" bg="bg-secondary-2" />
-                ) : (
+                </button>
+              ) : (
+                <button type="button" onClick={handleAddToWish}>
                   <FillHeart color="black" bg="bg-white" />
-                )}
-              </div>
-            ) : (
+                </button>
+              )}
+            </div>
+          ) : (
+            <Link href="/please">
               <FillHeart color="black" bg="bg-white" />
-            )}
-          </button>
+            </Link>
+          )}
           <div className="absolute right-3 top-[3.375rem] flex">
             <FillEye />
           </div>

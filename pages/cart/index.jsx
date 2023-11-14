@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import CartSection from "@/components/Sections/CartSection";
 import TopHeader from "@/components/TopHeader";
+
+const CartSection = dynamic(() => import("@/components/Sections/CartSection"), {
+  ssr: false,
+  loading: () => <p className="h-screen" />,
+});
 
 function Cart() {
   const [isScrolled, setIsScrolled] = useState(false);

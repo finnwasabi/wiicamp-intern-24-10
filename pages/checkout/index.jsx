@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import TopHeader from "@/components/TopHeader";
 
 const CheckOutSection = dynamic(
-  () => import("@/components/Sections/CheckoutSection"),
+  () => import("@/components/Sections/CheckOutSection"),
   {
     ssr: false,
     loading: () => <p className="h-screen" />,

@@ -28,7 +28,7 @@ function WishlistItemsList() {
           className="mb-20 flex flex-col items-center justify-between sm:grid sm:grid-cols-2 sm:place-items-center lg:grid-cols-3 xl:flex xl:flex-row"
         >
           {items.map((item) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.productId}>
               <WishlistItems item={item} />
             </SwiperSlide>
           ))}

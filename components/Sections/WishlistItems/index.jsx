@@ -74,16 +74,10 @@ function WishlistItems({ item }) {
 
 WishlistItems.propTypes = {
   item: PropTypes.shape({
-    productId: PropTypes.string.isRequired,
+    productId: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-  }).isRequired,
-  product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   }).isRequired,
 };
 

@@ -253,7 +253,7 @@ function Header() {
                   )}
                 </Link>
                 <button onClick={handleUserClick} className={s.ThreeBoxes}>
-                  {isDropdownOpen ? (
+                  {isLinkActive("/my-account") ? (
                     <Image
                       src="/UserCircle.svg"
                       width={32}
@@ -262,11 +262,23 @@ function Header() {
                       className="rounded-full shadow-lg"
                     />
                   ) : (
-                    <User
-                      size={32}
-                      absoluteStrokeWidth
-                      className={s.ThreeIcons}
-                    />
+                    <div>
+                      {isDropdownOpen ? (
+                        <Image
+                          src="/UserCircle.svg"
+                          width={32}
+                          height={32}
+                          alt="user activated"
+                          className="rounded-full shadow-lg"
+                        />
+                      ) : (
+                        <User
+                          size={32}
+                          absoluteStrokeWidth
+                          className={s.ThreeIcons}
+                        />
+                      )}
+                    </div>
                   )}
                 </button>
               </div>

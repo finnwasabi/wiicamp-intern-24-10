@@ -58,8 +58,10 @@ function CartSection() {
       <div className="mb-20">
         <div className="mb-6 grid gap-y-10">
           <div className="flex justify-between p-3 shadow-custom xl:px-10 xl:py-6">
-            <div className="w-[170px] xl:w-fit">Product</div>
-            <div className="hidden xl:mr-[12px] xl:flex">Price</div>
+            <div className="w-[10.625rem] lg:w-[15.625rem] xl:w-fit">
+              Product
+            </div>
+            <div className="hidden lg:mr-[0.75rem] lg:flex">Price</div>
             <div>Quantity</div>
             <div>Subtotal</div>
           </div>
@@ -68,7 +70,7 @@ function CartSection() {
               key={item.productId}
               className="flex flex-row items-center justify-between p-3 shadow-custom xl:flex-row xl:justify-end xl:px-10 xl:py-6"
             >
-              <div className="flex max-w-[10.625rem] items-center xl:mr-auto xl:max-w-fit">
+              <div className="flex max-w-[10.625rem] items-center lg:max-w-[15.625rem] xl:mr-auto xl:max-w-fit">
                 <div className={clsx(s.HoverCancel, "relative mr-5")}>
                   <button
                     type="button"
@@ -86,7 +88,7 @@ function CartSection() {
                     />
                   </button>
                   <Image
-                    className="max-h-[65px] min-w-[3.375rem]"
+                    className="max-h-[4.0625rem] min-w-[3.375rem]"
                     src={item.image}
                     width={54}
                     height={54}
@@ -94,11 +96,13 @@ function CartSection() {
                     style={{ objectFit: "contain" }}
                   />
                 </div>
-                <div className="line-clamp-2 cursor-pointer lg:mr-10">
+                <div className="line-clamp-2 cursor-pointer xl:mr-10">
                   {item.title}
                 </div>
               </div>
-              <div className="hidden xl:flex">{formatter(item.price)}</div>
+              <div className="hidden lg:ml-[0.875rem] lg:flex">
+                {formatter(item.price)}
+              </div>
               <div className="relative xl:ml-[17.8125rem]">
                 <input
                   type="number"

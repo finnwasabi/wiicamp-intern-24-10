@@ -16,14 +16,15 @@ function WishlistItemsList() {
     <div>
       {items.length > 0 && (
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          // breakpoints={{
-          //   640: { slidesPerView: 2, spaceBetween: -30 },
-          //   768: { slidesPerView: 2, spaceBetween: -150 },
-          //   1024: { slidesPerView: 3.5, spaceBetween: 30 },
-          //   1280: { slidesPerView: 4, spaceBetween: 30 },
-          // }}
+          slidesPerView={1.25}
+          spaceBetween={10}
+          breakpoints={{
+            450: { slidesPerView: 1.5, spaceBetween: 30 },
+            640: { slidesPerView: 2, spaceBetween: 60 },
+            768: { slidesPerView: 2.5, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+            1280: { slidesPerView: 4, spaceBetween: 30 },
+          }}
           modules={[]}
           className="mb-20 flex flex-col items-center justify-between sm:grid sm:grid-cols-2 sm:place-items-center lg:grid-cols-3 xl:flex xl:flex-row"
         >

@@ -5,7 +5,7 @@ import useAuthStore from "@/stores/authStore";
 
 const withAuth = (WrappedComponent) => {
   function AuthChecker(props) {
-    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+    const { isAuthenticated } = useAuthStore((state) => state.isAuthenticated);
     const router = useRouter();
 
     useEffect(() => {

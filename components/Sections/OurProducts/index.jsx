@@ -1,10 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import dynamic from "next/dynamic";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
 import FillRightArrow from "@/components/Buttons/FillRightArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
-import OurProductsList from "@/components/Sections/OurProductsList";
+
+const OurProductsList = dynamic(
+  () => import("@/components/Sections/OurProductsList"),
+  {
+    ssr: false,
+    loading: () => {
+      return <div>Loading...</div>;
+    },
+  },
+);
 
 function OurProducts({ products }) {
   return (

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
+
+import useCartStore from "@/stores/cartStore";
+import useWishStore from "@/stores/wishStore";
 
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
@@ -49,10 +52,44 @@ const renderStars = (rating) => {
 
 function ThisMonthItem({ product }) {
   const { image, title, price, rating } = product;
+  const [salePrice, setSalePrice] = useState(0);
+  const cartStore = useCartStore();
+  const wishStore = useWishStore();
 
-  const [salePrice, setSalePrice] = React.useState(0);
+  const existingWishItem = wishStore.items.find(
+    (item) => item.productId === product.id,
+  );
+  const handleAddToWish = () => {
+    if (existingWishItem) {
+      wishStore.removeFromWish(product.id);
+    } else {
+      wishStore.addToWish({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+      });
+    }
+  };
 
-  React.useEffect(() => {
+  const handleAddToCart = () => {
+    const existingCartItem = cartStore.items.find(
+      (item) => item.productId === product.id,
+    );
+    if (existingCartItem) {
+      cartStore.increaseQuantity(product.id);
+    } else {
+      cartStore.addToCart({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      });
+    }
+  };
+
+  useEffect(() => {
     const calculatedDiscountPercentage =
       Math.floor(Math.random() * (70 - 10 + 1)) + 10;
 
@@ -62,12 +99,9 @@ function ThisMonthItem({ product }) {
   }, [price]);
 
   return (
-    <Link
-      href="/occho"
-      className={clsx(s.SaleItem, "block h-[21.875rem] w-[16.875rem]")}
-    >
+    <div className={clsx(s.SaleItem, "block h-[21.875rem] w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
-        <button type="button" className={s.AddToCart}>
+        <button type="button" className={s.AddToCart} onClick={handleAddToCart}>
           Add To Cart
         </button>
         <Image
@@ -78,30 +112,39 @@ function ThisMonthItem({ product }) {
           alt="Picture of item"
           style={{ objectFit: "contain" }}
         />
-        <FillHeart />
+        <button type="button" onClick={handleAddToWish}>
+          {existingWishItem ? (
+            <FillHeart color="white" bg="secondary-2" />
+          ) : (
+            <FillHeart color="black" bg="white" />
+          )}
+        </button>
         <div className="absolute right-3 top-[3.375rem] flex cursor-pointer">
           <FillEye />
         </div>
       </div>
-      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
-      <div className="mt-2 flex font-semibold">
-        <div className="mr-3 text-secondary-2">${price}</div>
-        <div className="text-text-1 line-through">
-          {`$${salePrice.toFixed(2)}`}
-        </div>
-      </div>
-      <div className="mt-2 flex items-baseline">
-        {renderStars(rating.rate)}
-        <div className="ml-2 text-sm font-semibold text-text-1">
-          ({rating.count})
-        </div>
-      </div>
-    </Link>
+      <Link href={`/product/${product.id}`}>
+        <span className="mt-4 line-clamp-1 font-bold">{title}</span>
+        <span className="mt-2 flex font-semibold">
+          <p className="mr-3 text-secondary-2">${price}</p>
+          <p className="text-text-1 line-through">
+            {`$${salePrice.toFixed(2)}`}
+          </p>
+        </span>
+        <span className="mt-2 flex items-baseline">
+          {renderStars(rating.rate)}
+          <p className="ml-2 text-sm font-semibold text-text-1">
+            ({rating.count})
+          </p>
+        </span>
+      </Link>
+    </div>
   );
 }
 
 ThisMonthItem.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

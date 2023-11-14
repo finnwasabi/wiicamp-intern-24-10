@@ -57,10 +57,10 @@ function FlashSalesItem({ product }) {
   const cartStore = useCartStore();
   const wishStore = useWishStore();
 
+  const existingWishItem = wishStore.items.find(
+    (item) => item.productId === product.id,
+  );
   const handleAddToWish = () => {
-    const existingWishItem = wishStore.items.find(
-      (item) => item.productId === product.id,
-    );
     if (existingWishItem) {
       wishStore.removeFromWish(product.id);
     } else {
@@ -121,7 +121,11 @@ function FlashSalesItem({ product }) {
             style={{ objectFit: "contain", width: "100%", height: "100%" }}
           />
           <button type="button" onClick={handleAddToWish}>
-            <FillHeart />
+            {existingWishItem ? (
+              <FillHeart color="white" bg="secondary-2" />
+            ) : (
+              <FillHeart color="black" bg="white" />
+            )}
           </button>
           <div className="absolute right-3 top-[3.375rem] flex">
             <FillEye />
@@ -129,10 +133,8 @@ function FlashSalesItem({ product }) {
         </div>
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
-      <div className="mt-4">
-        <Link href="/occho" className="line-clamp-1 font-bold">
-          {title}
-        </Link>
+      <Link href={`/product/${product.id}`} className="mt-4">
+        <div className="line-clamp-1 font-bold">{title}</div>
         <div className="mt-2 flex font-semibold">
           <div className="mr-3 text-secondary-2">${price}</div>
           <div className="text-text-1 line-through">
@@ -143,7 +145,7 @@ function FlashSalesItem({ product }) {
           <div className="mr-2">{renderStars(rating.rate)}</div>
           <div className="text-sm font-semibold text-text-1">{`(${rating.count})`}</div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

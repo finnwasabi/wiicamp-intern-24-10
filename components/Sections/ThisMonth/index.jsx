@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import dynamic from "next/dynamic";
 
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
-import ThisMonthList from "@/components/Sections/ThisMonthList";
+
+const ThisMonthList = dynamic(
+  () => import("@/components/Sections/ThisMonthList"),
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  },
+);
 
 function ThisMonth({ products }) {
   return (

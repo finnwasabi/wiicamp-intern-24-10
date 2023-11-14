@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+import useCartStore from "@/stores/cartStore";
+import useWishStore from "@/stores/wishStore";
+
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
@@ -49,14 +52,46 @@ const renderStars = (rating) => {
 
 function OurProductsItem({ product }) {
   const { image, title, price, rating } = product;
+  const cartStore = useCartStore();
+  const wishStore = useWishStore();
+
+  const existingWishItem = wishStore.items.find(
+    (item) => item.productId === product.id,
+  );
+  const handleAddToWish = () => {
+    if (existingWishItem) {
+      wishStore.removeFromWish(product.id);
+    } else {
+      wishStore.addToWish({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+      });
+    }
+  };
+
+  const handleAddToCart = () => {
+    const existingCartItem = cartStore.items.find(
+      (item) => item.productId === product.id,
+    );
+    if (existingCartItem) {
+      cartStore.increaseQuantity(product.id);
+    } else {
+      cartStore.addToCart({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      });
+    }
+  };
 
   return (
-    <Link
-      href="/occho"
-      className={clsx(s.SaleItem, "block h-fit w-[16.875rem]")}
-    >
+    <div className={clsx(s.SaleItem, "block h-fit w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
-        <button type="button" className={s.AddToCart}>
+        <button type="button" className={s.AddToCart} onClick={handleAddToCart}>
           Add To Cart
         </button>
         <Image
@@ -67,25 +102,34 @@ function OurProductsItem({ product }) {
           alt="Picture of item"
           style={{ objectFit: "contain" }}
         />
-        <FillHeart />
+        <button type="button" onClick={handleAddToWish}>
+          {existingWishItem ? (
+            <FillHeart color="white" bg="secondary-2" />
+          ) : (
+            <FillHeart color="black" bg="white" />
+          )}
+        </button>
         <div className="absolute right-3 top-[3.375rem] flex cursor-pointer">
           <FillEye />
         </div>
       </div>
-      <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
-      <div className="mt-2 flex items-center font-semibold">
-        <span className="mr-3 text-secondary-2">${price}</span>
-        <span className="pb-1">{renderStars(rating.rate)}</span>
-        <span className="ml-2 text-sm font-semibold text-text-1">
-          ({rating.count})
-        </span>
-      </div>
-    </Link>
+      <Link href={`/product/${product.id}`}>
+        <div className={clsx(s.Title, "mt-4 font-bold")}>{title}</div>
+        <div className="mt-2 flex items-center font-semibold">
+          <span className="mr-3 text-secondary-2">${price}</span>
+          <span className="pb-1">{renderStars(rating.rate)}</span>
+          <span className="ml-2 text-sm font-semibold text-text-1">
+            ({rating.count})
+          </span>
+        </div>
+      </Link>
+    </div>
   );
 }
 
 OurProductsItem.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
 import FillRightArrow from "@/components/Buttons/FillRightArrow";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
-import FlashSalesSlider from "@/components/Sections/FlashSalesSlider";
+
+const FlashSalesSlider = dynamic(
+  () => import("@/components/Sections/FlashSalesSlider"),
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  },
+);
 
 function FlashSales({ products }) {
   const calculateTimeLeft = () => {

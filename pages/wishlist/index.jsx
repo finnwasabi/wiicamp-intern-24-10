@@ -1,12 +1,26 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import WishlistSection from "@/components/Sections/WishlistSection";
 import TopHeader from "@/components/TopHeader";
 
+const WishlistSection = dynamic(
+  () => import("@/components/Sections/WishlistSection"),
+  {
+    ssr: false,
+    loading: () => {
+      return (
+        <p className="container flex h-screen items-center justify-center">
+          Loading...
+        </p>
+      );
+    },
+  },
+);
 function Wishlist() {
   const [isScrolled, setIsScrolled] = useState(false);
 

@@ -1,28 +1,18 @@
 import React from "react";
+import { Trash2 } from "lucide-react";
 
 function FillTrash() {
   return (
-    <div className="absolute right-3 top-3 flex cursor-pointer">
+    <div className="group absolute right-3 top-3 flex cursor-pointer">
       <button
         type="button"
-        className="relative h-[34px] w-[34px] rounded-full bg-white"
+        className="group-active:brightness-60 relative h-[34px] w-[34px] rounded-full bg-white transition-all group-hover:bg-secondary-2"
       >
-        <svg
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 5.57143H5.33333L6.66667 21H17.3333L18.6667 5.57143H4M12 9.42857V17.1429M15.3333 9.42857L14.6667 17.1429M8.66667 9.42857L9.33333 17.1429M9.33333 5.57143L10 3H14L14.6667 5.57143"
-            stroke="black"
-            strokeWidth="1.56"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Trash2
+          color="#000000"
+          strokeWidth={1.7}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:stroke-white"
+        />
       </button>
     </div>
   );

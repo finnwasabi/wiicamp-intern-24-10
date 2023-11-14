@@ -9,6 +9,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import useAuthStore from "@/stores/authStore";
+import useCartStore from "@/stores/cartStore";
+import useWishStore from "@/stores/wishStore";
 
 import DropdownAccount from "../Sections/DropdownAccount";
 import SideMenu from "../Sections/SideMenu";
@@ -20,6 +22,10 @@ function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
+  const cartStore = useCartStore();
+  const { items } = cartStore;
+  const wishStore = useWishStore();
+  const { items: wishItems } = wishStore;
 
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -217,6 +223,7 @@ function Header() {
                   className={clsx(
                     s.ThreeBoxes,
                     isLinkActive("/wishlist") && s.ThreeBoxesFocus,
+                    "relative",
                   )}
                 >
                   <Heart
@@ -224,12 +231,16 @@ function Header() {
                     absoluteStrokeWidth
                     className={s.ThreeIcons}
                   />
+                  {wishItems.length > 0 && (
+                    <span className={s.WishItemCount}>{wishItems.length}</span>
+                  )}
                 </Link>
                 <Link
                   href="/cart"
                   className={clsx(
                     s.ThreeBoxes,
                     isLinkActive("/cart") && s.ThreeBoxesFocus,
+                    "relative",
                   )}
                 >
                   <ShoppingCart
@@ -237,6 +248,9 @@ function Header() {
                     absoluteStrokeWidth
                     className={s.ThreeIcons}
                   />
+                  {items.length > 0 && (
+                    <span className={s.CartItemCount}>{items.length}</span>
+                  )}
                 </Link>
                 <button onClick={handleUserClick} className={s.ThreeBoxes}>
                   {isDropdownOpen ? (

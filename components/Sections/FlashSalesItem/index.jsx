@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
 import useCartStore from "@/stores/cartStore";
+import useWishStore from "@/stores/wishStore";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
@@ -51,9 +52,26 @@ const renderStars = (rating) => {
 // eslint-disable-next-line react/prop-types
 function FlashSalesItem({ product }) {
   const { image, title, price, rating } = product;
-  const [discountPercentage, setDiscountPercentage] = React.useState(0);
-  const [salePrice, setSalePrice] = React.useState(0);
+  const [discountPercentage, setDiscountPercentage] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
   const cartStore = useCartStore();
+  const wishStore = useWishStore();
+
+  const handleAddToWish = () => {
+    const existingWishItem = wishStore.items.find(
+      (item) => item.productId === product.id,
+    );
+    if (existingWishItem) {
+      wishStore.removeFromWish(product.id);
+    } else {
+      wishStore.addToWish({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+      });
+    }
+  };
 
   const handleAddToCart = () => {
     const existingCartItem = cartStore.items.find(
@@ -102,7 +120,9 @@ function FlashSalesItem({ product }) {
             alt="Picture of item"
             style={{ objectFit: "contain", width: "100%", height: "100%" }}
           />
-          <FillHeart />
+          <button type="button" onClick={handleAddToWish}>
+            <FillHeart />
+          </button>
           <div className="absolute right-3 top-[3.375rem] flex">
             <FillEye />
           </div>
@@ -110,7 +130,7 @@ function FlashSalesItem({ product }) {
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
       <div className="mt-4">
-        <Link href="/occho" className={clsx(s.Title, "font-bold")}>
+        <Link href="/occho" className="line-clamp-1 font-bold">
           {title}
         </Link>
         <div className="mt-2 flex font-semibold">
@@ -129,6 +149,7 @@ function FlashSalesItem({ product }) {
 }
 FlashSalesItem.propTypes = {
   product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
@@ -136,8 +157,6 @@ FlashSalesItem.propTypes = {
       rate: PropTypes.number.isRequired,
       count: PropTypes.number.isRequired,
     }),
-    productId: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 export default FlashSalesItem;

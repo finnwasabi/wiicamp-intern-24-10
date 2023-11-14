@@ -1,4 +1,5 @@
 import React from "react";
+import { Heart } from "lucide-react";
 
 function FillHeart() {
   return (
@@ -7,22 +8,10 @@ function FillHeart() {
         type="button"
         className="relative h-[34px] w-[34px] rounded-full bg-white"
       >
-        <svg
+        <Heart
+          strokeWidth={1.7}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8 5C5.7912 5 4 6.73964 4 8.88594C4 10.6185 4.7 14.7305 11.5904 18.8873C11.7138 18.961 11.8555 19 12 19C12.1445 19 12.2862 18.961 12.4096 18.8873C19.3 14.7305 20 10.6185 20 8.88594C20 6.73964 18.2088 5 16 5C13.7912 5 12 7.35511 12 7.35511C12 7.35511 10.2088 5 8 5Z"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        />
       </button>
     </div>
   );

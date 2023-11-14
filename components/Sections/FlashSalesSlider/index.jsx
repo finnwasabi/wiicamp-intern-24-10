@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -37,5 +37,9 @@ function FlashSalesSlider({ products }) {
     </div>
   );
 }
+
+FlashSalesSlider.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
 
 export default FlashSalesSlider;

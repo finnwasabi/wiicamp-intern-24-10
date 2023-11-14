@@ -7,7 +7,27 @@ import CheckBox from "@/components/Buttons/CheckBox";
 import InputField from "@/components/Buttons/InputField";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 
+import useCartStore from "@/stores/cartStore";
+import formatter from "@/utils/formatter";
+
 function CheckOutSection() {
+  const cartStore = useCartStore();
+  const { items } = cartStore;
+
+  const getTotalPrice = () => {
+    const totalAmount = items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    );
+
+    const newFormatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    return newFormatter.format(totalAmount);
+  };
+
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
@@ -93,34 +113,32 @@ function CheckOutSection() {
         </form>
         <div className="lg:ml-auto lg:w-[32.9375rem]">
           <div className="mt-20 grid gap-y-8 lg:mt-8 lg:w-[26.5625rem] lg:grid-cols-1">
-            <div className="flex items-center">
-              <div className="mr-6">
-                <Image
-                  src="/CartItem/Item1.png"
-                  width={54}
-                  height={54}
-                  alt="Picture of cart item"
-                />
+            {items.map((item) => (
+              <div key={item.productId} className="flex items-center">
+                <div className="mr-6">
+                  <Image
+                    src={item.image}
+                    width={54}
+                    height={54}
+                    alt="Picture of cart item"
+                    className="max-h-[54px] min-w-[54px]"
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+                <div className="mr-10 line-clamp-2">{item.title}</div>
+                <div className="ml-auto">
+                  {formatter(item.price * item.quantity)}
+                </div>
               </div>
-              <div className="cursor-pointer">LCD Monitor</div>
-              <div className="ml-auto">$650</div>
-            </div>
-            <div className="flex items-center">
-              <div className="mr-6">
-                <Image
-                  src="/CartItem/Item2.png"
-                  width={54}
-                  height={54}
-                  alt="Picture of cart item"
-                />
-              </div>
-              <div className="cursor-pointer">H1 Gamepad</div>
-              <div className="ml-auto">$1100</div>
-            </div>
+            ))}
             <div className="w-full">
               <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
                 <div>Subtotal:</div>
-                <div>$1750</div>
+                <div>{getTotalPrice()}</div>
               </div>
               <div className="mb-4 flex justify-between border-b-[0.0625rem] border-black border-opacity-50 pb-4">
                 <div>Shipping:</div>
@@ -128,7 +146,7 @@ function CheckOutSection() {
               </div>
               <div className="flex justify-between">
                 <div>Total:</div>
-                <div>$1750</div>
+                <div>{getTotalPrice()}</div>
               </div>
             </div>
             <div className="flex items-center gap-x-4">

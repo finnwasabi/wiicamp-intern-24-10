@@ -7,12 +7,30 @@ import PropTypes from "prop-types";
 
 import FillTrash from "@/components/Buttons/FillTrash";
 
+import useCartStore from "@/stores/cartStore";
 import useWishStore from "@/stores/wishStore";
 
 import s from "./WishlistItems.module.scss";
 
 function WishlistItems({ item }) {
   const wishStore = useWishStore();
+  const cartStore = useCartStore();
+  const handleAddToCart = () => {
+    const existingCartItem = cartStore.items.find(
+      (foundItem) => foundItem.productId === item.productId,
+    );
+    if (existingCartItem) {
+      cartStore.increaseQuantity(item.productId);
+    } else {
+      cartStore.addToCart({
+        productId: item.productId,
+        title: item.title,
+        price: item.price,
+        image: item.image,
+        quantity: 1,
+      });
+    }
+  };
   const handleRemove = (productId) => {
     wishStore.removeFromWish(productId);
   };
@@ -20,9 +38,13 @@ function WishlistItems({ item }) {
     <div className={clsx(s.Item, "block h-[21.875rem] w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-secondary-0">
         <div className={s.AddToCart}>
-          <div className="flex items-center justify-center gap-x-2">
+          <button
+            type="button"
+            className="ml-auto mr-auto flex gap-x-2"
+            onClick={handleAddToCart}
+          >
             <ShoppingCart /> Add To Cart
-          </div>
+          </button>
         </div>
         <Image
           className="absolute flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white"
@@ -56,6 +78,12 @@ WishlistItems.propTypes = {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
+  }).isRequired,
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
 };
 

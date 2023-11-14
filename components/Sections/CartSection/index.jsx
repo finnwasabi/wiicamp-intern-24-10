@@ -8,6 +8,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 
 import useCartStore from "@/stores/cartStore";
+import formatter from "@/utils/formatter";
 
 import s from "./CartSection.module.scss";
 
@@ -37,12 +38,12 @@ function CartSection() {
       0,
     );
 
-    const formatter = new Intl.NumberFormat("en-US", {
+    const newFormatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     });
 
-    return formatter.format(totalAmount);
+    return newFormatter.format(totalAmount);
   };
 
   return (
@@ -97,12 +98,7 @@ function CartSection() {
                   {item.title}
                 </div>
               </div>
-              <div className="hidden xl:flex">
-                {new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                }).format(item.price)}
-              </div>
+              <div className="hidden xl:flex">{formatter(item.price)}</div>
               <div className="relative xl:ml-[17.8125rem]">
                 <input
                   type="number"

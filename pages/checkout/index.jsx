@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import CheckOutSection from "@/components/Sections/CheckOutSection";
 import TopHeader from "@/components/TopHeader";
+
+const CheckOutSection = dynamic(
+  () => import("@/components/Sections/CheckoutSection"),
+  {
+    ssr: false,
+    loading: () => <p className="h-screen" />,
+  },
+);
 
 function Checkout() {
   const [isScrolled, setIsScrolled] = useState(false);

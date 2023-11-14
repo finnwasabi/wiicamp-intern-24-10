@@ -103,9 +103,21 @@ function ThisMonthItem({ product }) {
   return (
     <div className={clsx(s.SaleItem, "block h-[21.875rem] w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
-        <button type="button" className={s.AddToCart} onClick={handleAddToCart}>
-          Add To Cart
-        </button>
+        {isAuthenticated ? (
+          <button
+            type="button"
+            className={s.AddToCart}
+            onClick={handleAddToCart}
+          >
+            Add To Cart
+          </button>
+        ) : (
+          <Link href="/please">
+            <button type="button" className={s.AddToCart}>
+              Add To Cart
+            </button>
+          </Link>
+        )}
         <Image
           className="absolute left-1/2 top-1/2 max-h-[250px] max-w-[270px] -translate-x-1/2 -translate-y-1/2"
           src={image}

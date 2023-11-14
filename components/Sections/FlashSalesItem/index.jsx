@@ -110,9 +110,21 @@ function FlashSalesItem({ product }) {
       )}
     >
       <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
-        <button type="button" className={s.AddToCart} onClick={handleAddToCart}>
-          Add To Cart
-        </button>
+        {isAuthenticated ? (
+          <button
+            type="button"
+            className={s.AddToCart}
+            onClick={handleAddToCart}
+          >
+            Add To Cart
+          </button>
+        ) : (
+          <Link href="/please">
+            <button type="button" className={s.AddToCart}>
+              Add To Cart
+            </button>
+          </Link>
+        )}
         <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white object-contain">
           <Image
             className="h-auto max-h-[250px] w-auto max-w-[270px]"

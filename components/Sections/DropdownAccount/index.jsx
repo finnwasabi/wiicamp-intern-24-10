@@ -8,7 +8,7 @@ function DropdownAccount() {
 
   const handleLogoutClick = () => {
     authStore.logout(); // Call the logout function from Zustand
-    localStorage.removeItem("localStorage");
+    localStorage.removeItem("token");
   };
 
   return (

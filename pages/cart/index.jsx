@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import TopHeader from "@/components/TopHeader";
 
+import withAuth from "@/stores/withAuth";
+
 const CartSection = dynamic(() => import("@/components/Sections/CartSection"), {
   ssr: false,
   loading: () => <p className="h-screen" />,
@@ -46,4 +48,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withAuth(Cart);

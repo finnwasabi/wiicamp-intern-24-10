@@ -113,7 +113,7 @@ function Header() {
   const { isAuthenticated, login } = useAuthStore();
 
   useEffect(() => {
-    const token = localStorage.getItem("localStorage");
+    const token = localStorage.getItem("token");
     if (token) {
       login();
     }

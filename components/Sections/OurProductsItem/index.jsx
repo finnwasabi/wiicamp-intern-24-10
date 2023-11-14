@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+import useAuthStore from "@/stores/authStore";
 import useCartStore from "@/stores/cartStore";
 import useWishStore from "@/stores/wishStore";
 
@@ -54,6 +55,7 @@ function OurProductsItem({ product }) {
   const { image, title, price, rating } = product;
   const cartStore = useCartStore();
   const wishStore = useWishStore();
+  const { isAuthenticated } = useAuthStore();
 
   const existingWishItem = wishStore.items.find(
     (item) => item.productId === product.id,
@@ -103,10 +105,16 @@ function OurProductsItem({ product }) {
           style={{ objectFit: "contain" }}
         />
         <button type="button" onClick={handleAddToWish}>
-          {existingWishItem ? (
-            <FillHeart color="white" bg="secondary-2" />
+          {isAuthenticated ? (
+            <div>
+              {existingWishItem ? (
+                <FillHeart color="white" bg="bg-secondary-2" />
+              ) : (
+                <FillHeart color="black" bg="bg-white" />
+              )}
+            </div>
           ) : (
-            <FillHeart color="black" bg="white" />
+            <FillHeart color="black" bg="bg-white" />
           )}
         </button>
         <div className="absolute right-3 top-[3.375rem] flex cursor-pointer">

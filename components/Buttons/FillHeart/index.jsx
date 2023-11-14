@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { Heart } from "lucide-react";
 import PropTypes from "prop-types";
 
@@ -6,7 +7,10 @@ function FillHeart({ color, bg }) {
   return (
     <div className="group absolute right-3 top-3 flex">
       <span
-        className={`relative h-[34px] w-[34px] rounded-full group-hover:shadow-big bg-${bg} transition-all`}
+        className={clsx(
+          bg,
+          "relative h-[34px] w-[34px] rounded-full transition-all group-hover:shadow-big",
+        )}
       >
         <Heart
           color={color}

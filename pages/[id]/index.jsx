@@ -12,7 +12,7 @@ import TopHeader from "@/components/TopHeader";
 
 import formatter from "@/utils/formatter";
 
-import s from "./Product.module.scss";
+import s from "./product.module.scss";
 
 const renderStars = (rating) => {
   const starsArray = [];

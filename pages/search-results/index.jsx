@@ -53,11 +53,6 @@ function SearchResults({ products, keyword }) {
 
   const router = useRouter();
   useEffect(() => {
-    if (!keyword || keyword.trim() === "") {
-      router.push("/404");
-      return;
-    }
-
     if (products && products.length > 0) {
       const filtered = products.filter((product) =>
         product.title.toLowerCase().includes(keyword.toLowerCase()),
@@ -71,7 +66,7 @@ function SearchResults({ products, keyword }) {
   return (
     <>
       <Head>
-        <title>Search Results</title>
+        <title>{keyword}&apos;s Search Results</title>
       </Head>
       <main>
         <TopHeader />

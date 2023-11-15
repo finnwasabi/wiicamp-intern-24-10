@@ -12,7 +12,7 @@ import DiscountPercent from "../../Buttons/DiscountPercent";
 import FillEye from "../../Buttons/FillEye";
 import FillHeart from "../../Buttons/FillHeart";
 
-import s from "./FlashSalesItem.module.scss";
+import s from "./SearchResultsItems.module.scss";
 
 const renderStars = (rating) => {
   const starsArray = [];
@@ -31,7 +31,7 @@ const renderStars = (rating) => {
       </svg>,
     );
   }
-  // Adding greyed out stars for the remaining unfilled stars
+
   for (let i = filledStars; i < 5; i += 1) {
     starsArray.push(
       <svg
@@ -49,7 +49,7 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
-function FlashSalesItem({ product }) {
+function SearchResultsItems({ product }) {
   const { image, title, price, rating } = product;
   const [discountPercentage, setDiscountPercentage] = useState(0);
   const [salePrice, setSalePrice] = useState(0);
@@ -170,7 +170,7 @@ function FlashSalesItem({ product }) {
     </div>
   );
 }
-FlashSalesItem.propTypes = {
+SearchResultsItems.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
@@ -182,4 +182,4 @@ FlashSalesItem.propTypes = {
     }),
   }).isRequired,
 };
-export default FlashSalesItem;
+export default SearchResultsItems;

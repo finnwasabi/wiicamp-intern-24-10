@@ -35,12 +35,6 @@ function OurProductsList({ products }) {
         prevEl: "#prev3",
         nextEl: "#next3",
       }}
-      // breakpoints={{
-      //   640: { slidesPerView: 2, spaceBetween: -30 },
-      //   768: { slidesPerView: 2, spaceBetween: -150 },
-      //   1024: { slidesPerView: 3.5, spaceBetween: 0 },
-      //   1170: { slidesPerView: 4, spaceBetween: 30 },
-      // }}
       modules={[Navigation]}
       className="mySwiper"
     >

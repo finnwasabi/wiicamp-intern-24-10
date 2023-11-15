@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { useEffect, useRef, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
@@ -110,6 +109,15 @@ function Header() {
     setIsSearchBarFocused(false);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter" && searchTerm.trim() !== "") {
+      router.push({
+        pathname: "/search-results",
+        query: { keyword: searchTerm },
+      });
+    }
+  };
+
   const { isAuthenticated, login } = useAuthStore();
 
   useEffect(() => {
@@ -176,7 +184,10 @@ function Header() {
               </Link>
             )}
           </div>
-          <form className="relative hidden md:flex xl:ml-auto xl:flex">
+          <form
+            className="relative hidden md:flex xl:ml-auto xl:flex"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <input
               className="h-6 min-w-[15.1875rem] rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"
@@ -185,6 +196,7 @@ function Header() {
               onChange={handleChange}
               onFocus={handleSearchBarFocus}
               onBlur={handleSearchBarBlur}
+              onKeyDown={handleKeyPress}
               required
             />
             <Link href="/SearchResults" type="submit">
@@ -252,7 +264,11 @@ function Header() {
                     <span className={s.CartItemCount}>{items.length}</span>
                   )}
                 </Link>
-                <button onClick={handleUserClick} className={s.ThreeBoxes}>
+                <button
+                  type="button"
+                  onClick={handleUserClick}
+                  className={s.ThreeBoxes}
+                >
                   {isLinkActive("/my-account") ? (
                     <Image
                       src="/UserCircle.svg"

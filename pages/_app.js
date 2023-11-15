@@ -12,9 +12,15 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 export default function App({ Component, pageProps }) {
+  const { login, setInitApp } = useAuthStore();
   useEffect(() => {
-    useAuthStore.getState();
-  }, []);
+    const token = localStorage.getItem("token");
+    if (token) {
+      login();
+    }
+
+    setInitApp();
+  }, [login, setInitApp]);
 
   return (
     <CartProvider>

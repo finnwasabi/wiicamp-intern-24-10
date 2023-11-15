@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Poppins } from "next/font/google";
+import NextNProgress from "nextjs-progressbar";
 import PropTypes from "prop-types";
 
 import { CartProvider } from "@/contexts/CartContext";
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <CartProvider>
+      <NextNProgress color="#DB4444" height={2} />
       <div className={poppins.className}>
         <Component {...pageProps} />
       </div>

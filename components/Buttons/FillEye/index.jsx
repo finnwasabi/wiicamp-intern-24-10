@@ -1,10 +1,12 @@
 import React from "react";
 import { Eye } from "lucide-react";
+import Link from "next/link";
+import PropTypes from "prop-types";
 
-function FillEye() {
+function FillEye({ product }) {
   return (
-    <button
-      type="button"
+    <Link
+      href={`/${product.id}`}
       className="relative h-[34px] w-[34px] rounded-full bg-white transition-all hover:shadow-big"
     >
       <Eye
@@ -12,8 +14,14 @@ function FillEye() {
         strokeWidth={1.7}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       />
-    </button>
+    </Link>
   );
 }
+
+FillEye.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default FillEye;

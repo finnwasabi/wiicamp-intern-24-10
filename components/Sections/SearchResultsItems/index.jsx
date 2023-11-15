@@ -149,12 +149,12 @@ function SearchResultsItems({ product }) {
             </Link>
           )}
           <div className="absolute right-3 top-[3.375rem] flex">
-            <FillEye />
+            <FillEye product={product} />
           </div>
         </div>
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/${product.id}`}>
         <div className="mt-4 line-clamp-1 font-bold">{title}</div>
         <div className="mt-2 flex font-semibold">
           <div className="mr-3 text-secondary-2">${price}</div>

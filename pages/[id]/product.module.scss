@@ -1,0 +1,13 @@
+.RemoveArrow::-webkit-inner-spin-button, 
+.RemoveArrow::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.CancelButton{
+    display: none;
+}
+.HoverCancel:hover{
+    .CancelButton{
+        display: block;
+    }
+}

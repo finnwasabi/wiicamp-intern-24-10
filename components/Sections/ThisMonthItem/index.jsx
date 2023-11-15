@@ -144,10 +144,10 @@ function ThisMonthItem({ product }) {
           </Link>
         )}
         <div className="absolute right-3 top-[3.375rem] flex cursor-pointer">
-          <FillEye />
+          <FillEye product={product} />
         </div>
       </div>
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/${product.id}`}>
         <span className="mt-4 line-clamp-1 font-bold">{title}</span>
         <span className="mt-2 flex font-semibold">
           <p className="mr-3 text-secondary-2">${price}</p>

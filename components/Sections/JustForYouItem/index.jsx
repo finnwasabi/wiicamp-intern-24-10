@@ -1,56 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import PropTypes from "prop-types";
+
+import formatter from "@/utils/formatter";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
+import FillEye from "../../Buttons/FillEye";
 
-// import FillEye from "../../Buttons/FillEye";
 import s from "./JustForYou.module.scss";
-
-const JustForYouItemsList = [
-  {
-    id: 1,
-    image: "/JustForYou/Item1.png",
-    name: "ASUS FHD Gaming Laptop",
-    percent: "-35%",
-    price: "$960",
-    sale: "$1160",
-    reviews: "65",
-    stars: 5,
-  },
-  {
-    id: 2,
-    image: "/JustForYou/Item2.png",
-    name: "IPS LCD Gaming Monitor",
-    percent: "-35%",
-    price: "$1160",
-    sale: "",
-    reviews: "65",
-    stars: 5,
-  },
-  {
-    id: 3,
-    image: "/JustForYou/Item3.png",
-    name: "HAVIT HV-G92 Gamepad",
-    percent: "-30%",
-    price: "$560",
-    sale: "",
-    reviews: "65",
-    stars: 5,
-  },
-  {
-    id: 4,
-    image: "/JustForYou/Item4.png",
-    name: "AK-900 Wired Keyboard",
-    percent: "-25%",
-    price: "$200",
-    sale: "",
-    reviews: "65",
-    stars: 5,
-  },
-];
 
 const renderStars = (rating) => {
   const starsArray = [];
@@ -86,53 +46,75 @@ const renderStars = (rating) => {
   return <div style={{ display: "flex" }}>{starsArray}</div>;
 };
 
-// eslint-disable-next-line react/prop-types
-function JustForYouItem({ id }) {
+function JustForYouItem({ product }) {
+  const [salePrice, setSalePrice] = useState(0);
+  const [discountPercentage, setDiscountPercentage] = useState(0);
+
+  useEffect(() => {
+    const calculatedDiscountPercentage =
+      Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+    setDiscountPercentage(calculatedDiscountPercentage);
+
+    const calculatedSalePrice =
+      product.price - (product.price * calculatedDiscountPercentage) / 100;
+    setSalePrice(calculatedSalePrice);
+  }, [product.price]);
+
   return (
-    <Link
-      href="/occho"
+    <div
       className={clsx(
         s.Item,
-        "block h-[21.875rem] w-[16.875rem] cursor-pointer overflow-hidden",
+        "block h-[21.875rem] w-[16.875rem] overflow-hidden",
       )}
     >
-      <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-secondary-0">
+      <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
         <div className={s.AddToCart}>
           <div className="flex items-center justify-center gap-x-2">
             <ShoppingCart /> Add To Cart
           </div>
         </div>
         <Image
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          src={JustForYouItemsList[id - 1].image}
+          className="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 object-contain"
+          src={product.image}
           width={270}
           height={250}
           alt="Picture of item"
         />
-        <DiscountPercent label={JustForYouItemsList[id - 1].percent} />
+        <DiscountPercent label={`${discountPercentage}%`} />
         <div className="absolute right-3 top-3 flex cursor-pointer">
-          {/* <FillEye /> */}
+          <FillEye product={product} />
         </div>
       </div>
-      <div className="mt-4 font-bold">{JustForYouItemsList[id - 1].name}</div>
-      <div className="mt-2 flex font-semibold">
-        <div className="mr-3 text-secondary-2">
-          {JustForYouItemsList[id - 1].price}
+      <Link href={`/${product.id}`}>
+        <div className="mt-4 line-clamp-1 font-bold">{product.title}</div>
+        <div className="mt-2 flex font-semibold">
+          <div className="mr-3 text-secondary-2">
+            {formatter(product.price)}
+          </div>
+          <div className="text-text-1 line-through">{formatter(salePrice)}</div>
         </div>
-        <div className="text-text-1 line-through">
-          {JustForYouItemsList[id - 1].sale}
+        <div className="mt-2 flex items-baseline">
+          <div className="mr-2">{renderStars(product.rating.rate)}</div>
+          <div className="text-sm font-semibold text-text-1">
+            ({product.rating.count})
+          </div>
         </div>
-      </div>
-      <div className="mt-2 flex items-baseline">
-        <div className="mr-2">
-          {renderStars(JustForYouItemsList[id - 1].stars)}
-        </div>
-        <div className="text-sm font-semibold text-text-1">
-          ({JustForYouItemsList[id - 1].reviews})
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
+
+JustForYouItem.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+      count: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default JustForYouItem;

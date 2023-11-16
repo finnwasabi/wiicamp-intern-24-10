@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
 import Footer from "@/components/Footer";
@@ -23,7 +25,23 @@ const WishlistSection = dynamic(
     },
   },
 );
-function Wishlist() {
+
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const products = response.data;
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return {
+      props: { products: [] },
+    };
+  }
+}
+
+function Wishlist({ products }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -50,7 +68,7 @@ function Wishlist() {
           <Header />
         </div>
         <div className="mt-[5.9375rem]">
-          <WishlistSection />
+          <WishlistSection products={products} />
           <FillUpArrow />
           <Footer />
         </div>
@@ -58,5 +76,9 @@ function Wishlist() {
     </>
   );
 }
+
+Wishlist.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
 
 export default withAuth(Wishlist);

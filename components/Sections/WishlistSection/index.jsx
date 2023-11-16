@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 import JustForYou from "@/components/Sections/JustForYou";
@@ -6,7 +7,7 @@ import WishlistItemsList from "@/components/Sections/WishlistItemsList";
 
 import useWishStore from "@/stores/wishStore";
 
-function WishlistSection() {
+function WishlistSection({ products }) {
   const wishStore = useWishStore();
   const { items } = wishStore;
   return (
@@ -16,9 +17,13 @@ function WishlistSection() {
         <SecondaryButton label="Move All To Bag" />
       </div>
       <WishlistItemsList />
-      <JustForYou />
+      <JustForYou products={products} />
     </div>
   );
 }
+
+WishlistSection.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
 
 export default WishlistSection;

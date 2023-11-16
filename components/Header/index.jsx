@@ -21,10 +21,8 @@ function Header() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
-  const cartStore = useCartStore();
-  const { items } = cartStore;
-  const wishStore = useWishStore();
-  const { items: wishItems } = wishStore;
+  const { items } = useCartStore();
+  const { items: wishItems } = useWishStore();
 
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -89,7 +87,7 @@ function Header() {
 
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
-        setIsLoading(true); // Set loading to true when fetching results
+        setIsLoading(true);
         getSearchResults();
       } else {
         setSearchResults([]);
@@ -101,6 +99,7 @@ function Header() {
   }, [searchTerm, setIsLoading]);
 
   const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+
   const handleSearchBarFocus = () => {
     setIsSearchBarFocused(true);
   };
@@ -199,18 +198,19 @@ function Header() {
               onKeyDown={handleKeyPress}
               required
             />
-            <Link href="/SearchResults" type="submit">
+            <Link href="/SearchResults">
               <Search className="absolute right-3 top-2" />
             </Link>
             {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
-                  <span
+                  <Link
+                    href={`/${product.id}`}
                     className="cursor-pointer border-b px-4 py-2 hover:font-semibold hover:italic"
                     key={product.id}
                   >
                     {product.title}
-                  </span>
+                  </Link>
                 ))}
               </div>
             )}

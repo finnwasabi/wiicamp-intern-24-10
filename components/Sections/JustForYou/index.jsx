@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 import JustForYouItemList from "@/components/Sections/JustForYouItemList";
 
-function JustForYou() {
+function JustForYou({ products }) {
   return (
     <div>
       <div className="">
@@ -20,10 +21,14 @@ function JustForYou() {
         </div>
       </div>
       <div>
-        <JustForYouItemList />
+        <JustForYouItemList products={products} />
       </div>
     </div>
   );
 }
+
+JustForYou.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
 
 export default JustForYou;

@@ -26,7 +26,7 @@ function FlashSalesSlider({ products }) {
           1280: { slidesPerView: 4, spaceBetween: 30 },
         }}
         modules={[Navigation]}
-        className="mySwiper xl:!overflow-visible"
+        className="mySwiper3 xl:!overflow-visible"
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>

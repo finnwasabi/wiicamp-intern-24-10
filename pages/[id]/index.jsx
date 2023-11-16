@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import ReactImageMagnify from "react-image-magnify";
 import clsx from "clsx";
-import { Minus, Plus } from "lucide-react";
+import { Heart, Minus, Plus, XCircle } from "lucide-react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +9,11 @@ import PropTypes from "prop-types";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ProductImgSlider from "@/components/Sections/ProductImgSlider";
 import TopHeader from "@/components/TopHeader";
 
+import useAuthStore from "@/stores/authStore";
+import useWishStore from "@/stores/wishStore";
 import formatter from "@/utils/formatter";
 
 import s from "./product.module.scss";
@@ -73,6 +77,39 @@ export async function getServerSideProps(context) {
 function Product({ product }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const { isAuthenticated } = useAuthStore();
+  const wishStore = useWishStore();
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  // Function to handle closing the modal
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  // Function to handle clicking on an image to display the full album
+  const handleImageClick = () => {
+    openModal();
+  };
+
+  const existingWishItem = wishStore.items.find(
+    (item) => item.productId === product.id,
+  );
+  const handleAddToWish = () => {
+    if (existingWishItem) {
+      wishStore.removeFromWish(product.id);
+    } else {
+      wishStore.addToWish({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+      });
+    }
+  };
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -130,6 +167,7 @@ function Product({ product }) {
                 <span className="flex w-[10.625rem] flex-col gap-y-4">
                   <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                     <Image
+                      onClick={handleImageClick}
                       src={product.image}
                       width={500}
                       height={600}
@@ -139,6 +177,7 @@ function Product({ product }) {
                   </p>
                   <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                     <Image
+                      onClick={handleImageClick}
                       src={product.image}
                       width={500}
                       height={600}
@@ -148,6 +187,7 @@ function Product({ product }) {
                   </p>
                   <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                     <Image
+                      onClick={handleImageClick}
                       src={product.image}
                       width={500}
                       height={600}
@@ -157,6 +197,7 @@ function Product({ product }) {
                   </p>
                   <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                     <Image
+                      onClick={handleImageClick}
                       src={product.image}
                       width={500}
                       height={600}
@@ -165,14 +206,43 @@ function Product({ product }) {
                     />
                   </p>
                 </span>
-                <span className="max-h-[37.5rem] w-[31.25rem] rounded border-2">
-                  <Image
+                <span className="flex max-h-[37.5rem] max-w-[31.25rem] items-center justify-center rounded border-2">
+                  <ReactImageMagnify
+                    {...{
+                      smallImage: {
+                        alt: "product",
+                        src: product.image,
+                        width: 495,
+                        height: 595,
+                      },
+                      largeImage: {
+                        src: product.image,
+                        width: 2000,
+                        height: 2400,
+                      },
+                      isEnlargedImagePortalEnabledForTouch: true,
+                      enlargedImageStyle: {
+                        width: "auto",
+                        height: "auto",
+                        maxWidth: "400%",
+                        objectFit: "contain",
+                      },
+                      imageStyle: {
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      },
+                      isHintEnabled: true,
+                    }}
+                  />
+                  {/* <Image
+                    onClick={handleImageClick}
                     src={product.image}
                     width={500}
                     height={600}
                     alt="Picture of the author"
-                    className="h-full w-full object-contain"
-                  />
+                    className="h-full w-full cursor-pointer object-contain"
+                  /> */}
                 </span>
               </div>
               <div className="flex max-w-[25rem] flex-col gap-y-6">
@@ -283,7 +353,52 @@ function Product({ product }) {
                       Buy Now
                     </button>
                   </div>
-                  <span>cailoz</span>
+                  {isAuthenticated ? (
+                    <div>
+                      {existingWishItem ? (
+                        <span className="group">
+                          <button
+                            type="button"
+                            className="flex h-[40px] w-[40px] items-center justify-center rounded bg-secondary-2"
+                            onClick={handleAddToWish}
+                          >
+                            <Heart
+                              strokeWidth={0}
+                              fill="white"
+                              className="w-[34px] transition-all group-hover:h-[34px]"
+                            />
+                          </button>
+                        </span>
+                      ) : (
+                        <span className="group">
+                          <button
+                            type="button"
+                            className="flex h-[40px] w-[40px] items-center justify-center rounded border border-black border-opacity-50"
+                            onClick={handleAddToWish}
+                          >
+                            <Heart
+                              strokeWidth={1.5}
+                              className="w-[34px] transition-all group-hover:h-[34px]"
+                            />
+                          </button>
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <Link href="/please">
+                      <span className="group">
+                        <button
+                          type="button"
+                          className=" flex h-[40px] w-[40px] items-center justify-center rounded border border-black border-opacity-50"
+                        >
+                          <Heart
+                            strokeWidth={1.5}
+                            className="w-[34px] transition-all group-hover:h-[34px]"
+                          />
+                        </button>
+                      </span>
+                    </Link>
+                  )}
                 </div>
                 <div className="mt-4 flex w-full flex-col rounded border border-black border-opacity-50 py-6">
                   <div className="group flex cursor-pointer items-center gap-x-4 pl-4 font-semibold leading-[1.125rem]">
@@ -318,6 +433,24 @@ function Product({ product }) {
                 </div>
               </div>
             </div>
+            {showModal && (
+              <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-80">
+                <div className="relative rounded-lg bg-white p-4">
+                  <button
+                    type="button"
+                    className="absolute right-2 top-2 z-50"
+                    onClick={closeModal}
+                  >
+                    <XCircle
+                      size={32}
+                      className="fill-secondary-2"
+                      color="white"
+                    />
+                  </button>
+                  <ProductImgSlider product={product} />
+                </div>
+              </div>
+            )}
           </div>
           <Footer />
         </div>

@@ -36,7 +36,7 @@ function OurProductsList({ products }) {
         nextEl: "#next3",
       }}
       modules={[Navigation]}
-      className="mySwiper"
+      className="mySwiper5"
     >
       {generateSlides(products)}
     </Swiper>

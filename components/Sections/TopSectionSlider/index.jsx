@@ -23,7 +23,7 @@ function TopSectionSlider() {
         el: "#customPagination",
       }}
       modules={[Autoplay, Pagination]}
-      className="mySwiper"
+      className="mySwiper4"
     >
       <div
         id="customPagination"

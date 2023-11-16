@@ -13,3 +13,25 @@ body {}
     height: 16px !important;
     width: 16px !important;
 }
+
+.mySwiper .swiper-wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mySwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    opacity: 0.4;
+    width: fit-content;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.mySwiper2 .swiper-slide {
+    display: flex;
+    justify-content: center;
+}

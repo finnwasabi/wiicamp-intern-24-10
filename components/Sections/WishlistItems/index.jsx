@@ -59,7 +59,7 @@ function WishlistItems({ item }) {
           <FillTrash />
         </button>
       </div>
-      <Link href="/occho">
+      <Link href={`/${item.productId}`}>
         <span className="mt-4 line-clamp-1 font-bold">{item.title}</span>
         <span className="mt-2 flex font-semibold">
           <p className="mr-3 text-secondary-2">${item.price}</p>

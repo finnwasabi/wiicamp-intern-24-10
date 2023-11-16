@@ -25,7 +25,7 @@ function CategoriesSlider() {
           1280: { slidesPerView: 6, spaceBetween: 30 },
         }}
         modules={[Navigation]}
-        className="mySwiper"
+        className="mySwiper6"
       >
         <SwiperSlide>
           <CategoryButtons id={1} />

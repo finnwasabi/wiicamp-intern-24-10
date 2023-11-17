@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function FillEye({ product }) {
   return (
     <Link
-      href={`/${product.id}`}
+      href={`/${product.category}/${product.id}`}
       className="relative h-[34px] w-[34px] rounded-full bg-white transition-all hover:shadow-big"
     >
       <Eye
@@ -21,6 +21,7 @@ function FillEye({ product }) {
 FillEye.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 

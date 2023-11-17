@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactImageMagnify from "react-image-magnify";
 import clsx from "clsx";
 import { Heart, Minus, Plus, XCircle } from "lucide-react";
@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ProductImgSlider from "@/components/Sections/ProductImgSlider";
+import RelatedItem from "@/components/Sections/RelatedItem";
 import TopHeader from "@/components/TopHeader";
 
 import useAuthStore from "@/stores/authStore";
@@ -53,18 +54,25 @@ const renderStars = (rating) => {
 };
 export async function getServerSideProps(context) {
   const productId = context.query.id;
+  const productCategory = context.query.category;
 
   try {
     const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const res2 = await fetch(
+      `https://fakestoreapi.com/products/category/${productCategory}`,
+    );
+
     if (!res.ok) {
       throw new Error("Failed to fetch");
     }
 
     const product = await res.json();
+    const categories = await res2.json();
 
     return {
       props: {
         product,
+        categories,
       },
     };
   } catch (error) {
@@ -74,25 +82,30 @@ export async function getServerSideProps(context) {
     };
   }
 }
-function Product({ product }) {
+function Product({ product, categories }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const { isAuthenticated } = useAuthStore();
   const wishStore = useWishStore();
   const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef();
 
   const openModal = () => {
     setShowModal(true);
   };
 
-  // Function to handle closing the modal
   const closeModal = () => {
     setShowModal(false);
   };
 
-  // Function to handle clicking on an image to display the full album
   const handleImageClick = () => {
     openModal();
+  };
+
+  const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      closeModal();
+    }
   };
 
   const existingWishItem = wishStore.items.find(
@@ -221,6 +234,9 @@ function Product({ product }) {
                         height: 2400,
                       },
                       isEnlargedImagePortalEnabledForTouch: true,
+                      enlargedImageContainerStyle: {
+                        backgroundColor: "white",
+                      },
                       enlargedImageStyle: {
                         width: "auto",
                         height: "auto",
@@ -235,14 +251,6 @@ function Product({ product }) {
                       isHintEnabled: true,
                     }}
                   />
-                  {/* <Image
-                    onClick={handleImageClick}
-                    src={product.image}
-                    width={500}
-                    height={600}
-                    alt="Picture of the author"
-                    className="h-full w-full cursor-pointer object-contain"
-                  /> */}
                 </span>
               </div>
               <div className="flex max-w-[25rem] flex-col gap-y-6">
@@ -265,51 +273,51 @@ function Product({ product }) {
                 </div>
                 <span className="text-sm">{product.description}</span>
                 <span className="border-b border-text-1" />
-                <span className="flex h-[24px] items-center gap-x-6">
+                <span className="flex h-[1.5rem] items-center gap-x-6">
                   <p className="text-xl leading-[1.25rem]">Colours:</p>
                   <p className="flex items-center gap-x-2">
                     <input
-                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[24px] hover:w-[24px]"
+                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[1.5rem] hover:w-[1.5rem]"
                       type="radio"
                       name="colour"
                     />
                     <input
-                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#E07575] transition-all checked:border-2 checked:border-black checked:p-1 hover:h-[24px] hover:w-[24px]"
+                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#E07575] transition-all checked:border-2 checked:border-black checked:p-1 hover:h-[1.5rem] hover:w-[1.5rem]"
                       type="radio"
                       name="colour"
                     />
                   </p>
                 </span>
-                <span className="flex min-h-[40px] items-center gap-x-6">
+                <span className="flex min-h-[2.5rem] items-center gap-x-6">
                   <p className="text-xl leading-[1.25rem]">Size:</p>
                   <span className="flex items-center gap-x-4">
                     <button
                       type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[40px] hover:w-[40px] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                     >
                       XS
                     </button>
                     <button
                       type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[40px] hover:w-[40px] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                     >
                       S
                     </button>
                     <button
                       type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[40px] hover:w-[40px] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                     >
                       M
                     </button>
                     <button
                       type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[40px] hover:w-[40px] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                     >
                       L
                     </button>
                     <button
                       type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[40px] hover:w-[40px] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                     >
                       XL
                     </button>
@@ -359,13 +367,13 @@ function Product({ product }) {
                         <span className="group">
                           <button
                             type="button"
-                            className="flex h-[40px] w-[40px] items-center justify-center rounded bg-secondary-2"
+                            className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded bg-secondary-2"
                             onClick={handleAddToWish}
                           >
                             <Heart
                               strokeWidth={0}
                               fill="white"
-                              className="w-[34px] transition-all group-hover:h-[34px]"
+                              className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
                             />
                           </button>
                         </span>
@@ -373,12 +381,12 @@ function Product({ product }) {
                         <span className="group">
                           <button
                             type="button"
-                            className="flex h-[40px] w-[40px] items-center justify-center rounded border border-black border-opacity-50"
+                            className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
                             onClick={handleAddToWish}
                           >
                             <Heart
                               strokeWidth={1.5}
-                              className="w-[34px] transition-all group-hover:h-[34px]"
+                              className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
                             />
                           </button>
                         </span>
@@ -389,11 +397,11 @@ function Product({ product }) {
                       <span className="group">
                         <button
                           type="button"
-                          className=" flex h-[40px] w-[40px] items-center justify-center rounded border border-black border-opacity-50"
+                          className=" flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
                         >
                           <Heart
                             strokeWidth={1.5}
-                            className="w-[34px] transition-all group-hover:h-[34px]"
+                            className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
                           />
                         </button>
                       </span>
@@ -434,8 +442,15 @@ function Product({ product }) {
               </div>
             </div>
             {showModal && (
-              <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-80">
-                <div className="relative rounded-lg bg-white p-4">
+              <div
+                className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-80"
+                onClick={handleOutsideClick}
+                role="presentation"
+              >
+                <div
+                  ref={modalRef}
+                  className="relative rounded-lg bg-white p-4"
+                >
                   <button
                     type="button"
                     className="absolute right-2 top-2 z-50"
@@ -451,6 +466,19 @@ function Product({ product }) {
                 </div>
               </div>
             )}
+            <div className="mb-[8.75rem] flex flex-col gap-y-[60px]">
+              <div className="flex items-center gap-x-4">
+                <div className="h-10 w-5 rounded bg-button-2" />
+                <span className="text-base font-semibold leading-[1.25rem] text-button-2">
+                  Related Item
+                </span>
+              </div>
+              <div className="grid grid-cols-4 gap-[30px]">
+                {categories.map((category) => (
+                  <RelatedItem key={category.id} category={category} />
+                ))}
+              </div>
+            </div>
           </div>
           <Footer />
         </div>
@@ -472,5 +500,6 @@ Product.propTypes = {
       count: PropTypes.number.isRequired,
     }),
   }).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 export default Product;

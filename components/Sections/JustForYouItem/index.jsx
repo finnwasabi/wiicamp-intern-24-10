@@ -85,7 +85,7 @@ function JustForYouItem({ product }) {
           <FillEye product={product} />
         </div>
       </div>
-      <Link href={`/${product.id}`}>
+      <Link href={`/${product.category}/${product.id}`}>
         <div className="mt-4 line-clamp-1 font-bold">{product.title}</div>
         <div className="mt-2 flex font-semibold">
           <div className="mr-3 text-secondary-2">
@@ -110,6 +110,7 @@ JustForYouItem.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     rating: PropTypes.shape({
       rate: PropTypes.number.isRequired,
       count: PropTypes.number.isRequired,

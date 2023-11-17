@@ -1,0 +1,40 @@
+.SaleItem:hover {
+    .AddToCart{
+        display: block;
+        animation: PullUp 0.2s ease-in-out;
+    }
+
+}
+
+.AddToCart{
+    display: none;
+    z-index: 10;
+    position: absolute;
+    padding: 8px 0;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    bottom: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.AddToCart:active{
+    background-color: grey;
+    color: black;
+    font-weight: 800;
+}
+
+@keyframes PullUp {
+    0%{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

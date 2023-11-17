@@ -69,6 +69,7 @@ function ThisMonthItem({ product }) {
         productId: product.id,
         title: product.title,
         price: product.price,
+        category: product.category,
         image: product.image,
       });
     }
@@ -147,7 +148,7 @@ function ThisMonthItem({ product }) {
           <FillEye product={product} />
         </div>
       </div>
-      <Link href={`/${product.id}`}>
+      <Link href={`/${product.category}/${product.id}`}>
         <span className="mt-4 line-clamp-1 font-bold">{title}</span>
         <span className="mt-2 flex font-semibold">
           <p className="mr-3 text-secondary-2">${price}</p>
@@ -172,6 +173,7 @@ ThisMonthItem.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     rating: PropTypes.shape({
       rate: PropTypes.number.isRequired,
       count: PropTypes.number.isRequired,

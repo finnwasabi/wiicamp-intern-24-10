@@ -59,7 +59,7 @@ function WishlistItems({ item }) {
           <FillTrash />
         </button>
       </div>
-      <Link href={`/${item.productId}`}>
+      <Link href={`/${item.category}/${item.productId}`}>
         <span className="mt-4 line-clamp-1 font-bold">{item.title}</span>
         <span className="mt-2 flex font-semibold">
           <p className="mr-3 text-secondary-2">${item.price}</p>
@@ -75,6 +75,7 @@ function WishlistItems({ item }) {
 WishlistItems.propTypes = {
   item: PropTypes.shape({
     productId: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

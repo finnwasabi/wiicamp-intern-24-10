@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import PropTypes from "prop-types";
 
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
@@ -15,9 +16,9 @@ function JustForYou({ products }) {
               Just For You
             </div>
           </div>
-          <div className="w-max">
+          <Link href="/search-results?keyword=" className="w-max">
             <SecondaryButton label="See All" />
-          </div>
+          </Link>
         </div>
       </div>
       <div>

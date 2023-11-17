@@ -65,6 +65,13 @@ function CartSection() {
             <div>Quantity</div>
             <div>Subtotal</div>
           </div>
+
+          {items.length === 0 && (
+            <div className="flex justify-center p-3 text-text-1 shadow-custom xl:px-10 xl:py-6">
+              Your cart is empty.
+            </div>
+          )}
+
           {items.map((item) => (
             <div
               key={item.productId}

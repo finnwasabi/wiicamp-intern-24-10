@@ -14,7 +14,7 @@ function WishlistSection({ products }) {
     <div className="container mb-[8.75rem]">
       <div className="mb-[3.75rem] flex items-center justify-between pt-20">
         <div className="text-xl">Wishlist ({items.length})</div>
-        <SecondaryButton label="Move All To Bag" />
+        <SecondaryButton label="Move All To Cart" />
       </div>
       <WishlistItemsList />
       <JustForYou products={products} />

@@ -4,6 +4,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -16,11 +17,16 @@ function LogInSection() {
   const router = useRouter();
   const [email, setEmail] = useState("john@gmail.com");
   const [password, setPassword] = useState("m38rmF$");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [invalidInput, setInvalidInput] = useState(false);
   const authStore = useAuthStore();
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -96,21 +102,32 @@ function LogInSection() {
                   }}
                   required
                 />
-                <input
-                  type="password"
-                  autoComplete="password"
-                  placeholder="Password"
-                  className={`mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none ${
-                    invalidInput ? "border-red-500" : ""
-                  }`}
-                  value={password}
-                  onChange={(e) => {
-                    setError("");
-                    setPassword(e.target.value);
-                    setInvalidInput(false);
-                  }}
-                  required
-                />
+                <div className="relative mb-10">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="password"
+                    placeholder="Password"
+                    className={`w-full border-b-2 pb-2 focus:border-black focus:outline-none ${
+                      invalidInput ? "border-red-500" : ""
+                    }`}
+                    value={password}
+                    onChange={(e) => {
+                      setError("");
+                      setPassword(e.target.value);
+                      setInvalidInput(false);
+                    }}
+                    required
+                  />
+                  {password.length > 0 && (
+                    <button type="button" onClick={handleTogglePassword}>
+                      {showPassword ? (
+                        <Eye className="absolute right-0 top-1" />
+                      ) : (
+                        <EyeOff className="absolute right-0 top-1" />
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="flex items-center justify-between">
                 {!loading && !success && (

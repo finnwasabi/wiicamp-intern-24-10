@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,6 +7,12 @@ import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 
 function SignUpSection() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="relative">
       <div className="mb-[8.75rem] pt-[3.75rem] lg:mt-[3.75rem] lg:pt-0">
@@ -39,12 +46,24 @@ function SignUpSection() {
                   className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   required
                 />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
-                  autoComplete="password"
-                />
+                <div className="relative mb-10">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    className="w-full border-b-2 pb-2 focus:border-black focus:outline-none"
+                    autoComplete="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  {password.length > 0 && (
+                    <button type="button" onClick={handleTogglePassword}>
+                      {showPassword ? (
+                        <Eye className="absolute right-0 top-1" />
+                      ) : (
+                        <EyeOff className="absolute right-0 top-1" />
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="mb-8 w-full">
                 <div className="mb-4">

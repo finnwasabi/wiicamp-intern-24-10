@@ -16,7 +16,7 @@ const FlashSalesSlider = dynamic(
 
 function FlashSales({ products }) {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2023-11-19T07:00:00`) - +new Date();
+    const difference = +new Date(`2023-11-26T07:00:00`) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {

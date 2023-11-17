@@ -66,6 +66,7 @@ function SearchResultsItems({ product }) {
     } else {
       wishStore.addToWish({
         productId: product.id,
+        category: product.category,
         title: product.title,
         price: product.price,
         image: product.image,
@@ -154,7 +155,7 @@ function SearchResultsItems({ product }) {
         </div>
         <DiscountPercent label={`${discountPercentage}%`} />
       </div>
-      <Link href={`/${product.id}`}>
+      <Link href={`/${product.category}/${product.id}`}>
         <div className="mt-4 line-clamp-1 font-bold">{title}</div>
         <div className="mt-2 flex font-semibold">
           <div className="mr-3 text-secondary-2">${price}</div>
@@ -175,6 +176,7 @@ SearchResultsItems.propTypes = {
     id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.shape({
       rate: PropTypes.number.isRequired,

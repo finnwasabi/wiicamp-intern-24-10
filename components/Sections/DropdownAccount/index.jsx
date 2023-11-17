@@ -2,12 +2,15 @@ import React from "react";
 import Link from "next/link";
 
 import useAuthStore from "@/stores/authStore";
+import useUserStore from "@/stores/userStore";
 
 function DropdownAccount() {
-  const authStore = useAuthStore(); // Access the handleLogout function from the AuthContext
+  const authStore = useAuthStore();
+  const userStore = useUserStore();
 
   const handleLogoutClick = () => {
-    authStore.logout(); // Call the logout function from Zustand
+    authStore.logout();
+    userStore.clearUser();
     localStorage.removeItem("token");
   };
 

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import useAuthStore from "@/stores/authStore";
+import useUserStore from "@/stores/userStore";
 
 import PrimaryButton from "../../Buttons/PrimaryButton";
 
@@ -34,6 +35,15 @@ function LogInSection() {
       );
 
       if (user) {
+        const userDataResponse = await axios.get(
+          `https://fakestoreapi.com/users/${user.id}`,
+        );
+        const userData = userDataResponse.data;
+
+        // Store user data using the user store
+        const { setUser } = useUserStore.getState();
+        setUser(userData);
+
         authStore.login();
         localStorage.setItem("token", true);
         router.push("/");

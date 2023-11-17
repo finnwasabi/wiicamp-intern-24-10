@@ -5,9 +5,13 @@ import Link from "next/link";
 import InputField from "@/components/Buttons/InputField";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 
+import useUserStore from "@/stores/userStore";
+
 import s from "./MyAccountSection.module.scss";
 
 function MyAccountSection() {
+  const userStore = useUserStore();
+  const { user } = userStore;
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
@@ -63,40 +67,48 @@ function MyAccountSection() {
                 <div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-[3.125rem] lg:gap-y-0">
                   <div className="lg:w-[20.625rem]">
                     <InputField
+                      className="capitalize placeholder:capitalize placeholder:italic"
                       classNameLabel="mb-2"
-                      placeholder="Thai"
+                      placeholder={user.name.firstname}
                       label="First Name"
                       type="text"
                       autocomplete=""
+                      defaultValue={user.name.firstname}
                     />
                   </div>
                   <div className="lg:w-[20.625rem]">
                     <InputField
+                      className="value: capitalize placeholder:capitalize placeholder:italic"
                       classNameLabel="mb-2"
-                      placeholder="VG"
+                      placeholder={user.name.lastname}
                       label="Last Name"
                       type="text"
                       autocomplete=""
+                      defaultValue={user.name.lastname}
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-[3.125rem] lg:gap-y-0">
                   <div className="lg:w-[20.625rem]">
                     <InputField
+                      className="placeholder:italic"
                       classNameLabel="mb-2"
-                      placeholder="rimel1111@gmail.com"
+                      placeholder={user.email}
                       label="Email"
                       type="email"
                       autocomplete=""
+                      defaultValue={user.email}
                     />
                   </div>
                   <div className="lg:w-[20.625rem]">
                     <InputField
+                      className="capitalize placeholder:capitalize placeholder:italic"
                       classNameLabel="mb-2"
-                      placeholder="Kingston, 5236, United State"
+                      placeholder={`${user.address.street}, ${user.address.city}`}
                       label="Address"
                       type="text"
                       autocomplete=""
+                      defaultValue={`${user.address.street}, ${user.address.city}`}
                     />
                   </div>
                 </div>

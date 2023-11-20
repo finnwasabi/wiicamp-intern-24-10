@@ -20,7 +20,7 @@ function FillEye({ product }) {
 
 FillEye.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
 };

@@ -23,6 +23,7 @@ function Header() {
   const router = useRouter();
   const { items } = useCartStore();
   const { items: wishItems } = useWishStore();
+  const searchInputRef = useRef(null);
 
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -114,6 +115,20 @@ function Header() {
         pathname: "/search-results",
         query: { keyword: searchTerm },
       });
+      if (searchInputRef.current) {
+        searchInputRef.current.blur();
+      }
+    }
+  };
+
+  const handleSearchResultClick = (title) => {
+    router.push({
+      pathname: "/search-results",
+      query: { keyword: title },
+    });
+
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
     }
   };
 
@@ -188,6 +203,7 @@ function Header() {
             onSubmit={(e) => e.preventDefault()}
           >
             <input
+              ref={searchInputRef}
               className="h-6 min-w-[15.1875rem] rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"
               placeholder="What are you looking for?"
@@ -204,13 +220,17 @@ function Header() {
             {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
-                  <Link
-                    href={`/${product.id}`}
-                    className="cursor-pointer border-b px-4 py-2 hover:font-semibold hover:italic"
+                  <button
+                    type="button"
+                    className="cursor-pointer border-b px-4 py-2 text-left hover:font-semibold hover:italic"
                     key={product.id}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      handleSearchResultClick(product.title);
+                    }}
                   >
-                    {product.title}
-                  </Link>
+                    <p className="line-clamp-2">{product.title}</p>
+                  </button>
                 ))}
               </div>
             )}

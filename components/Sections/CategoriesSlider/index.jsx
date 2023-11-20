@@ -40,31 +40,31 @@ function CategoriesSlider() {
           <CategoryButtons id={4} category="jewelery" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={5} />
+          <CategoryButtons id={5} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={6} />
+          <CategoryButtons id={6} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={7} />
+          <CategoryButtons id={7} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={8} />
+          <CategoryButtons id={8} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={9} />
+          <CategoryButtons id={9} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={10} />
+          <CategoryButtons id={10} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={11} />
+          <CategoryButtons id={11} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={12} />
+          <CategoryButtons id={12} category="404" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={13} />
+          <CategoryButtons id={13} category="404" />
         </SwiperSlide>
       </Swiper>
     </div>

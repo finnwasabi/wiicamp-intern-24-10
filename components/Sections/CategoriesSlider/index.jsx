@@ -28,16 +28,16 @@ function CategoriesSlider() {
         className="mySwiper6"
       >
         <SwiperSlide>
-          <CategoryButtons id={1} />
+          <CategoryButtons id={1} category="women's%20clothing" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={2} />
+          <CategoryButtons id={2} category="electronics" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={3} />
+          <CategoryButtons id={3} category="men's%20clothing" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryButtons id={4} />
+          <CategoryButtons id={4} category="jewelery" />
         </SwiperSlide>
         <SwiperSlide>
           <CategoryButtons id={5} />
@@ -53,6 +53,18 @@ function CategoriesSlider() {
         </SwiperSlide>
         <SwiperSlide>
           <CategoryButtons id={9} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryButtons id={10} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryButtons id={11} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryButtons id={12} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryButtons id={13} />
         </SwiperSlide>
       </Swiper>
     </div>

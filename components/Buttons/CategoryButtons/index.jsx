@@ -1,12 +1,28 @@
 import React from "react";
 import clsx from "clsx";
-import { Mouse, PaintBucket, Wrench } from "lucide-react";
+import { Cable, Gem, Mouse, PaintBucket, Shirt, Wrench } from "lucide-react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
 import s from "./CategoryButtons.module.scss";
 
 const CategoryButtonsList = [
+  {
+    illu: <Shirt size={48} absoluteStrokeWidth />,
+    name: "Woman's Fashion",
+  },
+  {
+    illu: <Cable size={48} absoluteStrokeWidth />,
+    name: "Electronics",
+  },
+  {
+    illu: <Shirt size={48} absoluteStrokeWidth />,
+    name: "Man's Fashion",
+  },
+  {
+    illu: <Gem size={48} absoluteStrokeWidth />,
+    name: "Jewelry",
+  },
   {
     illu: (
       <svg
@@ -314,10 +330,10 @@ const CategoryButtonsList = [
     name: "Mouses",
   },
 ];
-function CategoryButtons({ id }) {
+function CategoryButtons({ id, category }) {
   return (
     <Link
-      href="/occho"
+      href={`/${category}`}
       className={clsx(
         s.CategoryItem,
         "flex h-[145px] w-[170px] items-center justify-center rounded border-2 border-black border-opacity-30",
@@ -335,6 +351,7 @@ function CategoryButtons({ id }) {
 
 CategoryButtons.propTypes = {
   id: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default CategoryButtons;

@@ -51,7 +51,7 @@ function TopSection() {
             Jewelery
           </Link>
           <Link
-            href="/daubo"
+            href="/404"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -60,7 +60,7 @@ function TopSection() {
             Medicine
           </Link>
           <Link
-            href="/daubo"
+            href="/404"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -69,7 +69,7 @@ function TopSection() {
             Sports & Outdoor
           </Link>
           <Link
-            href="/daubo"
+            href="/404"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -78,7 +78,7 @@ function TopSection() {
             Baby&apos;s & Toys
           </Link>
           <Link
-            href="/daubo"
+            href="/404"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -87,7 +87,7 @@ function TopSection() {
             Groceries & Pets
           </Link>
           <Link
-            href="/daubo"
+            href="/404"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",

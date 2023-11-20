@@ -19,10 +19,9 @@ import TopHeader from "@/components/TopHeader";
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get("https://fakestoreapi.com/products");
-    const products = response.data;
+    const { data } = await axios.get("https://fakestoreapi.com/products");
     return {
-      props: { products },
+      props: { products: data },
     };
   } catch (error) {
     console.error("Error fetching data:", error.message);

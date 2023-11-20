@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactImageMagnify from "react-image-magnify";
 import clsx from "clsx";
-import { Heart, Minus, Plus, XCircle } from "lucide-react";
+import { CircleDollarSign, Heart, Minus, Plus, XCircle } from "lucide-react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -175,9 +175,9 @@ function Product({ product, categories }) {
               <span className="text-text-1">/</span>
               <span className="cursor-default">{product.title}</span>
             </div>
-            <div className="mb-[8.75rem] flex justify-between ">
-              <div className="flex gap-x-[1.875rem]">
-                <span className="flex w-[10.625rem] flex-col gap-y-4">
+            <div className="mb-[8.75rem] flex flex-col justify-between gap-y-5 sm:gap-y-10 xl:flex-row xl:gap-y-0 ">
+              <div className="flex justify-center gap-x-[1.875rem]">
+                <span className="hidden w-[10.625rem] flex-col gap-y-4 sm:flex">
                   <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                     <Image
                       onClick={handleImageClick}
@@ -219,14 +219,23 @@ function Product({ product, categories }) {
                     />
                   </p>
                 </span>
-                <span className="flex max-h-[37.5rem] max-w-[31.25rem] items-center justify-center rounded border-2">
+                <span className="z-40 flex max-h-[37.5rem] max-w-[31.25rem] items-center justify-center rounded border-2">
+                  <Image
+                    onClick={handleImageClick}
+                    src={product.image}
+                    width={500}
+                    height={600}
+                    alt="Picture of the author"
+                    className="sm:hidden"
+                  />
                   <ReactImageMagnify
+                    className="hidden sm:block"
                     {...{
                       smallImage: {
                         alt: "product",
                         src: product.image,
-                        width: 495,
                         height: 595,
+                        width: 495,
                       },
                       largeImage: {
                         src: product.image,
@@ -253,7 +262,49 @@ function Product({ product, categories }) {
                   />
                 </span>
               </div>
-              <div className="flex max-w-[25rem] flex-col gap-y-6">
+              <span className="flex w-full gap-x-2 sm:hidden">
+                <p className="cursor-pointer rounded border-2">
+                  <Image
+                    onClick={handleImageClick}
+                    src={product.image}
+                    width={500}
+                    height={600}
+                    alt="Picture of the author"
+                    className="h-full w-full object-contain"
+                  />
+                </p>
+                <p className="cursor-pointer rounded border-2">
+                  <Image
+                    onClick={handleImageClick}
+                    src={product.image}
+                    width={500}
+                    height={600}
+                    alt="Picture of the author"
+                    className="h-full w-full object-contain"
+                  />
+                </p>
+                <p className="cursor-pointer rounded border-2">
+                  <Image
+                    onClick={handleImageClick}
+                    src={product.image}
+                    width={500}
+                    height={600}
+                    alt="Picture of the author"
+                    className="h-full w-full object-contain"
+                  />
+                </p>
+                <p className="cursor-pointer rounded border-2">
+                  <Image
+                    onClick={handleImageClick}
+                    src={product.image}
+                    width={500}
+                    height={600}
+                    alt="Picture of the author"
+                    className="h-full w-full object-contain"
+                  />
+                </p>
+              </span>
+              <div className="flex flex-col gap-y-6 xl:max-w-[25rem]">
                 <div className="flex flex-col justify-start gap-y-4">
                   <span className="text-2xl font-semibold">
                     {product.title}
@@ -273,116 +324,135 @@ function Product({ product, categories }) {
                 </div>
                 <span className="text-sm">{product.description}</span>
                 <span className="border-b border-text-1" />
-                <span className="flex h-[1.5rem] items-center gap-x-6">
-                  <p className="text-xl leading-[1.25rem]">Colours:</p>
-                  <p className="flex items-center gap-x-2">
-                    <input
-                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[1.5rem] hover:w-[1.5rem]"
-                      type="radio"
-                      name="colour"
-                    />
-                    <input
-                      className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#E07575] transition-all checked:border-2 checked:border-black checked:p-1 hover:h-[1.5rem] hover:w-[1.5rem]"
-                      type="radio"
-                      name="colour"
-                    />
-                  </p>
-                </span>
-                <span className="flex min-h-[2.5rem] items-center gap-x-6">
-                  <p className="text-xl leading-[1.25rem]">Size:</p>
-                  <span className="flex items-center gap-x-4">
-                    <button
-                      type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
-                    >
-                      XS
-                    </button>
-                    <button
-                      type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
-                    >
-                      S
-                    </button>
-                    <button
-                      type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
-                    >
-                      M
-                    </button>
-                    <button
-                      type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
-                    >
-                      L
-                    </button>
-                    <button
-                      type="button"
-                      className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
-                    >
-                      XL
-                    </button>
-                  </span>
-                </span>
-                <div className="flex justify-between">
-                  <div className="flex gap-x-4">
-                    <div className="flex">
-                      <span className="group">
+                <div className="flex flex-col justify-between gap-y-6 lg:flex-row xl:flex-col">
+                  <div className="flex flex-col gap-x-8 gap-y-6 sm:flex-row sm:gap-y-0 md:justify-between xl:flex-col xl:gap-y-6">
+                    <span className="flex items-center gap-x-6 xl:h-[1.5rem]">
+                      <p className="text-xl leading-[1.25rem]">Colours:</p>
+                      <p className="flex items-center gap-x-2">
+                        <input
+                          className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[1.5rem] hover:w-[1.5rem]"
+                          type="radio"
+                          name="colour"
+                        />
+                        <input
+                          className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#E07575] transition-all checked:border-2 checked:border-black checked:p-1 hover:h-[1.5rem] hover:w-[1.5rem]"
+                          type="radio"
+                          name="colour"
+                        />
+                      </p>
+                    </span>
+                    <span className="flex min-h-[2.5rem] items-center gap-x-6">
+                      <p className="text-xl leading-[1.25rem]">Size:</p>
+                      <span className="flex items-center gap-x-4">
                         <button
-                          onClick={handleDecrement}
                           type="button"
-                          className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-l border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
+                          className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
                         >
-                          <Minus className="group-active:stroke-white" />
+                          XS
+                        </button>
+                        <button
+                          type="button"
+                          className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                        >
+                          S
+                        </button>
+                        <button
+                          type="button"
+                          className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                        >
+                          M
+                        </button>
+                        <button
+                          type="button"
+                          className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                        >
+                          L
+                        </button>
+                        <button
+                          type="button"
+                          className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                        >
+                          XL
                         </button>
                       </span>
-                      <input
-                        type="number"
-                        className={clsx(
-                          s.RemoveArrow,
-                          "h-[2.75rem] w-[5rem] border-b border-t border-black border-opacity-50 text-center text-xl font-semibold",
-                        )}
-                        onChange={handleInputChange}
-                        value={quantity}
-                      />
-                      <span className="group">
-                        <button
-                          onClick={handleIncrement}
-                          type="button"
-                          className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-r border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
-                        >
-                          <Plus className="group-active:stroke-white" />
-                        </button>
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      className="h-[2.75rem] w-full rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
-                    >
-                      Buy Now
-                    </button>
+                    </span>
                   </div>
-                  {isAuthenticated ? (
-                    <div>
-                      {existingWishItem ? (
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-x-4">
+                      <div className="flex">
                         <span className="group">
                           <button
+                            onClick={handleDecrement}
                             type="button"
-                            className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded bg-secondary-2"
-                            onClick={handleAddToWish}
+                            className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-l border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
                           >
-                            <Heart
-                              strokeWidth={0}
-                              fill="white"
-                              className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
-                            />
+                            <Minus className="group-active:stroke-white" />
                           </button>
                         </span>
-                      ) : (
+                        <input
+                          type="number"
+                          className={clsx(
+                            s.RemoveArrow,
+                            "h-[2.75rem] w-[5rem] border-b border-t border-black border-opacity-50 text-center text-xl font-semibold",
+                          )}
+                          onChange={handleInputChange}
+                          value={quantity}
+                        />
+                        <span className="group">
+                          <button
+                            onClick={handleIncrement}
+                            type="button"
+                            className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-r border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
+                          >
+                            <Plus className="group-active:stroke-white" />
+                          </button>
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
+                      >
+                        <p className="hidden sm:block">Buy now</p>
+                        <CircleDollarSign size={32} className="sm:hidden" />
+                      </button>
+                    </div>
+                    {isAuthenticated ? (
+                      <div>
+                        {existingWishItem ? (
+                          <span className="group">
+                            <button
+                              type="button"
+                              className="flex h-[44px] w-[44px] items-center justify-center rounded bg-secondary-2 lg:ml-4 xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
+                              onClick={handleAddToWish}
+                            >
+                              <Heart
+                                strokeWidth={0}
+                                fill="white"
+                                className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
+                              />
+                            </button>
+                          </span>
+                        ) : (
+                          <span className="group">
+                            <button
+                              type="button"
+                              className="flex items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[44px] lg:w-[44px] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
+                              onClick={handleAddToWish}
+                            >
+                              <Heart
+                                strokeWidth={1.5}
+                                className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
+                              />
+                            </button>
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <Link href="/please">
                         <span className="group">
                           <button
                             type="button"
-                            className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
-                            onClick={handleAddToWish}
+                            className=" flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
                           >
                             <Heart
                               strokeWidth={1.5}
@@ -390,26 +460,12 @@ function Product({ product, categories }) {
                             />
                           </button>
                         </span>
-                      )}
-                    </div>
-                  ) : (
-                    <Link href="/please">
-                      <span className="group">
-                        <button
-                          type="button"
-                          className=" flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
-                        >
-                          <Heart
-                            strokeWidth={1.5}
-                            className="w-[2.125rem] transition-all group-hover:h-[2.125rem]"
-                          />
-                        </button>
-                      </span>
-                    </Link>
-                  )}
+                      </Link>
+                    )}
+                  </div>
                 </div>
-                <div className="mt-4 flex w-full flex-col rounded border border-black border-opacity-50 py-6">
-                  <div className="group flex cursor-pointer items-center gap-x-4 pl-4 font-semibold leading-[1.125rem]">
+                <div className="relative mt-4 flex w-full flex-col rounded border border-black border-opacity-50 py-6 sm:flex-row sm:p-6 md:justify-between xl:flex-col xl:p-0 xl:py-6">
+                  <div className="group flex cursor-pointer items-center gap-x-4 pl-4 font-semibold leading-[1.125rem] sm:pl-0 xl:pl-4">
                     <Image
                       src="/icon-delivery.svg"
                       width={40}
@@ -423,7 +479,8 @@ function Product({ product, categories }) {
                       </p>
                     </span>
                   </div>
-                  <span className="my-4 border-b border-black border-opacity-50" />
+                  <span className="my-4 block border-b border-black border-opacity-50 sm:hidden xl:block" />
+                  <span className="absolute left-1/2 top-1/2 hidden h-full -translate-x-1/2 -translate-y-1/2 border-l border-black border-opacity-50 sm:block xl:hidden" />
                   <div className="group flex cursor-pointer items-center gap-x-4 pl-4 font-semibold leading-[1.125rem]">
                     <Image
                       src="/Icon-return.svg"
@@ -449,7 +506,7 @@ function Product({ product, categories }) {
               >
                 <div
                   ref={modalRef}
-                  className="relative rounded-lg bg-white p-4"
+                  className="relative w-[90%] rounded-lg bg-white p-4 xl:w-auto"
                 >
                   <button
                     type="button"
@@ -473,7 +530,7 @@ function Product({ product, categories }) {
                   Related Item
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-[30px]">
+              <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {categories.map((category) => (
                   <RelatedItem key={category.id} category={category} />
                 ))}

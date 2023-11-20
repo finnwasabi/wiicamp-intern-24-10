@@ -102,72 +102,74 @@ function RelatedItem({ category }) {
   }, [price]);
 
   return (
-    <div
-      className={clsx(
-        s.SaleItem,
-        "block h-[21.875rem] w-[16.875rem] overflow-hidden",
-      )}
-    >
-      <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
-        {isAuthenticated ? (
-          <button
-            type="button"
-            className={s.AddToCart}
-            onClick={handleAddToCart}
-          >
-            Add To Cart
-          </button>
-        ) : (
-          <Link href="/please">
-            <button type="button" className={s.AddToCart}>
+    <div className="flex justify-center">
+      <div
+        className={clsx(
+          s.SaleItem,
+          "block h-[21.875rem] w-[16.875rem] overflow-hidden",
+        )}
+      >
+        <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
+          {isAuthenticated ? (
+            <button
+              type="button"
+              className={s.AddToCart}
+              onClick={handleAddToCart}
+            >
               Add To Cart
             </button>
-          </Link>
-        )}
-        <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white object-contain">
-          <Image
-            className="h-auto max-h-[250px] w-auto max-w-[270px]"
-            src={image}
-            width={270}
-            height={250}
-            alt="Picture of item"
-          />
-          {isAuthenticated ? (
-            <div>
-              {existingWishItem ? (
-                <button type="button" onClick={handleAddToWish}>
-                  <FillHeart color="white" bg="bg-secondary-2" />
-                </button>
-              ) : (
-                <button type="button" onClick={handleAddToWish}>
-                  <FillHeart color="black" bg="bg-white" />
-                </button>
-              )}
-            </div>
           ) : (
             <Link href="/please">
-              <FillHeart color="black" bg="bg-white" />
+              <button type="button" className={s.AddToCart}>
+                Add To Cart
+              </button>
             </Link>
           )}
-          <div className="absolute right-3 top-[3.375rem] flex">
-            <FillEye product={category} />
+          <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white object-contain">
+            <Image
+              className="h-auto max-h-[250px] w-auto max-w-[270px]"
+              src={image}
+              width={270}
+              height={250}
+              alt="Picture of item"
+            />
+            {isAuthenticated ? (
+              <div>
+                {existingWishItem ? (
+                  <button type="button" onClick={handleAddToWish}>
+                    <FillHeart color="white" bg="bg-secondary-2" />
+                  </button>
+                ) : (
+                  <button type="button" onClick={handleAddToWish}>
+                    <FillHeart color="black" bg="bg-white" />
+                  </button>
+                )}
+              </div>
+            ) : (
+              <Link href="/please">
+                <FillHeart color="black" bg="bg-white" />
+              </Link>
+            )}
+            <div className="absolute right-3 top-[3.375rem] flex">
+              <FillEye product={category} />
+            </div>
           </div>
+          <DiscountPercent label={`${discountPercentage}%`} />
         </div>
-        <DiscountPercent label={`${discountPercentage}%`} />
+        <Link href={`/${category.category}/${category.id}`}>
+          <div className="mt-4 line-clamp-1 font-bold">{title}</div>
+          <div className="mt-2 flex font-semibold">
+            <div className="mr-3 text-secondary-2">${price}</div>
+            <div className="text-text-1 line-through">
+              {`$${salePrice.toFixed(2)}`}
+            </div>
+          </div>
+          <div className="mt-2 flex items-baseline">
+            <div className="mr-2">{renderStars(category.rating.rate)}</div>
+            <div className="text-sm font-semibold text-text-1">{`(${category.rating.count})`}</div>
+          </div>
+        </Link>
       </div>
-      <Link href={`/${category.category}/${category.id}`}>
-        <div className="mt-4 line-clamp-1 font-bold">{title}</div>
-        <div className="mt-2 flex font-semibold">
-          <div className="mr-3 text-secondary-2">${price}</div>
-          <div className="text-text-1 line-through">
-            {`$${salePrice.toFixed(2)}`}
-          </div>
-        </div>
-        <div className="mt-2 flex items-baseline">
-          <div className="mr-2">{renderStars(category.rating.rate)}</div>
-          <div className="text-sm font-semibold text-text-1">{`(${category.rating.count})`}</div>
-        </div>
-      </Link>
     </div>
   );
 }

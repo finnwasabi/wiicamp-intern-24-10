@@ -13,7 +13,7 @@ function TopSection() {
       <div className="grid grid-cols-1 xl:grid-cols-4 xl:grid-rows-1">
         <ul className="hidden w-[14.625rem] flex-col gap-y-4 border-r-[0.0313rem] border-black border-opacity-30 pr-4 pt-10 xl:flex">
           <Link
-            href="/daubo"
+            href="/women's%20clothing"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -23,7 +23,7 @@ function TopSection() {
             <ChevronRight size={18} />
           </Link>
           <Link
-            href="/daubo"
+            href="/men's%20clothing"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -33,7 +33,7 @@ function TopSection() {
             <ChevronRight size={18} />
           </Link>
           <Link
-            href="/daubo"
+            href="/electronics"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
@@ -42,13 +42,13 @@ function TopSection() {
             Electronics
           </Link>
           <Link
-            href="/daubo"
+            href="/jewelery"
             className={clsx(
               s.TScategory,
               "flex cursor-pointer items-center justify-between",
             )}
           >
-            Home & Lifestyle
+            Jewelery
           </Link>
           <Link
             href="/daubo"

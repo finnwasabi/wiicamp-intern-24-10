@@ -1,5 +1,7 @@
-import React from "react";
+/* eslint-disable no-console */
+import React, { useState } from "react";
 import clsx from "clsx";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 
 import InputField from "@/components/Buttons/InputField";
@@ -12,6 +14,44 @@ import s from "./MyAccountSection.module.scss";
 function MyAccountSection() {
   const userStore = useUserStore();
   const { user } = userStore;
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (confirmPassword !== "" && e.target.value !== confirmPassword) {
+      setPasswordsMatch(false);
+    } else {
+      setPasswordsMatch(true);
+    }
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    if (password !== "" && e.target.value !== password) {
+      setPasswordsMatch(false);
+    } else {
+      setPasswordsMatch(true);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setPasswordsMatch(false);
+      console.log("New passwords don't match");
+    } else {
+      setPasswordsMatch(true);
+      console.log("Passwords match");
+    }
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="container mb-[8.75rem]">
       <div className="flex gap-3 py-20">
@@ -21,7 +61,10 @@ function MyAccountSection() {
         <span className="text-text-1">/</span>
         <span className="cursor-default text-black">My Account</span>
         <span className="ml-auto cursor-default">
-          Welcome! <span className="text-secondary-2">ThaiVG</span>
+          Welcome!{" "}
+          <span className="capitalize text-secondary-2">
+            {user.name.firstname} {user.name.lastname}
+          </span>
         </span>
       </div>
 
@@ -45,7 +88,7 @@ function MyAccountSection() {
             <Link href="/Cancellations">My Cancellations</Link>
           </div>
           <div className="py-4 font-semibold">
-            <Link href="/Wishlist">My WishList</Link>
+            <Link href="/wishlist">My WishList</Link>
           </div>
         </div>
         <div className="">
@@ -59,7 +102,10 @@ function MyAccountSection() {
               "my-4 w-full max-w-[870px] rounded lg:my-0",
             )}
           >
-            <form className="px-5 py-5 lg:px-20 lg:py-10">
+            <form
+              className="px-5 py-5 lg:px-20 lg:py-10"
+              onSubmit={handleSubmit}
+            >
               <div className="pb-4 text-xl font-semibold text-secondary-2">
                 Edit Your Profile
               </div>
@@ -112,28 +158,45 @@ function MyAccountSection() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-y-4">
+                <div className="relative flex flex-col gap-y-4">
+                  {password.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={handleTogglePassword}
+                      className="absolute right-0 top-1"
+                    >
+                      {showPassword ? <Eye /> : <EyeOff />}
+                    </button>
+                  )}
                   <InputField
                     classNameLabel="mb-2"
-                    placeholder="Current Passwod"
+                    placeholder="Current Password"
                     label="Password Changes"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     autocomplete="current-password"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputField
+                    onChange={handlePasswordChange}
                     classNameLabel="mb-2"
                     placeholder="New Password"
                     label=""
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     autocomplete="new-password"
                   />
                   <InputField
+                    onChange={handleConfirmPasswordChange}
                     classNameLabel="mb-2"
                     placeholder="Confirm New Passwod"
                     label=""
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     autocomplete="new-password"
                   />
+                  {!passwordsMatch && (
+                    <div style={{ color: "red" }}>
+                      New passwords don`&apos;`t match
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="flex items-center justify-end gap-x-8">

@@ -436,7 +436,7 @@ function Product({ product, categories }) {
                           <span className="group">
                             <button
                               type="button"
-                              className="flex items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[44px] lg:w-[44px] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
+                              className="flex h-[44px] w-[44px] items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[44px] lg:w-[44px] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
                               onClick={handleAddToWish}
                             >
                               <Heart

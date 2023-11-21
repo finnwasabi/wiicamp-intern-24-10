@@ -12,7 +12,7 @@ function TopHeader() {
               50%!
             </span>
             <Link
-              href="/shopnow"
+              href="/404"
               className="cursor-pointer px-2 underline xl:font-semibold"
             >
               ShopNow

@@ -48,7 +48,7 @@ function DropdownAccount() {
         <span className="text-sm">Manage My Account</span>
       </Link>
       <Link
-        href="/MyOrder"
+        href="/account/my-order"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
         <span className="mr-4">
@@ -77,7 +77,7 @@ function DropdownAccount() {
         <span className="text-sm">My Order</span>
       </Link>
       <Link
-        href="/MyCancellations"
+        href="/account/my-cancelations"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
         <span className="mr-4">
@@ -114,7 +114,7 @@ function DropdownAccount() {
         <span className="text-sm">My Cancellations</span>
       </Link>
       <Link
-        href="/MyReviews"
+        href="/account/my-reviews"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
         <span className="mr-4">

@@ -34,6 +34,7 @@ function OurProductsList({ products }) {
       navigation={{
         prevEl: "#prev3",
         nextEl: "#next3",
+        disabledClass: "hover:shadow-none opacity-50",
       }}
       modules={[Navigation]}
       className="mySwiper5"

@@ -18,6 +18,7 @@ function FlashSalesSlider({ products }) {
         navigation={{
           prevEl: "#prev",
           nextEl: "#next",
+          disabledClass: "hover:shadow-none opacity-50",
         }}
         breakpoints={{
           640: { slidesPerView: 2, spaceBetween: -30 },

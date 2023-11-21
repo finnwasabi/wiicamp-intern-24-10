@@ -17,6 +17,7 @@ function CategoriesSlider() {
         navigation={{
           prevEl: "#prev1",
           nextEl: "#next1",
+          disabledClass: "hover:shadow-none opacity-50",
         }}
         breakpoints={{
           640: { slidesPerView: 3, spaceBetween: 50 },

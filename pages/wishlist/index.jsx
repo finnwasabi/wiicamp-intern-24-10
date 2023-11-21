@@ -16,9 +16,9 @@ const WishlistSection = dynamic(
     ssr: false,
     loading: () => {
       return (
-        <p className="container flex items-center justify-center">
+        <div className="container flex items-center justify-center">
           <CircularProgress color="black" size={25} />
-        </p>
+        </div>
       );
     },
   },

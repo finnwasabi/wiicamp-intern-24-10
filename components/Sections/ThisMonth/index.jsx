@@ -10,9 +10,9 @@ const ThisMonthList = dynamic(
   {
     ssr: false,
     loading: () => (
-      <p className="container flex items-center justify-center">
+      <div className="container flex items-center justify-center">
         <CircularProgress color="black" size={25} />
-      </p>
+      </div>
     ),
   },
 );

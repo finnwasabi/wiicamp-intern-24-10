@@ -383,13 +383,24 @@ function Product({ product, categories }) {
                       </button>
                     </span>
                   </div>
-                  <button
-                    type="button"
-                    className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
-                  >
-                    <p className="hidden sm:block">Buy now</p>
-                    <CircleDollarSign size={32} className="sm:hidden" />
-                  </button>
+                  {isAuthenticated ? (
+                    <button
+                      type="button"
+                      className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
+                    >
+                      <p className="hidden sm:block">Buy now</p>
+                      <CircleDollarSign size={32} className="sm:hidden" />
+                    </button>
+                  ) : (
+                    <Link
+                      href="/please"
+                      type="button"
+                      className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
+                    >
+                      <p className="hidden sm:block">Buy now</p>
+                      <CircleDollarSign size={32} className="sm:hidden" />
+                    </Link>
+                  )}
                 </div>
                 {isAuthenticated ? (
                   <div>

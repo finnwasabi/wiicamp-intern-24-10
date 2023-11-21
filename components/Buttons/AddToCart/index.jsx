@@ -18,9 +18,20 @@ function AddToCart({ product, className }) {
     const existingCartItem = cartStore.items.find(
       (item) => item.productId === product.id,
     );
-    if (existingCartItem) {
+    if (existingCartItem && existingCartItem.quantity < 999) {
       cartStore.increaseQuantity(product.id);
       toast.success("Already in Cart, added 1 more!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else if (existingCartItem && existingCartItem.quantity === 999) {
+      toast.error(`Maximum quantity reached! (${existingCartItem.quantity})`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -36,6 +47,7 @@ function AddToCart({ product, className }) {
         title: product.title,
         price: product.price,
         image: product.image,
+        category: product.category,
         quantity: 1,
       });
       toast.success("Added to Cart!", {

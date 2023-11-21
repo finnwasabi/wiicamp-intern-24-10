@@ -17,7 +17,11 @@ function CartSection() {
   const { items } = cartStore;
 
   const handleIncrease = (productId) => {
-    cartStore.increaseQuantity(productId);
+    const currentItem = items.find((item) => item.productId === productId);
+
+    if (currentItem && currentItem.quantity < 999) {
+      cartStore.increaseQuantity(productId);
+    }
   };
 
   const handleDecrease = (productId) => {
@@ -77,8 +81,13 @@ function CartSection() {
               key={item.productId}
               className="flex flex-row items-center justify-between p-3 shadow-custom xl:flex-row xl:justify-end xl:px-10 xl:py-6"
             >
-              <div className="flex max-w-[10.625rem] items-center lg:max-w-[15.625rem] xl:mr-auto xl:max-w-fit">
-                <div className={clsx(s.HoverCancel, "relative mr-5")}>
+              <div
+                className={clsx(
+                  s.HoverCancel,
+                  "flex max-w-[10.625rem] items-center lg:max-w-[15.625rem] xl:mr-auto xl:max-w-fit",
+                )}
+              >
+                <div className="relative mr-5">
                   <button
                     type="button"
                     className={clsx(
@@ -103,9 +112,12 @@ function CartSection() {
                     style={{ objectFit: "contain" }}
                   />
                 </div>
-                <div className="line-clamp-2 cursor-pointer xl:mr-10">
+                <Link
+                  href={`/${item.category}/${item.productId}`}
+                  className="line-clamp-2 cursor-pointer hover:font-semibold hover:italic xl:mr-10"
+                >
                   {item.title}
-                </div>
+                </Link>
               </div>
               <div className="hidden lg:ml-[0.875rem] lg:flex">
                 {formatter(item.price)}
@@ -118,9 +130,14 @@ function CartSection() {
                     "min-h-[2.75rem] max-w-[4.5rem] rounded border-[0.0625rem] border-black border-opacity-40 px-3 py-[0.375rem]",
                   )}
                   value={item.quantity}
-                  onChange={(e) =>
-                    handleUpdateQuantity(item.productId, e.target.value)
-                  }
+                  onChange={(e) => {
+                    let newQuantity = parseInt(e.target.value, 10); // Parse to integer
+
+                    // Ensure the value is between 1 and 999
+                    newQuantity = Math.min(Math.max(newQuantity, 1), 999);
+
+                    handleUpdateQuantity(item.productId, newQuantity);
+                  }}
                 />
                 <div className="absolute right-3 top-[1rem] -translate-y-1/2">
                   <button
@@ -139,7 +156,7 @@ function CartSection() {
                   </button>
                 </div>
               </div>
-              <div className="flex min-w-[4.1875rem] justify-end xl:ml-[17.8125rem]">
+              <div className="line-clamp-1 flex min-w-[4.1875rem] max-w-[1.1875rem] justify-end overflow-visible xl:ml-[17.8125rem]">
                 {new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: "USD",

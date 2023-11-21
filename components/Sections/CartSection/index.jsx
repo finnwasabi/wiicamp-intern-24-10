@@ -51,7 +51,7 @@ function CartSection() {
   };
 
   return (
-    <div className="container mb-[8.75rem]">
+    <div className="container mb-[8.75rem] mt-[5.9375rem]">
       <div className="flex gap-3 py-20">
         <Link href="/" className="text-text-1">
           Home

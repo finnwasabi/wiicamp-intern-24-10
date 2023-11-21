@@ -142,7 +142,7 @@ function Product({ product, categories }) {
       <Head>
         <title>Product</title>
       </Head>
-      <div className="container">
+      <div className="container mt-[5.9375rem]">
         <div className="flex gap-3 py-20">
           <Link href="/" className="text-text-1">
             Home

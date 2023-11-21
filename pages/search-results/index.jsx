@@ -50,7 +50,7 @@ function SearchResults({ products, keyword }) {
       <Head>
         <title>{keyword}&apos;s Search Results</title>
       </Head>
-      <div className="container py-0">
+      <div className="container mt-[5.9375rem] py-0 ">
         <div className="py-20 text-2xl font-medium">
           Search Results For
           <span className="font-semibold text-secondary-2">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import clsx from "clsx";
 import { Poppins } from "next/font/google";
 import NextNProgress from "nextjs-progressbar";
 import PropTypes from "prop-types";
@@ -47,7 +48,7 @@ export default function App({ Component, pageProps }) {
   return (
     <CartProvider>
       <NextNProgress color="#DB4444" height={2} />
-      <div className={poppins.className}>
+      <div className={clsx(poppins.className, "flex min-h-screen flex-col")}>
         <TopHeader />
         <Header isScrolled={isScrolled} />
         <ToastContainer
@@ -62,7 +63,7 @@ export default function App({ Component, pageProps }) {
           pauseOnHover
           theme="colored"
         />
-        <div className="mt-[5.9375rem]">
+        <div className="grow">
           <Component {...pageProps} />
         </div>
         <Footer />

@@ -53,7 +53,7 @@ function CategoryResults({ products, keyword }) {
       <Head>
         <title>{products[0].category} Category</title>
       </Head>
-      <div className="container py-0">
+      <div className="container mt-[5.9375rem] py-0">
         <div className="py-20 text-2xl font-medium">
           Browse By
           <span className="font-semibold capitalize text-secondary-2">

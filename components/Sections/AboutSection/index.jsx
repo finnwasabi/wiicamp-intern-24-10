@@ -10,7 +10,7 @@ import s from "./AboutSection.module.scss";
 
 function AboutSection() {
   return (
-    <div className="container">
+    <div className="container mt-[5.9375rem]">
       <div className="mt-20 flex flex-col">
         <div className="mb-[2.625rem] mt-20 flex gap-3 py-0">
           <Link href="/" className="text-text-1">

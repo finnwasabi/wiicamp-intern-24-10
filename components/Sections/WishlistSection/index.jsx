@@ -46,7 +46,7 @@ function WishlistSection({ products }) {
     wishStore.removeFromWishAll();
 
     if (wishItems.length > 0) {
-      toast.success(`All items moved to cart! (${wishItems.length})`, {
+      toast.success(`Moved ${wishItems.length} items to cart!`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -60,7 +60,7 @@ function WishlistSection({ products }) {
   };
 
   return (
-    <div className="container mb-[8.75rem]">
+    <div className="container mb-[8.75rem] mt-[5.9375rem]">
       <div className="mb-[3.75rem] flex items-center justify-between pt-20">
         <div className="text-xl">Wishlist ({wishStore.items.length})</div>
         <SecondaryButton label="Move All To Cart" onClick={moveAllToCart} />

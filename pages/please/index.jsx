@@ -10,7 +10,7 @@ function Please() {
       <Head>
         <title>Not Logged In</title>
       </Head>
-      <div className="container">
+      <div className="container mt-[5.9375rem]">
         <div className="flex gap-3 pt-20">
           <Link href="/" className="text-text-1">
             Home

@@ -29,7 +29,7 @@ function CheckOutSection() {
   };
 
   return (
-    <div className="container mb-[8.75rem]">
+    <div className="container mb-[8.75rem] mt-[5.9375rem]">
       <div className="flex gap-3 py-20">
         <span className="hidden cursor-default text-text-1 lg:flex">
           Account
@@ -218,7 +218,7 @@ function CheckOutSection() {
               <PrimaryButton type="submit" label="Apply" />
             </div>
           </form>
-          <Link href="/success" className="lg:w-fit">
+          <Link href="/404" className="lg:w-fit">
             <PrimaryButton form="info" type="submit" label="Place Order" />
           </Link>
         </div>

@@ -30,7 +30,7 @@ export async function getServerSideProps() {
 
 export default function Home({ products }) {
   return (
-    <main className="overflow-x-hidden">
+    <main className="mt-[5.9375rem] overflow-x-hidden ">
       <Head>
         <title>Home</title>
       </Head>

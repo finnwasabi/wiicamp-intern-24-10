@@ -1,5 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
 
@@ -15,25 +14,11 @@ function WishlistItemsList() {
   return (
     <div>
       {items.length > 0 && (
-        <Swiper
-          slidesPerView={1.25}
-          spaceBetween={10}
-          breakpoints={{
-            450: { slidesPerView: 1.5, spaceBetween: 30 },
-            640: { slidesPerView: 2, spaceBetween: 60 },
-            768: { slidesPerView: 2.5, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 30 },
-            1280: { slidesPerView: 4, spaceBetween: 30 },
-          }}
-          modules={[]}
-          className="mb-20 flex flex-col items-center justify-between sm:grid sm:grid-cols-2 sm:place-items-center lg:grid-cols-3 xl:flex xl:flex-row"
-        >
+        <div className="mb-[8.75rem] grid w-full grid-cols-1 flex-row place-items-center justify-between gap-x-[1.875rem] gap-y-[3.75rem] pt-0 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {items.map((item) => (
-            <SwiperSlide key={item.productId}>
-              <WishlistItems item={item} />
-            </SwiperSlide>
+            <WishlistItems key={item.id} item={item} />
           ))}
-        </Swiper>
+        </div>
       )}
       {items.length === 0 && (
         <div className="mb-20 flex items-center justify-center text-text-1">

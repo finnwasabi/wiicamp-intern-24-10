@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 import React from "react";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
-function SecondaryButton({ label, isShow }) {
+function SecondaryButton({ label, isShow, onClick }) {
   return (
     <div>
       <button
@@ -12,11 +12,18 @@ function SecondaryButton({ label, isShow }) {
           isShow &&
             "before:mr-4 before:h-6 before:w-6 before:content-googleIcon",
         )}
+        onClick={onClick}
       >
         {label}
       </button>
     </div>
   );
 }
+
+SecondaryButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  isShow: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default SecondaryButton;

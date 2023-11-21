@@ -11,6 +11,7 @@ const useWishStore = create(
         set((state) => ({
           items: state.items.filter((item) => item.productId !== productId),
         })),
+      removeFromWishAll: () => set({ items: [] }),
     }),
     { name: "wish-storage" },
   ),

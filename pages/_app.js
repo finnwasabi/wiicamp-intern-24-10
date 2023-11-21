@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import NextNProgress from "nextjs-progressbar";
 import PropTypes from "prop-types";
+
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import TopHeader from "@/components/TopHeader";
 
 import { CartProvider } from "@/contexts/CartContext";
 import useAuthStore from "@/stores/authStore";
@@ -23,11 +27,32 @@ export default function App({ Component, pageProps }) {
     setInitApp();
   }, [login, setInitApp]);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <CartProvider>
       <NextNProgress color="#DB4444" height={2} />
       <div className={poppins.className}>
-        <Component {...pageProps} />
+        <TopHeader />
+        <Header isScrolled={isScrolled} />
+        <div className="mt-[5.9375rem]">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </div>
     </CartProvider>
   );

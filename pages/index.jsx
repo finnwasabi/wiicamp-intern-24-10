@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
 import FillUpArrow from "@/components/Buttons/FillUpArrow";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Categories from "@/components/Sections/Categories";
 import CustomerServices from "@/components/Sections/CustomerServices";
 import FlashSales from "@/components/Sections/FlashSales";
@@ -15,7 +13,6 @@ import NewArrival from "@/components/Sections/NewArrival";
 import OurProducts from "@/components/Sections/OurProducts";
 import ThisMonth from "@/components/Sections/ThisMonth";
 import TopSection from "@/components/Sections/TopSection";
-import TopHeader from "@/components/TopHeader";
 
 export async function getServerSideProps() {
   try {
@@ -32,46 +29,21 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ products }) {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <>
+    <main className="overflow-x-hidden">
       <Head>
         <title>Home</title>
       </Head>
-      <main className="overflow-x-hidden">
-        <TopHeader />
-        <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
-          <Header />
-        </div>
-        <div className="mt-[5.9375rem]">
-          <TopSection />
-          <FlashSales products={products} />
-          <Categories />
-          <ThisMonth products={products} />
-          <JBLFlashSale />
-          <OurProducts products={products} />
-          <NewArrival />
-          <CustomerServices />
-          <FillUpArrow />
-          <Footer />
-        </div>
-      </main>
-    </>
+      <TopSection />
+      <FlashSales products={products} />
+      <Categories />
+      <ThisMonth products={products} />
+      <JBLFlashSale />
+      <OurProducts products={products} />
+      <NewArrival />
+      <CustomerServices />
+      <FillUpArrow />
+    </main>
   );
 }
 

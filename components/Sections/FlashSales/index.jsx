@@ -10,7 +10,9 @@ const FlashSalesSlider = dynamic(
   () => import("@/components/Sections/FlashSalesSlider"),
   {
     ssr: false,
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <p className="container flex items-center justify-center">Loading...</p>
+    ),
   },
 );
 

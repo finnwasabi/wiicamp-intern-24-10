@@ -8,7 +8,9 @@ const ThisMonthList = dynamic(
   () => import("@/components/Sections/ThisMonthList"),
   {
     ssr: false,
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <p className="container flex items-center justify-center">Loading...</p>
+    ),
   },
 );
 

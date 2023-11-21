@@ -11,7 +11,11 @@ const OurProductsList = dynamic(
   {
     ssr: false,
     loading: () => {
-      return <div>Loading...</div>;
+      return (
+        <div className="container flex items-center justify-center">
+          Loading...
+        </div>
+      );
     },
   },
 );

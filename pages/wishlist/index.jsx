@@ -15,9 +15,7 @@ const WishlistSection = dynamic(
     ssr: false,
     loading: () => {
       return (
-        <p className="container flex h-screen items-center justify-center">
-          Loading...
-        </p>
+        <p className="container flex items-center justify-center">Loading...</p>
       );
     },
   },

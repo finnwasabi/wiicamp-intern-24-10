@@ -18,7 +18,7 @@ const withGuest = (WrappedComponent) => {
     if (isAuthenticated) {
       return (
         <div className="container flex flex-col items-center justify-center gap-x-2">
-          <CircularProgress color="black" size={20} />
+          <CircularProgress color="black" size={25} />
         </div>
       );
     }

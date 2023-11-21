@@ -13,7 +13,7 @@ const FlashSalesSlider = dynamic(
     ssr: false,
     loading: () => (
       <p className="container flex items-center justify-center">
-        <CircularProgress color="black" size={20} />
+        <CircularProgress color="black" size={25} />
       </p>
     ),
   },

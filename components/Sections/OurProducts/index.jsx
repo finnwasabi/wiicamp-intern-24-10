@@ -14,7 +14,7 @@ const OurProductsList = dynamic(
     loading: () => {
       return (
         <div className="container flex items-center justify-center">
-          <CircularProgress color="black" size={20} />
+          <CircularProgress color="black" size={25} />
         </div>
       );
     },

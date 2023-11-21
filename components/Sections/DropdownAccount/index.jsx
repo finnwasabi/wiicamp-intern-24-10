@@ -19,7 +19,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
   };
 
   return (
-    <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-10 px-5 py-5 text-white backdrop-blur-3xl">
+    <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-40 px-5 py-5 text-white backdrop-blur-3xl">
       <Link
         onClick={handleMenuClick}
         href="/my-account"

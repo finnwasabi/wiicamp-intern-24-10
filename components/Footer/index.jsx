@@ -18,7 +18,9 @@ function Footer() {
             "ml-auto mr-auto flex max-w-[13.5625rem] flex-col items-center xl:block",
           )}
         >
-          <div className="mb-6 text-2xl font-bold">Exclusive</div>
+          <li className="mb-6 text-2xl font-bold">
+            <Link href="/">Exclusive</Link>
+          </li>
           <li className="mb-6 text-xl font-medium">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
           <form className="relative">

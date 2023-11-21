@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 import useAuthStore from "@/stores/authStore";
 import useUserStore from "@/stores/userStore";
 
-function DropdownAccount() {
+function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
   const authStore = useAuthStore();
   const userStore = useUserStore();
 
+  const handleMenuClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   const handleLogoutClick = () => {
     authStore.logout();
     userStore.clearUser();
@@ -17,6 +21,7 @@ function DropdownAccount() {
   return (
     <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-10 px-5 py-5 text-white backdrop-blur-3xl">
       <Link
+        onClick={handleMenuClick}
         href="/my-account"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
@@ -48,6 +53,7 @@ function DropdownAccount() {
         <span className="text-sm">Manage My Account</span>
       </Link>
       <Link
+        onClick={handleMenuClick}
         href="/account/my-order"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
@@ -77,6 +83,7 @@ function DropdownAccount() {
         <span className="text-sm">My Order</span>
       </Link>
       <Link
+        onClick={handleMenuClick}
         href="/account/my-cancelations"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
@@ -114,6 +121,7 @@ function DropdownAccount() {
         <span className="text-sm">My Cancellations</span>
       </Link>
       <Link
+        onClick={handleMenuClick}
         href="/account/my-reviews"
         className="mb-[0.8125rem] flex items-center hover:font-semibold"
       >
@@ -161,5 +169,10 @@ function DropdownAccount() {
     </div>
   );
 }
+
+DropdownAccount.propTypes = {
+  isDropdownOpen: PropTypes.bool.isRequired,
+  setIsDropdownOpen: PropTypes.func.isRequired,
+};
 
 export default DropdownAccount;

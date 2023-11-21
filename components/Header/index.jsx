@@ -306,7 +306,7 @@ function Header({ isScrolled }) {
                     onClick={handleUserClick}
                     className={s.ThreeBoxes}
                   >
-                    {isLinkActive("/my-account") ? (
+                    {isLinkActive("/my-account") && !isDropdownOpen ? (
                       <Image
                         src="/UserCircle.svg"
                         width={32}
@@ -339,7 +339,12 @@ function Header({ isScrolled }) {
             </div>
           </div>
           <div ref={dropdownRef}>
-            {isDropdownOpen && isAuthenticated && <DropdownAccount />}
+            {isDropdownOpen && isAuthenticated && (
+              <DropdownAccount
+                isDropdownOpen={isDropdownOpen}
+                setIsDropdownOpen={setIsDropdownOpen}
+              />
+            )}
           </div>
         </div>
         {isSideMenuOpen && (

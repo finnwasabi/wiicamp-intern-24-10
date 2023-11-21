@@ -1,10 +1,14 @@
 import React from "react";
+import { toast } from "react-toastify";
+import clsx from "clsx";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
 import useAuthStore from "@/stores/authStore";
 import useCartStore from "@/stores/cartStore";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function AddToCart({ product, className }) {
   const { isAuthenticated } = useAuthStore();
@@ -16,6 +20,16 @@ function AddToCart({ product, className }) {
     );
     if (existingCartItem) {
       cartStore.increaseQuantity(product.id);
+      toast.success("Already in Cart, added 1 more!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } else {
       cartStore.addToCart({
         productId: product.id,
@@ -24,19 +38,31 @@ function AddToCart({ product, className }) {
         image: product.image,
         quantity: 1,
       });
+      toast.success("Added to Cart!", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
   return (
-    <div className={className}>
+    <div>
       {isAuthenticated ? (
         <button
           type="button"
           onClick={handleAddToCart}
-          className="ml-auto mr-auto flex"
+          className={clsx(className)}
         >
-          <ShoppingCart className="mr-2" />
-          <span>Add To Cart</span>
+          <div>
+            <ShoppingCart className="mr-2" />
+          </div>
+          <div>Add To Cart</div>
         </button>
       ) : (
         <Link href="/please">

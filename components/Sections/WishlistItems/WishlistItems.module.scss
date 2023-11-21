@@ -1,13 +1,12 @@
 .Item:hover {
     .AddToCart{
-        display: block;
+        display: flex;
         animation: PullUp 0.2s ease-in-out;
     }
 
 }
 
 .AddToCart{
-    text-align: center;
     display: none;
     z-index: 10;
     position: absolute;
@@ -18,7 +17,13 @@
     width: 100%;
     bottom: 0;
     border-radius: 4px;
-    cursor: pointer;
+    justify-content: center;
+}
+
+.AddToCart:active{
+    background-color: grey;
+    color: black;
+    font-weight: 800;
 }
 
 @keyframes PullUp {

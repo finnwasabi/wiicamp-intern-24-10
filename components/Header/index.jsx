@@ -346,6 +346,7 @@ function Header({ isScrolled }) {
           <SideMenu
             isSideMenuOpen={isSideMenuOpen}
             closeSideMenu={closeSideMenu}
+            setIsSideMenuOpen={setIsSideMenuOpen}
           />
         )}
       </div>

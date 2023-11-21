@@ -22,7 +22,7 @@ import useAuthStore from "@/stores/authStore";
 
 import s from "./SideMenu.module.scss";
 
-function SideMenu({ isSideMenuOpen, closeSideMenu }) {
+function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
   const authStore = useAuthStore();
 
   const sideMenuRef = useRef(null);
@@ -78,7 +78,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
 
     const timeoutId = setTimeout(() => {
       if (searchTerm) {
-        setIsLoading(true); // Set loading to true when fetching results
+        setIsLoading(true);
         getSearchResults();
       } else {
         setSearchResults([]);
@@ -103,7 +103,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
       pathname: "/search-results",
       query: { keyword: title },
     });
-
+    setIsSideMenuOpen(false);
     if (searchInputRef.current) {
       searchInputRef.current.blur();
     }
@@ -115,6 +115,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
         pathname: "/search-results",
         query: { keyword: searchTerm },
       });
+      setIsSideMenuOpen(false);
       if (searchInputRef.current) {
         searchInputRef.current.blur();
       }
@@ -126,9 +127,14 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
       pathname: "/search-results",
       query: { keyword: searchTerm },
     });
+    setIsSideMenuOpen(false);
     if (searchInputRef.current) {
       searchInputRef.current.blur();
     }
+  };
+
+  const handleMenuClick = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
   };
 
   return (
@@ -197,6 +203,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               isLinkActive("/") && s.ActiveLink,
               "flex items-center",
             )}
+            onClick={handleMenuClick}
           >
             <div className="mr-3">
               <Home />
@@ -217,15 +224,33 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
             </button>
             {isDropdownOpen && (
               <ul className="ml-6 mt-4 flex flex-col gap-y-4">
-                <Link href="/occho">Woman&apos;s Fashion</Link>
-                <Link href="/occho">Men&apos;s Fashion</Link>
-                <Link href="/occho">Electronics</Link>
-                <Link href="/occho">Home & Lifestyle</Link>
-                <Link href="/occho">Medicine</Link>
-                <Link href="/occho">Sports & Outdoor</Link>
-                <Link href="/occho">Baby&apos;s & Toys</Link>
-                <Link href="/occho">Groceries & Pets</Link>
-                <Link href="/occho">Health & Beauty</Link>
+                <Link onClick={handleMenuClick} href="/women's%20clothing">
+                  Woman&apos;s Fashion
+                </Link>
+                <Link onClick={handleMenuClick} href="/men's%20clothing">
+                  Men&apos;s Fashion
+                </Link>
+                <Link onClick={handleMenuClick} href="/electronics">
+                  Electronics
+                </Link>
+                <Link onClick={handleMenuClick} href="/jewelery">
+                  Jewelery
+                </Link>
+                <Link onClick={handleMenuClick} href="/404">
+                  Medicine
+                </Link>
+                <Link onClick={handleMenuClick} href="/404">
+                  Sports & Outdoor
+                </Link>
+                <Link onClick={handleMenuClick} href="/404">
+                  Baby&apos;s & Toys
+                </Link>
+                <Link onClick={handleMenuClick} href="/404">
+                  Groceries & Pets
+                </Link>
+                <Link onClick={handleMenuClick} href="/404">
+                  Health & Beauty
+                </Link>
               </ul>
             )}
           </div>
@@ -236,6 +261,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               isLinkActive("/contact") && s.ActiveLink,
               "flex items-center",
             )}
+            onClick={handleMenuClick}
           >
             <div className="mr-3">
               <Contact />
@@ -249,6 +275,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               isLinkActive("/about") && s.ActiveLink,
               "flex items-center",
             )}
+            onClick={handleMenuClick}
           >
             <div className="mr-3">
               <Info />
@@ -279,6 +306,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
 SideMenu.propTypes = {
   isSideMenuOpen: PropTypes.bool.isRequired,
   closeSideMenu: PropTypes.func.isRequired,
+  setIsSideMenuOpen: PropTypes.func.isRequired,
 };
 
 export default SideMenu;

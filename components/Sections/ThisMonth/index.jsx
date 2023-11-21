@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { CircularProgress } from "@material-ui/core";
 import dynamic from "next/dynamic";
 
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
@@ -9,7 +10,9 @@ const ThisMonthList = dynamic(
   {
     ssr: false,
     loading: () => (
-      <p className="container flex items-center justify-center">Loading...</p>
+      <p className="container flex items-center justify-center">
+        <CircularProgress color="black" size={20} />
+      </p>
     ),
   },
 );

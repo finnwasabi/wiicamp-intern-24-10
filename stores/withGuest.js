@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { CircularProgress } from "@material-ui/core";
 import { useRouter } from "next/router";
 
 import useAuthStore from "@/stores/authStore";
@@ -10,21 +11,18 @@ const withGuest = (WrappedComponent) => {
 
     useEffect(() => {
       if (isAuthenticated) {
-        // Redirect authenticated users to the home page
         router.push("/");
       }
     }, [isAuthenticated, router]);
 
     if (isAuthenticated) {
-      // You can customize the UI or show a loading state while checking authentication
       return (
         <div className="container flex flex-col items-center justify-center gap-x-2">
-          Loading...
+          <CircularProgress color="black" size={20} />
         </div>
       );
     }
 
-    // If the user is not authenticated, render the wrapped component
     return <WrappedComponent {...props} />;
   }
 

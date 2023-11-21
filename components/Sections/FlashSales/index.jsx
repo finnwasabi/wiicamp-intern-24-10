@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 
@@ -11,7 +12,9 @@ const FlashSalesSlider = dynamic(
   {
     ssr: false,
     loading: () => (
-      <p className="container flex items-center justify-center">Loading...</p>
+      <p className="container flex items-center justify-center">
+        <CircularProgress color="black" size={20} />
+      </p>
     ),
   },
 );

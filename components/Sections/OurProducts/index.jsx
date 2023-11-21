@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { CircularProgress } from "@material-ui/core";
 import dynamic from "next/dynamic";
 
 import FillLeftArrow from "@/components/Buttons/FillLeftArrow";
@@ -13,7 +14,7 @@ const OurProductsList = dynamic(
     loading: () => {
       return (
         <div className="container flex items-center justify-center">
-          Loading...
+          <CircularProgress color="black" size={20} />
         </div>
       );
     },

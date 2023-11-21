@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from "react";
+import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -15,7 +16,9 @@ const WishlistSection = dynamic(
     ssr: false,
     loading: () => {
       return (
-        <p className="container flex items-center justify-center">Loading...</p>
+        <p className="container flex items-center justify-center">
+          <CircularProgress color="black" size={20} />
+        </p>
       );
     },
   },

@@ -49,6 +49,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const searchInputRef = useRef(null);
 
   const handleChange = (event) => {
     const term = event.target.value;
@@ -97,6 +98,39 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
     setIsSearchBarFocused(false);
   };
 
+  const handleSearchResultClick = (title) => {
+    router.push({
+      pathname: "/search-results",
+      query: { keyword: title },
+    });
+
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter" && searchTerm.trim() !== "") {
+      router.push({
+        pathname: "/search-results",
+        query: { keyword: searchTerm },
+      });
+      if (searchInputRef.current) {
+        searchInputRef.current.blur();
+      }
+    }
+  };
+
+  const handleIconSearchClick = () => {
+    router.push({
+      pathname: "/search-results",
+      query: { keyword: searchTerm },
+    });
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
+    }
+  };
+
   return (
     <div className={s.sideMenuContainer}>
       <div
@@ -111,6 +145,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
         <div className="flex flex-col gap-y-4">
           <div className="relative md:hidden">
             <input
+              ref={searchInputRef}
               className="h-6 w-full rounded bg-secondary-0 px-[0.875rem] py-[1.25rem] text-xs font-normal"
               type="text"
               placeholder="What are you looking for?"
@@ -118,17 +153,27 @@ function SideMenu({ isSideMenuOpen, closeSideMenu }) {
               onChange={handleChange}
               onFocus={handleSearchBarFocus}
               onBlur={handleSearchBarBlur}
+              onKeyDown={handleKeyPress}
+              required
             />
-            <Search className="absolute right-3 top-2 cursor-pointer" />
+            <Search
+              className="absolute right-3 top-2 cursor-pointer"
+              onClick={handleIconSearchClick}
+            />
             {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
               <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                 {searchResults.map((product) => (
-                  <span
-                    className="cursor-pointer border-b px-4 py-2 hover:font-semibold hover:italic"
+                  <button
+                    type="button"
+                    className="border-b px-4 py-2 text-left hover:font-semibold hover:italic"
                     key={product.id}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      handleSearchResultClick(product.title);
+                    }}
                   >
-                    {product.title}
-                  </span>
+                    <p className="line-clamp-2">{product.title}</p>
+                  </button>
                 ))}
               </div>
             )}

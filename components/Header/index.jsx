@@ -121,6 +121,15 @@ function Header({ isScrolled }) {
       }
     }
   };
+  const handleIconSearchClick = () => {
+    router.push({
+      pathname: "/search-results",
+      query: { keyword: searchTerm },
+    });
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
+    }
+  };
 
   const handleSearchResultClick = (title) => {
     router.push({
@@ -216,15 +225,17 @@ function Header({ isScrolled }) {
                 onKeyDown={handleKeyPress}
                 required
               />
-              <Link href="/SearchResults">
-                <Search className="absolute right-3 top-2" />
-              </Link>
+              <Search
+                className="absolute right-3 top-2 cursor-pointer"
+                onClick={handleIconSearchClick}
+              />
+
               {isSearchBarFocused && searchResults.length > 0 && !isLoading && (
                 <div className="absolute top-10 mt-2 flex flex-col rounded border bg-white shadow">
                   {searchResults.map((product) => (
                     <button
                       type="button"
-                      className="cursor-pointer border-b px-4 py-2 text-left hover:font-semibold hover:italic"
+                      className="border-b px-4 py-2 text-left hover:font-semibold hover:italic"
                       key={product.id}
                       onMouseDown={(e) => {
                         e.preventDefault();

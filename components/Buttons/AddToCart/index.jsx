@@ -1,4 +1,5 @@
 import React from "react";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
@@ -29,12 +30,20 @@ function AddToCart({ product, className }) {
   return (
     <div className={className}>
       {isAuthenticated ? (
-        <button type="button" onClick={handleAddToCart}>
-          Add To Cart
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          className="ml-auto mr-auto flex"
+        >
+          <ShoppingCart className="mr-2" />
+          <span>Add To Cart</span>
         </button>
       ) : (
         <Link href="/please">
-          <button type="button">Add To Cart</button>
+          <button type="button" className="ml-auto mr-auto flex">
+            <ShoppingCart className="mr-2" />
+            <span>Add To Cart</span>
+          </button>
         </Link>
       )}
     </div>

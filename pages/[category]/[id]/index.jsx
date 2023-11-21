@@ -148,7 +148,12 @@ function Product({ product, categories }) {
             Home
           </Link>
           <span className="text-text-1">/</span>
-          <span className="capitalize text-text-1">{product.category}</span>
+          <Link
+            href={`/${product.category}`}
+            className="capitalize text-text-1"
+          >
+            {product.category}
+          </Link>
           <span className="text-text-1">/</span>
           <span className="cursor-default">{product.title}</span>
         </div>

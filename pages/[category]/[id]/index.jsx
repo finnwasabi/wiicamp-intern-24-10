@@ -160,7 +160,7 @@ function Product({ product, categories }) {
         <div className="mb-[8.75rem] flex flex-col justify-between gap-y-5 sm:gap-y-10 xl:flex-row xl:gap-y-0 ">
           <div className="flex justify-center gap-x-[1.875rem]">
             <span className="hidden w-[10.625rem] flex-col gap-y-4 sm:flex">
-              <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
+              <span className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                 <Image
                   onClick={handleImageClick}
                   src={product.image}
@@ -169,8 +169,8 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                   className="h-full w-full object-contain"
                 />
-              </p>
-              <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
+              </span>
+              <span className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                 <Image
                   onClick={handleImageClick}
                   src={product.image}
@@ -179,8 +179,8 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                   className="h-full w-full object-contain"
                 />
-              </p>
-              <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
+              </span>
+              <span className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                 <Image
                   onClick={handleImageClick}
                   src={product.image}
@@ -189,8 +189,8 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                   className="h-full w-full object-contain"
                 />
-              </p>
-              <p className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
+              </span>
+              <span className="h-[8.625rem] cursor-pointer rounded border-2 transition-all hover:h-[10rem]">
                 <Image
                   onClick={handleImageClick}
                   src={product.image}
@@ -199,7 +199,7 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                   className="h-full w-full object-contain"
                 />
-              </p>
+              </span>
             </span>
             <span className="z-40 flex max-h-[37.5rem] max-w-[31.25rem] items-center justify-center rounded border-2">
               <Image
@@ -245,7 +245,7 @@ function Product({ product, categories }) {
             </span>
           </div>
           <span className="flex w-full gap-x-2 sm:hidden">
-            <p className="cursor-pointer rounded border-2">
+            <span className="cursor-pointer rounded border-2">
               <Image
                 onClick={handleImageClick}
                 src={product.image}
@@ -254,8 +254,8 @@ function Product({ product, categories }) {
                 alt="Picture of the author"
                 className="h-full w-full object-contain"
               />
-            </p>
-            <p className="cursor-pointer rounded border-2">
+            </span>
+            <span className="cursor-pointer rounded border-2">
               <Image
                 onClick={handleImageClick}
                 src={product.image}
@@ -264,8 +264,8 @@ function Product({ product, categories }) {
                 alt="Picture of the author"
                 className="h-full w-full object-contain"
               />
-            </p>
-            <p className="cursor-pointer rounded border-2">
+            </span>
+            <span className="cursor-pointer rounded border-2">
               <Image
                 onClick={handleImageClick}
                 src={product.image}
@@ -274,8 +274,8 @@ function Product({ product, categories }) {
                 alt="Picture of the author"
                 className="h-full w-full object-contain"
               />
-            </p>
-            <p className="cursor-pointer rounded border-2">
+            </span>
+            <span className="cursor-pointer rounded border-2">
               <Image
                 onClick={handleImageClick}
                 src={product.image}
@@ -284,19 +284,19 @@ function Product({ product, categories }) {
                 alt="Picture of the author"
                 className="h-full w-full object-contain"
               />
-            </p>
+            </span>
           </span>
           <div className="flex flex-col gap-y-6 xl:max-w-[25rem]">
             <div className="flex flex-col justify-start gap-y-4">
               <span className="text-2xl font-semibold">{product.title}</span>
               <span className="flex items-center">
-                <p className="mr-2 text-sm">
+                <span className="mr-2 text-sm">
                   {renderStars(product.rating.rate)}
-                </p>
-                <p className="border-r border-text-1 pr-4 text-sm text-text-1">
+                </span>
+                <span className="border-r border-text-1 pr-4 text-sm text-text-1">
                   ({product.rating.count} reviews)
-                </p>
-                <p className="ml-4 text-sm text-button-1">In Stock</p>
+                </span>
+                <span className="ml-4 text-sm text-button-1">In Stock</span>
               </span>
               <span className="text-2xl leading-[1.5rem]">
                 {formatter(product.price)}
@@ -307,8 +307,8 @@ function Product({ product, categories }) {
             <div className="flex flex-col justify-between gap-y-6 lg:flex-row xl:flex-col">
               <div className="flex flex-col gap-x-8 gap-y-6 sm:flex-row sm:gap-y-0 md:justify-between xl:flex-col xl:gap-y-6">
                 <span className="flex items-center gap-x-6 xl:h-[1.5rem]">
-                  <p className="text-xl leading-[1.25rem]">Colours:</p>
-                  <p className="flex items-center gap-x-2">
+                  <span className="text-xl leading-[1.25rem]">Colours:</span>
+                  <span className="flex items-center gap-x-2">
                     <input
                       className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[1.5rem] hover:w-[1.5rem]"
                       type="radio"
@@ -319,10 +319,10 @@ function Product({ product, categories }) {
                       type="radio"
                       name="colour"
                     />
-                  </p>
+                  </span>
                 </span>
                 <span className="flex min-h-[2.5rem] items-center gap-x-6">
-                  <p className="text-xl leading-[1.25rem]">Size:</p>
+                  <span className="text-xl leading-[1.25rem]">Size:</span>
                   <span className="flex items-center gap-x-4">
                     <button
                       type="button"
@@ -393,7 +393,7 @@ function Product({ product, categories }) {
                       type="button"
                       className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
                     >
-                      <p className="hidden sm:block">Buy now</p>
+                      <span className="hidden sm:block">Buy now</span>
                       <CircleDollarSign size={32} className="sm:hidden" />
                     </button>
                   ) : (
@@ -402,7 +402,7 @@ function Product({ product, categories }) {
                       type="button"
                       className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
                     >
-                      <p className="hidden sm:block">Buy now</p>
+                      <span className="hidden sm:block">Buy now</span>
                       <CircleDollarSign size={32} className="sm:hidden" />
                     </Link>
                   )}
@@ -464,10 +464,10 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                 />
                 <span className="flex flex-col gap-y-2">
-                  <p>Free Delivery</p>
-                  <p className="text-xs group-hover:underline">
+                  <span>Free Delivery</span>
+                  <span className="text-xs group-hover:underline">
                     Enter your postal code for Delivery Availability
-                  </p>
+                  </span>
                 </span>
               </div>
               <span className="my-4 block border-b border-black border-opacity-50 sm:hidden xl:block" />
@@ -480,10 +480,10 @@ function Product({ product, categories }) {
                   alt="Picture of the author"
                 />
                 <span className="flex flex-col gap-y-2">
-                  <p>Return Delivery</p>
-                  <p className="text-xs group-hover:underline">
+                  <span>Return Delivery</span>
+                  <span className="text-xs group-hover:underline">
                     Free 30 Days Delivery Returns. Details
-                  </p>
+                  </span>
                 </span>
               </div>
             </div>

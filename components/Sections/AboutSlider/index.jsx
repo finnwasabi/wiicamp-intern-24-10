@@ -31,7 +31,7 @@ function AboutSlider() {
           1170: { slidesPerView: 3, spaceBetween: 30 },
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper5 max-w-[370px] md:max-w-[770px] xl:max-w-full"
+        className="mySwiper5 max-w-[23.125rem] md:max-w-[48.125rem] xl:max-w-full"
       >
         <SwiperSlide>
           <AboutContacts id={1} />

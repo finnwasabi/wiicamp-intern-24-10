@@ -136,7 +136,7 @@ function LogInSection() {
                 {loading && !success && (
                   <button
                     type="submit"
-                    className="flex h-[56px] w-[143px] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
+                    className="flex h-[3.5rem] w-[8.9375rem] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
                   >
                     <Image
                       src="/Loading.svg"
@@ -149,7 +149,7 @@ function LogInSection() {
                 {success && (
                   <button
                     type="submit"
-                    className="flex h-[56px] w-[143px] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
+                    className="flex h-[3.5rem] w-[8.9375rem] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
                   >
                     <Image
                       src="/Success.gif"

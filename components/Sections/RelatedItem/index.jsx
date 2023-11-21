@@ -127,7 +127,7 @@ function RelatedItem({ category }) {
           )}
           <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white object-contain">
             <Image
-              className="h-auto max-h-[250px] w-auto max-w-[270px]"
+              className="h-auto max-h-[15.625rem] w-auto max-w-[16.875rem]"
               src={image}
               width={270}
               height={250}

@@ -49,7 +49,7 @@ function OurProducts({ products }) {
       <div>
         <OurProductsList products={products} />
       </div>
-      <div className="container mt-[60px] flex justify-center pb-[8.75rem] pt-0">
+      <div className="container mt-[3.75rem] flex justify-center pb-[8.75rem] pt-0">
         <PrimaryButton label="View All Products" />
       </div>
     </div>

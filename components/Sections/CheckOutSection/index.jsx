@@ -121,7 +121,7 @@ function CheckOutSection() {
                     width={54}
                     height={54}
                     alt="Picture of cart item"
-                    className="max-h-[54px] min-w-[54px]"
+                    className="max-h-[3.375rem] min-w-[3.375rem]"
                     style={{
                       objectFit: "contain",
                       width: "100%",

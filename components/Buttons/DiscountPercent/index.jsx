@@ -6,7 +6,7 @@ function DiscountPercent({ label }) {
     <div className="z-9999">
       <button
         type="button"
-        className="absolute left-0 ml-3 mt-3 h-auto w-max rounded bg-button-2 px-3 py-1 text-xs font-normal leading-[18px] text-white"
+        className="absolute left-0 ml-3 mt-3 h-auto w-max rounded bg-button-2 px-3 py-1 text-xs font-normal leading-[1.125rem] text-white"
       >
         {label}
       </button>

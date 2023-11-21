@@ -12,7 +12,7 @@ import "swiper/css";
 function ProductImgSlider({ product }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className="container max-w-[600px] flex-col">
+    <div className="container max-w-[37.5rem] flex-col">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}

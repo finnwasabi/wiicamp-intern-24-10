@@ -184,7 +184,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
               </div>
             )}
             {isLoading && (
-              <div className="absolute top-10 mt-2 flex h-[42px] w-full flex-col items-center justify-center rounded border bg-white shadow">
+              <div className="absolute top-10 mt-2 flex h-[2.625rem] w-full flex-col items-center justify-center rounded border bg-white shadow">
                 <CircularProgress color="black" size={25} />
               </div>
             )}

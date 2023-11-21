@@ -152,7 +152,7 @@ function Header({ isScrolled }) {
   }, [login]);
 
   return (
-    <div className={isScrolled ? "fixed -top-[23px] z-50 w-full" : ""}>
+    <div className={isScrolled ? "fixed -top-[1.4375rem] z-50 w-full" : ""}>
       <div className="fixed z-50 w-full border-b border-black border-opacity-30 bg-white pb-4">
         <div className="container relative mt-10 py-0">
           <div className="flex max-h-[2.375rem] items-center justify-between">
@@ -248,7 +248,7 @@ function Header({ isScrolled }) {
                 </div>
               )}
               {isLoading && (
-                <div className="absolute top-10 mt-2 flex h-[42px] w-full flex-col items-center justify-center rounded border bg-white shadow">
+                <div className="absolute top-10 mt-2 flex h-[2.625rem] w-full flex-col items-center justify-center rounded border bg-white shadow">
                   <CircularProgress color="black" size={20} />
                 </div>
               )}

@@ -336,7 +336,7 @@ function CategoryButtons({ id, category }) {
       href={`/${category}`}
       className={clsx(
         s.CategoryItem,
-        "flex h-[145px] w-[170px] items-center justify-center rounded border-2 border-black border-opacity-30",
+        "flex h-[9.0625rem] w-[10.625rem] items-center justify-center rounded border-2 border-black border-opacity-30",
       )}
     >
       <div className="block py-6">

@@ -9,7 +9,7 @@ function CheckBox({ label }) {
         type="checkbox"
         id="checkBox"
         className="peer relative mr-4 
-        h-6 w-6 shrink-0 cursor-pointer appearance-none rounded border-[1px] border-black
+        h-6 w-6 shrink-0 cursor-pointer appearance-none rounded border-[0.0625rem] border-black
         border-opacity-50 checked:border-0
         checked:bg-secondary-2 
         hover:bg-secondary-0 focus:outline-none

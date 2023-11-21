@@ -9,7 +9,7 @@ function FillHeart({ color, bg }) {
       <span
         className={clsx(
           bg,
-          "relative h-[34px] w-[34px] rounded-full transition-all group-hover:shadow-big",
+          "relative h-[2.125rem] w-[2.125rem] rounded-full transition-all group-hover:shadow-big",
         )}
       >
         <Heart

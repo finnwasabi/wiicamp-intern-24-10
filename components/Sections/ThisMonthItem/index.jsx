@@ -120,7 +120,7 @@ function ThisMonthItem({ product }) {
           </Link>
         )}
         <Image
-          className="absolute left-1/2 top-1/2 max-h-[250px] max-w-[270px] -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 max-h-[15.625rem] max-w-[16.875rem] -translate-x-1/2 -translate-y-1/2"
           src={image}
           width={270}
           height={250}

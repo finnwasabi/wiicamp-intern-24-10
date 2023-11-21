@@ -6,7 +6,7 @@ function FillTrash() {
     <div className="group absolute right-3 top-3 flex cursor-pointer">
       <span
         type="button"
-        className="group-active:brightness-60 relative h-[34px] w-[34px] rounded-full bg-white transition-all group-hover:bg-secondary-2"
+        className="group-active:brightness-60 relative h-[2.125rem] w-[2.125rem] rounded-full bg-white transition-all group-hover:bg-secondary-2"
       >
         <Trash2
           color="#000000"

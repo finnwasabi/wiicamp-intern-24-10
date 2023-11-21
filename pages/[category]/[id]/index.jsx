@@ -397,7 +397,7 @@ function Product({ product, categories }) {
                       <span className="group">
                         <button
                           type="button"
-                          className="flex h-[44px] w-[44px] items-center justify-center rounded bg-secondary-2 lg:ml-4 xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
+                          className="flex h-[2.75rem] w-[2.75rem] items-center justify-center rounded bg-secondary-2 lg:ml-4 xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
                           onClick={handleAddToWish}
                         >
                           <Heart
@@ -411,7 +411,7 @@ function Product({ product, categories }) {
                       <span className="group">
                         <button
                           type="button"
-                          className="flex h-[44px] w-[44px] items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[44px] lg:w-[44px] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
+                          className="flex h-[2.75rem] w-[2.75rem] items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[2.75rem] lg:w-[2.75rem] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
                           onClick={handleAddToWish}
                         >
                           <Heart
@@ -494,14 +494,14 @@ function Product({ product, categories }) {
             </div>
           </div>
         )}
-        <div className="mb-[8.75rem] flex flex-col gap-y-[60px]">
+        <div className="mb-[8.75rem] flex flex-col gap-y-[3.75rem]">
           <div className="flex items-center gap-x-4">
             <div className="h-10 w-5 rounded bg-button-2" />
             <span className="text-base font-semibold leading-[1.25rem] text-button-2">
               Related Item
             </span>
           </div>
-          <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-[1.875rem] sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {categories.map((category) => (
               <RelatedItem key={category.id} category={category} />
             ))}

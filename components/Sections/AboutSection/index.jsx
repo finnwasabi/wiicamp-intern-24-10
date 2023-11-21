@@ -30,7 +30,7 @@ function AboutSection() {
               priority
             />
           </div>
-          <div className="lg:absolute lg:max-w-[485px] xl:max-w-[32.8125rem]">
+          <div className="lg:absolute lg:max-w-[30.3125rem] xl:max-w-[32.8125rem]">
             <div className="mb-10 text-[3.375rem] font-semibold">Our Story</div>
             <div className="flex flex-col gap-y-6">
               <div>

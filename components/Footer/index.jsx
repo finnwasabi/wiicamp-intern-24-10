@@ -106,14 +106,14 @@ function Footer() {
             />
             <div className="flex flex-col gap-y-1">
               <Image
-                className="min-w-[110px] cursor-pointer"
+                className="min-w-[6.875rem] cursor-pointer"
                 src="/Footer/GooglePlay.png"
                 width={110}
                 height={40}
                 alt="Picture of the downloads"
               />
               <Image
-                className="min-w-[110px] cursor-pointer"
+                className="min-w-[6.875rem] cursor-pointer"
                 src="/Footer/AppStore.png"
                 width={110}
                 height={40}

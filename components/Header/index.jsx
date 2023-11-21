@@ -164,7 +164,7 @@ function Header({ isScrolled }) {
               >
                 <Menu />
               </button>
-              Exclusive
+              <Link href="/">Exclusive</Link>
             </span>
             <div className="mr-[8.125rem] hidden min-w-[22.9375rem] xl:flex">
               <Link

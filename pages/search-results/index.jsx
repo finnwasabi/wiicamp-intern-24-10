@@ -55,8 +55,9 @@ function SearchResults({ products, keyword }) {
           Search Results For
           <span className="font-semibold text-secondary-2">
             {" "}
-            &quot;{keyword}&quot; :
-          </span>
+            &quot;{keyword}&quot;
+          </span>{" "}
+          :
         </div>
         {filteredProducts.length > 0 ? (
           <span className="mb-[8.75rem] grid w-full grid-cols-1 flex-row place-items-center justify-between gap-x-[1.875rem] gap-y-[3.75rem] pt-0 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

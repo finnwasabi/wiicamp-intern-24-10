@@ -66,7 +66,7 @@ function AddToCart({ product, className }) {
         </button>
       ) : (
         <Link href="/please">
-          <button type="button" className="ml-auto mr-auto flex">
+          <button type="button" className={clsx(className)}>
             <ShoppingCart className="mr-2" />
             <span>Add To Cart</span>
           </button>

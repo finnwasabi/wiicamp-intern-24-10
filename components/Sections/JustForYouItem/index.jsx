@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
+
+import AddToCart from "@/components/Buttons/AddToCart";
 
 import formatter from "@/utils/formatter";
 
@@ -68,11 +69,7 @@ function JustForYouItem({ product }) {
       )}
     >
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
-        <div className={s.AddToCart}>
-          <div className="flex items-center justify-center gap-x-2">
-            <ShoppingCart /> Add To Cart
-          </div>
-        </div>
+        <AddToCart className={s.AddToCart} product={product} />
         <Image
           className="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 object-contain"
           src={product.image}

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import clsx from "clsx";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
@@ -9,6 +10,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 
 import useUserStore from "@/stores/userStore";
 
+import "react-toastify/dist/ReactToastify.css";
 import s from "./MyAccountSection.module.scss";
 
 function MyAccountSection() {
@@ -18,6 +20,17 @@ function MyAccountSection() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const successToast = () =>
+    toast.success("Successfully!", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -194,20 +207,28 @@ function MyAccountSection() {
                   />
                   {!passwordsMatch && (
                     <div style={{ color: "red" }}>
-                      New passwords don`&apos;`t match
+                      New passwords don&apos;t match! Try Again!
                     </div>
                   )}
                 </div>
               </div>
               <div className="flex items-center justify-end gap-x-8">
-                <Link href="/" type="button">
+                <Link href="/" type="button" className="hover:text-secondary-2">
                   Cancel
                 </Link>
                 <span className="hidden md:block">
-                  <PrimaryButton type="submit" label="Save Changes" />
+                  <PrimaryButton
+                    onClick={successToast}
+                    type="submit"
+                    label="Save Changes"
+                  />
                 </span>
                 <span className="md:hidden">
-                  <PrimaryButton type="submit" label="Save" />
+                  <PrimaryButton
+                    onClick={successToast}
+                    type="submit"
+                    label="Save"
+                  />
                 </span>
               </div>
             </form>

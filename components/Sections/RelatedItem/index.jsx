@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+import AddToCart from "@/components/Buttons/AddToCart";
+
 import useAuthStore from "@/stores/authStore";
-import useCartStore from "@/stores/cartStore";
 import useWishStore from "@/stores/wishStore";
 
 import DiscountPercent from "../../Buttons/DiscountPercent";
@@ -53,7 +54,6 @@ function RelatedItem({ category }) {
   const { image, title, price } = category;
   const [discountPercentage, setDiscountPercentage] = useState(0);
   const [salePrice, setSalePrice] = useState(0);
-  const cartStore = useCartStore();
   const wishStore = useWishStore();
   const { isAuthenticated } = useAuthStore();
 
@@ -70,23 +70,6 @@ function RelatedItem({ category }) {
         price: category.price,
         category: category.category,
         image: category.image,
-      });
-    }
-  };
-
-  const handleAddToCart = () => {
-    const existingCartItem = cartStore.items.find(
-      (item) => item.productId === category.id,
-    );
-    if (existingCartItem) {
-      cartStore.increaseQuantity(category.id);
-    } else {
-      cartStore.addToCart({
-        productId: category.id,
-        title: category.title,
-        price: category.price,
-        image: category.image,
-        quantity: 1,
       });
     }
   };
@@ -110,21 +93,7 @@ function RelatedItem({ category }) {
         )}
       >
         <div className="relative flex max-w-[16.875rem] overflow-hidden rounded bg-secondary-0">
-          {isAuthenticated ? (
-            <button
-              type="button"
-              className={s.AddToCart}
-              onClick={handleAddToCart}
-            >
-              Add To Cart
-            </button>
-          ) : (
-            <Link href="/please">
-              <button type="button" className={s.AddToCart}>
-                Add To Cart
-              </button>
-            </Link>
-          )}
+          <AddToCart className={s.AddToCart} product={category} />
           <div className="flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white object-contain">
             <Image
               className="h-auto max-h-[15.625rem] w-auto max-w-[16.875rem]"

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 import { Poppins } from "next/font/google";
 import NextNProgress from "nextjs-progressbar";
 import PropTypes from "prop-types";
@@ -49,6 +50,18 @@ export default function App({ Component, pageProps }) {
       <div className={poppins.className}>
         <TopHeader />
         <Header isScrolled={isScrolled} />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <div className="mt-[5.9375rem]">
           <Component {...pageProps} />
         </div>

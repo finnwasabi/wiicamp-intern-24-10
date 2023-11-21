@@ -1,51 +1,26 @@
 import React from "react";
 import clsx from "clsx";
-import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+import AddToCart from "@/components/Buttons/AddToCart";
 import FillTrash from "@/components/Buttons/FillTrash";
 
-import useCartStore from "@/stores/cartStore";
 import useWishStore from "@/stores/wishStore";
 
 import s from "./WishlistItems.module.scss";
 
 function WishlistItems({ item }) {
   const wishStore = useWishStore();
-  const cartStore = useCartStore();
-  const handleAddToCart = () => {
-    const existingCartItem = cartStore.items.find(
-      (foundItem) => foundItem.productId === item.productId,
-    );
-    if (existingCartItem) {
-      cartStore.increaseQuantity(item.productId);
-    } else {
-      cartStore.addToCart({
-        productId: item.productId,
-        title: item.title,
-        price: item.price,
-        image: item.image,
-        quantity: 1,
-      });
-    }
-  };
+
   const handleRemove = (productId) => {
     wishStore.removeFromWish(productId);
   };
   return (
     <div className={clsx(s.Item, "block h-[21.875rem] w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-secondary-0">
-        <div className={s.AddToCart}>
-          <button
-            type="button"
-            className="ml-auto mr-auto flex gap-x-2"
-            onClick={handleAddToCart}
-          >
-            <ShoppingCart /> Add To Cart
-          </button>
-        </div>
+        <AddToCart className={s.AddToCart} product={item} />
         <Image
           className="absolute flex h-[15.625rem] w-[16.875rem] items-center justify-center bg-white"
           src={item.image}

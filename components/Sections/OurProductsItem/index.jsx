@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+import AddToCart from "@/components/Buttons/AddToCart";
+
 import useAuthStore from "@/stores/authStore";
-import useCartStore from "@/stores/cartStore";
 import useWishStore from "@/stores/wishStore";
 
 import FillEye from "../../Buttons/FillEye";
@@ -49,7 +50,6 @@ const renderStars = (rating) => {
 
 function OurProductsItem({ product }) {
   const { image, title, price, rating } = product;
-  const cartStore = useCartStore();
   const wishStore = useWishStore();
   const { isAuthenticated } = useAuthStore();
 
@@ -70,41 +70,10 @@ function OurProductsItem({ product }) {
     }
   };
 
-  const handleAddToCart = () => {
-    const existingCartItem = cartStore.items.find(
-      (item) => item.productId === product.id,
-    );
-    if (existingCartItem) {
-      cartStore.increaseQuantity(product.id);
-    } else {
-      cartStore.addToCart({
-        productId: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.image,
-        quantity: 1,
-      });
-    }
-  };
-
   return (
     <div className={clsx(s.SaleItem, "block h-fit w-[16.875rem]")}>
       <div className="relative flex h-[15.625rem] w-[16.875rem] overflow-hidden rounded bg-white">
-        {isAuthenticated ? (
-          <button
-            type="button"
-            className={s.AddToCart}
-            onClick={handleAddToCart}
-          >
-            Add To Cart
-          </button>
-        ) : (
-          <Link href="/please">
-            <button type="button" className={s.AddToCart}>
-              Add To Cart
-            </button>
-          </Link>
-        )}
+        <AddToCart className={s.AddToCart} product={product} />
         <Image
           className="absolute left-1/2 top-1/2 max-h-[15.625rem] max-w-[16.875rem] -translate-x-1/2 -translate-y-1/2"
           src={image}

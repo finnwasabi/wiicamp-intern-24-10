@@ -20,17 +20,54 @@ function MyAccountSection() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const successToast = () =>
-    toast.success("Successfully!", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [firstName, setFirstName] = useState(user.name.firstname);
+  const [lastName, setLastName] = useState(user.name.lastname);
+  const [address, setAddress] = useState(
+    `${user.address.street}, ${user.address.city}`,
+  );
+  const [email, setEmail] = useState(user.email);
+
+  const handleSaveChanges = (e) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    e.preventDefault();
+    if (
+      firstName !== "" &&
+      lastName !== "" &&
+      address !== "" &&
+      email !== "" &&
+      emailPattern.test(email) &&
+      currentPassword !== "" &&
+      password !== "" &&
+      confirmPassword !== "" &&
+      password === confirmPassword
+    ) {
+      toast.success("Changes saved successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setCurrentPassword("");
+      setPassword("");
+      setConfirmPassword("");
+    } else {
+      toast.error("Please fill in all required fields correctly!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+  };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -54,10 +91,8 @@ function MyAccountSection() {
     e.preventDefault();
     if (password !== confirmPassword) {
       setPasswordsMatch(false);
-      console.log("New passwords don't match");
     } else {
       setPasswordsMatch(true);
-      console.log("Passwords match");
     }
   };
 
@@ -132,7 +167,8 @@ function MyAccountSection() {
                       label="First Name"
                       type="text"
                       autocomplete=""
-                      defaultValue={user.name.firstname}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                   </div>
                   <div className="lg:w-[20.625rem]">
@@ -143,7 +179,8 @@ function MyAccountSection() {
                       label="Last Name"
                       type="text"
                       autocomplete=""
-                      defaultValue={user.name.lastname}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
                   </div>
                 </div>
@@ -156,7 +193,8 @@ function MyAccountSection() {
                       label="Email"
                       type="email"
                       autocomplete=""
-                      defaultValue={user.email}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="lg:w-[20.625rem]">
@@ -167,12 +205,15 @@ function MyAccountSection() {
                       label="Address"
                       type="text"
                       autocomplete=""
-                      defaultValue={`${user.address.street}, ${user.address.city}`}
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="relative flex flex-col gap-y-4">
-                  {password.length > 0 && (
+                  {(password.length > 0 ||
+                    currentPassword.length > 0 ||
+                    confirmPassword.length > 0) && (
                     <button
                       type="button"
                       onClick={handleTogglePassword}
@@ -182,14 +223,16 @@ function MyAccountSection() {
                     </button>
                   )}
                   <InputField
+                    value={currentPassword}
                     classNameLabel="mb-2"
                     placeholder="Current Password"
                     label="Password Changes"
                     type={showPassword ? "text" : "password"}
                     autocomplete="current-password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
                   />
                   <InputField
+                    value={password}
                     onChange={handlePasswordChange}
                     classNameLabel="mb-2"
                     placeholder="New Password"
@@ -198,6 +241,7 @@ function MyAccountSection() {
                     autocomplete="new-password"
                   />
                   <InputField
+                    value={confirmPassword}
                     onChange={handleConfirmPasswordChange}
                     classNameLabel="mb-2"
                     placeholder="Confirm New Passwod"
@@ -218,14 +262,14 @@ function MyAccountSection() {
                 </Link>
                 <span className="hidden md:block">
                   <PrimaryButton
-                    onClick={successToast}
+                    onClick={handleSaveChanges}
                     type="submit"
                     label="Save Changes"
                   />
                 </span>
                 <span className="md:hidden">
                   <PrimaryButton
-                    onClick={successToast}
+                    onClick={handleSaveChanges}
                     type="submit"
                     label="Save"
                   />

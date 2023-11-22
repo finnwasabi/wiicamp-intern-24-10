@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,16 @@ function WishlistItems({ item }) {
 
   const handleRemove = (productId) => {
     wishStore.removeFromWish(productId);
+    toast.warn("Removed from wishlist!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
   return (
     <div className={clsx(s.Item, "block h-[21.875rem] w-[16.875rem]")}>

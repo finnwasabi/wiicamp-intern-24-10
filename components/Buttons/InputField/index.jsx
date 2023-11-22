@@ -10,6 +10,8 @@ function InputField({
   autocomplete,
   defaultValue,
   onChange,
+  value,
+  name,
 }) {
   return (
     <div>
@@ -25,6 +27,8 @@ function InputField({
         autoComplete={autocomplete}
         defaultValue={defaultValue}
         onChange={onChange}
+        value={value}
+        name={name}
       />
     </div>
   );
@@ -37,8 +41,10 @@ InputField.propTypes = {
   classNameLabel: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   autocomplete: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default InputField;

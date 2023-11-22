@@ -327,30 +327,35 @@ function Product({ product, categories }) {
                     <button
                       type="button"
                       className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      aria-label="Size XS"
                     >
                       XS
                     </button>
                     <button
                       type="button"
                       className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      aria-label="Size S"
                     >
                       S
                     </button>
                     <button
                       type="button"
                       className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      aria-label="Size M"
                     >
                       M
                     </button>
                     <button
                       type="button"
                       className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      aria-label="Size L"
                     >
                       L
                     </button>
                     <button
                       type="button"
                       className="h-[2rem] w-[2rem] rounded border-[0.0625rem] border-black border-opacity-50 text-center text-sm font-medium transition-all hover:h-[2.5rem] hover:w-[2.5rem] focus:border-0 focus:bg-secondary-2 focus:text-white"
+                      aria-label="Size XL"
                     >
                       XL
                     </button>
@@ -365,6 +370,7 @@ function Product({ product, categories }) {
                         onClick={handleDecrement}
                         type="button"
                         className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-l border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
+                        aria-label="Decrease quantity"
                       >
                         <Minus className="group-active:stroke-white" />
                       </button>
@@ -383,6 +389,7 @@ function Product({ product, categories }) {
                         onClick={handleIncrement}
                         type="button"
                         className="flex h-[2.75rem] w-[2.5rem] items-center justify-center rounded-r border border-black border-opacity-50 transition-all group-active:border-0 group-active:bg-secondary-2"
+                        aria-label="Increase quantity"
                       >
                         <Plus className="group-active:stroke-white" />
                       </button>
@@ -392,6 +399,7 @@ function Product({ product, categories }) {
                     <button
                       type="button"
                       className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
+                      aria-label="Buy"
                     >
                       <span className="hidden sm:block">Buy now</span>
                       <CircleDollarSign size={32} className="sm:hidden" />
@@ -415,6 +423,7 @@ function Product({ product, categories }) {
                           type="button"
                           className="flex h-[2.75rem] w-[2.75rem] items-center justify-center rounded bg-secondary-2 lg:ml-4 xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
                           onClick={handleAddToWish}
+                          aria-label="Add to wish list"
                         >
                           <Heart
                             strokeWidth={0}
@@ -429,6 +438,7 @@ function Product({ product, categories }) {
                           type="button"
                           className="flex h-[2.75rem] w-[2.75rem] items-center justify-center rounded border border-black border-opacity-50 lg:ml-4 lg:h-[2.75rem] lg:w-[2.75rem] xl:ml-auto xl:h-[2.5rem] xl:w-[2.5rem]"
                           onClick={handleAddToWish}
+                          aria-label="Add to wish list"
                         >
                           <Heart
                             strokeWidth={1.5}
@@ -444,6 +454,7 @@ function Product({ product, categories }) {
                       <button
                         type="button"
                         className=" flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded border border-black border-opacity-50"
+                        aria-label="Add to wish list"
                       >
                         <Heart
                           strokeWidth={1.5}
@@ -503,6 +514,7 @@ function Product({ product, categories }) {
                 type="button"
                 className="absolute right-2 top-2 z-50"
                 onClick={closeModal}
+                aria-label="Close Image view"
               >
                 <XCircle size={32} className="fill-secondary-2" color="white" />
               </button>

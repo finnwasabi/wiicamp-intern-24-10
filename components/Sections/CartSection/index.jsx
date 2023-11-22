@@ -106,6 +106,7 @@ function CartSection() {
                       "absolute left-[-0.8rem] top-[-0.8rem]",
                     )}
                     onClick={() => handleRemove(item.productId)}
+                    aria-label="cancelButton"
                   >
                     <Image
                       src="/CancelCircle.svg"
@@ -154,6 +155,7 @@ function CartSection() {
                   <button
                     type="button"
                     onClick={() => handleIncrease(item.productId)}
+                    aria-label="increaseButton"
                   >
                     <ChevronUp size={16} />
                   </button>
@@ -162,6 +164,7 @@ function CartSection() {
                   <button
                     type="button"
                     onClick={() => handleDecrease(item.productId)}
+                    aria-label="decreaseButton"
                   >
                     <ChevronDown size={16} />
                   </button>

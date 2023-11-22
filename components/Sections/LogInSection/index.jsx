@@ -118,7 +118,11 @@ function LogInSection() {
                     required
                   />
                   {password.length > 0 && (
-                    <button type="button" onClick={handleTogglePassword}>
+                    <button
+                      type="button"
+                      onClick={handleTogglePassword}
+                      aria-label="Toggle Password"
+                    >
                       {showPassword ? (
                         <Eye className="absolute right-0 top-1" />
                       ) : (
@@ -136,6 +140,7 @@ function LogInSection() {
                   <button
                     type="submit"
                     className="flex h-[3.5rem] w-[8.9375rem] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
+                    aria-label="Confirm"
                   >
                     <Image
                       src="/Loading.svg"
@@ -149,6 +154,7 @@ function LogInSection() {
                   <button
                     type="submit"
                     className="flex h-[3.5rem] w-[8.9375rem] items-center justify-center rounded bg-button-2 font-medium text-white transition-all hover:bg-hover-button-0"
+                    aria-label="Confirm"
                   >
                     <Image
                       src="/Success.gif"

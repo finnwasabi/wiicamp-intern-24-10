@@ -33,6 +33,7 @@ function Footer() {
             <button
               type="submit"
               className="absolute right-[0.9375rem] top-[0.875rem]"
+              aria-label="Send email"
             >
               <Image
                 src="/SendIcon.svg"

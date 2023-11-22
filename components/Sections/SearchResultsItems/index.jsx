@@ -104,11 +104,23 @@ function SearchResultsItems({ product }) {
           {isAuthenticated ? (
             <div>
               {existingWishItem ? (
-                <button type="button" onClick={handleAddToWish}>
-                  <FillHeart color="white" bg="bg-secondary-2" />
+                <button
+                  type="button"
+                  onClick={handleAddToWish}
+                  aria-label="Add to wish list"
+                >
+                  <FillHeart
+                    color="white"
+                    bg="bg-secondary-2"
+                    aria-label="Add to wish list"
+                  />
                 </button>
               ) : (
-                <button type="button" onClick={handleAddToWish}>
+                <button
+                  type="button"
+                  onClick={handleAddToWish}
+                  aria-label="Add to wish list"
+                >
                   <FillHeart color="black" bg="bg-white" />
                 </button>
               )}

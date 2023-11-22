@@ -6,6 +6,7 @@ function FillTrash() {
     <button
       type="button"
       className="group absolute right-3 top-3 flex cursor-pointer"
+      aria-label="Remove Product"
     >
       <span
         type="button"

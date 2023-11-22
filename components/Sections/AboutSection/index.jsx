@@ -68,6 +68,7 @@ function AboutSection() {
                 s.AboutButton,
                 "group h-full max-h-[14.375rem] w-[16.875rem] rounded border-[0.0625rem] border-black border-opacity-30 py-[1.875rem]",
               )}
+              aria-label="10.5k Sallers active our site"
             >
               <div className="mb-6 flex justify-center">
                 <div className="flex group-hover:hidden">
@@ -102,6 +103,7 @@ function AboutSection() {
                 s.AboutButton,
                 "group h-full max-h-[14.375rem] w-[16.875rem] rounded border-[0.0625rem] border-black border-opacity-30 py-[1.875rem]",
               )}
+              aria-label="33k Mopnthly Produduct Sale"
             >
               <div className="mb-6 flex justify-center">
                 <div className="flex group-hover:hidden">
@@ -136,6 +138,7 @@ function AboutSection() {
                 s.AboutButton,
                 "group h-full max-h-[14.375rem] w-[16.875rem] rounded border-[0.0625rem] border-black border-opacity-30 py-[1.875rem]",
               )}
+              aria-label="45.5k Customer active in our site"
             >
               <div className="mb-6 flex justify-center">
                 <div className="flex group-hover:hidden">
@@ -170,6 +173,7 @@ function AboutSection() {
                 s.AboutButton,
                 "group h-full max-h-[14.375rem] w-[16.875rem] rounded border-[0.0625rem] border-black border-opacity-30 py-[1.875rem]",
               )}
+              aria-label="25k Anual gross sale in our site"
             >
               <div className="mb-6 flex justify-center">
                 <div className="flex group-hover:hidden">

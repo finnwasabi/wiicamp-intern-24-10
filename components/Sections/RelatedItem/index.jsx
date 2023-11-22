@@ -105,11 +105,23 @@ function RelatedItem({ category }) {
             {isAuthenticated ? (
               <div>
                 {existingWishItem ? (
-                  <button type="button" onClick={handleAddToWish}>
-                    <FillHeart color="white" bg="bg-secondary-2" />
+                  <button
+                    type="button"
+                    onClick={handleAddToWish}
+                    aria-label="Add to Wish List"
+                  >
+                    <FillHeart
+                      color="white"
+                      bg="bg-secondary-2"
+                      aria-label="Add to Wish List"
+                    />
                   </button>
                 ) : (
-                  <button type="button" onClick={handleAddToWish}>
+                  <button
+                    type="button"
+                    onClick={handleAddToWish}
+                    aria-label="Add to Wish List"
+                  >
                     <FillHeart color="black" bg="bg-white" />
                   </button>
                 )}

@@ -146,6 +146,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
         type="button"
         className="flex items-center hover:font-semibold"
         onClick={handleLogoutClick}
+        aria-label="Logout"
       >
         <span className="mr-4">
           <svg

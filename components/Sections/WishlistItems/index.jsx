@@ -41,7 +41,11 @@ function WishlistItems({ item }) {
           priority
           style={{ objectFit: "contain", width: "100%", height: "100%" }}
         />
-        <button type="button" onClick={() => handleRemove(item.productId)}>
+        <button
+          type="button"
+          onClick={() => handleRemove(item.productId)}
+          aria-label="Add To Wish List"
+        >
           <FillTrash />
         </button>
       </div>

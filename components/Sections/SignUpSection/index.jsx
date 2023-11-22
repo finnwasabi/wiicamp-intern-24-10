@@ -55,7 +55,11 @@ function SignUpSection() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   {password.length > 0 && (
-                    <button type="button" onClick={handleTogglePassword}>
+                    <button
+                      type="button"
+                      onClick={handleTogglePassword}
+                      aria-label="Toggle password visibility"
+                    >
                       {showPassword ? (
                         <Eye className="absolute right-0 top-1" />
                       ) : (

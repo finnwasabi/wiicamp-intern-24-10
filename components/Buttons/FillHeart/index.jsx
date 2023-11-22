@@ -12,6 +12,7 @@ function FillHeart({ color, bg }) {
           bg,
           "relative h-[2.125rem] w-[2.125rem] rounded-full transition-all group-hover:shadow-big",
         )}
+        aria-label="Add To Wishlist"
       >
         <Heart
           color={color}

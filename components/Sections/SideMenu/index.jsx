@@ -177,6 +177,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
                       e.preventDefault();
                       handleSearchResultClick(product.title);
                     }}
+                    aria-label="Search"
                   >
                     <p className="line-clamp-2">{product.title}</p>
                   </button>
@@ -215,6 +216,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               type="button"
               className="flex w-full items-center justify-between gap-y-4"
+              aria-label="Top Categories"
             >
               <span className="flex items-center">
                 <Layers3 className="mr-3" />

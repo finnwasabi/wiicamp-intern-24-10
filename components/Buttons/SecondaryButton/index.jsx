@@ -13,6 +13,7 @@ function SecondaryButton({ label, isShow, onClick }) {
             "before:mr-4 before:h-6 before:w-6 before:content-googleIcon",
         )}
         onClick={onClick}
+        aria-label={label}
       >
         {label}
       </button>

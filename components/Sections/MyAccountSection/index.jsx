@@ -221,6 +221,7 @@ function MyAccountSection() {
                       type="button"
                       onClick={handleTogglePassword}
                       className="absolute right-0 top-1"
+                      aria-label="toggle password visibility"
                     >
                       {showPassword ? <Eye /> : <EyeOff />}
                     </button>

@@ -161,6 +161,7 @@ function Header({ isScrolled }) {
                 type="button"
                 className="xl:hidden"
                 onClick={handleMenuClick}
+                aria-label="Side Menu"
               >
                 <Menu />
               </button>
@@ -241,6 +242,7 @@ function Header({ isScrolled }) {
                         e.preventDefault();
                         handleSearchResultClick(product.title);
                       }}
+                      aria-label="Search Result Product title"
                     >
                       <p className="line-clamp-2">{product.title}</p>
                     </button>
@@ -305,6 +307,7 @@ function Header({ isScrolled }) {
                     type="button"
                     onClick={handleUserClick}
                     className={s.ThreeBoxes}
+                    aria-label="User Menu"
                   >
                     {isLinkActive("/my-account") && !isDropdownOpen ? (
                       <Image

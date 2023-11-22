@@ -85,11 +85,19 @@ function OurProductsItem({ product }) {
         {isAuthenticated ? (
           <div>
             {existingWishItem ? (
-              <button type="button" onClick={handleAddToWish}>
+              <button
+                type="button"
+                onClick={handleAddToWish}
+                aria-label="Add to Wish List"
+              >
                 <FillHeart color="white" bg="bg-secondary-2" />
               </button>
             ) : (
-              <button type="button" onClick={handleAddToWish}>
+              <button
+                type="button"
+                onClick={handleAddToWish}
+                aria-label="Add to Wish List"
+              >
                 <FillHeart color="black" bg="bg-white" />
               </button>
             )}

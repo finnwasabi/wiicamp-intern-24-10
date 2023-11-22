@@ -25,6 +25,7 @@ function FillUpArrow() {
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
+          aria-label="Go to top page"
         >
           <div className="relative mr-2 h-[2.875rem] w-[2.875rem] cursor-pointer rounded-full bg-secondary-0 shadow-xl hover:shadow-big">
             <ArrowUp className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />

@@ -439,7 +439,7 @@ function Product({ product, categories }) {
                     )}
                   </div>
                 ) : (
-                  <Link href="/please">
+                  <Link href="/please" aria-label="Please Log In First">
                     <span className="group">
                       <button
                         type="button"

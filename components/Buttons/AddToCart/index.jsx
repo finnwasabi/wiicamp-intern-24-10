@@ -77,7 +77,7 @@ function AddToCart({ product, className }) {
           <div>Add To Cart</div>
         </button>
       ) : (
-        <Link href="/please">
+        <Link href="/please" aria-label="Please Log In First">
           <button type="button" className={clsx(className)}>
             <ShoppingCart className="mr-2" />
             <span>Add To Cart</span>

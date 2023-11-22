@@ -95,7 +95,7 @@ function OurProductsItem({ product }) {
             )}
           </div>
         ) : (
-          <Link href="/please">
+          <Link href="/please" aria-label="Please Log In First">
             <FillHeart color="black" bg="bg-white" />
           </Link>
         )}

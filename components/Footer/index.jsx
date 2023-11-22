@@ -124,7 +124,7 @@ function Footer() {
             </div>
           </div>
           <li className={clsx(s.FooterList, "flex gap-x-6")}>
-            <Link href="https://www.facebook.com/">
+            <Link href="https://www.facebook.com/" alt="Facebook">
               <Facebook />
             </Link>
             <Link href="https://twitter.com/">

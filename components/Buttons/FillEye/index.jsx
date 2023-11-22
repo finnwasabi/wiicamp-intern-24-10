@@ -8,6 +8,7 @@ function FillEye({ product }) {
     <Link
       href={`/${product.category}/${product.id}`}
       className="relative h-[2.125rem] w-[2.125rem] rounded-full bg-white transition-all hover:shadow-big"
+      aria-label="See Details"
     >
       <Eye
         color="#000000"

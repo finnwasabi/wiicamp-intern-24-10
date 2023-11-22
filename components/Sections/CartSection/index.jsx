@@ -31,7 +31,7 @@ function CartSection() {
 
   const handleRemove = (productId) => {
     cartStore.removeFromCart(productId);
-    toast.warn("Item removed from cart", {
+    toast.warn("Removed from Cart!", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,

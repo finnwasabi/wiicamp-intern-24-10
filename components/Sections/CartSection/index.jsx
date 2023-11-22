@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import clsx from "clsx";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
@@ -30,6 +31,16 @@ function CartSection() {
 
   const handleRemove = (productId) => {
     cartStore.removeFromCart(productId);
+    toast.warn("Item removed from cart", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   const handleUpdateQuantity = (productId, newQuantity) => {

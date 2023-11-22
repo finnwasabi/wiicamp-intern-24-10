@@ -46,7 +46,6 @@ function LogInSection() {
         );
         const userData = userDataResponse.data;
 
-        // Store user data using the user store
         const { setUser } = useUserStore.getState();
         setUser(userData);
 
@@ -68,7 +67,7 @@ function LogInSection() {
 
   return (
     <div className="relative">
-      <div className="mb-[8.75rem] pt-[3.75rem] lg:mt-[3.75rem] lg:pt-0">
+      <div className="mb-[8.75rem] mt-[3.75rem] pt-[3.75rem] lg:pt-0">
         <div className="hidden w-[calc(805/1440*100vw)] lg:block">
           <Image
             className="left-0 h-full w-full"

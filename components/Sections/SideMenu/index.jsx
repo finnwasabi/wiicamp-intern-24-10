@@ -290,6 +290,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
                 !isLinkActive("/account/sign-up") && s.OnHover,
                 "flex items-center",
               )}
+              onClick={handleMenuClick}
             >
               <div className="mr-3">
                 <UserPlus />

@@ -122,18 +122,21 @@ function MyAccountSection() {
             Manage My Account
           </div>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1">
-            <Link href="/MyAccount" className={clsx(s.Active)}>
+            <Link href="/my-account" className={clsx(s.Active)}>
               My Profile
             </Link>
-            <Link href="/AddressBook">Address Book</Link>
-            <Link href="/PaymentOptions">My Payment Options</Link>
+            <Link href="/my-account/address-book">Address Book</Link>
+            <Link href="/my-account/payment">My Payment Options</Link>
           </div>
-          <Link href="/MyOrders" className="flex py-4 font-semibold">
+          <Link
+            href="/my-account/my-orders"
+            className="flex py-4 font-semibold"
+          >
             My Orders
           </Link>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1">
-            <Link href="/Returns">My Returns</Link>
-            <Link href="/Cancellations">My Cancellations</Link>
+            <Link href="/my-account/returns">My Returns</Link>
+            <Link href="/my-account/cancellation">My Cancellations</Link>
           </div>
           <div className="py-4 font-semibold">
             <Link href="/wishlist">My WishList</Link>
@@ -278,13 +281,26 @@ function MyAccountSection() {
             </form>
           </div>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1 lg:hidden">
-            <span className="cursor-pointer">Address Book</span>
-            <span className="cursor-pointer">My Payment Options</span>
+            <Link href="/my-account/address-book" className="cursor-pointer">
+              Address Book
+            </Link>
+            <Link href="/my-account/payment" className="cursor-pointer">
+              My Payment Options
+            </Link>
           </div>
-          <div className="py-4 font-semibold lg:hidden">My Orders</div>
+          <Link
+            href="/my-account/orders"
+            className="py-4 font-semibold lg:hidden"
+          >
+            My Orders
+          </Link>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1 lg:hidden">
-            <span className="cursor-pointer">My Returns</span>
-            <span className="cursor-pointer">My Cancellations</span>
+            <Link href="/my-account/returns" className="cursor-pointer">
+              My Returns
+            </Link>
+            <Link href="/my-account/cancellations" className="cursor-pointer">
+              My Cancellations
+            </Link>
           </div>
           <div className="py-4 font-semibold lg:hidden">
             <Link href="/wishlist">My WishList</Link>

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import axios from "axios";
 import Head from "next/head";
@@ -21,7 +20,6 @@ export async function getServerSideProps() {
       props: { products: data },
     };
   } catch (error) {
-    console.error("Error fetching data:", error.message);
     return {
       props: { products: [] },
     };

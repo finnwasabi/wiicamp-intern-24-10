@@ -14,6 +14,7 @@ function Cart() {
     <main>
       <Head>
         <title>Cart</title>
+        <meta name="description" content="Cart Page for Exclusive E-Commerce" />
       </Head>
       <CartSection />
     </main>

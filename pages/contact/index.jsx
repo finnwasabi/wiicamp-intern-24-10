@@ -8,6 +8,10 @@ function Contact() {
     <main>
       <Head>
         <title>Contact</title>
+        <meta
+          name="description"
+          content="Contact Page for Exclusive E-Commerce"
+        />
       </Head>
       <ContactSection />
     </main>

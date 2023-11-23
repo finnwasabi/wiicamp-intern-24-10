@@ -44,6 +44,10 @@ function Wishlist({ products }) {
     <main>
       <Head>
         <title>Wishlist</title>
+        <meta
+          name="description"
+          content="Wishlist Page for Exclusive E-Commerce"
+        />
       </Head>
       <WishlistSection products={products} />
       <FillUpArrow />

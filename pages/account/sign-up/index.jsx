@@ -10,6 +10,10 @@ function SignUp() {
     <main>
       <Head>
         <title>Sign Up</title>
+        <meta
+          name="description"
+          content="Sign Up Page for Exclusive E-Commerce"
+        />
       </Head>
       <SignUpSection />
     </main>

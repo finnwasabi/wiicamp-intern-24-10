@@ -9,6 +9,10 @@ function Please() {
     <main>
       <Head>
         <title>Not Logged In</title>
+        <meta
+          name="description"
+          content="Please Page for Exclusive E-Commerce"
+        />
       </Head>
       <div className="container mt-[5.9375rem]">
         <div className="flex gap-3 pt-20">

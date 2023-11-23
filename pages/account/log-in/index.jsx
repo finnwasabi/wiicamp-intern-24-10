@@ -10,6 +10,10 @@ function LogIn() {
     <main>
       <Head>
         <title>Log In</title>
+        <meta
+          name="description"
+          content="Log In Page for Exclusive E-Commerce"
+        />
       </Head>
       <LogInSection />
     </main>

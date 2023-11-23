@@ -10,6 +10,10 @@ function MyAccount() {
     <main>
       <Head>
         <title>My Account</title>
+        <meta
+          name="description"
+          content="My Account Page for Exclusive E-Commerce"
+        />
       </Head>
       <MyAccountSection />
     </main>

@@ -9,6 +9,10 @@ function About() {
     <main>
       <Head>
         <title>About</title>
+        <meta
+          name="description"
+          content="About Page for Exclusive E-Commerce"
+        />
       </Head>
       <AboutSection />
       <FillUpArrow />

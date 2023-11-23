@@ -140,7 +140,8 @@ function Product({ product, categories }) {
   return (
     <main>
       <Head>
-        <title>Product</title>
+        <title>{product.title} | Exclusive</title>
+        <meta name="description" content={product.title} />
       </Head>
       <div className="container mt-[5.9375rem]">
         <div className="flex gap-3 py-20">

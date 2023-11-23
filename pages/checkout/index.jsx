@@ -15,6 +15,10 @@ function Checkout() {
     <main>
       <Head>
         <title>Checkout</title>
+        <meta
+          name="description"
+          content="Checkout Page for Exclusive E-Commerce"
+        />
       </Head>
       <CheckOutSection />
     </main>

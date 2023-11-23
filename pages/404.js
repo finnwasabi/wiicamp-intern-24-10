@@ -9,6 +9,7 @@ function Checkout() {
     <main>
       <Head>
         <title>404 Not Found</title>
+        <meta name="description" content="404 Page for Exclusive E-Commerce" />
       </Head>
       <div className="container mt-[5.9375rem]">
         <div className="flex gap-3 pt-20">

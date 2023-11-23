@@ -49,6 +49,10 @@ function SearchResults({ products, keyword }) {
     <main>
       <Head>
         <title>{keyword}&apos;s Search Results</title>
+        <meta
+          name="description"
+          content="Search Results Page for Exclusive E-Commerce"
+        />
       </Head>
       <div className="container mt-[5.9375rem] py-0 ">
         <div className="py-20 text-2xl font-medium">

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-invalid-html-attribute */
 import React from "react";
 import { Head, Html, Main, NextScript } from "next/document";
 

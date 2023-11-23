@@ -6,8 +6,51 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta property="og:title" content="test title" />
-        <meta property="og:description" content="test description" />
+        <meta
+          name="title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
+        <meta
+          name="description"
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
+        />
+
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://wiicamp-intern-24-10-tung.vercel.app/"
+        />
+        <meta
+          property="og:title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
+        <meta
+          property="og:description"
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
+        />
+        <meta
+          property="og:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content="https://wiicamp-intern-24-10-tung.vercel.app/"
+        />
+        <meta
+          property="twitter:title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
+        <meta
+          property="twitter:description"
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
+        />
+        <meta
+          property="twitter:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
+
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000" />
         <meta name="apple-mobile-web-app-status-bar" content="#DB4444" />

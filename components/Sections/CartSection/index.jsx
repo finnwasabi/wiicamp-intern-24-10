@@ -143,13 +143,13 @@ function CartSection() {
                   )}
                   value={item.quantity}
                   onChange={(e) => {
-                    let newQuantity = parseInt(e.target.value, 10); // Parse to integer
+                    let newQuantity = parseInt(e.target.value, 10);
 
-                    // Ensure the value is between 1 and 999
                     newQuantity = Math.min(Math.max(newQuantity, 1), 999);
 
                     handleUpdateQuantity(item.productId, newQuantity);
                   }}
+                  aria-label="Quantity Input"
                 />
                 <div className="absolute right-3 top-[1rem] -translate-y-1/2">
                   <button

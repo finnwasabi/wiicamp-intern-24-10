@@ -29,6 +29,7 @@ function InputField({
         onChange={onChange}
         value={value}
         name={name}
+        aria-label={label}
       />
     </div>
   );

@@ -313,11 +313,13 @@ function Product({ product, categories }) {
                       className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#A0BCE0] transition-all checked:border-2 checked:border-black checked:p-1 hover:mr-1 hover:h-[1.5rem] hover:w-[1.5rem]"
                       type="radio"
                       name="colour"
+                      aria-label="colour"
                     />
                     <input
                       className="h-[1.25rem] w-[1.25rem] cursor-pointer appearance-none rounded-full bg-[#E07575] transition-all checked:border-2 checked:border-black checked:p-1 hover:h-[1.5rem] hover:w-[1.5rem]"
                       type="radio"
                       name="colour"
+                      aria-label="colour"
                     />
                   </span>
                 </span>
@@ -383,6 +385,7 @@ function Product({ product, categories }) {
                       )}
                       onChange={handleInputChange}
                       value={quantity}
+                      aria-label="Quantity"
                     />
                     <span className="group">
                       <button

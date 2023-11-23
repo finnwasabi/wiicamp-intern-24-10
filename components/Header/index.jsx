@@ -225,6 +225,7 @@ function Header({ isScrolled }) {
                 onBlur={handleSearchBarBlur}
                 onKeyDown={handleKeyPress}
                 required
+                aria-label="Search"
               />
               <Search
                 className="absolute right-3 top-2 cursor-pointer"

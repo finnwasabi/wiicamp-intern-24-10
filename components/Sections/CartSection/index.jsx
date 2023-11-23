@@ -193,6 +193,7 @@ function CartSection() {
             type="text"
             placeholder="Coupon Code"
             className="w-full max-w-[18.75rem] rounded border-2 border-black border-opacity-50 px-6 py-4 xl:pl-6 xl:pr-[4.375rem]"
+            aria-label="Coupon Code"
           />
           <div className="mr-[10.8125rem] hidden xl:block">
             <PrimaryButton type="submit" label="Apply Coupon" />

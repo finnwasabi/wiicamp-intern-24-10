@@ -155,6 +155,7 @@ function CheckOutSection() {
                 id="Bank"
                 name="payment"
                 className="h-6 w-6 cursor-pointer accent-black"
+                aria-label="Bank Payment"
               />
               <label
                 htmlFor="Bank"
@@ -195,6 +196,7 @@ function CheckOutSection() {
                 id="COD"
                 name="payment"
                 className="h-6 w-6 cursor-pointer accent-black"
+                aria-label="Cash on delivery"
               />
               <label
                 htmlFor="COD"
@@ -210,6 +212,7 @@ function CheckOutSection() {
               type="text"
               placeholder="Coupon Code"
               className="px max-h-[3.5rem] w-full flex-grow rounded border-[0.0625rem] border-black border-opacity-50 p-3 lg:w-auto lg:px-6 lg:py-4"
+              aria-label="Coupon Code"
             />
             <div className="hidden lg:block">
               <PrimaryButton type="submit" label="Apply Coupon" />

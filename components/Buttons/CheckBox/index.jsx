@@ -14,6 +14,7 @@ function CheckBox({ label }) {
         checked:bg-secondary-2 
         hover:bg-secondary-0 focus:outline-none
         focus:ring-offset-0"
+        aria-label="Checkbox"
       />
       <label htmlFor="checkBox" className="cursor-pointer">
         {label}

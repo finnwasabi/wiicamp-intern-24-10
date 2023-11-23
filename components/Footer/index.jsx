@@ -30,6 +30,7 @@ function Footer() {
                 type="email"
                 placeholder="Enter your email"
                 required
+                aria-label="Enter your email"
               />
               <button
                 type="submit"

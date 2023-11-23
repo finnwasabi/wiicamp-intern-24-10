@@ -39,12 +39,14 @@ function SignUpSection() {
                   placeholder="Name"
                   className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   required
+                  aria-label="Name"
                 />
                 <input
                   type="text"
                   placeholder="Email or Phone Number"
                   className="mb-10 w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                   required
+                  aria-label="Email or Phone Number"
                 />
                 <div className="relative mb-10">
                   <input
@@ -53,6 +55,8 @@ function SignUpSection() {
                     className="w-full border-b-2 pb-2 focus:border-black focus:outline-none"
                     autoComplete="password"
                     onChange={(e) => setPassword(e.target.value)}
+                    required
+                    aria-label="Password"
                   />
                   {password.length > 0 && (
                     <button

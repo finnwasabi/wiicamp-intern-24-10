@@ -100,6 +100,7 @@ function LogInSection() {
                     setInvalidInput(false);
                   }}
                   required
+                  aria-label="Email"
                 />
                 <div className="relative mb-10">
                   <input
@@ -116,6 +117,7 @@ function LogInSection() {
                       setInvalidInput(false);
                     }}
                     required
+                    aria-label="Password"
                   />
                   {password.length > 0 && (
                     <button

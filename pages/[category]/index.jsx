@@ -52,6 +52,10 @@ function CategoryResults({ products, keyword }) {
     <main>
       <Head>
         <title>{products[0].category} Category</title>
+        <meta
+          name="description"
+          content="Browse By Category Page for Exclusive E-Commerce"
+        />
       </Head>
       <div className="container mt-[5.9375rem] py-0">
         <div className="py-20 text-2xl font-medium">

@@ -26,17 +26,12 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a delay to showcase the splash screen
     const timeout = setTimeout(() => {
-      setLoading(false); // Set loading to false after a delay (e.g., 2000ms)
+      setLoading(false);
     }, 2000);
 
-    // Clean up the timeout to avoid memory leaks
     return () => clearTimeout(timeout);
   }, []);
-
-  // If loading is true, display the splash screen
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {

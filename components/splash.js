@@ -3,16 +3,14 @@ import Image from "next/image";
 
 function Splash() {
   return (
-    <div className="splash-container">
-      {/* Your splash image or loading animation */}
+    <div className="splash-container container flex h-screen items-center justify-center">
       <Image
+        className="animate-bounce"
         src="/splash-image.png"
-        width={200}
-        height={200}
+        width={150}
+        height={150}
         alt="Loading..."
       />
-      {/* You can add a loading message if needed */}
-      <p>Loading...</p>
     </div>
   );
 }

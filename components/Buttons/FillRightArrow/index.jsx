@@ -7,7 +7,7 @@ function FillRightArrow({ id }) {
     <button
       type="button"
       id={id}
-      className="relative h-[2.875rem] w-[2.875rem] rounded-full bg-secondary-0 transition-all hover:shadow-xl"
+      className="relative h-[2.875rem] w-[2.875rem] rounded-full bg-secondary-0 transition-all hover:shadow-xl active:shadow-inner"
       aria-label="Right Arrow"
     >
       <ArrowRight className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />

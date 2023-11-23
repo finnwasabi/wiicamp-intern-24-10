@@ -7,7 +7,7 @@ function FillLeftArrow({ id }) {
     <button
       type="button"
       id={id}
-      className="relative mr-2 h-[2.875rem] w-[2.875rem] rounded-full bg-secondary-0 transition-all hover:shadow-xl"
+      className="relative mr-2 h-[2.875rem] w-[2.875rem] rounded-full bg-secondary-0 transition-all hover:shadow-xl active:shadow-inner"
       aria-label="Left Arrow"
     >
       <ArrowLeft className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />

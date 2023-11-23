@@ -67,6 +67,11 @@ export default function App({ Component, pageProps }) {
       <NextNProgress color="#DB4444" height={2} />
       <Head>
         <link rel="manifest" href="/manifest.json" />
+        <meta name="title" content="Web xau" />
+        <meta
+          name="description"
+          content="A full-stack engineer's digital garden."
+        />
         <meta name="theme-color" content="#000" />
         <meta name="apple-mobile-web-app-status-bar" content="#DB4444" />
         <link

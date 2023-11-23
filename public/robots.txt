@@ -1,0 +1,11 @@
+# Block all crawlers for /my-account
+User-agent: *
+Disallow: /my-account
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wishlist/
+Disallow: /search-results/
+
+# Allow all crawlers
+User-agent: *
+Allow: /

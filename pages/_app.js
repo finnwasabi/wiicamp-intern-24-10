@@ -66,12 +66,47 @@ export default function App({ Component, pageProps }) {
     <CartProvider>
       <NextNProgress color="#DB4444" height={2} />
       <Head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="title" content="Web xau" />
+        <title>FinnWasabi`&apos;`s Intern E-Commerce Project at WiiCamp</title>
+        <meta
+          name="title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
         <meta
           name="description"
-          content="A full-stack engineer's digital garden."
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
         />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://metatags.io/" />
+        <meta
+          property="og:title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
+        <meta
+          property="og:description"
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
+        />
+        <meta
+          property="og:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta
+          property="twitter:title"
+          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
+        />
+        <meta
+          property="twitter:description"
+          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
+        />
+        <meta
+          property="twitter:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
+
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000" />
         <meta name="apple-mobile-web-app-status-bar" content="#DB4444" />
         <link

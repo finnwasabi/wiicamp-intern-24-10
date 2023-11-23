@@ -71,7 +71,7 @@ export default function App({ Component, pageProps }) {
       <NextNProgress color="#DB4444" height={2} />
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#DB4444" />
+        <meta name="theme-color" content="#000" />
         <meta name="apple-mobile-web-app-status-bar" content="#DB4444" />
         <link
           rel="apple-touch-icon-precomposed"

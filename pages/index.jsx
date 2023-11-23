@@ -31,10 +31,7 @@ export default function Home({ products }) {
     <main className="mt-[5.9375rem] overflow-x-hidden ">
       <Head>
         <title>Home</title>
-        <meta
-          name="description"
-          content="Please Page for Exclusive E-Commerce"
-        />
+        <meta name="description" content="Home Page for Exclusive E-Commerce" />
       </Head>
       <TopSection />
       <FlashSales products={products} />

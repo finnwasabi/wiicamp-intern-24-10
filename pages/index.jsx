@@ -31,52 +31,6 @@ export default function Home({ products }) {
     <main className="mt-[5.9375rem] overflow-x-hidden ">
       <Head>
         <title>Home</title>
-        <meta name="description" content="Home Page for Exclusive E-Commerce" />
-        <title>FinnWasabi's Intern E-Commerce Project at WiiCamp</title>
-        <meta
-          name="title"
-          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
-        />
-        <meta
-          name="description"
-          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
-        />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://wiicamp-intern-24-10-tung.vercel.app/"
-        />
-        <meta
-          property="og:title"
-          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
-        />
-        <meta
-          property="og:description"
-          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
-        />
-        <meta
-          property="og:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://wiicamp-intern-24-10-tung.vercel.app/"
-        />
-        <meta
-          property="twitter:title"
-          content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
-        />
-        <meta
-          property="twitter:description"
-          content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
-        />
-        <meta
-          property="twitter:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
       </Head>
       <TopSection />
       <FlashSales products={products} />

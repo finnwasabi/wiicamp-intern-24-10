@@ -1,12 +1,15 @@
+/* eslint-disable react/no-invalid-html-attribute */
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import clsx from "clsx";
 import { Poppins } from "next/font/google";
+import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
 import PropTypes from "prop-types";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Splash from "@/components/splash";
 import TopHeader from "@/components/TopHeader";
 
 import { CartProvider } from "@/contexts/CartContext";
@@ -20,6 +23,20 @@ const poppins = Poppins({
 });
 export default function App({ Component, pageProps }) {
   const { login, setInitApp } = useAuthStore();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a delay to showcase the splash screen
+    const timeout = setTimeout(() => {
+      setLoading(false); // Set loading to false after a delay (e.g., 2000ms)
+    }, 2000);
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // If loading is true, display the splash screen
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -45,9 +62,104 @@ export default function App({ Component, pageProps }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (loading) {
+    return <Splash />;
+  }
+
   return (
     <CartProvider>
       <NextNProgress color="#DB4444" height={2} />
+      <Head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#DB4444" />
+        <meta name="apple-mobile-web-app-status-bar" content="#DB4444" />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="57x57"
+          href="apple-touch-icon-57x57.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="114x114"
+          href="apple-touch-icon-114x114.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="72x72"
+          href="apple-touch-icon-72x72.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="144x144"
+          href="apple-touch-icon-144x144.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="60x60"
+          href="apple-touch-icon-60x60.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="120x120"
+          href="apple-touch-icon-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="76x76"
+          href="apple-touch-icon-76x76.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="152x152"
+          href="apple-touch-icon-152x152.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-196x196.png"
+          sizes="196x196"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-16x16.png"
+          sizes="16x16"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-128.png"
+          sizes="128x128"
+        />
+        <meta name="application-name" content="&nbsp;" />
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+        <meta
+          name="msapplication-square150x150logo"
+          content="mstile-150x150.png"
+        />
+        <meta
+          name="msapplication-wide310x150logo"
+          content="mstile-310x150.png"
+        />
+        <meta
+          name="msapplication-square310x310logo"
+          content="mstile-310x310.png"
+        />
+      </Head>
       <div className={clsx(poppins.className, "flex min-h-screen flex-col")}>
         <TopHeader />
         <Header isScrolled={isScrolled} />

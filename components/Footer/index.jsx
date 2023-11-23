@@ -23,26 +23,28 @@ function Footer() {
           </li>
           <li className="mb-6 text-xl font-medium">Subscribe</li>
           <li className="mb-4">Get 10% off your first order</li>
-          <form className="relative">
-            <input
-              className="w-full rounded border-2 border-solid border-white bg-black px-4 py-3 text-white"
-              type="email"
-              placeholder="Enter your email"
-              required
-            />
-            <button
-              type="submit"
-              className="absolute right-[0.9375rem] top-[0.875rem]"
-              aria-label="Send email"
-            >
-              <Image
-                src="/SendIcon.svg"
-                width={24}
-                height={24}
-                alt="Picture of the send btn"
+          <li>
+            <form className="relative">
+              <input
+                className="w-full rounded border-2 border-solid border-white bg-black px-4 py-3 text-white"
+                type="email"
+                placeholder="Enter your email"
+                required
               />
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="absolute right-[0.9375rem] top-[0.875rem]"
+                aria-label="Send email"
+              >
+                <Image
+                  src="/SendIcon.svg"
+                  width={24}
+                  height={24}
+                  alt="Picture of the send btn"
+                />
+              </button>
+            </form>
+          </li>
         </ul>
         <ul
           className={clsx(
@@ -50,7 +52,7 @@ function Footer() {
             "ml-auto mr-auto flex max-w-[10.9375rem] flex-col items-center xl:block",
           )}
         >
-          <div className="mb-6 text-xl">Support</div>
+          <li className="mb-6 text-xl">Support</li>
           <li className="mb-4">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
           </li>
@@ -67,7 +69,7 @@ function Footer() {
             "ml-auto mr-auto flex min-w-[7.6875rem] flex-col items-center xl:block",
           )}
         >
-          <div className="mb-6 text-xl">Account</div>
+          <li className="mb-6 text-xl">Account</li>
           <li className="mb-4">
             <Link href="/my-account">My Account</Link>
           </li>
@@ -99,7 +101,7 @@ function Footer() {
           <li className="mb-[0.625rem] text-xs font-medium text-text-1">
             Save $3 with App New User Only
           </li>
-          <div className="mb-6 flex items-center gap-x-2">
+          <li className="mb-6 flex items-center gap-x-2">
             <Image
               className="max-h-[5rem]"
               src="/Footer/QRcode.png"
@@ -123,7 +125,7 @@ function Footer() {
                 alt="Picture of the downloads"
               />
             </div>
-          </div>
+          </li>
           <li className={clsx(s.FooterList, "flex gap-x-6")}>
             <Link href="https://www.facebook.com/" aria-label="Facebook">
               <Facebook />

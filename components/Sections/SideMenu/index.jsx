@@ -226,33 +226,49 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
             </button>
             {isDropdownOpen && (
               <ul className="ml-6 mt-4 flex flex-col gap-y-4">
-                <Link onClick={handleMenuClick} href="/women's%20clothing">
-                  Woman&apos;s Fashion
-                </Link>
-                <Link onClick={handleMenuClick} href="/men's%20clothing">
-                  Men&apos;s Fashion
-                </Link>
-                <Link onClick={handleMenuClick} href="/electronics">
-                  Electronics
-                </Link>
+                <li>
+                  <Link onClick={handleMenuClick} href="/women's%20clothing">
+                    Woman&apos;s Fashion
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/men's%20clothing">
+                    Men&apos;s Fashion
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/electronics">
+                    Electronics
+                  </Link>
+                </li>
                 <Link onClick={handleMenuClick} href="/jewelery">
                   Jewelery
                 </Link>
-                <Link onClick={handleMenuClick} href="/404">
-                  Medicine
-                </Link>
-                <Link onClick={handleMenuClick} href="/404">
-                  Sports & Outdoor
-                </Link>
-                <Link onClick={handleMenuClick} href="/404">
-                  Baby&apos;s & Toys
-                </Link>
-                <Link onClick={handleMenuClick} href="/404">
-                  Groceries & Pets
-                </Link>
-                <Link onClick={handleMenuClick} href="/404">
-                  Health & Beauty
-                </Link>
+                <li>
+                  <Link onClick={handleMenuClick} href="/404">
+                    Medicine
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/404">
+                    Sports & Outdoor
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/404">
+                    Baby&apos;s & Toys
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/404">
+                    Groceries & Pets
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleMenuClick} href="/404">
+                    Health & Beauty
+                  </Link>
+                </li>
               </ul>
             )}
           </div>

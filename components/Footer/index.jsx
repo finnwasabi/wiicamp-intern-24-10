@@ -90,7 +90,7 @@ function Footer() {
             "ml-auto mr-auto flex min-w-[6.8125rem] flex-col items-center xl:block",
           )}
         >
-          <div className="mb-6 text-xl">Quick Link</div>
+          <li className="mb-6 text-xl">Quick Link</li>
           <li className="mb-4">Privacy Policy</li>
           <li className="mb-4">Terms Of Use</li>
           <li className="mb-4">FAQ</li>

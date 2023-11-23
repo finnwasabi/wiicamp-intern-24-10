@@ -402,7 +402,7 @@ function Product({ product, categories }) {
                     <button
                       type="button"
                       className="flex h-[2.75rem] w-full items-center rounded bg-button-2 px-[3rem] py-[0.625rem] font-medium text-white transition-all hover:bg-hover-button-0"
-                      aria-label="Buy"
+                      aria-label="Buy now"
                     >
                       <span className="hidden sm:block">Buy now</span>
                       <CircleDollarSign size={32} className="sm:hidden" />

@@ -66,7 +66,6 @@ export default function App({ Component, pageProps }) {
     <CartProvider>
       <NextNProgress color="#DB4444" height={2} />
       <Head>
-        <title>FinnWasabi`&apos;`s Intern E-Commerce Project at WiiCamp</title>
         <meta
           name="title"
           content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
@@ -77,7 +76,10 @@ export default function App({ Component, pageProps }) {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
+        <meta
+          property="og:url"
+          content="https://wiicamp-intern-24-10-tung.vercel.app/"
+        />
         <meta
           property="og:title"
           content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
@@ -86,13 +88,13 @@ export default function App({ Component, pageProps }) {
           property="og:description"
           content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
         />
-        <meta
-          property="og:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
+        <meta property="og:image" content="/public/FinnWasabi.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta
+          property="twitter:url"
+          content="https://wiicamp-intern-24-10-tung.vercel.app/"
+        />
         <meta
           property="twitter:title"
           content="FinnWasabi's Intern E-Commerce Project at WiiCamp"
@@ -101,10 +103,7 @@ export default function App({ Component, pageProps }) {
           property="twitter:description"
           content="Le Nhat Tung aka Finn Wasabi's Intern Project at WiiCamp"
         />
-        <meta
-          property="twitter:image"
-          content="https://metatags.io/images/meta-tags.png"
-        />
+        <meta property="twitter:image" content="/public/FinnWasabi.jpg" />
 
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000" />

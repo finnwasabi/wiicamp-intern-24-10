@@ -32,6 +32,7 @@ export default function App({ Component, pageProps }) {
 
     return () => clearTimeout(timeout);
   }, []);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {

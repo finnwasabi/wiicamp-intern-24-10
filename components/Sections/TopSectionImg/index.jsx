@@ -32,7 +32,7 @@ function TopSectionImg({ id }) {
         src={TopSectionImgList[id - 1].path}
         width={892}
         height={344}
-        alt="Picture of the author"
+        alt="Picture of the top section slider"
         priority
         className="h-full w-full"
       />

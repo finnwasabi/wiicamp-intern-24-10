@@ -98,10 +98,9 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
     setIsSearchBarFocused(false);
   };
 
-  const handleSearchResultClick = (title) => {
+  const handleSearchResultClick = (product) => {
     router.push({
-      pathname: "/search-results",
-      query: { keyword: title },
+      pathname: `/${product.category}/${product.id}`,
     });
     setIsSideMenuOpen(false);
     if (searchInputRef.current) {
@@ -176,7 +175,7 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
                     key={product.id}
                     onMouseDown={(e) => {
                       e.preventDefault();
-                      handleSearchResultClick(product.title);
+                      handleSearchResultClick(product);
                     }}
                     aria-label="Search"
                   >

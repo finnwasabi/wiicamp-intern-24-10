@@ -17,10 +17,14 @@ function PrimaryButton({ label, type, onClick }) {
   );
 }
 
+PrimaryButton.defaultProps = {
+  onClick: () => {},
+};
+
 PrimaryButton.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default PrimaryButton;

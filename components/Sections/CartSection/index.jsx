@@ -218,7 +218,7 @@ function CartSection() {
           </div>
           <Link href="/checkout">
             <div className="flex justify-center">
-              <PrimaryButton label="Proceed to checkout" />
+              <PrimaryButton type="button" label="Proceed to checkout" />
             </div>
           </Link>
         </div>

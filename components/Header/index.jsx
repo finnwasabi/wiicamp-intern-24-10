@@ -252,7 +252,7 @@ function Header({ isScrolled }) {
               )}
               {isLoading && (
                 <div className="absolute top-10 mt-2 flex h-[2.625rem] w-full flex-col items-center justify-center rounded border bg-white shadow">
-                  <CircularProgress color="black" size={20} />
+                  <CircularProgress color="inherit" size={20} />
                 </div>
               )}
               {isSearchBarFocused &&

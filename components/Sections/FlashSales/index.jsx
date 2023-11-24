@@ -13,7 +13,7 @@ const FlashSalesSlider = dynamic(
     ssr: false,
     loading: () => (
       <div className="container flex items-center justify-center">
-        <CircularProgress color="black" size={25} />
+        <CircularProgress color="inherit" size={25} />
       </div>
     ),
   },
@@ -125,7 +125,7 @@ function FlashSales({ products }) {
         <FlashSalesSlider products={products} />
       </div>
       <div className="container flex justify-center border-b py-[3.75rem]">
-        <PrimaryButton label="View All Products" />
+        <PrimaryButton label="View All Products" type="button" />
       </div>
     </div>
   );
@@ -135,7 +135,6 @@ FlashSales.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      // add other required properties here
     }),
   ).isRequired,
 };

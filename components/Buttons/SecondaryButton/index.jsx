@@ -21,10 +21,15 @@ function SecondaryButton({ label, isShow, onClick }) {
   );
 }
 
+SecondaryButton.defaultProps = {
+  onClick: () => {},
+  isShow: false,
+};
+
 SecondaryButton.propTypes = {
   label: PropTypes.string.isRequired,
-  isShow: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
+  isShow: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default SecondaryButton;

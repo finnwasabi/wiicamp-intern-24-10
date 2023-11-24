@@ -44,7 +44,7 @@ function Please() {
         </div>
         <div className="mb-[8.75rem] ml-auto mr-auto w-fit">
           <Link href="/account/sign-up">
-            <PrimaryButton label="Sign Up or Log In" />
+            <PrimaryButton label="Sign Up or Log In" type="button" />
           </Link>
         </div>
       </div>

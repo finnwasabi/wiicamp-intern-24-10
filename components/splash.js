@@ -16,6 +16,7 @@ function Splash() {
           width={150}
           height={150}
           alt="Loading..."
+          priority
         />
       </div>
     </>

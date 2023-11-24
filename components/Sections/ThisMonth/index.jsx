@@ -11,7 +11,7 @@ const ThisMonthList = dynamic(
     ssr: false,
     loading: () => (
       <div className="container flex items-center justify-center">
-        <CircularProgress color="black" size={25} />
+        <CircularProgress color="inherit" size={25} />
       </div>
     ),
   },
@@ -36,7 +36,7 @@ function ThisMonth({ products }) {
         <div className="relative col-span-1 hidden md:block xl:block">
           <div className="right-0 flex items-center">
             <div className="absolute right-0 flex">
-              <PrimaryButton label="View All" />
+              <PrimaryButton label="View All" type="button" />
             </div>
           </div>
         </div>

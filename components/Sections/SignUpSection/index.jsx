@@ -75,7 +75,7 @@ function SignUpSection() {
               </div>
               <div className="mb-8 w-full">
                 <div className="mb-4">
-                  <PrimaryButton label="Create Account" />
+                  <PrimaryButton label="Create Account" type="button" />
                 </div>
                 <div>
                   <SecondaryButton label="Sign up with Google" isShow />

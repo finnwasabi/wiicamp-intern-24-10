@@ -35,17 +35,24 @@ function InputField({
   );
 }
 
+InputField.defaultProps = {
+  className: "",
+  defaultValue: "",
+  name: "",
+};
+
 InputField.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
   classNameLabel: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  defaultValue: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   autocomplete: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
+
+  defaultValue: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default InputField;

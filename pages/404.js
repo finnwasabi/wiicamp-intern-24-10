@@ -27,7 +27,7 @@ function Checkout() {
         </div>
         <div className="mb-[8.75rem] ml-auto mr-auto w-fit">
           <Link href="/">
-            <PrimaryButton label="Back to home page" />
+            <PrimaryButton label="Back to home page" type="button" />
           </Link>
         </div>
       </div>

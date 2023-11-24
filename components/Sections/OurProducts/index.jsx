@@ -14,7 +14,7 @@ const OurProductsList = dynamic(
     loading: () => {
       return (
         <div className="container flex items-center justify-center">
-          <CircularProgress color="black" size={25} />
+          <CircularProgress color="inherit" size={25} />
         </div>
       );
     },
@@ -50,7 +50,7 @@ function OurProducts({ products }) {
         <OurProductsList products={products} />
       </div>
       <div className="container mt-[3.75rem] flex justify-center pb-[8.75rem] pt-0">
-        <PrimaryButton label="View All Products" />
+        <PrimaryButton label="View All Products" type="submit" />
       </div>
     </div>
   );

@@ -338,12 +338,10 @@ function Header({ isScrolled }) {
             </div>
           </div>
           <div ref={dropdownRef}>
-            {isDropdownOpen && isAuthenticated && (
-              <DropdownAccount
-                isDropdownOpen={isDropdownOpen}
-                setIsDropdownOpen={setIsDropdownOpen}
-              />
-            )}
+            <DropdownAccount
+              isDropdownOpen={isDropdownOpen}
+              setIsDropdownOpen={setIsDropdownOpen}
+            />
           </div>
         </div>
         <SideMenu

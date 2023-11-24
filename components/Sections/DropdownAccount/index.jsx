@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
@@ -19,7 +20,13 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
   };
 
   return (
-    <div className="absolute right-0 z-10 mr-3 h-fit w-fit rounded bg-black bg-opacity-40 px-5 py-5 text-white backdrop-blur-3xl">
+    <div
+      className={clsx(
+        isDropdownOpen
+          ? "visible absolute right-0 z-20 mr-3 h-fit w-fit translate-y-0 rounded bg-black bg-opacity-40 px-5 py-5 text-white opacity-100 backdrop-blur-3xl transition-all"
+          : "invisible absolute right-0 z-0 mr-3 h-fit w-fit translate-y-[-100%] rounded bg-black bg-opacity-40 px-5 py-5 text-white opacity-0 backdrop-blur-3xl transition-all",
+      )}
+    >
       <Link
         onClick={handleMenuClick}
         href="/my-account"

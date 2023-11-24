@@ -17,6 +17,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
     authStore.logout();
     userStore.clearUser();
     localStorage.removeItem("token");
+    setIsDropdownOpen(false);
   };
 
   return (
@@ -30,7 +31,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
       <Link
         onClick={handleMenuClick}
         href="/my-account"
-        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+        className="mb-[0.8125rem] flex items-center md:hover:font-semibold"
       >
         <span className="ml mr-4">
           <svg
@@ -62,7 +63,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
       <Link
         onClick={handleMenuClick}
         href="/account/my-order"
-        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+        className="mb-[0.8125rem] flex items-center md:hover:font-semibold"
       >
         <span className="mr-4">
           <svg
@@ -92,7 +93,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
       <Link
         onClick={handleMenuClick}
         href="/account/my-cancelations"
-        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+        className="mb-[0.8125rem] flex items-center md:hover:font-semibold"
       >
         <span className="mr-4">
           <svg
@@ -130,7 +131,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
       <Link
         onClick={handleMenuClick}
         href="/account/my-reviews"
-        className="mb-[0.8125rem] flex items-center hover:font-semibold"
+        className="mb-[0.8125rem] flex items-center md:hover:font-semibold"
       >
         <span className="mr-4">
           <svg
@@ -151,7 +152,7 @@ function DropdownAccount({ isDropdownOpen, setIsDropdownOpen }) {
       </Link>
       <button
         type="button"
-        className="flex items-center hover:font-semibold"
+        className="flex items-center md:hover:font-semibold"
         onClick={handleLogoutClick}
         aria-label="Logout"
       >

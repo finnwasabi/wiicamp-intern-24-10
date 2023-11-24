@@ -3,9 +3,9 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 66.66%; /* 2/3 screen width */
+    width: 66.66%;
     z-index: 100;
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    overflow-y: auto;
 }
 
 .overlay {
@@ -14,12 +14,15 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the dim color and opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
     z-index: 99;
+    animation: bgBlur 0.3s ease-in-out;
 }
 
 .sideMenuContent {
     display: none;
+    animation: slideOut 0.3s ease-in-out forwards;
 }
 
 .sideMenuContentActive {
@@ -29,9 +32,41 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    background-color: #ffffff; /* Adjust the background color */
-    padding: 20px; /* Adjust the padding as needed */
-    z-index: 101; /* Ensure the menu is on top of the overlay */
+    background-color: #ffffff;
+    padding: 20px;
+    z-index: 101;
+    animation: slideIn 0.3s ease-in-out;
+    border-radius: 0 5px 5px 0;
+}
+
+@keyframes slideIn {
+    from {
+        translate: -100% 0;
+    }
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+    
+}
+
+@keyframes bgBlur{
+    from{
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to{
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
 }
 
 .OnHover:hover{

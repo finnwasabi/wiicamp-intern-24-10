@@ -131,10 +131,9 @@ function Header({ isScrolled }) {
     }
   };
 
-  const handleSearchResultClick = (title) => {
+  const handleSearchResultClick = (product) => {
     router.push({
-      pathname: "/search-results",
-      query: { keyword: title },
+      pathname: `/${product.category}/${product.id}`,
     });
 
     if (searchInputRef.current) {
@@ -241,7 +240,7 @@ function Header({ isScrolled }) {
                       key={product.id}
                       onMouseDown={(e) => {
                         e.preventDefault();
-                        handleSearchResultClick(product.title);
+                        handleSearchResultClick(product);
                       }}
                       aria-label="Search Result Product title"
                     >

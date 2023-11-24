@@ -31,6 +31,7 @@ export default function Document() {
           property="og:image"
           content="https://wiicamp-intern-24-10-tung.vercel.app/FinnWasabi.jpg"
         />
+        <meta property="og:image:alt" content="Le Nhat Tung aka Finn Wasabi" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta

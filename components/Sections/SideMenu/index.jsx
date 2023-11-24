@@ -22,34 +22,30 @@ import useAuthStore from "@/stores/authStore";
 
 import s from "./SideMenu.module.scss";
 
-function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
+function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }) {
   const authStore = useAuthStore();
-
   const sideMenuRef = useRef(null);
   const router = useRouter();
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
-        closeSideMenu();
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [closeSideMenu]);
-
   const isLinkActive = (href) => router.pathname === href;
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const searchInputRef = useRef(null);
+
+  // useEffect(() => {
+  //   const handleOutsideClick = (event) => {
+  //     if (sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
+  //       closeSideMenu();
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleOutsideClick);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, [closeSideMenu]);
 
   const handleChange = (event) => {
     const term = event.target.value;
@@ -137,14 +133,15 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
   };
 
   return (
-    <div className={s.sideMenuContainer}>
+    <div className={clsx(s.sideMenuContainer, isSideMenuOpen && s.Active)}>
       <div
-        className={s.overlay}
-        style={{ display: isSideMenuOpen ? "block" : "none" }}
-        onClick={closeSideMenu}
+        className={clsx(s.overlay, isSideMenuOpen && s.Active)}
+        onClick={() => {
+          setIsSideMenuOpen(false);
+        }}
       />
       <div
-        className={isSideMenuOpen ? s.sideMenuContentActive : s.sideMenuContent}
+        className={clsx(s.sideMenuContent, isSideMenuOpen && s.Active)}
         ref={sideMenuRef}
       >
         <div className="flex flex-col gap-y-4">
@@ -324,7 +321,6 @@ function SideMenu({ isSideMenuOpen, closeSideMenu, setIsSideMenuOpen }) {
 
 SideMenu.propTypes = {
   isSideMenuOpen: PropTypes.bool.isRequired,
-  closeSideMenu: PropTypes.func.isRequired,
   setIsSideMenuOpen: PropTypes.func.isRequired,
 };
 

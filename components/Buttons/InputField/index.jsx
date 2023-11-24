@@ -39,6 +39,7 @@ InputField.defaultProps = {
   className: "",
   defaultValue: "",
   name: "",
+  autocomplete: "",
 };
 
 InputField.propTypes = {
@@ -47,11 +48,11 @@ InputField.propTypes = {
   classNameLabel: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  autocomplete: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string,
 
   defaultValue: PropTypes.string,
+  autocomplete: PropTypes.string,
   className: PropTypes.string,
 };
 

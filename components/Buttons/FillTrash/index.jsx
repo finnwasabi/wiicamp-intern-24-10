@@ -3,8 +3,7 @@ import { Trash2 } from "lucide-react";
 
 function FillTrash() {
   return (
-    <button
-      type="button"
+    <div
       className="group absolute right-3 top-3 flex cursor-pointer"
       aria-label="Remove Product"
     >
@@ -18,7 +17,7 @@ function FillTrash() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:stroke-white"
         />
       </span>
-    </button>
+    </div>
   );
 }
 

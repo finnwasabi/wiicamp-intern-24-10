@@ -6,26 +6,35 @@
     width: 66.66%;
     z-index: 100;
     overflow-y: auto;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &.Active {
+        visibility: visible;
+    }
 }
 
 .overlay {
+    display: block;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     z-index: 99;
-    animation: bgBlur 0.3s ease-in-out;
-}
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.3s ease-in-out;
 
+    &.Active {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
 .sideMenuContent {
-    display: none;
-}
-
-.sideMenuContentActive {
-    display: block;
     position: absolute;
     top: 0;
     right: 0;
@@ -34,27 +43,64 @@
     background-color: #ffffff;
     padding: 20px;
     z-index: 101;
-    animation: slideIn 0.3s ease-in-out;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-100%);
+
+    &.Active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
 }
 
 @keyframes slideIn {
     from {
-        translate: -100% 0;
+        transform: translateX(-100%);
+        opacity: 0;
     }
     to {
-        translate: 0 0;
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-@keyframes bgBlur{
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes blurBG{
     from{
         backdrop-filter: blur(0px);
         background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
     }
     to{
         backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.6);
+        opacity: 1;
+    }
+}
+
+@keyframes unBlurBG{
+    from{
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 1;
+    }
+    to{
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+        opacity: 0;
     }
 }
 

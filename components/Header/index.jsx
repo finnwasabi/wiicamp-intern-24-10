@@ -37,11 +37,7 @@ function Header({ isScrolled }) {
   };
 
   const handleMenuClick = () => {
-    setIsSideMenuOpen(!isSideMenuOpen);
-  };
-
-  const closeSideMenu = () => {
-    setIsSideMenuOpen(false);
+    setIsSideMenuOpen(true);
   };
 
   useEffect(() => {
@@ -350,13 +346,10 @@ function Header({ isScrolled }) {
             )}
           </div>
         </div>
-        {isSideMenuOpen && (
-          <SideMenu
-            isSideMenuOpen={isSideMenuOpen}
-            closeSideMenu={closeSideMenu}
-            setIsSideMenuOpen={setIsSideMenuOpen}
-          />
-        )}
+        <SideMenu
+          isSideMenuOpen={isSideMenuOpen}
+          setIsSideMenuOpen={setIsSideMenuOpen}
+        />
       </div>
     </div>
   );

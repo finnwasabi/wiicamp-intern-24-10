@@ -94,7 +94,7 @@ function AddToCart({ product, className }) {
 
 AddToCart.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,

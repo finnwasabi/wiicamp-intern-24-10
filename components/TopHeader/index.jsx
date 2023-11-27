@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 function TopHeader() {
+  const topHeader = useRef(null);
+  const [topHeaderHeight, setTopHeaderHeight] = useState(0);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+
+  const handleLanguageClick = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  useEffect(() => {
+    if (topHeader.current) {
+      setTopHeaderHeight(topHeader.current.offsetHeight);
+    }
+  }, []);
+
   return (
     <div className="bg-black text-white">
-      <div className="container relative py-3">
+      <div ref={topHeader} className="container relative py-3">
         <div className="flex justify-center">
           <div className="flex flex-col justify-center text-center xl:block">
             <span className="text-sm xl:text-base">
@@ -20,21 +35,29 @@ function TopHeader() {
           </div>
           <div className="xl:top1/2 absolute bottom-0 right-0 mr-3 flex -translate-y-1/2 ">
             <span className="hidden xl:block">English</span>
-            <svg
-              className="cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M12.364 12.95L17.314 8L18.728 9.414L12.364 15.778L6.00003 9.414L7.41403 8L12.364 12.95Z"
-                fill="white"
-              />
-            </svg>
+            <button type="button" onClick={handleLanguageClick}>
+              {isLanguageDropdownOpen ? (
+                <ChevronDown className="rotate-180 transition-all" />
+              ) : (
+                <ChevronDown className="rotate-[-180] transition-all" />
+              )}
+            </button>
           </div>
         </div>
+        <span
+          className={`absolute right-[12px] mt-1 top-[${topHeaderHeight}px] z-[200] flex w-fit flex-col gap-y-2 rounded bg-black p-[12px] ${
+            isLanguageDropdownOpen
+              ? "transition-all"
+              : "invisible translate-y-[-100%] opacity-0 transition-all"
+          }`}
+        >
+          <button type="button" className="hover:italic hover:text-secondary-2">
+            English
+          </button>
+          <button type="button" className="hover:italic hover:text-secondary-2">
+            Tiếng Việt
+          </button>
+        </span>
       </div>
     </div>
   );

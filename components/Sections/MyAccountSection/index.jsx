@@ -289,12 +289,9 @@ function MyAccountSection() {
               My Payment Options
             </Link>
           </div>
-          <Link
-            href="/my-account/orders"
-            className="py-4 font-semibold lg:hidden"
-          >
-            My Orders
-          </Link>
+          <div className="py-4 font-semibold lg:hidden">
+            <Link href="/my-account/orders">My Orders</Link>
+          </div>
           <div className="ml-[2.1875rem] flex flex-col gap-y-2 text-text-1 lg:hidden">
             <Link href="/my-account/returns" className="cursor-pointer">
               My Returns

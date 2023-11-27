@@ -6,7 +6,6 @@ import axios from "axios";
 import clsx from "clsx";
 import {
   ChevronDown,
-  ChevronUp,
   Contact,
   Home,
   Info,
@@ -32,21 +31,25 @@ function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }) {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const searchInputRef = useRef(null);
+  const ulBlock = useRef(null);
+  const [ulHeight, setUlHeight] = useState(0);
+  const additionalMoveUp = 16;
 
-  // useEffect(() => {
-  //   const handleOutsideClick = (event) => {
-  //     if (sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
-  //       closeSideMenu();
-  //     }
-  //   };
+  useEffect(() => {
+    if (ulBlock.current) {
+      const height = ulBlock.current.clientHeight;
+      setUlHeight(height + additionalMoveUp);
+    }
+  }, []);
 
-  //   document.addEventListener("mousedown", handleOutsideClick);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleOutsideClick);
-  //   };
-  // }, [closeSideMenu]);
-
+  useEffect(() => {
+    if (isDropdownOpen) {
+      if (ulBlock.current) {
+        const height = ulBlock.current.clientHeight;
+        setUlHeight(height + additionalMoveUp);
+      }
+    }
+  }, [isDropdownOpen]);
   const handleChange = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
@@ -219,84 +222,102 @@ function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }) {
                 <Layers3 className="mr-3" />
                 Top Categories
               </span>
-              {!isDropdownOpen ? <ChevronDown /> : <ChevronUp />}
+              {!isDropdownOpen ? (
+                <ChevronDown className="rotate-[-180] transition-all" />
+              ) : (
+                <ChevronDown className="rotate-180 transition-all" />
+              )}
             </button>
-            {isDropdownOpen && (
-              <ul className="ml-6 mt-4 flex flex-col gap-y-4">
-                <li>
-                  <Link onClick={handleMenuClick} href="/women's%20clothing">
-                    Woman&apos;s Fashion
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/men's%20clothing">
-                    Men&apos;s Fashion
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/electronics">
-                    Electronics
-                  </Link>
-                </li>
-                <Link onClick={handleMenuClick} href="/jewelery">
-                  Jewelery
+            <ul
+              ref={ulBlock}
+              className={`ml-6 mt-4 flex flex-col gap-y-4 ${
+                isDropdownOpen
+                  ? "transition-all"
+                  : "invisible translate-y-[-100%] opacity-0 transition-all"
+              }`}
+            >
+              <li>
+                <Link onClick={handleMenuClick} href="/women's%20clothing">
+                  Woman&apos;s Fashion
                 </Link>
-                <li>
-                  <Link onClick={handleMenuClick} href="/404">
-                    Medicine
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/404">
-                    Sports & Outdoor
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/404">
-                    Baby&apos;s & Toys
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/404">
-                    Groceries & Pets
-                  </Link>
-                </li>
-                <li>
-                  <Link onClick={handleMenuClick} href="/404">
-                    Health & Beauty
-                  </Link>
-                </li>
-              </ul>
-            )}
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/men's%20clothing">
+                  Men&apos;s Fashion
+                </Link>
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/electronics">
+                  Electronics
+                </Link>
+              </li>
+              <Link onClick={handleMenuClick} href="/jewelery">
+                Jewelery
+              </Link>
+              <li>
+                <Link onClick={handleMenuClick} href="/404">
+                  Medicine
+                </Link>
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/404">
+                  Sports & Outdoor
+                </Link>
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/404">
+                  Baby&apos;s & Toys
+                </Link>
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/404">
+                  Groceries & Pets
+                </Link>
+              </li>
+              <li>
+                <Link onClick={handleMenuClick} href="/404">
+                  Health & Beauty
+                </Link>
+              </li>
+            </ul>
           </div>
-          <Link
-            href="/contact"
-            className={clsx(
-              !isLinkActive("/contact") && s.OnHover,
-              isLinkActive("/contact") && s.ActiveLink,
-              "flex items-center",
-            )}
-            onClick={handleMenuClick}
+          <div
+            className={`flex flex-col gap-y-4 ${
+              isDropdownOpen ? "transition-all" : ""
+            }`}
+            style={{
+              transform: `translateY(${isDropdownOpen ? 0 : -ulHeight}px)`,
+            }}
           >
-            <div className="mr-3">
-              <Contact />
-            </div>
-            Contact
-          </Link>
-          <Link
-            href="/about"
-            className={clsx(
-              !isLinkActive("/about") && s.OnHover,
-              isLinkActive("/about") && s.ActiveLink,
-              "flex items-center",
-            )}
-            onClick={handleMenuClick}
-          >
-            <div className="mr-3">
-              <Info />
-            </div>
-            About
-          </Link>
+            <Link
+              href="/contact"
+              className={clsx(
+                !isLinkActive("/contact") && s.OnHover,
+                isLinkActive("/contact") && s.ActiveLink,
+                "flex items-center",
+              )}
+              onClick={handleMenuClick}
+            >
+              <div className="mr-3">
+                <Contact />
+              </div>
+              Contact
+            </Link>
+            <Link
+              href="/about"
+              className={clsx(
+                !isLinkActive("/about") && s.OnHover,
+                isLinkActive("/about") && s.ActiveLink,
+                "flex items-center",
+              )}
+              onClick={handleMenuClick}
+            >
+              <div className="mr-3">
+                <Info />
+              </div>
+              About
+            </Link>
+          </div>
           {!authStore.isAuthenticated && (
             <Link
               href="/account/sign-up"
